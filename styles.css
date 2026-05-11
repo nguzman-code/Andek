@@ -1242,21 +1242,66 @@ textarea { resize: vertical; min-height: 110px; }
 ────────────────────────────────────── */
 .footer {
   background: var(--green-900);
-  padding-top: 48px;
+  padding-top: 64px;
 }
-.footer-inner {
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+}
+.footer-col--brand img { height: 40px; }
+.footer-tagline {
+  font-size: .875rem;
+  color: rgba(255,255,255,.45);
+  margin-top: 16px;
+  line-height: 1.65;
+  max-width: 280px;
+}
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.footer-social__link {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 40px;
-  flex-wrap: wrap;
-  gap: 24px;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+  transition: background var(--transition), color var(--transition);
 }
-.footer-brand img { height: 40px; }
-.footer-brand p { font-size: .875rem; color: rgba(255,255,255,.4); margin-top: 8px; }
-.footer-nav { display: flex; gap: 24px; }
-.footer-nav a { color: rgba(255,255,255,.5); font-size: .9375rem; transition: color var(--transition); }
-.footer-nav a:hover { color: #fff; }
+.footer-social__link:hover {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+}
+.footer-social__link svg { width: 18px; height: 18px; }
+.footer-col__title {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 20px;
+}
+.footer-col__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-col__list a,
+.footer-col__list span {
+  font-size: .9rem;
+  color: rgba(255,255,255,.55);
+  transition: color var(--transition);
+}
+.footer-col__list a:hover { color: #fff; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
   padding: 20px 0;
@@ -1318,7 +1363,7 @@ textarea { resize: vertical; min-height: 110px; }
   .hero-stats { gap: 20px; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
   .trust-inner { gap: 24px; flex-direction: column; align-items: flex-start; }
 }
 
@@ -1328,6 +1373,7 @@ textarea { resize: vertical; min-height: 110px; }
   .contact-right { padding: 24px; }
   .hero-stats { flex-direction: column; align-items: flex-start; gap: 16px; }
   .stat-sep { display: none; }
+  .footer-main { grid-template-columns: 1fr; gap: 32px; }
 }
 
 

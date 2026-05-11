@@ -286,49 +286,55 @@ const chartDefaults = {
 };
 
 // Bar chart — Proyectos por sector
-new Chart(document.getElementById('barChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Manufactura', 'Oil & Gas', 'Alimentos', 'Minería', 'Energía', 'Farmacéutico'],
-    datasets: [{
-      data: [82, 64, 57, 48, 43, 46],
-      backgroundColor: BLUE,
-      borderRadius: 6,
-      borderSkipped: false,
-    }]
-  },
-  options: {
-    ...chartDefaults,
-    plugins: { ...chartDefaults.plugins },
-  }
-});
+const barChartEl = document.getElementById('barChart');
+if (barChartEl) {
+  new Chart(barChartEl, {
+    type: 'bar',
+    data: {
+      labels: ['Manufactura', 'Oil & Gas', 'Alimentos', 'Minería', 'Energía', 'Farmacéutico'],
+      datasets: [{
+        data: [82, 64, 57, 48, 43, 46],
+        backgroundColor: BLUE,
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      ...chartDefaults,
+      plugins: { ...chartDefaults.plugins },
+    }
+  });
+}
 
 // Line chart — Crecimiento anual
-new Chart(document.getElementById('lineChart'), {
-  type: 'line',
-  data: {
-    labels: ['2020', '2021', '2022', '2023', '2024'],
-    datasets: [{
-      label: 'Proyectos',
-      data: [98, 134, 189, 247, 340],
-      borderColor: BLUE,
-      backgroundColor: BLUE_A,
-      borderWidth: 2.5,
-      pointBackgroundColor: BLUE,
-      pointRadius: 5,
-      pointHoverRadius: 7,
-      tension: 0.4,
-      fill: true,
-    }]
-  },
-  options: {
-    ...chartDefaults,
-    plugins: {
-      ...chartDefaults.plugins,
-      legend: { display: false },
+const lineChartEl = document.getElementById('lineChart');
+if (lineChartEl) {
+  new Chart(lineChartEl, {
+    type: 'line',
+    data: {
+      labels: ['2020', '2021', '2022', '2023', '2024'],
+      datasets: [{
+        label: 'Proyectos',
+        data: [98, 134, 189, 247, 340],
+        borderColor: BLUE,
+        backgroundColor: BLUE_A,
+        borderWidth: 2.5,
+        pointBackgroundColor: BLUE,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        tension: 0.4,
+        fill: true,
+      }]
+    },
+    options: {
+      ...chartDefaults,
+      plugins: {
+        ...chartDefaults.plugins,
+        legend: { display: false },
+      }
     }
-  }
-});
+  });
+}
 
 
 /* ── Contact Form ── */
