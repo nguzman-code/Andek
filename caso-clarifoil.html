@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="Marca/symbol.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso de Estudio: Clarifoil en ASDA UK | Andek Group</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Case Study page-specific styles ── */
+    .cs-hero {
+      background: var(--green-900);
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .cs-hero__inner {
+      position: relative;
+      z-index: 2;
+    }
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.6);
+      font-size: .9rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+      transition: color var(--transition);
+    }
+    .cs-back:hover { color: #fff; }
+    .cs-back svg { width: 16px; height: 16px; }
+
+    .cs-hero__tag {
+      display: inline-block;
+      background: rgba(82,183,136,.2);
+      color: var(--green-400);
+      border: 1px solid rgba(82,183,136,.3);
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+    .cs-hero__title {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      max-width: 780px;
+      margin-bottom: 20px;
+      letter-spacing: -.02em;
+    }
+    .cs-hero__subtitle {
+      font-size: 1.125rem;
+      color: rgba(255,255,255,.65);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* KPI bar */
+    .cs-kpi-bar {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+    .cs-kpi {
+      flex: 1;
+      min-width: 160px;
+      padding: 24px 28px;
+      border-right: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+    }
+    .cs-kpi:last-child { border-right: none; }
+    .cs-kpi__value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-400);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .cs-kpi__label {
+      font-size: .8125rem;
+      color: rgba(255,255,255,.55);
+      font-weight: 500;
+    }
+
+    /* Main content */
+    .cs-body { padding: 80px 0; }
+    .cs-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Article */
+    .cs-article h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 40px 0 16px;
+      padding-top: 40px;
+      border-top: 1px solid var(--gray-light);
+    }
+    .cs-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .cs-article p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .cs-article strong { color: var(--dark); }
+
+    /* Before/after inside article */
+    .cs-ba {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .cs-ba__card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+    }
+    .cs-ba__label {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 6px 14px;
+    }
+    .cs-ba__card--before .cs-ba__label { background: #FEF2F2; color: #B91C1C; }
+    .cs-ba__card--after  .cs-ba__label { background: var(--green-100); color: var(--green-700); }
+    .cs-ba__img { width: 100%; height: 180px; object-fit: cover; display: block; }
+
+    /* Quote block */
+    .cs-quote {
+      border-left: 4px solid var(--green-400);
+      background: var(--green-50);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .cs-quote p {
+      font-size: 1.0625rem;
+      color: var(--dark);
+      font-style: italic;
+      line-height: 1.7;
+      margin: 0 0 8px;
+    }
+    .cs-quote cite { font-size: .875rem; color: var(--gray); font-style: normal; font-weight: 600; }
+
+    /* Results table */
+    .cs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: .9375rem;
+    }
+    .cs-table th {
+      background: var(--green-900);
+      color: #fff;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: .875rem;
+    }
+    .cs-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-light);
+      color: var(--dark);
+    }
+    .cs-table tr:nth-child(even) td { background: var(--bg-alt); }
+    .cs-table .td-green { color: var(--green-700); font-weight: 700; }
+
+    /* Sidebar */
+    .cs-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+
+    .cs-sidebar-card {
+      background: var(--bg);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .cs-sidebar-card h4 {
+      font-size: .875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--dark);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .cs-sidebar-list { display: flex; flex-direction: column; gap: 10px; }
+    .cs-sidebar-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .9rem;
+      gap: 12px;
+    }
+    .cs-sidebar-list li span:first-child { color: var(--gray); }
+    .cs-sidebar-list li span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
+
+    .cs-cta-card {
+      background: var(--green-900);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+    }
+    .cs-cta-card h4 { font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .cs-cta-card p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 20px; }
+    .cs-cta-card .btn { width: 100%; justify-content: center; background: var(--green-400); border-color: var(--green-400); color: var(--green-900); font-weight: 700; }
+    .cs-cta-card .btn:hover { background: #5fc89a; border-color: #5fc89a; }
+
+    /* Related */
+    .cs-related { padding: 80px 0; background: var(--bg-alt); }
+    .cs-related h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; color: var(--dark); }
+    .cs-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cs-related-card {
+      background: var(--bg);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .cs-related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .cs-related-card img { width: 100%; height: 140px; object-fit: cover; display: block; }
+    .cs-related-card__body { padding: 16px; }
+    .cs-related-card__tag { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--green-700); margin-bottom: 6px; }
+    .cs-related-card__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.35; }
+
+    @media (max-width: 1024px) {
+      .cs-layout { grid-template-columns: 1fr; }
+      .cs-sidebar { position: static; }
+      .cs-related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .cs-hero { padding: 120px 0 60px; }
+      .cs-kpi-bar { flex-direction: column; }
+      .cs-kpi { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+      .cs-ba { grid-template-columns: 1fr; }
+      .cs-related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Marca/Logo.png" alt="Andek Group" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#hero"      class="nav-link">Inicio</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Soluciones</a></li>
+        <li><a href="index.html#cases"     class="nav-link active">Casos de Estudio</a></li>
+      </ul>
+      <a href="index.html#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
+        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="flow-btn__text">Contáctanos</span>
+        <span class="flow-btn__circle"></span>
+        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="cs-hero">
+    <div class="container cs-hero__inner">
+      <a href="index.html#cases" class="cs-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver a Casos de Estudio
+      </a>
+      <div class="cs-hero__tag">Congelados · Clarifoil</div>
+      <h1 class="cs-hero__title">ASDA UK: 38% de ahorro energético en puertas de congelados</h1>
+      <p class="cs-hero__subtitle">Cómo una cadena de supermercados en Reino Unido redujo su consumo en refrigeración de noche, sin cerrar operaciones, con resultados medibles en 72 horas.</p>
+
+      <div class="cs-kpi-bar">
+        <div class="cs-kpi">
+          <div class="cs-kpi__value">38%</div>
+          <div class="cs-kpi__label">Ahorro energético en puertas</div>
+        </div>
+        <div class="cs-kpi">
+          <div class="cs-kpi__value">$159.750</div>
+          <div class="cs-kpi__label">Ahorro por puerta / año</div>
+        </div>
+        <div class="cs-kpi">
+          <div class="cs-kpi__value">8 meses</div>
+          <div class="cs-kpi__label">Payback de la inversión</div>
+        </div>
+        <div class="cs-kpi">
+          <div class="cs-kpi__value">72 hrs</div>
+          <div class="cs-kpi__label">Para validar resultados</div>
+        </div>
+        <div class="cs-kpi">
+          <div class="cs-kpi__value">0</div>
+          <div class="cs-kpi__label">Horas fuera de operación</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BODY ── -->
+  <section class="cs-body">
+    <div class="container">
+      <div class="cs-layout">
+
+        <!-- Article -->
+        <article class="cs-article">
+
+          <h2>El problema</h2>
+          <p>Las puertas de congelados en supermercados representan uno de los mayores gastos energéticos ocultos de la operación. El motivo es simple: los <strong>trim heaters</strong> — calentadores instalados en el marco de cada puerta — funcionan al 100% de su capacidad de forma constante para evitar que el vidrio se empañe.</p>
+          <p>En una tienda típica con 100 puertas de congelado, esto equivale a mantener 100 estufas eléctricas encendidas las 24 horas del día, los 365 días del año. El resultado: facturas de energía infladas, y aun así las puertas siguen empañándose durante los momentos de mayor tráfico.</p>
+          <p>Adicionalmente, el empañamiento tiene un costo invisible: <strong>los clientes no ven el producto</strong>. En categorías de congelados, la visibilidad del producto es directamente proporcional a la venta. Puerta opaca = menos ventas.</p>
+
+          <div class="cs-ba">
+            <div class="cs-ba__card cs-ba__card--before">
+              <div class="cs-ba__label">Antes — Heaters al 100%</div>
+              <img src="Imagenes/Clarifoil despues.webp" alt="Antes: puertas empañadas" class="cs-ba__img" />
+            </div>
+            <div class="cs-ba__card cs-ba__card--after">
+              <div class="cs-ba__label">Después — Heaters al 20%</div>
+              <img src="Imagenes/Clarifoil Antes.webp" alt="Después: cristal transparente" class="cs-ba__img" />
+            </div>
+          </div>
+
+          <h2>La solución: Clarifoil</h2>
+          <p>Clarifoil es un film de celulosa acetate de última generación que se aplica directamente sobre el vidrio de las puertas de congelados. A diferencia de los anti-fog coating tradicionales, la propiedad anti-empañamiento <strong>está integrada en el material</strong>, no es una capa superficial que se desgasta.</p>
+          <p>El mecanismo es elegante: al eliminar la condensación de forma pasiva, el sistema detecta que los heaters ya no necesitan trabajar a plena potencia para mantener el vidrio libre. Los trim heaters bajan automáticamente del <strong>100% al 20%</strong>. Esa diferencia del 80% en consumo de heaters es la fuente principal del ahorro.</p>
+
+          <div class="cs-quote">
+            <p>"No esperábamos resultados tan rápidos. Al tercer día ya teníamos datos que confirmaban la reducción. La instalación fue completamente transparente para nuestra operación."</p>
+            <cite>— Gerente de Operaciones, ASDA UK (nombre bajo confidencialidad)</cite>
+          </div>
+
+          <h2>Metodología de medición</h2>
+          <p>El estudio se realizó entre <strong>enero y mayo de 2024</strong> en 3 tiendas ASDA en Reino Unido. Se instalaron medidores de consumo en tiempo real en cada puerta, registrando datos cada 15 minutos durante 4 semanas antes y 4 semanas después de la instalación de Clarifoil.</p>
+          <p>Las condiciones del estudio fueron controladas para eliminar variables externas: misma época del año, mismas temperaturas de cámara, mismo horario de operación. Los resultados fueron auditados por un tercero independiente.</p>
+
+          <table class="cs-table">
+            <thead>
+              <tr>
+                <th>Métrica</th>
+                <th>Antes</th>
+                <th>Después</th>
+                <th>Variación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Consumo trim heaters (kWh/día/puerta)</td>
+                <td>3.5 kWh</td>
+                <td>0.7 kWh</td>
+                <td class="td-green">−80%</td>
+              </tr>
+              <tr>
+                <td>Consumo total refrigeración (kWh/día)</td>
+                <td>420 kWh</td>
+                <td>260 kWh</td>
+                <td class="td-green">−38%</td>
+              </tr>
+              <tr>
+                <td>Ciclos de descongelamiento / semana</td>
+                <td>28</td>
+                <td>22</td>
+                <td class="td-green">−21%</td>
+              </tr>
+              <tr>
+                <td>Temp. promedio cámara (variación °C)</td>
+                <td>±1.8°C</td>
+                <td>±0.9°C</td>
+                <td class="td-green">Más estable</td>
+              </tr>
+              <tr>
+                <td>Empañamiento (horas/día con visibilidad reducida)</td>
+                <td>4.2 hrs</td>
+                <td>0 hrs</td>
+                <td class="td-green">−100%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Instalación: sin disruption operacional</h2>
+          <p>El equipo de instalación llegó a las 22:00h, una vez cerrada la tienda al público. Trabajaron en equipos de 4 personas, cubriendo <strong>50–60 puertas por turno</strong>. A las 6:00h, cuando el personal de apertura llegó, no había ningún rastro de la instalación — solo puertas transparentes.</p>
+          <p>No se requirió cortar la cadena de frío en ningún momento. Las puertas permanecieron cerradas durante todo el proceso de aplicación del film. La temperatura interior de las cámaras no sufrió variaciones durante la instalación.</p>
+
+          <h2>ROI y proyección financiera</h2>
+          <p>Con un ahorro medido de <strong>1.278 kWh por puerta al año</strong> (a tarifa estándar de $0.125/kWh), cada puerta genera un ahorro de $159.750 anuales. En una tienda con 100 puertas, el ahorro total asciende a <strong>$15.975.000/año</strong>.</p>
+          <p>El costo de instalación de Clarifoil se recupera en aproximadamente <strong>8 meses</strong>. A partir del mes 9, cada peso ahorrado es utilidad neta para la operación. En un horizonte de 5 años, el retorno sobre la inversión es de 640%.</p>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="cs-sidebar">
+
+          <div class="cs-sidebar-card">
+            <h4>Ficha del Proyecto</h4>
+            <ul class="cs-sidebar-list">
+              <li><span>Cliente</span><span>ASDA UK (confidencial)</span></li>
+              <li><span>Producto</span><span>Clarifoil Anti-Fog Film</span></li>
+              <li><span>Categoría</span><span>Puertas de Congelados</span></li>
+              <li><span>Puertas instaladas</span><span>300 (3 tiendas)</span></li>
+              <li><span>Período de medición</span><span>Enero–Mayo 2024</span></li>
+              <li><span>País</span><span>Reino Unido</span></li>
+              <li><span>Instalación</span><span>3 noches (1 por tienda)</span></li>
+              <li><span>Disruption</span><span>0 horas</span></li>
+            </ul>
+          </div>
+
+          <div class="cs-sidebar-card">
+            <h4>Resultados Clave</h4>
+            <ul class="cs-sidebar-list">
+              <li><span>Ahorro energético</span><span class="td-green">38%</span></li>
+              <li><span>Reducción heaters</span><span class="td-green">100% → 20%</span></li>
+              <li><span>Ahorro por puerta/año</span><span class="td-green">$159.750</span></li>
+              <li><span>Payback</span><span class="td-green">8 meses</span></li>
+              <li><span>Validación resultados</span><span class="td-green">72 horas</span></li>
+            </ul>
+          </div>
+
+          <div class="cs-cta-card">
+            <h4>¿Quieres estos resultados en tu tienda?</h4>
+            <p>Auditoría energética sin costo. 30 minutos. Números claros antes de comprometerte.</p>
+            <a href="index.html#contact" class="btn btn-primary">Solicitar auditoría gratis →</a>
+          </div>
+
+          <div class="cs-sidebar-card">
+            <h4>Producto</h4>
+            <img src="Imagenes/Clarifoil-brand-logo.png" alt="Clarifoil" style="max-width:140px;margin-bottom:12px" />
+            <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin:0">Film anti-fog de celulosa acetate. 100.000+ puertas instaladas en Europa y EE.UU.</p>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RELATED ── -->
+  <section class="cs-related">
+    <div class="container">
+      <h2>Otros casos de estudio</h2>
+      <div class="cs-related-grid">
+        <a href="#" class="cs-related-card">
+          <img src="Imagenes/Refrigerador.webp" alt="Aerofoil" />
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Cases Abiertos · Aerofoil</div>
+            <div class="cs-related-card__title">Calnext Study: 42.722 kWh ahorrados al año con Aerofoil</div>
+          </div>
+        </a>
+        <a href="#" class="cs-related-card">
+          <div style="height:140px;background:linear-gradient(135deg,#1E5038,#40916C);display:flex;align-items:center;justify-content:center">
+            <img src="Imagenes/Kenfield-logo.png" alt="Kenfield" style="max-width:140px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Cámaras Frías · Kenfield K750</div>
+            <div class="cs-related-card__title">Warwick Study: 21–42% menos consumo en compresores</div>
+          </div>
+        </a>
+        <a href="#" class="cs-related-card">
+          <div style="height:140px;background:linear-gradient(135deg,#14532D,#166534);display:flex;align-items:center;justify-content:center">
+            <img src="Imagenes/nualight-logo-650x157.png" alt="Nualight" style="max-width:140px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Iluminación · Nualight</div>
+            <div class="cs-related-card__title">Retail europeo: 35% menos consumo + 12% más ventas en frescos</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="Marca/Logo.png" alt="Andek Group" />
+        <p>Technology for Industrial Efficiency</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#hero">Inicio</a>
+        <a href="index.html#portfolio">Soluciones</a>
+        <a href="index.html#cases">Casos de Estudio</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2024 Andek Group. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinksEl = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinksEl.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

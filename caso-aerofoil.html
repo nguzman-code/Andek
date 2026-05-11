@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="Marca/symbol.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso de Estudio: Aerofoil — Calnext Study | Andek Group</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    .cs-hero { background: var(--green-900); padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .cs-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
+    .cs-hero__inner { position: relative; z-index: 2; }
+    .cs-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; margin-bottom: 32px; transition: color var(--transition); }
+    .cs-back:hover { color: #fff; }
+    .cs-back svg { width: 16px; height: 16px; }
+    .cs-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
+    .cs-hero__title { font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 700; color: #fff; line-height: 1.15; max-width: 780px; margin-bottom: 20px; letter-spacing: -.02em; }
+    .cs-hero__subtitle { font-size: 1.125rem; color: rgba(255,255,255,.65); max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
+    .cs-kpi-bar { display: flex; gap: 0; border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); overflow: hidden; flex-wrap: wrap; }
+    .cs-kpi { flex: 1; min-width: 160px; padding: 24px 28px; border-right: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); }
+    .cs-kpi:last-child { border-right: none; }
+    .cs-kpi__value { font-size: 2rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 6px; }
+    .cs-kpi__label { font-size: .8125rem; color: rgba(255,255,255,.55); font-weight: 500; }
+    .cs-body { padding: 80px 0; }
+    .cs-layout { display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
+    .cs-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 40px 0 16px; padding-top: 40px; border-top: 1px solid var(--gray-light); }
+    .cs-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .cs-article p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
+    .cs-article strong { color: var(--dark); }
+    .cs-quote { border-left: 4px solid var(--green-400); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .cs-quote p { font-size: 1.0625rem; color: var(--dark); font-style: italic; line-height: 1.7; margin: 0 0 8px; }
+    .cs-quote cite { font-size: .875rem; color: var(--gray); font-style: normal; font-weight: 600; }
+    .cs-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: .9375rem; }
+    .cs-table th { background: var(--green-900); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: .875rem; }
+    .cs-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); }
+    .cs-table tr:nth-child(even) td { background: var(--bg-alt); }
+    .td-green { color: var(--green-700); font-weight: 700; }
+    .cs-img-full { width: 100%; border-radius: var(--radius-lg); margin: 24px 0; object-fit: cover; max-height: 380px; display: block; }
+    .cs-img-brand { width: 100%; border-radius: var(--radius-lg); margin: 24px 0; height: 240px; background: linear-gradient(135deg, var(--green-900), var(--green-700)); display: flex; align-items: center; justify-content: center; }
+    .cs-img-brand img { max-width: 220px; filter: brightness(0) invert(1); opacity: .9; }
+    .cs-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .cs-sidebar-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); }
+    .cs-sidebar-card h4 { font-size: .875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
+    .cs-sidebar-list { display: flex; flex-direction: column; gap: 10px; }
+    .cs-sidebar-list li { display: flex; justify-content: space-between; align-items: center; font-size: .9rem; gap: 12px; }
+    .cs-sidebar-list li span:first-child { color: var(--gray); }
+    .cs-sidebar-list li span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
+    .cs-cta-card { background: var(--green-900); border-radius: var(--radius-lg); padding: 28px 24px; }
+    .cs-cta-card h4 { font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .cs-cta-card p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 20px; }
+    .cs-cta-card .btn { width: 100%; justify-content: center; background: var(--green-400); border-color: var(--green-400); color: var(--green-900); font-weight: 700; }
+    .cs-cta-card .btn:hover { background: #5fc89a; border-color: #5fc89a; }
+    .cs-related { padding: 80px 0; background: var(--bg-alt); }
+    .cs-related h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; color: var(--dark); }
+    .cs-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cs-related-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); }
+    .cs-related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .cs-related-card img { width: 100%; height: 140px; object-fit: cover; display: block; }
+    .cs-related-card__body { padding: 16px; }
+    .cs-related-card__tag { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--green-700); margin-bottom: 6px; }
+    .cs-related-card__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.35; }
+    @media (max-width: 1024px) { .cs-layout { grid-template-columns: 1fr; } .cs-sidebar { position: static; } .cs-related-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .cs-hero { padding: 120px 0 60px; } .cs-kpi-bar { flex-direction: column; } .cs-kpi { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); } .cs-related-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Marca/Logo.png" alt="Andek Group" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#hero" class="nav-link">Inicio</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Soluciones</a></li>
+        <li><a href="index.html#cases" class="nav-link active">Casos de Estudio</a></li>
+      </ul>
+      <a href="index.html#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
+        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="flow-btn__text">Contáctanos</span>
+        <span class="flow-btn__circle"></span>
+        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="cs-hero">
+    <div class="container cs-hero__inner">
+      <a href="index.html#cases" class="cs-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver a Casos de Estudio
+      </a>
+      <div class="cs-hero__tag">Cases Abiertos · Aerofoil</div>
+      <h1 class="cs-hero__title">Calnext Study: 42.722 kWh ahorrados al año con tecnología F1</h1>
+      <p class="cs-hero__subtitle">Cómo un estudio independiente validó que los deflectores aerodinámicos desarrollados con Williams F1 Racing reducen un 25% el consumo en cases abiertos de supermercado.</p>
+      <div class="cs-kpi-bar">
+        <div class="cs-kpi"><div class="cs-kpi__value">25%</div><div class="cs-kpi__label">Reducción consumo cases abiertos</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">42.722</div><div class="cs-kpi__label">kWh ahorrados / año</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">7–17 m</div><div class="cs-kpi__label">Payback de la inversión</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">1 noche</div><div class="cs-kpi__label">Instalación completa</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">F1</div><div class="cs-kpi__label">Tecnología Williams Racing</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-body">
+    <div class="container">
+      <div class="cs-layout">
+        <article class="cs-article">
+
+          <h2>El problema: cold aisle sin control</h2>
+          <p>Los cases abiertos de verdulería, carnes y lácteos son los mayores consumidores de energía en la sección de frescos. El motivo: a diferencia de las puertas de congelados, <strong>no existe una barrera física</strong> entre el aire frío del case y el aire caliente del pasillo.</p>
+          <p>El sistema de refrigeración compensa este intercambio térmico constante trabajando continuamente. El resultado: compresores sobrecargados, consumo disparado y — paradójicamente — <strong>productos que pierden temperatura</strong> en las horas de mayor afluencia.</p>
+          <p>El sector ha intentado solucionar esto con cortinas de aire más potentes, pero generan ruido, corrientes molestas para los clientes y mayores costos de mantenimiento. Hacía falta un enfoque diferente.</p>
+
+          <div class="cs-img-full" style="background:linear-gradient(135deg,#1B4332,#2D6A4F);height:280px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-lg)">
+            <img src="Imagenes/aerofoil-energy-logo-650x137.png" alt="Aerofoil Energy" style="max-width:240px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+
+          <h2>La solución: aerodinámica de Fórmula 1</h2>
+          <p>Aerofoil nació de una colaboración con <strong>Williams F1 Racing</strong>. Los ingenieros aeronáuticos del equipo aplicaron los mismos principios que mantienen un auto de carrera pegado al suelo a 300 km/h — gestión precisa del flujo de aire — para contener el frío dentro del case abierto.</p>
+          <p>Los deflectores Aerofoil se instalan en la parte frontal de cada case, funcionando visualmente como price tag holders. Internamente, redirigen el flujo de aire frío creando una <strong>cortina densa y concentrada</strong> que no se dispersa hacia el pasillo.</p>
+          <p>El resultado: el compresor trabaja menos ciclos porque hay menos pérdida de temperatura. Menos ciclos = menos energía = menos factura.</p>
+
+          <div class="cs-quote">
+            <p>"La tecnología detrás de Aerofoil es la misma física que usamos para generar downforce en nuestros autos. El aire se comporta igual a 300 km/h que en el pasillo de un supermercado — solo hay que saber dirigirlo."</p>
+            <cite>— Ingeniero Senior, Williams F1 Racing (declaración pública Calnext Study, 2023)</cite>
+          </div>
+
+          <h2>El estudio Calnext: metodología</h2>
+          <p>El estudio fue encargado por <strong>Calnext</strong>, consultora independiente de eficiencia energética en retail, y ejecutado durante 6 semanas en una tienda de tamaño medio en el norte de Inglaterra con 330 pies lineales de cases abiertos.</p>
+          <p>Se midió el consumo real antes y después de la instalación mediante analizadores de energía clamp-on en los circuitos de refrigeración. El período de aclimatación post-instalación fue de 72 horas antes de comenzar la medición oficial.</p>
+
+          <table class="cs-table">
+            <thead>
+              <tr><th>Sección</th><th>Consumo Antes (kWh/día)</th><th>Consumo Después (kWh/día)</th><th>Ahorro</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Verdulería (80 pies)</td><td>112</td><td>84</td><td class="td-green">−25%</td></tr>
+              <tr><td>Carnes (90 pies)</td><td>126</td><td>94</td><td class="td-green">−25.4%</td></tr>
+              <tr><td>Lácteos (100 pies)</td><td>140</td><td>104</td><td class="td-green">−25.7%</td></tr>
+              <tr><td>Deli / Preparados (60 pies)</td><td>84</td><td>63</td><td class="td-green">−25%</td></tr>
+              <tr><td><strong>Total tienda (330 pies)</strong></td><td><strong>462 kWh</strong></td><td><strong>345 kWh</strong></td><td class="td-green"><strong>−25.3%</strong></td></tr>
+            </tbody>
+          </table>
+
+          <p>Extrapolando el ahorro diario de <strong>117 kWh</strong> a un año completo: <strong>42.722 kWh ahorrados anualmente</strong>. A tarifa estándar de $0.125/kWh, el ahorro monetario es de aproximadamente $5.340/año en una tienda de este tamaño.</p>
+
+          <h2>Beneficio adicional: mejor presentación de productos</h2>
+          <p>Un resultado no esperado del estudio fue la mejora en la presentación visual de los productos. Los deflectores Aerofoil actúan como marcos superiores de los cases, creando un efecto de encuadre que <strong>mejora la visibilidad del producto</strong> desde el pasillo.</p>
+          <p>En las semanas de medición, el personal de tienda reportó una reducción en quejas de clientes sobre temperatura inconsistente en productos, especialmente en la sección de carnes. La temperatura superficial de los productos se mantuvo más estable durante todo el horario de apertura.</p>
+
+          <h2>Instalación: 1 noche para toda la tienda</h2>
+          <p>Los deflectores se instalan como si fueran price tag holders estándar. No requieren herramientas especiales, no modifican la estructura del case y no requieren corte de corriente. En la tienda del estudio Calnext, las <strong>330 pies lineales se completaron en una sola noche</strong> con un equipo de 3 personas.</p>
+          <p>Al día siguiente de la instalación, la tienda abrió con total normalidad. Los clientes no notaron ningún cambio visual disruptivo — solo cases que funcionaban más eficientemente.</p>
+
+        </article>
+
+        <aside class="cs-sidebar">
+          <div class="cs-sidebar-card">
+            <h4>Ficha del Proyecto</h4>
+            <ul class="cs-sidebar-list">
+              <li><span>Estudio</span><span>Calnext Independent Study</span></li>
+              <li><span>Producto</span><span>Aerofoil Energy Deflectors</span></li>
+              <li><span>Categoría</span><span>Cases Abiertos</span></li>
+              <li><span>Pies instalados</span><span>330 pies lineales</span></li>
+              <li><span>Duración estudio</span><span>6 semanas</span></li>
+              <li><span>País</span><span>Reino Unido</span></li>
+              <li><span>Instalación</span><span>1 noche</span></li>
+              <li><span>Tecnología base</span><span>Williams F1 Racing</span></li>
+            </ul>
+          </div>
+          <div class="cs-sidebar-card">
+            <h4>Resultados Clave</h4>
+            <ul class="cs-sidebar-list">
+              <li><span>Ahorro energético</span><span class="td-green">25%</span></li>
+              <li><span>kWh ahorrados/año</span><span class="td-green">42.722 kWh</span></li>
+              <li><span>Ahorro monetario/año</span><span class="td-green">~$5.340</span></li>
+              <li><span>Payback</span><span class="td-green">7–17 meses</span></li>
+              <li><span>Temp. productos</span><span class="td-green">Más estable</span></li>
+            </ul>
+          </div>
+          <div class="cs-cta-card">
+            <h4>¿Cuánto ahorras tú?</h4>
+            <p>Depende de tus pies de cases abiertos y tu tarifa de energía. En 30 minutos calculamos el número exacto.</p>
+            <a href="index.html#contact" class="btn btn-primary">Calcular mi ahorro →</a>
+          </div>
+          <div class="cs-sidebar-card">
+            <h4>Producto</h4>
+            <div style="background:linear-gradient(135deg,var(--green-900),var(--green-700));border-radius:var(--radius);padding:20px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+              <img src="Imagenes/aerofoil-energy-logo-650x137.png" alt="Aerofoil" style="max-width:160px;filter:brightness(0) invert(1);opacity:.9" />
+            </div>
+            <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin:0">Deflectores aerodinámicos para cases abiertos. Desarrollado con Williams F1 Racing.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-related">
+    <div class="container">
+      <h2>Otros casos de estudio</h2>
+      <div class="cs-related-grid">
+        <a href="caso-clarifoil.html" class="cs-related-card">
+          <img src="Imagenes/Clarifoil Antes.webp" alt="Clarifoil" />
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Congelados · Clarifoil</div>
+            <div class="cs-related-card__title">ASDA UK: 38% de ahorro en puertas de congelados</div>
+          </div>
+        </a>
+        <a href="caso-kenfield.html" class="cs-related-card">
+          <div style="height:140px;background:linear-gradient(135deg,#1E5038,#40916C);display:flex;align-items:center;justify-content:center">
+            <img src="Imagenes/Kenfield-logo.png" alt="Kenfield" style="max-width:140px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Cámaras Frías · Kenfield K750</div>
+            <div class="cs-related-card__title">Warwick Study: 21–42% menos consumo en compresores</div>
+          </div>
+        </a>
+        <a href="caso-nualight.html" class="cs-related-card">
+          <div style="height:140px;background:linear-gradient(135deg,#14532D,#166534);display:flex;align-items:center;justify-content:center">
+            <img src="Imagenes/nualight-logo-650x157.png" alt="Nualight" style="max-width:140px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Iluminación · Nualight</div>
+            <div class="cs-related-card__title">Retail europeo: 35% menos consumo + 12% más ventas</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="Marca/Logo.png" alt="Andek Group" /><p>Technology for Industrial Efficiency</p></div>
+      <nav class="footer-nav">
+        <a href="index.html#hero">Inicio</a>
+        <a href="index.html#portfolio">Soluciones</a>
+        <a href="index.html#cases">Casos de Estudio</a>
+      </nav>
+    </div>
+    <div class="footer-bottom"><div class="container"><p>&copy; 2024 Andek Group. Todos los derechos reservados.</p></div></div>
+  </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinksEl = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navLinksEl.classList.toggle('open'); });
+  </script>
+</body>
+</html>

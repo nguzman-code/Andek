@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="Marca/symbol.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — Andek Solutions | Technology for Industrial Efficiency</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+    /* ── Fade-in animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes growWidth {
+      from { width: 0; }
+      to   { width: 72px; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim-fade-up   { animation: fadeInUp .7s cubic-bezier(.4,0,.2,1) both; }
+    .anim-fade      { animation: fadeIn .8s ease both; }
+    .anim-left      { animation: slideInLeft .7s cubic-bezier(.4,0,.2,1) both; }
+    .anim-right     { animation: slideInRight .7s cubic-bezier(.4,0,.2,1) both; }
+
+    /* ── About Hero ── */
+    .about-hero {
+      background: url('Imagenes/cordillera-de-los-andes.webp') center/cover no-repeat;
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(79,98,73,.72) 0%,
+        rgba(79,98,73,.60) 60%,
+        rgba(79,98,73,.80) 100%
+      );
+    }
+    .about-hero::after { display: none; }
+    .about-hero__inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .about-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green-400);
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      animation: fadeInUp .6s .1s both;
+    }
+    .about-hero__eyebrow svg { width: 16px; height: 16px; }
+    .about-hero__logo {
+      height: clamp(56px, 8vw, 88px);
+      width: auto;
+      margin: 0 auto 20px;
+      clip-path: inset(11% 4% round 14px);
+      animation: fadeInUp .7s .2s both;
+    }
+    .about-hero__bar {
+      width: 0;
+      height: 4px;
+      background: var(--green-400);
+      border-radius: 2px;
+      margin: 0 auto 24px;
+      animation: growWidth .9s .6s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .about-hero__sub {
+      font-size: 1.125rem;
+      color: rgba(255,255,255,.68);
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto;
+      animation: fadeInUp .7s .4s both;
+    }
+
+    /* ── About Section ── */
+    .about-section {
+      padding: 100px 0;
+      background: var(--bg-alt);
+      overflow: hidden;
+      position: relative;
+    }
+    /* decorative blobs */
+    .about-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: .07;
+    }
+    .about-blob--1 {
+      width: 480px; height: 480px;
+      background: var(--green-400);
+      top: -120px; left: -120px;
+      filter: blur(80px);
+    }
+    .about-blob--2 {
+      width: 360px; height: 360px;
+      background: var(--green-700);
+      bottom: -80px; right: -80px;
+      filter: blur(80px);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px 1fr;
+      gap: 56px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Service Items ── */
+    .service-list { display: flex; flex-direction: column; gap: 40px; }
+
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform var(--transition);
+    }
+    .service-item:hover { transform: translateY(-4px); }
+
+    .service-item__head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .service-item__icon {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: rgba(45,106,79,.1);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green-700);
+      transition: background var(--transition);
+      position: relative;
+    }
+    .service-item:hover .service-item__icon {
+      background: rgba(45,106,79,.18);
+    }
+    .service-item__icon svg { width: 22px; height: 22px; }
+    .service-item__title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--dark);
+      transition: color var(--transition);
+    }
+    .service-item:hover .service-item__title { color: var(--green-700); }
+    .service-item__desc {
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.7;
+      padding-left: 62px;
+    }
+    .service-item__more {
+      padding-left: 62px;
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--green-700);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .service-item:hover .service-item__more { opacity: 1; }
+    .service-item__more svg { width: 13px; height: 13px; }
+
+    /* ── Center Image ── */
+    .about-center {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .about-img-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      display: block;
+      transition: transform .4s ease;
+    }
+    .about-img-wrap:hover img { transform: scale(1.02); }
+    .about-img-overlay {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(to top, rgba(13,27,15,.6) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 24px;
+    }
+    .about-img-btn {
+      background: #fff;
+      color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 99px;
+      font-size: .875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .about-img-btn:hover { background: var(--green-100); transform: scale(1.04); }
+    .about-img-btn svg { width: 14px; height: 14px; }
+    /* decorative border frame */
+    .about-img-frame {
+      position: absolute;
+      inset: -10px;
+      border: 3px solid var(--green-200);
+      border-radius: calc(var(--radius-lg) + 8px);
+      z-index: -1;
+      pointer-events: none;
+    }
+    /* floating dot accents */
+    .about-dot {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .about-dot--1 {
+      width: 14px; height: 14px;
+      background: var(--green-400);
+      opacity: .6;
+      top: -20px; left: 50%;
+      transform: translateX(-50%);
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .about-dot--2 {
+      width: 10px; height: 10px;
+      background: var(--green-200);
+      opacity: .8;
+      bottom: -22px; left: 50%;
+      transform: translateX(-50%);
+      animation: float 3s ease-in-out infinite .5s;
+    }
+
+    /* ── Stats Section ── */
+    .stats-section {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .stat-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+    .stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      background: var(--bg);
+    }
+    .stat-card__icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(45,106,79,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green-700);
+      transition: background var(--transition);
+    }
+    .stat-card:hover .stat-card__icon { background: rgba(45,106,79,.16); }
+    .stat-card__icon svg { width: 22px; height: 22px; }
+    .stat-card__val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .stat-card__label {
+      font-size: .85rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+    .stat-card__bar {
+      width: 36px; height: 3px;
+      background: var(--green-400);
+      border-radius: 2px;
+      margin-top: 4px;
+      transition: width var(--transition);
+    }
+    .stat-card:hover .stat-card__bar { width: 56px; }
+
+    /* ── Values Section ── */
+    .values-section {
+      padding: 80px 0;
+      background: var(--bg-alt);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .value-card {
+      background: var(--bg);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .value-card__num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--green-200);
+      line-height: 1;
+    }
+    .value-card__title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .value-card__desc {
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ── CTA Banner ── */
+    .about-cta {
+      background: var(--green-900);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .about-cta__text { position: relative; z-index: 1; }
+    .about-cta__text h3 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .about-cta__text p { font-size: .9375rem; color: rgba(255,255,255,.6); }
+    .about-cta .btn {
+      position: relative;
+      z-index: 1;
+      background: var(--green-400);
+      border-color: var(--green-400);
+      color: var(--green-900);
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .about-cta .btn:hover {
+      background: #5fc89a;
+      border-color: #5fc89a;
+      transform: scale(1.04);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-center { order: -1; }
+      .about-img-wrap { max-width: 480px; margin: 0 auto; }
+      .about-img-wrap img { aspect-ratio: 16/9; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .about-hero { padding: 120px 0 60px; }
+      .about-section { padding: 72px 0; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .about-cta { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Marca/Logo.png" alt="Andek Solutions" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#portfolio" class="nav-link nav-link--dropdown">
+            Soluciones
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="nav-submenu">
+            <li><a href="index.html#portfolio" class="nav-submenu__item">Todos los Productos</a></li>
+            <li><a href="solucion-aerofoil.html" class="nav-submenu__item">Aerofoil</a></li>
+            <li><a href="solucion-clarifoil.html" class="nav-submenu__item">Clarifoil</a></li>
+            <li><a href="solucion-kenfield.html" class="nav-submenu__item">Kenfield K750</a></li>
+            <li><a href="solucion-nualight.html" class="nav-submenu__item">Nualight</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#cases" class="nav-link">Casos de Estudio</a></li>
+        <li><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+      </ul>
+      <a href="index.html#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
+        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="flow-btn__text">Contáctanos</span>
+        <span class="flow-btn__circle"></span>
+        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ── HERO ── -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero__inner">
+        <div class="about-hero__eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          CONOCE NUESTRA HISTORIA
+        </div>
+        <img src="Marca/Logo.png" alt="Andek Solutions" class="about-hero__logo" />
+        <div class="about-hero__bar"></div>
+        <p class="about-hero__sub">
+          Somos un equipo especializado en eficiencia energética industrial. Conectamos tecnología de punta con las operaciones de nuestros clientes para generar ahorros medibles y sostenibles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── ABOUT: SERVICES GRID ── -->
+  <section class="about-section">
+    <div class="about-blob about-blob--1"></div>
+    <div class="about-blob about-blob--2"></div>
+    <div class="container">
+
+      <div class="about-grid">
+
+        <!-- Left services -->
+        <div class="service-list">
+
+          <div class="service-item anim-left" style="animation-delay:.1s">
+            <div class="service-item__head">
+              <div class="service-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <h3 class="service-item__title">Diagnóstico Energético</h3>
+            </div>
+            <p class="service-item__desc">
+              Auditamos tu operación de punta a punta para identificar fugas de energía, ineficiencias ocultas y las oportunidades de mayor impacto económico.
+            </p>
+            <span class="service-item__more">
+              Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+          <div class="service-item anim-left" style="animation-delay:.2s">
+            <div class="service-item__head">
+              <div class="service-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3 class="service-item__title">Tecnología IoT</h3>
+            </div>
+            <p class="service-item__desc">
+              Sensores, plataformas y controladores conectados que digitalizan tu planta y convierten datos en decisiones de ahorro en tiempo real.
+            </p>
+            <span class="service-item__more">
+              Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+          <div class="service-item anim-left" style="animation-delay:.3s">
+            <div class="service-item__head">
+              <div class="service-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <h3 class="service-item__title">Consultoría Estratégica</h3>
+            </div>
+            <p class="service-item__desc">
+              Acompañamiento experto para priorizar inversiones, diseñar roadmaps de eficiencia y maximizar el retorno de cada proyecto tecnológico.
+            </p>
+            <span class="service-item__more">
+              Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Center image -->
+        <div class="about-center anim-fade" style="animation-delay:.2s">
+          <div class="about-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"
+              alt="Equipo Andek Solutions en operación industrial"
+            />
+            <div class="about-img-overlay">
+              <a href="index.html#portfolio" class="about-img-btn">
+                Nuestras Soluciones
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+            <div class="about-img-frame"></div>
+            <div class="about-dot about-dot--1"></div>
+            <div class="about-dot about-dot--2"></div>
+          </div>
+        </div>
+
+        <!-- Right services -->
+        <div class="service-list">
+
+          <div class="service-item anim-right" style="animation-delay:.1s">
+            <div class="service-item__head">
+              <div class="service-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <h3 class="service-item__title">Monitoreo en Tiempo Real</h3>
+            </div>
+            <p class="service-item__desc">
+              Dashboards y alertas inteligentes que te mantienen en control de tu consumo energético 24/7, desde cualquier dispositivo.
+            </p>
+            <span class="service-item__more">
+              Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+          <div class="service-item anim-right" style="animation-delay:.2s">
+            <div class="service-item__head">
+              <div class="service-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3 class="service-item__title">Implementación Profesional</h3>
+            </div>
+            <p class="service-item__desc">
+              Instalación precisa y sin interrupciones operativas. Gestionamos cada proyecto con tiempos claros y equipos certificados en campo.
+            </p>
+            <span class="service-item__more">
+              Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+          <div class="service-item anim-right" style="animation-delay:.3s">
+            <div class="service-item__head">
+              <div class="service-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <h3 class="service-item__title">Soporte Post-Implementación</h3>
+            </div>
+            <p class="service-item__desc">
+              Respaldo técnico continuo para garantizar que los resultados se mantengan y mejoren a lo largo del tiempo de vida de cada solución.
+            </p>
+            <span class="service-item__more">
+              Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+        </div>
+
+      </div><!-- /about-grid -->
+
+    </div>
+  </section>
+
+
+  <!-- ── STATS ── -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="stat-card anim-fade-up" style="animation-delay:.05s">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="stat-card__val" data-target="152">0</div>
+          <div class="stat-card__label">Clientes Activos</div>
+          <div class="stat-card__bar"></div>
+        </div>
+
+        <div class="stat-card anim-fade-up" style="animation-delay:.1s">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="stat-card__val" data-target="340">0</div>
+          <div class="stat-card__label">Proyectos Completados</div>
+          <div class="stat-card__bar"></div>
+        </div>
+
+        <div class="stat-card anim-fade-up" style="animation-delay:.15s">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="stat-card__val" data-target="12" data-suffix="+">0</div>
+          <div class="stat-card__label">Años de Experiencia</div>
+          <div class="stat-card__bar"></div>
+        </div>
+
+        <div class="stat-card anim-fade-up" style="animation-delay:.2s">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="stat-card__val" data-target="98" data-suffix="%">0</div>
+          <div class="stat-card__label">Satisfacción del Cliente</div>
+          <div class="stat-card__bar"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── VALUES ── -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill pill-dark">Nuestros Valores</span>
+        <h2>Lo que nos define como equipo.</h2>
+        <p>Cada decisión que tomamos está guiada por tres principios que nunca negociamos.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card anim-fade-up" style="animation-delay:.1s">
+          <div class="value-card__num">01</div>
+          <h3 class="value-card__title">Resultados Medibles</h3>
+          <p class="value-card__desc">No prometemos mejoras vagas. Cada proyecto parte de una línea base, define KPIs claros y entrega reportes con el ahorro real generado.</p>
+        </div>
+        <div class="value-card anim-fade-up" style="animation-delay:.2s">
+          <div class="value-card__num">02</div>
+          <h3 class="value-card__title">Confianza a Largo Plazo</h3>
+          <p class="value-card__desc">Construimos relaciones, no transacciones. El 68% de nuestros clientes nuevos provienen de referidos — esa es nuestra mejor métrica.</p>
+        </div>
+        <div class="value-card anim-fade-up" style="animation-delay:.3s">
+          <div class="value-card__num">03</div>
+          <h3 class="value-card__title">Tecnología con Propósito</h3>
+          <p class="value-card__desc">Adoptamos tecnología solo cuando resuelve un problema real. Evitamos la complejidad innecesaria y priorizamos la facilidad de operación de nuestros clientes.</p>
+        </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="about-cta anim-fade-up" style="animation-delay:.3s">
+        <div class="about-cta__text">
+          <h3>¿Listo para transformar tu operación?</h3>
+          <p>Cuéntanos tu desafío y diseñamos una solución a la medida.</p>
+        </div>
+        <a href="index.html#contact" class="btn btn-lg">
+          Hablemos
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="Marca/Logo.png" alt="Andek Group" />
+        <p>Technology for Industrial Efficiency</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#portfolio">Soluciones</a>
+        <a href="nosotros.html">Nosotros</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2024 Andek Group. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── Stat counter animation ── */
+    (function () {
+      function animateCounter(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const counters = document.querySelectorAll('.stat-card__val[data-target]');
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* ── Dropdown hover delay (same as index) ── */
+    (function () {
+      const dropdown = document.querySelector('.nav-dropdown');
+      if (!dropdown) return;
+      let timer = null;
+      dropdown.addEventListener('mouseenter', function () { clearTimeout(timer); dropdown.classList.add('submenu-open'); });
+      dropdown.addEventListener('mouseleave', function () { timer = setTimeout(function () { dropdown.classList.remove('submenu-open'); }, 350); });
+    })();
+  </script>
+</body>
+</html>

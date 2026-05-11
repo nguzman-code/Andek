@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node server.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)",
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "mcp__claude_ai_Notion__notion-create-database",
+      "mcp__claude_ai_Notion__notion-update-data-source",
+      "Bash(python -c \"import openpyxl; print\\('ok'\\)\")",
+      "Bash(node tools/crear_excel_importacion.js)",
+      "Bash(git -C \"c:\\\\Users\\\\nguzm\\\\OneDrive\\\\Desktop\\\\Nico Claude\\\\Página Web\" status)"
+    ]
+  }
+}

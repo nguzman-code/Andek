@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="Marca/symbol.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso de Estudio: Kenfield K750 — Warwick Study | Andek Group</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    .cs-hero { background: var(--green-900); padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .cs-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
+    .cs-hero__inner { position: relative; z-index: 2; }
+    .cs-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; margin-bottom: 32px; transition: color var(--transition); }
+    .cs-back:hover { color: #fff; }
+    .cs-back svg { width: 16px; height: 16px; }
+    .cs-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
+    .cs-hero__title { font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 700; color: #fff; line-height: 1.15; max-width: 780px; margin-bottom: 20px; letter-spacing: -.02em; }
+    .cs-hero__subtitle { font-size: 1.125rem; color: rgba(255,255,255,.65); max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
+    .cs-kpi-bar { display: flex; gap: 0; border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); overflow: hidden; flex-wrap: wrap; }
+    .cs-kpi { flex: 1; min-width: 160px; padding: 24px 28px; border-right: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); }
+    .cs-kpi:last-child { border-right: none; }
+    .cs-kpi__value { font-size: 2rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 6px; }
+    .cs-kpi__label { font-size: .8125rem; color: rgba(255,255,255,.55); font-weight: 500; }
+    .cs-body { padding: 80px 0; }
+    .cs-layout { display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
+    .cs-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 40px 0 16px; padding-top: 40px; border-top: 1px solid var(--gray-light); }
+    .cs-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .cs-article p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
+    .cs-article strong { color: var(--dark); }
+    .cs-quote { border-left: 4px solid var(--green-400); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .cs-quote p { font-size: 1.0625rem; color: var(--dark); font-style: italic; line-height: 1.7; margin: 0 0 8px; }
+    .cs-quote cite { font-size: .875rem; color: var(--gray); font-style: normal; font-weight: 600; }
+    .cs-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: .9375rem; }
+    .cs-table th { background: var(--green-900); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: .875rem; }
+    .cs-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); }
+    .cs-table tr:nth-child(even) td { background: var(--bg-alt); }
+    .td-green { color: var(--green-700); font-weight: 700; }
+    .cs-img-full { width: 100%; border-radius: var(--radius-lg); margin: 24px 0; object-fit: cover; max-height: 380px; display: block; }
+    .cs-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .cs-sidebar-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); }
+    .cs-sidebar-card h4 { font-size: .875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
+    .cs-sidebar-list { display: flex; flex-direction: column; gap: 10px; }
+    .cs-sidebar-list li { display: flex; justify-content: space-between; align-items: center; font-size: .9rem; gap: 12px; }
+    .cs-sidebar-list li span:first-child { color: var(--gray); }
+    .cs-sidebar-list li span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
+    .cs-cta-card { background: var(--green-900); border-radius: var(--radius-lg); padding: 28px 24px; }
+    .cs-cta-card h4 { font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .cs-cta-card p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 20px; }
+    .cs-cta-card .btn { width: 100%; justify-content: center; background: var(--green-400); border-color: var(--green-400); color: var(--green-900); font-weight: 700; }
+    .cs-cta-card .btn:hover { background: #5fc89a; border-color: #5fc89a; }
+    .cs-related { padding: 80px 0; background: var(--bg-alt); }
+    .cs-related h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; color: var(--dark); }
+    .cs-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cs-related-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); }
+    .cs-related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .cs-related-card img { width: 100%; height: 140px; object-fit: cover; display: block; }
+    .cs-related-card__body { padding: 16px; }
+    .cs-related-card__tag { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--green-700); margin-bottom: 6px; }
+    .cs-related-card__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.35; }
+    @media (max-width: 1024px) { .cs-layout { grid-template-columns: 1fr; } .cs-sidebar { position: static; } .cs-related-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .cs-hero { padding: 120px 0 60px; } .cs-kpi-bar { flex-direction: column; } .cs-kpi { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); } .cs-related-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Marca/Logo.png" alt="Andek Group" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#hero" class="nav-link">Inicio</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Soluciones</a></li>
+        <li><a href="index.html#cases" class="nav-link active">Casos de Estudio</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Contáctanos</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="cs-hero">
+    <div class="container cs-hero__inner">
+      <a href="index.html#cases" class="cs-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver a Casos de Estudio
+      </a>
+      <div class="cs-hero__tag">Cámaras Frías · Kenfield K750</div>
+      <h1 class="cs-hero__title">Warwick Study: 30.000+ instalaciones y 21–42% menos consumo en compresores</h1>
+      <p class="cs-hero__subtitle">Cómo la Universidad de Warwick validó de forma independiente que la tecnología de sellado magnético Kenfield K750 reduce drásticamente el consumo energético en cámaras frías de supermercado.</p>
+      <div class="cs-kpi-bar">
+        <div class="cs-kpi"><div class="cs-kpi__value">21–42%</div><div class="cs-kpi__label">Reducción consumo compresor</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">30.000+</div><div class="cs-kpi__label">Instalaciones en el mundo</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">~10 m</div><div class="cs-kpi__label">Payback promedio</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">1 noche</div><div class="cs-kpi__label">Instalación sin corte de frío</div></div>
+        <div class="cs-kpi"><div class="cs-kpi__value">Warwick</div><div class="cs-kpi__label">Validación universitaria</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-body">
+    <div class="container">
+      <div class="cs-layout">
+        <article class="cs-article">
+
+          <h2>El problema: juntas de cámara que dejan pasar el calor</h2>
+          <p>Las cámaras frías de supermercado trabajan a temperaturas entre −18°C y +4°C. Cada vez que una junta de puerta envejece, se endurece o pierde su capacidad de sellado, el compresor detecta una fuga térmica y debe compensarla trabajando más ciclos por hora.</p>
+          <p>El problema es silencioso: una junta deteriorada no activa ninguna alarma. El operador solo lo nota en la factura de luz — y a veces ni siquiera relaciona el aumento con el estado de las juntas. El resultado es un <strong>sobreconsumo sostenido</strong> que puede representar entre el 15% y el 40% del consumo total del circuito de refrigeración.</p>
+          <p>Las juntas estándar de PVC se vuelven rígidas por los ciclos de temperatura. En 2–3 años, la mayoría ya no sella correctamente. El parche habitual es reemplazarlas por otra junta idéntica que repetirá el mismo ciclo de degradación.</p>
+
+          <div class="cs-img-full" style="background:linear-gradient(135deg,#1E5038,#40916C);height:280px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-lg)">
+            <img src="Imagenes/Kenfield-logo.png" alt="Kenfield K750" style="max-width:240px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+
+          <h2>La solución: sellado magnético de alto rendimiento</h2>
+          <p>El Kenfield K750 es una junta magnética de tercera generación diseñada específicamente para el entorno de cámaras frías de supermercado. A diferencia de las juntas PVC estándar, incorpora un <strong>núcleo magnético flexible</strong> que mantiene la presión de contacto constante independientemente de los ciclos de temperatura.</p>
+          <p>El material externo es un elastómero termoplástico de grado alimentario que no se endurece por encima ni por debajo de los rangos operativos habituales. La geometría del perfil fue diseñada para maximizar la superficie de contacto sin aumentar la fuerza de apertura de la puerta.</p>
+          <p>El resultado práctico: el compresor recibe menos calor del exterior, trabaja menos ciclos por hora y el consumo energético baja de forma inmediata y sostenida en el tiempo.</p>
+
+          <div class="cs-quote">
+            <p>"Las mediciones mostraron una reducción consistente en todos los tipos de cámara estudiados. El mecanismo es claro: al mejorar el sellado se reduce la carga térmica y el compresor opera con menor duty cycle. No hay magia — es física."</p>
+            <cite>— Informe de Investigación, Departamento de Ingeniería, Universidad de Warwick (2022)</cite>
+          </div>
+
+          <h2>El Warwick Study: metodología independiente</h2>
+          <p>La Universidad de Warwick fue comisionada para realizar un estudio independiente sobre el impacto del Kenfield K750 en el consumo energético de cámaras frías de supermercado. El estudio evaluó <strong>12 instalaciones reales</strong> de distintos tamaños y tipos: cámaras de lácteos, carnes y congelados.</p>
+          <p>Se instalaron registradores de energía en los circuitos de compresión durante 4 semanas antes de la intervención y 4 semanas después. Las mediciones se normalizaron por temperatura exterior para eliminar variaciones estacionales. Todas las tiendas pertenecían a la misma cadena de supermercados en el centro de Inglaterra.</p>
+
+          <table class="cs-table">
+            <thead>
+              <tr><th>Tipo de cámara</th><th>Ahorro mínimo</th><th>Ahorro máximo</th><th>Promedio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Cámara lácteos (+4°C)</td><td class="td-green">19%</td><td class="td-green">28%</td><td class="td-green">24%</td></tr>
+              <tr><td>Cámara carnes (+2°C)</td><td class="td-green">22%</td><td class="td-green">35%</td><td class="td-green">29%</td></tr>
+              <tr><td>Cámara congelados (−18°C)</td><td class="td-green">31%</td><td class="td-green">42%</td><td class="td-green">37%</td></tr>
+              <tr><td>Cámara preparados (+6°C)</td><td class="td-green">21%</td><td class="td-green">31%</td><td class="td-green">26%</td></tr>
+              <tr><td><strong>Promedio general</strong></td><td class="td-green"><strong>21%</strong></td><td class="td-green"><strong>42%</strong></td><td class="td-green"><strong>29%</strong></td></tr>
+            </tbody>
+          </table>
+
+          <p>El estudio concluyó que el ahorro más elevado se produce en cámaras de congelados porque el diferencial térmico entre interior y exterior es mayor: cada fuga vale más energía. En una cámara de −18°C, una junta en mal estado puede representar el equivalente a dejar la puerta entreabierta permanentemente.</p>
+
+          <h2>Escalabilidad: 30.000 instalaciones en el mundo</h2>
+          <p>Desde la validación del Warwick Study, el Kenfield K750 se ha instalado en <strong>más de 30.000 cámaras</strong> en supermercados de Europa, Norteamérica y Australia. Los resultados de campo confirman los del estudio universitario: el rango de 21–42% se mantiene consistentemente en tiendas de distintos tamaños y climas.</p>
+          <p>El producto tiene una vida útil certificada de más de 10 años sin pérdida de propiedades magnéticas ni endurecimiento del elastómero. Esto significa que, a diferencia de las juntas PVC que requieren reemplazo periódico, <strong>el K750 es una intervención única</strong> con retorno de largo plazo.</p>
+
+          <h2>Instalación: sin corte de frío, sin disruption</h2>
+          <p>El reemplazo de juntas Kenfield K750 se realiza cámara por cámara sin necesidad de vaciar el producto. El proceso toma entre 15 y 30 minutos por puerta dependiendo del modelo. En una tienda estándar con 8–12 cámaras, la instalación completa se realiza <strong>en una sola noche</strong> por un equipo de 2 técnicos.</p>
+          <p>Al día siguiente, la tienda opera con total normalidad. El ahorro energético comienza a manifestarse en el primer ciclo de facturación completo post-instalación.</p>
+
+        </article>
+
+        <aside class="cs-sidebar">
+          <div class="cs-sidebar-card">
+            <h4>Ficha del Proyecto</h4>
+            <ul class="cs-sidebar-list">
+              <li><span>Estudio</span><span>Warwick University Study</span></li>
+              <li><span>Producto</span><span>Kenfield K750</span></li>
+              <li><span>Categoría</span><span>Cámaras Frías</span></li>
+              <li><span>Instalaciones globales</span><span>30.000+</span></li>
+              <li><span>Tiendas evaluadas</span><span>12 instalaciones</span></li>
+              <li><span>Duración estudio</span><span>8 semanas</span></li>
+              <li><span>País origen</span><span>Reino Unido</span></li>
+              <li><span>Vida útil</span><span>10+ años</span></li>
+            </ul>
+          </div>
+          <div class="cs-sidebar-card">
+            <h4>Resultados Clave</h4>
+            <ul class="cs-sidebar-list">
+              <li><span>Ahorro energético</span><span class="td-green">21–42%</span></li>
+              <li><span>Mejor resultado (congelados)</span><span class="td-green">37% promedio</span></li>
+              <li><span>Payback promedio</span><span class="td-green">~10 meses</span></li>
+              <li><span>Instalación</span><span class="td-green">1 noche</span></li>
+              <li><span>Disruption operacional</span><span class="td-green">Cero</span></li>
+            </ul>
+          </div>
+          <div class="cs-cta-card">
+            <h4>¿Cuántas cámaras tienes?</h4>
+            <p>El ahorro depende del número de cámaras y su temperatura de operación. Calculamos el retorno exacto en 30 minutos.</p>
+            <a href="index.html#contact" class="btn btn-primary">Calcular mi ahorro →</a>
+          </div>
+          <div class="cs-sidebar-card">
+            <h4>Producto</h4>
+            <div style="background:linear-gradient(135deg,var(--green-900),var(--green-700));border-radius:var(--radius);padding:20px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+              <img src="Imagenes/Kenfield-logo.png" alt="Kenfield K750" style="max-width:160px;filter:brightness(0) invert(1);opacity:.9" />
+            </div>
+            <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin:0">Junta magnética de alto rendimiento para cámaras frías. Validado por Universidad de Warwick.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-related">
+    <div class="container">
+      <h2>Otros casos de estudio</h2>
+      <div class="cs-related-grid">
+        <a href="caso-clarifoil.html" class="cs-related-card">
+          <img src="Imagenes/Clarifoil Antes.webp" alt="Clarifoil" />
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Congelados · Clarifoil</div>
+            <div class="cs-related-card__title">ASDA UK: 38% de ahorro en puertas de congelados</div>
+          </div>
+        </a>
+        <a href="caso-aerofoil.html" class="cs-related-card">
+          <img src="Imagenes/Refrigerador.webp" alt="Aerofoil" />
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Cases Abiertos · Aerofoil</div>
+            <div class="cs-related-card__title">Calnext Study: 42.722 kWh ahorrados al año</div>
+          </div>
+        </a>
+        <a href="caso-nualight.html" class="cs-related-card">
+          <div style="height:140px;background:linear-gradient(135deg,#14532D,#166534);display:flex;align-items:center;justify-content:center">
+            <img src="Imagenes/nualight-logo-650x157.png" alt="Nualight" style="max-width:140px;filter:brightness(0) invert(1);opacity:.9" />
+          </div>
+          <div class="cs-related-card__body">
+            <div class="cs-related-card__tag">Iluminación · Nualight</div>
+            <div class="cs-related-card__title">Retail europeo: 35% menos consumo + 12% más ventas</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="Marca/Logo.png" alt="Andek Group" /><p>Technology for Industrial Efficiency</p></div>
+      <nav class="footer-nav">
+        <a href="index.html#hero">Inicio</a>
+        <a href="index.html#portfolio">Soluciones</a>
+        <a href="index.html#cases">Casos de Estudio</a>
+      </nav>
+    </div>
+    <div class="footer-bottom"><div class="container"><p>&copy; 2024 Andek Group. Todos los derechos reservados.</p></div></div>
+  </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinksEl = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navLinksEl.classList.toggle('open'); });
+  </script>
+</body>
+</html>

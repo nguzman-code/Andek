@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="Marca/symbol.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andek Group | Technology for Industrial Efficiency</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#animated-hero" class="nav-logo">
+        <img src="Marca/Logo.png" alt="Andek Solutions" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#animated-hero" class="nav-link" data-section="animated-hero">Inicio</a></li>
+        <li class="nav-dropdown">
+          <a href="#portfolio" class="nav-link nav-link--dropdown" data-section="portfolio">
+            Soluciones <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="nav-submenu">
+            <li><a href="#portfolio" class="nav-submenu__item">Todos los Productos</a></li>
+            <li><a href="solucion-aerofoil.html" class="nav-submenu__item">Aerofoil</a></li>
+            <li><a href="solucion-clarifoil.html" class="nav-submenu__item">Clarifoil</a></li>
+            <li><a href="solucion-kenfield.html" class="nav-submenu__item">Kenfield K750</a></li>
+            <li><a href="solucion-nualight.html" class="nav-submenu__item">Nualight</a></li>
+          </ul>
+        </li>
+        <li><a href="#cases"     class="nav-link" data-section="cases">Casos de Estudio</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      </ul>
+      <div class="nav-indicator" id="navIndicator"></div>
+      <a href="#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
+        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="flow-btn__text">Contáctanos</span>
+        <span class="flow-btn__circle"></span>
+        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ── ANIMATED HERO ── -->
+  <section class="animated-hero" id="animated-hero">
+    <div class="animated-hero__inner">
+
+      <h2 class="animated-hero__heading">
+        <span class="static-line">Hacemos tu operación</span>
+        <span class="animated-hero__word-wrap" aria-live="polite">
+          <span class="animated-hero__word" aria-hidden="true">eficiente</span>
+          <span class="animated-hero__word" aria-hidden="true">sostenible</span>
+          <span class="animated-hero__word" aria-hidden="true">rentable</span>
+          <span class="animated-hero__word" aria-hidden="true">inteligente</span>
+          <span class="animated-hero__word" aria-hidden="true">innovadora</span>
+        </span>
+      </h2>
+
+      <p class="animated-hero__desc">
+        Reducir el consumo energético de tu cadena no es suerte, es tecnología correcta, bien implementada.
+        En Andek traemos soluciones probadas de Europa y EE.UU. para que tus locales ahorren hasta un 20% en su factura energética.
+        Sin experimentos. Con respaldo.
+      </p>
+
+      <div class="animated-hero__actions">
+        <a href="#contact" class="flow-btn">
+          <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span class="flow-btn__text">Contáctanos</span>
+          <span class="flow-btn__circle"></span>
+          <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#portfolio" class="flow-btn">
+          <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span class="flow-btn__text">Ver soluciones</span>
+          <span class="flow-btn__circle"></span>
+          <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SOLUCIONES ── -->
+  <section class="sol-section" id="portfolio">
+
+    <!-- Hero -->
+    <div class="sol-hero">
+      <div class="sol-inner">
+        <div class="sol-hero__left">
+          <p class="sol-eyebrow sol-eyebrow--accent">Soluciones · 5 marcas aliadas</p>
+          <h1 class="sol-hero__title">
+            Para cada desafío energético,<br>
+            tenemos a <em>la marca correcta</em> al lado.
+          </h1>
+        </div>
+        <div class="sol-hero__right">
+          <div class="hero-visual">
+            <div class="spin-ring">
+              <div class="spin-orbit">
+                <div class="spin-icon" style="--i:0;--total:5">
+                  <img src="Imagenes/aerofoil-energy-logo-650x137.png" alt="Aerofoil Energy" />
+                </div>
+                <div class="spin-icon" style="--i:1;--total:5">
+                  <img src="Imagenes/nualight-logo-650x157.png" alt="Nualight" />
+                </div>
+                <div class="spin-icon" style="--i:2;--total:5">
+                  <img src="Imagenes/Kenfield-logo.png" alt="Kenfield" />
+                </div>
+                <div class="spin-icon" style="--i:3;--total:5">
+                  <img src="Imagenes/Clarifoil-brand-logo.png" alt="Clarifoil" />
+                </div>
+                <div class="spin-icon" style="--i:4;--total:5">
+                  <img src="Imagenes/Guardian-Controls-logo.png" alt="Guardian Controls" />
+                </div>
+              </div>
+              <div class="spin-center">
+                <img src="Marca/symbol.png" alt="Andek Group" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem Picker -->
+    <div class="sol-picker">
+      <div class="sol-inner">
+        <p class="sol-eyebrow">Explora nuestras marcas</p>
+        <div class="sol-tabs" id="solTabs" role="tablist"></div>
+      </div>
+    </div>
+
+    <!-- Problem Detail -->
+    <div class="sol-detail">
+      <div class="sol-inner">
+        <div class="sol-detail__grid" id="solDetailGrid"></div>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var BRANDS = {
+        aerofoil: {
+          id: 'aerofoil', name: 'Aerofoil Energy', color: '#1F3A5F',
+          bg: 'Imagenes/aerofoil1.jpg',
+          tagline: 'Aerodinámica aplicada al frío comercial',
+          description: 'Reduce la pérdida de aire frío en góndolas abiertas mediante deflectores aerodinámicos desarrollados junto a ingenieros de Fórmula 1. Sin obras, sin cerrar los casos, sin afectar la experiencia de compra.',
+          benefit: 'Reduce el consumo eléctrico del equipo de refrigeración hasta un 25% con un payback de 7 a 17 meses, validado por CalNEXT y operadores como Walmart, Tesco y Sainsbury\'s.',
+          solutions: {
+            'shelf-edge': { name: 'Shelf-Edge Aerofoil', short: 'Deflector aerodinámico para góndolas refrigeradas abiertas. Fortalece la cortina de aire y reduce la infiltración de calor hacia el interior del caso.', impact: '-25% consumo energético', link: 'solucion-aerofoil.html' },
+            'night-blinds': { name: 'Night Blinds', short: 'Cortinas nocturnas automáticas para vitrinas refrigeradas. Eliminan pérdidas térmicas fuera del horario de atención sin intervención manual.', impact: '-40% pérdida térmica', link: 'solucion-aerofoil.html' }
+          }
+        },
+        nualight: {
+          id: 'nualight', name: 'Nualight', color: '#2D6B52', bg: 'Imagenes/nualight.png',
+          tagline: 'Iluminación LED de alto rendimiento para casos refrigerados',
+          description: 'Soluciones de iluminación LED diseñadas específicamente para la refrigeración comercial. Fundada en Irlanda con más de 20 años en el mercado, Nualight mejora la presentación del producto, reduce el consumo eléctrico y maximiza la vida útil de los equipos en supermercados de todo el mundo.',
+          benefit: 'Hasta 165 lm/W de eficacia luminosa con una vida útil de 100,000 horas. Más luz, menos consumo, menos mantención — con opciones de temperatura de color optimizadas por categoría de producto.',
+          solutions: {
+            'ion-cases': { name: 'ION: Casos abiertos y cerrados', short: 'LED de alta eficacia con CRI superior para vitrinas refrigeradas verticales y horizontales. Diseñado para entornos de chiller y freezer con clasificación IP hasta IP67.', impact: '165 lm/W de eficacia', link: 'solucion-nualight.html' },
+            'red-tone': { name: 'Red-Tone: Frescos y carnes', short: 'Temperatura de color especialmente diseñada para minimizar la decoloración de carnes y realzar la apariencia de productos frescos, mejorando la percepción de calidad del cliente.', impact: '+ventas en frescos', link: 'solucion-nualight.html' }
+          }
+        },
+        kenfield: {
+          id: 'kenfield', name: 'Kenfield', color: '#374151', bg: 'Imagenes/kenfield marca.jpg',
+          tagline: 'Puertas de eficiencia energética para cámaras frías',
+          description: 'La K750 reemplaza las cortinas de tiras PVC en cámaras frías de walk-in, eliminando la pérdida de temperatura y el ingreso de aire caliente. Con más de 30,000 instalaciones en supermercados de UK y Europa, es la solución probada para reducir consumo de refrigeración sin comprometer la operación del personal.',
+          benefit: 'Reduce hasta un 42% el consumo del compresor versus cortinas de tiras, según estudio de la Universidad de Warwick (2024). Sin trampa de dedos, instalación simple, compatible con pasillos estrechos.',
+          solutions: {
+            'k750': { name: 'K750 Energy Door', short: 'Puerta flexible de alta eficiencia térmica para cámaras frías de temperatura media y baja. Liviana, resistente a la abrasión, sin marco externo. Especificada por ASDA, Sainsbury\'s, M&S, Aldi, Lidl y Morrisons.', impact: '-42% consumo del compresor', img: 'Imagenes/kenfield marca.jpg', link: 'solucion-kenfield.html' },
+            'instalacion': { name: 'Instalación sin fricciones', short: 'Diseño fit and forget: instalación rápida con soporte opcional incluido, sin obras mayores. El personal entra y sale libremente sin comprometer la barrera térmica.', impact: 'Sin downtime operacional', link: 'solucion-kenfield.html' }
+          }
+        },
+        clarifoil: {
+          id: 'clarifoil', name: 'Clarifoil', color: '#1A3A5C', bg: 'Imagenes/Clarifoil.jpg',
+          tagline: 'Film antiempañante para puertas de congelados',
+          description: 'Clarifoil es un film de acetato de celulosa que se aplica por dentro de las puertas de congelados, eliminando la condensación sin necesidad de calefactores eléctricos. Fabricado a partir de pulpa de madera renovable, con más de 150,000 puertas instaladas en supermercados de UK, Europa y Norteamérica — incluyendo ASDA, Henderson Group y Eurospar.',
+          benefit: 'Permite reducir el consumo de los trim heaters hasta un 75%, ahorrando hasta 5 kWh por puerta por día. En una tienda con 100 puertas, eso equivale a más de $15,000 USD anuales en costos de energía. Instalación nocturna sin interrupción de ventas.',
+          solutions: {
+            'cf-visibilidad': { name: 'Visibilidad permanente del producto', short: 'Elimina el empañamiento incluso en períodos de alta humedad y con puertas de alta frecuencia de apertura. Los clientes ven el producto claramente en todo momento, mejorando la tasa de conversión en el pasillo de congelados.', impact: '31–51% ahorro energético por puerta', link: 'solucion-clarifoil.html' },
+            'cf-instalacion': { name: 'Instalación overnight, sin downtime', short: 'Los equipos instalan 50–60 puertas por noche trabajando en grupos de 10, sin cerrar la tienda ni afectar el reabastecimiento. El film dura la vida útil de la puerta y no amarillea ni se agrieta.', impact: '+1,000 kWh ahorrados por puerta/año', img: 'Imagenes/Clarifoil 2.jpg', link: 'solucion-clarifoil.html' }
+          }
+        },
+        guardian: {
+          id: 'guardian', name: 'Guardian Controls', color: '#4A3F6B', bg: 'Imagenes/guardian.jpg',
+          tagline: 'Control inteligente del ciclo de refrigeración',
+          description: 'Guardian Controls diseña y fabrica sistemas de control y monitoreo para la refrigeración comercial desde hace más de 30 años. Sus soluciones optimizan el ciclo completo de refrigeración en supermercados — desde los casos de exhibición hasta los compresores y cámaras frías — con una arquitectura modular que se adapta a tiendas de conveniencia o grandes superficies.',
+          benefit: 'Reducción directa e indirecta del consumo energético del sistema de refrigeración completo, con monitoreo en tiempo real y optimización continua. Compatible con retrofit en tiendas existentes sin necesidad de reemplazar equipos.',
+          solutions: {
+            'e636': { name: 'E636 / E515: Control de casos', short: 'Controladores de refrigeración para casos individuales con control preciso de superheat, temperatura, iluminación y desescarche. Comunicación vía Ethernet TCP/IP y Modbus. Instalables en cualquier formato de tienda.', impact: 'Optimización continua por caso', link: '#contact' },
+            'fan-speed': { name: 'Fan Speed Optimiser', short: 'Reduce el consumo directo e indirecto de los motores de ventiladores evaporadores en cámaras frías y de congelados. Finalista en Refrigeration Product of the Year (ACR Awards 2015). Ideal para retrofit.', impact: 'Ahorro en consumo de compresores', link: '#contact' }
+          }
+        }
+      };
+
+      var BRAND_ORDER = ['aerofoil', 'nualight', 'kenfield', 'clarifoil', 'guardian'];
+
+      function initials(name) {
+        return name.split(' ').slice(0, 2).map(function(w) { return w[0]; }).join('').toUpperCase();
+      }
+
+      function wordmark(brand, size, muted) {
+        size = size || 14;
+        var sq = Math.round(size * 1.6);
+        var nameColor = muted ? '#6B7280' : '#1a2419';
+        return '<div style="display:flex;align-items:center;gap:' + Math.round(size * 0.55) + 'px">'
+          + '<div style="width:' + sq + 'px;height:' + sq + 'px;border-radius:3px;background:' + brand.color + ';display:flex;align-items:center;justify-content:center;flex-shrink:0">'
+          + '<span style="color:#fff;font-size:' + Math.round(size * 0.58) + 'px;font-weight:700;letter-spacing:0.02em">' + initials(brand.name) + '</span>'
+          + '</div>'
+          + '<span style="font-size:' + size + 'px;font-weight:600;letter-spacing:-0.01em;color:' + nameColor + '">' + brand.name + '</span>'
+          + '</div>';
+      }
+
+      // Marquee
+      var marqueeEl = document.getElementById('solMarquee');
+      if (marqueeEl) {
+        var triple = BRAND_ORDER.concat(BRAND_ORDER).concat(BRAND_ORDER);
+        marqueeEl.innerHTML = triple.map(function(bid) {
+          return '<div style="flex-shrink:0">' + wordmark(BRANDS[bid], 15, true) + '</div>';
+        }).join('');
+      }
+
+      // Tabs + Detail
+      var tabsEl = document.getElementById('solTabs');
+      var detailEl = document.getElementById('solDetailGrid');
+      var activeId = BRAND_ORDER[0];
+
+      function renderTabs() {
+        tabsEl.innerHTML = BRAND_ORDER.map(function(bid) {
+          var brand = BRANDS[bid];
+          var a = bid === activeId;
+          return '<button class="sol-tab' + (a ? ' sol-tab--active' : '') + '" data-id="' + bid + '" role="tab" aria-selected="' + a + '">' + brand.name + '</button>';
+        }).join('');
+      }
+
+      function renderDetail() {
+        var brand = BRANDS[activeId];
+        var idx = BRAND_ORDER.indexOf(activeId);
+        var counter = String(idx + 1).padStart(2, '0') + ' / ' + String(BRAND_ORDER.length).padStart(2, '0');
+        var hasBg = !!brand.bg;
+
+        var detailSection = detailEl.parentElement.parentElement;
+        if (hasBg) {
+          detailSection.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url("' + brand.bg + '")';
+          detailSection.style.backgroundSize = 'cover';
+          detailSection.style.backgroundPosition = 'center';
+        } else {
+          detailSection.style.backgroundImage = '';
+          detailSection.style.backgroundSize = '';
+          detailSection.style.backgroundPosition = '';
+        }
+
+        var tc         = hasBg ? '#fff'                    : '#374151';
+        var mc         = hasBg ? 'rgba(255,255,255,0.65)'  : '#6B7280';
+        var benefitBg  = hasBg ? 'rgba(255,255,255,0.12)'  : '#f3f4f0';
+        var benefitTc  = hasBg ? 'rgba(255,255,255,0.9)'   : '#374151';
+        var benefitStr = hasBg ? '#fff'                    : brand.color;
+
+        var solKeys = Object.keys(brand.solutions);
+        var cardsHtml = solKeys.map(function(sid) {
+          var sol = brand.solutions[sid];
+          return '<a href="' + sol.link + '" class="sol-card">'
+            + '<div><div class="sol-card__title">' + sol.name + '</div>'
+            + '<div class="sol-card__desc">' + sol.short + '</div></div>'
+            + (sol.img ? '<div style="margin:12px 0;border-radius:4px;overflow:hidden"><img src="' + sol.img + '" alt="" style="width:100%;height:120px;object-fit:cover;display:block"></div>' : '')
+            + '<div class="sol-card__footer">'
+            + '<span class="sol-card__impact">' + sol.impact + '</span>'
+            + '<span class="sol-card__arrow">→</span>'
+            + '</div></a>';
+        }).join('');
+
+        var benefitHtml = '<div style="margin-top:16px;padding:14px 16px;background:' + benefitBg + ';border-radius:3px;border-left:3px solid ' + brand.color + '">'
+          + '<p style="font-size:13px;color:' + benefitTc + ';margin:0;line-height:1.55"><strong style="color:' + benefitStr + '">Beneficio para el cliente:</strong> ' + brand.benefit + '</p>'
+          + '</div>';
+
+        detailEl.innerHTML = '<div class="sol-detail__left">'
+          + '<div class="sol-detail__counter" style="color:' + mc + '">' + counter + '</div>'
+          + '<h3 class="sol-detail__h3" style="color:' + tc + '">' + brand.name + '</h3>'
+          + '<p style="font-size:13px;font-weight:600;color:' + mc + ';margin:0 0 10px;letter-spacing:0.02em;text-transform:uppercase">' + brand.tagline + '</p>'
+          + '<p class="sol-detail__summary" style="color:' + tc + '">' + brand.description + '</p>'
+          + benefitHtml
+          + '<a href="#contact" class="sol-detail__cta' + (hasBg ? ' sol-detail__cta--on-dark' : '') + '" style="margin-top:20px">Solicitar evaluación en sitio →</a>'
+          + '</div>'
+          + '<div class="sol-cards">' + cardsHtml + '</div>';
+      }
+
+      renderTabs();
+      renderDetail();
+
+      tabsEl.addEventListener('click', function(e) {
+        var btn = e.target.closest('.sol-tab');
+        if (!btn) return;
+        activeId = btn.dataset.id;
+        renderTabs();
+        renderDetail();
+      });
+    })();
+    </script>
+
+  </section>
+
+
+  <!-- ── NUESTROS CLIENTES ── -->
+  <section class="clients-section" id="clientes">
+    <div class="clients-header">
+      <h2>Confianza respaldada por las mejores cadenas del mundo</h2>
+      <p>Empresas líderes en retail y distribución ya operan con nuestras soluciones.</p>
+    </div>
+    <div class="clients-marquee-wrap">
+      <div class="clients-marquee">
+        <div class="clients-track" id="clientsTrack"></div>
+      </div>
+      <div class="clients-fade clients-fade--left"></div>
+      <div class="clients-fade clients-fade--right"></div>
+    </div>
+  </section>
+
+  <script>
+  (function() {
+    var CLIENTS = [
+      { name: 'Walmart',          src: 'Imagenes/walmart.png' },
+      { name: 'Kroger',           src: 'Imagenes/kroger.png' },
+      { name: "Sam's Club",       src: 'Imagenes/sams club.png' },
+      { name: 'Harris Teeter',    src: 'Imagenes/harris teeter.png' },
+      { name: 'The Fresh Market', src: 'Imagenes/the fresh market logo.png' },
+      { name: "Sainsbury's",      src: 'Imagenes/sainsbury.png' },
+      { name: 'DLH',              src: 'Imagenes/DLH-Black-Transparent-Logo-e1721747961373.png' },
+      { name: 'MPH Global',       src: 'Imagenes/mph-global-logo.png' },
+    ];
+    var track = document.getElementById('clientsTrack');
+    if (!track) return;
+    var set = CLIENTS.concat(CLIENTS).concat(CLIENTS);
+    track.innerHTML = set.map(function(c) {
+      return '<div class="clients-item"><img src="' + c.src + '" alt="' + c.name + '" /></div>';
+    }).join('');
+  })();
+  </script>
+
+
+  <!-- ── CASOS DE ESTUDIO ── -->
+  <section class="section section-alt" id="cases">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill pill-dark">Casos de Estudio</span>
+        <h2>Resultados reales, en terreno.</h2>
+        <p>Estudios independientes y pilotos validados en cadenas reales que respaldan el impacto de nuestras soluciones.</p>
+      </div>
+
+      <div class="cases-grid">
+
+        <!-- Caso 1: Aerofoil Energy — CalNEXT Field Assessment -->
+        <article class="case-card">
+          <div class="case-card__img-wrap">
+            <img src="Imagenes/aerofoil2.jpg" alt="Deflectores aerodinámicos en góndola refrigerada" class="case-card__img" />
+          </div>
+          <div class="case-card__top">
+            <span class="case-tag case-tag--aerofoil">Aerofoil Energy</span>
+            <p class="case-source">CalNEXT Field Assessment · California, EE.UU.</p>
+            <h3 class="case-title">Góndolas refrigeradas abiertas en supermercados</h3>
+            <p class="case-desc">CalNEXT instaló deflectores aerodinámicos en 4 cadenas de supermercados de California midiendo su impacto en consumo del compresor. El ahorro promedio fue de 482 kWh por metro lineal instalado al año, con payback en menos de 17 meses.</p>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <span class="case-metric__val">9–14%</span>
+              <span class="case-metric__lbl">Ahorro en consumo del compresor</span>
+            </div>
+            <div class="case-metric">
+              <span class="case-metric__val">482 kWh</span>
+              <span class="case-metric__lbl">Por metro lineal instalado / año</span>
+            </div>
+            <div class="case-metric">
+              <span class="case-metric__val">7–17 meses</span>
+              <span class="case-metric__lbl">Payback simple</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Caso 2: Aerofoil Energy — MPH Global Piloto -->
+        <article class="case-card">
+          <div class="case-card__img-wrap">
+            <img src="Imagenes/aerofoil1.jpg" alt="Instalación de aerofoils en supermercado" class="case-card__img" />
+          </div>
+          <div class="case-card__top">
+            <span class="case-tag case-tag--aerofoil">Aerofoil Energy</span>
+            <p class="case-source">MPH Global · Piloto 10 Tiendas · EE.UU. 2024</p>
+            <h3 class="case-title">Piloto en 10 tiendas · +2,000 unidades instaladas</h3>
+            <p class="case-desc">MPH Global instaló más de 2,000 aerofoils en 10 tiendas a lo largo de distintas zonas climáticas de EE.UU. La temperatura del producto y la carga de calor mejoraron en todos los sitios, validado con imágenes térmicas.</p>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <span class="case-metric__val">−0.93°C</span>
+              <span class="case-metric__lbl">Reducción en temp. del producto</span>
+            </div>
+            <div class="case-metric">
+              <span class="case-metric__val">−1.16°C</span>
+              <span class="case-metric__lbl">Reducción en carga de calor</span>
+            </div>
+            <div class="case-metric">
+              <span class="case-metric__val">10 tiendas</span>
+              <span class="case-metric__lbl">Múltiples zonas climáticas EE.UU.</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Caso 3: Kenfield K750 — Universidad de Warwick -->
+        <article class="case-card">
+          <div class="case-card__img-wrap">
+            <img src="Imagenes/kenfield 1.JPEG" alt="Puerta Kenfield K750 en cámara fría" class="case-card__img" style="object-position: center 20%;" />
+          </div>
+          <div class="case-card__top">
+            <span class="case-tag case-tag--kenfield">Kenfield K750</span>
+            <p class="case-source">Universidad de Warwick · Coventry, UK · 2024</p>
+            <h3 class="case-title">Laboratorio controlado: K750 vs. cortinas de tiras PVC</h3>
+            <p class="case-desc">La Universidad de Warwick comparó la puerta K750 contra cortinas de tiras PVC en condiciones de laboratorio representativas de supermercados reales, midiendo consumo del compresor y temperatura en 3 escenarios distintos.</p>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <span class="case-metric__val">21–42%</span>
+              <span class="case-metric__lbl">Ahorro vs. PVC · Temp. media</span>
+            </div>
+            <div class="case-metric">
+              <span class="case-metric__val">13–17%</span>
+              <span class="case-metric__lbl">Ahorro vs. PVC · Temp. baja</span>
+            </div>
+            <div class="case-metric">
+              <span class="case-metric__val">−17–19°C</span>
+              <span class="case-metric__lbl">Temp. pico con puerta abierta</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-left">
+          <span class="pill pill-dark">Contacto</span>
+          <h2>Hablemos de<br />tu proyecto</h2>
+          <p>¿Tienes un desafío industrial que resolver? Nuestro equipo está listo para diseñar una solución a la medida de tu operación.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.18 2 2 0 012.49-.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.59 7.77a16 16 0 006.29 6.29l1.16-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Teléfono</strong>
+                <span>+56 9 6919 3071</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <span>contacto@andek.cl</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Ubicación</strong>
+                <span>Santiago, Chile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre <span>*</span></label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" />
+                <span class="ferr" id="nombreErr"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email <span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="tu@empresa.com" />
+                <span class="ferr" id="emailErr"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
+            </div>
+            <div class="form-group">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio">
+                <option value="">Selecciona una opción</option>
+                <option value="iot">Control Industrial IoT</option>
+                <option value="energia">Eficiencia Energética</option>
+                <option value="bi">Business Intelligence</option>
+                <option value="seguridad">Ciberseguridad OT</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje <span>*</span></label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto o necesidad…"></textarea>
+              <span class="ferr" id="mensajeErr"></span>
+            </div>
+            <button type="submit" class="flow-btn flow-btn--dark flow-btn--full" id="submitBtn">
+              <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <span class="flow-btn__text">
+                <span class="btn-text">Enviar mensaje</span>
+                <span class="btn-loader" style="display:none">
+                  <svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                  </svg>
+                  Enviando…
+                </span>
+              </span>
+              <span class="flow-btn__circle"></span>
+              <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+          <div class="form-success" id="formSuccess" style="display:none">
+            <div class="success-check">✓</div>
+            <h3>¡Mensaje enviado!</h3>
+            <p>Gracias por contactarnos. Te responderemos en menos de 24 horas.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="Marca/Logo.png" alt="Andek Group" />
+        <p>Technology for Industrial Efficiency</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#hero">Inicio</a>
+        <a href="#portfolio">Soluciones</a>
+        <a href="nosotros.html">Nosotros</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2024 Andek Group. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Delay dropdown close so user has time to move mouse into submenu
+    (function() {
+      const dropdown = document.querySelector('.nav-dropdown');
+      if (!dropdown) return;
+      let closeTimer = null;
+      const DELAY = 350; // ms before closing
+
+      function openMenu() {
+        clearTimeout(closeTimer);
+        dropdown.classList.add('submenu-open');
+      }
+      function scheduleClose() {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => dropdown.classList.remove('submenu-open'), DELAY);
+      }
+
+      dropdown.addEventListener('mouseenter', openMenu);
+      dropdown.addEventListener('mouseleave', scheduleClose);
+    })();
+  </script>
+</body>
+</html>
