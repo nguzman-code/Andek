@@ -1,43 +1,24 @@
-/**
- * Andek Group — Contact Form Backend
- * Express + Nodemailer
- *
- * Start:  node server.js
- * Config: copy .env.example → .env and fill in your credentials
- */
-
 require('dotenv').config();
-const path       = require('path');
-const express    = require('express');
 const nodemailer = require('nodemailer');
-const cors       = require('cors');
 
-const app  = express();
-const PORT = process.env.PORT || 3001;
+const serviceLabels = {
+  iot:       'Control Industrial IoT',
+  energia:   'Eficiencia Energética',
+  bi:        'Business Intelligence',
+  seguridad: 'Ciberseguridad OT',
+  otro:      'Otro',
+};
 
-/* ── Middleware ── */
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN || '*' }));
-app.use(express.json());
-app.use(express.static(__dirname));    // Serve index.html + assets
+module.exports = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-/* ── Mail transporter ── */
-const transporter = nodemailer.createTransport({
-  host:   process.env.SMTP_HOST   || 'smtp.gmail.com',
-  port:   Number(process.env.SMTP_PORT) || 587,
-  secure: process.env.SMTP_SECURE === 'true',
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
-
-
-/* ── POST /api/contact ── */
-app.post('/api/contact', async (req, res) => {
   const { nombre, email, empresa, servicio, mensaje } = req.body;
 
-  // Basic server-side validation
   if (!nombre?.trim() || !email?.trim() || !mensaje?.trim()) {
     return res.status(400).json({ error: 'Campos requeridos faltantes.' });
   }
@@ -47,13 +28,15 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: 'Email inválido.' });
   }
 
-  const serviceLabels = {
-    iot:       'Control Industrial IoT',
-    energia:   'Eficiencia Energética',
-    bi:        'Business Intelligence',
-    seguridad: 'Ciberseguridad OT',
-    otro:      'Otro',
-  };
+  const transporter = nodemailer.createTransport({
+    host:   process.env.SMTP_HOST   || 'smtp.gmail.com',
+    port:   Number(process.env.SMTP_PORT) || 587,
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
 
   const mailToTeam = {
     from:    `"Andek Group Web" <${process.env.SMTP_USER}>`,
@@ -117,14 +100,4 @@ app.post('/api/contact', async (req, res) => {
     console.error('Mail error:', err.message);
     res.status(500).json({ error: 'Error al enviar el correo. Intenta nuevamente.' });
   }
-});
-
-
-/* ── Start (local only — Vercel imports the app directly) ── */
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`\n✓ Andek Group server running → http://localhost:${PORT}\n`);
-  });
-}
-
-module.exports = app;
+};
