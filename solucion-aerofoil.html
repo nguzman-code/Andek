@@ -85,11 +85,12 @@
 
     /* Testimonials */
     .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
-    .testimonial-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; gap: 16px; }
-    .testimonial-card__quote { font-size: .9375rem; color: var(--gray); font-style: italic; line-height: 1.7; }
+    .testimonial-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; }
+    .testimonial-card__quote { font-size: .9375rem; color: var(--gray); font-style: italic; line-height: 1.7; margin-bottom: 0; }
     .testimonial-card__quote::before { content: '\201C'; }
     .testimonial-card__quote::after { content: '\201D'; }
-    .testimonial-card__divider { height: 1px; background: var(--gray-light); margin-top: auto; }
+    .testimonial-card__footer { margin-top: auto; padding-top: 20px; }
+    .testimonial-card__divider { height: 1px; background: var(--gray-light); margin-bottom: 14px; }
     .testimonial-card__author-name { font-size: .875rem; font-weight: 700; color: var(--dark); display: block; margin-bottom: 2px; }
     .testimonial-card__author-role { font-size: .8125rem; color: var(--gray); display: block; }
 
@@ -365,24 +366,24 @@
           <div class="testimonial-grid">
             <div class="testimonial-card">
               <p class="testimonial-card__quote">Desde que instalamos Aerofoils, hemos reducido en un 15% la energía generada por los frigoríficos de toda nuestra zona.</p>
-              <div class="testimonial-card__divider"></div>
-              <div>
+              <div class="testimonial-card__footer">
+                <div class="testimonial-card__divider"></div>
                 <span class="testimonial-card__author-name">Dave Merefield</span>
                 <span class="testimonial-card__author-role">Carbon Utilities &amp; Engineering Manager, Sainsbury's</span>
               </div>
             </div>
             <div class="testimonial-card">
               <p class="testimonial-card__quote">Elegimos Aerofoils tras realizar pruebas independientes en laboratorio y en tienda, que demostraron que la tecnología aportaba un beneficio energético con un diseño robusto.</p>
-              <div class="testimonial-card__divider"></div>
-              <div>
+              <div class="testimonial-card__footer">
+                <div class="testimonial-card__divider"></div>
                 <span class="testimonial-card__author-name">Steven Rigby</span>
                 <span class="testimonial-card__author-role">Director de Propiedad, Tesco</span>
               </div>
             </div>
             <div class="testimonial-card">
               <p class="testimonial-card__quote">El despliegue de Aerofoils nos ayudará significativamente a reducir nuestro consumo de energía, además de mejorar la experiencia de compra de nuestros clientes.</p>
-              <div class="testimonial-card__divider"></div>
-              <div>
+              <div class="testimonial-card__footer">
+                <div class="testimonial-card__divider"></div>
                 <span class="testimonial-card__author-name">Brian Churchyard</span>
                 <span class="testimonial-card__author-role">Director de Normas de Diseño, ASDA-Walmart</span>
               </div>
