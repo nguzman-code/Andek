@@ -98,6 +98,23 @@
     .sidebar-study-link { font-size: .875rem; font-weight: 600; color: var(--green-700); text-decoration: none; }
     .sidebar-study-link:hover { color: var(--green-900); }
 
+    /* ── PRODUCT GALLERY ── */
+    .kf-gallery { padding: 80px 0; }
+    .kf-gallery__head { margin-bottom: 36px; }
+    .kf-gallery__head h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .kf-gallery__head p { font-size: 1rem; color: var(--gray); line-height: 1.7; }
+    .kf-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .kf-gallery-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); display: flex; flex-direction: column; }
+    .kf-gallery-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .kf-gallery-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .kf-gallery-card__placeholder { width: 100%; aspect-ratio: 4/3; background: var(--green-900); display: flex; align-items: center; justify-content: center; }
+    .kf-gallery-card__placeholder img { max-width: 130px; filter: brightness(0) invert(1); opacity: .55; }
+    .kf-gallery-card__body { padding: 18px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .kf-gallery-card__label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--green-700); }
+    .kf-gallery-card__title { font-size: 1rem; font-weight: 700; color: var(--dark); }
+    .kf-gallery-card__sub { font-size: .8125rem; color: var(--gray); line-height: 1.5; }
+    .kf-gallery-card__cta { font-size: .875rem; font-weight: 600; color: var(--green-700); margin-top: auto; padding-top: 12px; }
+
     /* ── COMPARISON TABLE SECTION ── */
     .kf-compare { padding: 80px 0; background: var(--bg-alt); }
     .kf-compare h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 32px; }
@@ -138,15 +155,18 @@
       .prod-sidebar { position: static; }
       .why-grid { grid-template-columns: 1fr 1fr; }
       .prod-others-grid { grid-template-columns: 1fr 1fr; }
+      .kf-gallery-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .prod-hero { padding: 120px 0 60px; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
       .prod-others-grid { grid-template-columns: 1fr; }
+      .kf-gallery-grid { grid-template-columns: 1fr; }
       .prod-cta-final { padding: 60px 0; }
       .prod-body { padding: 60px 0; }
       .kf-compare { padding: 60px 0; }
+      .kf-gallery { padding: 60px 0; }
     }
   </style>
 </head>
@@ -358,6 +378,65 @@
             <a href="caso-kenfield.html" class="sidebar-study-link">Leer el caso completo →</a>
           </div>
         </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERÍA DE PRODUCTOS ── -->
+  <section class="kf-gallery">
+    <div class="container">
+      <div class="kf-gallery__head">
+        <h2>Conoce el portafolio</h2>
+        <p>Cuatro puertas diseñadas para distintos puntos de la tienda. Hacé clic en cada una para ver la ficha técnica completa.</p>
+      </div>
+      <div class="kf-gallery-grid">
+
+        <!-- K750 — imagen: kenfield marca.jpg -->
+        <a href="kenfield-k750.html" class="kf-gallery-card">
+          <img src="Imagenes/kenfield marca.jpg" alt="Kenfield K750 — puerta aislada para cámaras frías" class="kf-gallery-card__img" />
+          <div class="kf-gallery-card__body">
+            <div class="kf-gallery-card__label">CÁMARAS FRÍAS</div>
+            <div class="kf-gallery-card__title">Kenfield K750</div>
+            <div class="kf-gallery-card__sub">Puerta aislada para walk-in</div>
+            <div class="kf-gallery-card__cta">Ver ficha →</div>
+          </div>
+        </a>
+
+        <!-- K2 — imagen: kenfield doble.jpg (enfocada lado izquierdo / cortina) -->
+        <a href="kenfield-k2.html" class="kf-gallery-card">
+          <img src="Imagenes/kenfield doble.jpg" alt="Kenfield K2 — cortina aislada de alto rendimiento" class="kf-gallery-card__img" style="object-position: left center;" />
+          <div class="kf-gallery-card__body">
+            <div class="kf-gallery-card__label">CORTINAS AISLADAS</div>
+            <div class="kf-gallery-card__title">Kenfield K2</div>
+            <div class="kf-gallery-card__sub">Cortina aislada de alto rendimiento</div>
+            <div class="kf-gallery-card__cta">Ver ficha →</div>
+          </div>
+        </a>
+
+        <!-- K150 — imagen: kenfield 1.JPEG (puertas de impacto con paneles de visión) -->
+        <a href="kenfield-k150.html" class="kf-gallery-card">
+          <img src="Imagenes/kenfield 1.JPEG" alt="Kenfield K150 — puerta de impacto en polietileno" class="kf-gallery-card__img" />
+          <div class="kf-gallery-card__body">
+            <div class="kf-gallery-card__label">ALTO TRÁFICO</div>
+            <div class="kf-gallery-card__title">Kenfield K150</div>
+            <div class="kf-gallery-card__sub">Puerta de impacto polietileno</div>
+            <div class="kf-gallery-card__cta">Ver ficha →</div>
+          </div>
+        </a>
+
+        <!-- K550 — PLACEHOLDER: subir imagen específica del K550 (GRP/polietileno premium) -->
+        <a href="kenfield-k550.html" class="kf-gallery-card">
+          <div class="kf-gallery-card__placeholder">
+            <img src="Imagenes/Kenfield-logo.png" alt="Kenfield K550" />
+          </div>
+          <div class="kf-gallery-card__body">
+            <div class="kf-gallery-card__label">ALTO TRÁFICO PREMIUM</div>
+            <div class="kf-gallery-card__title">Kenfield K550</div>
+            <div class="kf-gallery-card__sub">Puerta de impacto con terminación premium</div>
+            <div class="kf-gallery-card__cta">Ver ficha →</div>
+          </div>
+        </a>
 
       </div>
     </div>
