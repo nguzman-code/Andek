@@ -4,70 +4,121 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="Marca/symbol.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenfield K750 — Juntas Magnéticas para Cámaras Frías | Andek Group</title>
+  <title>Kenfield — Puertas Especializadas para Retail y Cámaras Frías | Andek Group</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
+    html { scroll-behavior: smooth; }
+
+    /* ── HERO ── */
     .prod-hero { background: var(--green-900); padding: 140px 0 80px; position: relative; overflow: hidden; }
     .prod-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
     .prod-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
-    .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; margin-bottom: 28px; transition: color var(--transition); }
+    .prod-hero__topbar { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; transition: color var(--transition); }
     .prod-back:hover { color: #fff; }
     .prod-back svg { width: 16px; height: 16px; }
-    .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
+    .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; }
     .prod-hero__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; letter-spacing: -.02em; }
     .prod-hero__sub { font-size: 1.125rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; }
-    .prod-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .prod-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     .prod-hero__visual { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); padding: 40px; display: flex; flex-direction: column; gap: 20px; }
     .prod-hero__logo { display: flex; align-items: center; justify-content: center; padding: 24px; }
     .prod-hero__logo img { max-width: 220px; filter: brightness(0) invert(1); opacity: .9; }
     .prod-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .prod-stat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 16px; }
-    .prod-stat__val { font-size: 1.5rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 4px; }
-    .prod-stat__lbl { font-size: .75rem; color: rgba(255,255,255,.5); font-weight: 500; }
+    .prod-stat__val { font-size: 1.4rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 4px; }
+    .prod-stat__lbl { font-size: .7rem; color: rgba(255,255,255,.5); font-weight: 500; line-height: 1.35; }
+    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .9375rem; font-weight: 600; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35); cursor: pointer; transition: all var(--transition); white-space: nowrap; text-decoration: none; }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,.75); background: rgba(255,255,255,.06); }
+
+    /* ── BODY LAYOUT ── */
     .prod-body { padding: 80px 0; }
     .prod-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
-    .prod-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 40px 0 16px; padding-top: 40px; border-top: 1px solid var(--gray-light); }
+    .prod-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 52px 0 16px; padding-top: 52px; border-top: 1px solid var(--gray-light); }
     .prod-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
     .prod-article p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
     .prod-article strong { color: var(--dark); }
+
+    /* ── PORTFOLIO CARDS ── */
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .kf-card { background: var(--bg-alt); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .kf-card--featured { border-color: var(--green-200); background: var(--green-50); }
+    .kf-card__label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--green-700); }
+    .kf-card__title { font-size: 1rem; font-weight: 700; color: var(--dark); line-height: 1.3; }
+    .kf-card__desc { font-size: .8125rem; color: var(--gray); line-height: 1.65; margin-bottom: 4px; }
+    .kf-card__data { display: flex; flex-direction: column; gap: 5px; padding: 12px; background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius); }
+    .kf-card__data-row { display: flex; justify-content: space-between; font-size: .8rem; gap: 8px; }
+    .kf-card__data-row span:first-child { color: var(--gray); }
+    .kf-card__data-row span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
+    .kf-card__data-row .td-green { color: var(--green-700); }
+    .kf-card__use { font-size: .8rem; color: var(--gray); line-height: 1.55; font-style: italic; }
+    .kf-card__cta { font-size: .875rem; font-weight: 600; color: var(--green-700); text-decoration: none; margin-top: auto; padding-top: 4px; }
+    .kf-card__cta:hover { color: var(--green-900); }
+
+    /* ── WHY KENFIELD ── */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 24px 0; }
+    .why-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 20px; }
+    .why-card__num { font-size: 1.75rem; font-weight: 700; color: var(--green-200); line-height: 1; margin-bottom: 10px; }
+    .why-card__title { font-size: .9rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.35; }
+    .why-card__desc { font-size: .8125rem; color: var(--gray); line-height: 1.65; }
+
+    /* ── QUOTE ── */
     .prod-quote { border-left: 4px solid var(--green-400); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
     .prod-quote p { font-size: 1.0625rem; color: var(--dark); font-style: italic; line-height: 1.7; margin: 0 0 8px; }
     .prod-quote cite { font-size: .875rem; color: var(--gray); font-style: normal; font-weight: 600; }
-    .prod-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
-    .prod-benefit { background: var(--bg-alt); border: 1px solid var(--gray-light); border-radius: var(--radius); padding: 20px; }
-    .prod-benefit__icon { font-size: 1.5rem; margin-bottom: 10px; }
-    .prod-benefit__title { font-size: .9375rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-    .prod-benefit__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── WARWICK RESULTS TABLE ── */
     .prod-specs { width: 100%; border-collapse: collapse; margin: 20px 0; }
     .prod-specs th { background: var(--green-900); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: .875rem; }
-    .prod-specs td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); font-size: .9375rem; }
+    .prod-specs td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); font-size: .9rem; }
     .prod-specs tr:nth-child(even) td { background: var(--bg-alt); }
     .td-green { color: var(--green-700); font-weight: 700; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* ── SIGNALS LIST ── */
+    .signals-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+    .signals-list li { display: flex; align-items: flex-start; gap: 12px; font-size: .9375rem; color: var(--gray); line-height: 1.6; }
+    .signals-list__dot { width: 8px; height: 8px; background: var(--green-700); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+
+    /* ── SIDEBAR ── */
     .prod-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 20px; }
     .prod-sidebar-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow); }
-    .prod-sidebar-card h4 { font-size: .875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
+    .prod-sidebar-card h4 { font-size: .8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
     .prod-sidebar-list { display: flex; flex-direction: column; gap: 9px; }
     .prod-sidebar-list li { display: flex; justify-content: space-between; font-size: .875rem; gap: 10px; }
     .prod-sidebar-list li span:first-child { color: var(--gray); }
     .prod-sidebar-list li span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
     .prod-cta-card { background: var(--green-900); border-radius: var(--radius-lg); padding: 26px 22px; }
-    .prod-cta-card h4 { font-size: 1.0625rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .prod-cta-card h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; text-transform: none; letter-spacing: 0; border-bottom: none; padding-bottom: 0; }
     .prod-cta-card p { font-size: .875rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 18px; }
-    .prod-cta-card .btn { width: 100%; justify-content: center; background: var(--green-400); border-color: var(--green-400); color: var(--green-900); font-weight: 700; }
-    .prod-cta-card .btn:hover { background: #5fc89a; border-color: #5fc89a; }
-    .prod-cases { padding: 80px 0; background: var(--bg-alt); }
-    .prod-cases h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
-    .prod-cases__sub { font-size: 1rem; color: var(--gray); margin-bottom: 36px; }
-    .prod-cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .prod-case-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); }
-    .prod-case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .prod-case-card__body { padding: 18px; }
-    .prod-case-card__tag { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--green-700); margin-bottom: 6px; }
-    .prod-case-card__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.35; margin-bottom: 8px; }
-    .prod-case-card__kpi { font-size: .8125rem; color: var(--green-700); font-weight: 700; }
+    .sidebar-study-body { font-size: .875rem; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
+    .sidebar-study-link { font-size: .875rem; font-weight: 600; color: var(--green-700); text-decoration: none; }
+    .sidebar-study-link:hover { color: var(--green-900); }
+
+    /* ── COMPARISON TABLE SECTION ── */
+    .kf-compare { padding: 80px 0; background: var(--bg-alt); }
+    .kf-compare h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 32px; }
+    .compare-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    .compare-table th { background: var(--green-900); color: #fff; padding: 14px 16px; text-align: left; font-weight: 600; font-size: .875rem; white-space: nowrap; }
+    .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); font-size: .875rem; vertical-align: top; }
+    .compare-table tr:nth-child(even) td { background: var(--bg); }
+    .compare-table tr:nth-child(odd) td { background: var(--bg-alt); }
+    .compare-table td:first-child { font-weight: 600; color: var(--dark); }
+    .compare-table .td-green { color: var(--green-700); font-weight: 700; }
+    .compare-table .td-muted { color: var(--gray); }
+
+    /* ── FINAL CTA ── */
+    .prod-cta-final { background: var(--green-800); padding: 88px 0; text-align: center; }
+    .prod-cta-final h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -.01em; }
+    .prod-cta-final__sub { font-size: 1.0625rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .9375rem; font-weight: 700; background: #fff; color: var(--green-800); border: 2px solid #fff; cursor: pointer; transition: all var(--transition); white-space: nowrap; text-decoration: none; }
+    .btn-white:hover { background: var(--green-50); border-color: var(--green-50); }
+
+    /* ── OTHER SOLUTIONS ── */
     .prod-others { padding: 80px 0; }
     .prod-others h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 36px; color: var(--dark); }
     .prod-others-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -78,8 +129,25 @@
     .prod-other-card__title { font-size: 1rem; font-weight: 700; color: var(--dark); }
     .prod-other-card__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
     .prod-other-card__kpi { font-size: .8125rem; font-weight: 700; color: var(--green-700); }
-    @media (max-width: 1024px) { .prod-hero__inner { grid-template-columns: 1fr; } .prod-hero__visual { display: none; } .prod-layout { grid-template-columns: 1fr; } .prod-sidebar { position: static; } .prod-cases-grid { grid-template-columns: 1fr 1fr; } .prod-others-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .prod-hero { padding: 120px 0 60px; } .prod-benefits { grid-template-columns: 1fr; } .prod-cases-grid, .prod-others-grid { grid-template-columns: 1fr; } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .prod-hero__inner { grid-template-columns: 1fr; }
+      .prod-hero__visual { display: none; }
+      .prod-layout { grid-template-columns: 1fr; }
+      .prod-sidebar { position: static; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .prod-others-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .prod-hero { padding: 120px 0 60px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .prod-others-grid { grid-template-columns: 1fr; }
+      .prod-cta-final { padding: 60px 0; }
+      .prod-body { padding: 60px 0; }
+      .kf-compare { padding: 60px 0; }
+    }
   </style>
 </head>
 <body>
@@ -102,117 +170,203 @@
     </div>
   </nav>
 
+  <!-- ── 1. HERO ── -->
   <section class="prod-hero">
     <div class="container prod-hero__inner">
       <div>
-        <a href="index.html#portfolio" class="prod-back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver a Soluciones
-        </a>
-        <div class="prod-hero__tag">Cámaras Frías</div>
-        <h1 class="prod-hero__title">Kenfield K750 — Sellado magnético. Adiós al sobreconsumo.</h1>
-        <p class="prod-hero__sub">Junta magnética de tercera generación para puertas de cámaras frías. Reemplaza las juntas PVC estándar que se endurecen y pierden sellado, reduciendo el consumo del compresor entre 21% y 42% desde el primer ciclo de facturación.</p>
+        <div class="prod-hero__topbar">
+          <a href="index.html#portfolio" class="prod-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Volver a Soluciones
+          </a>
+          <div class="prod-hero__tag">PUERTAS ESPECIALIZADAS</div>
+        </div>
+        <h1 class="prod-hero__title">Kenfield. Puertas que pagan su instalación con la cuenta de luz.</h1>
+        <p class="prod-hero__sub">Fabricante británico premiado con más de 30.000 instalaciones en supermercados de Europa y EE.UU. Soluciones de puertas para cámaras frías, accesos de alto tráfico y zonas de temperatura controlada — diseñadas para reducir consumo energético y soportar el ritmo del retail.</p>
         <div class="prod-hero__actions">
           <a href="index.html#contact" class="flow-btn">
             <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Solicitar cotización</span>
+            <span class="flow-btn__text">Solicitar auditoría</span>
             <span class="flow-btn__circle"></span>
             <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-          <a href="caso-kenfield.html" class="flow-btn">
-            <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Ver caso de estudio</span>
-            <span class="flow-btn__circle"></span>
-            <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+          <a href="#portafolio" class="btn-outline-white">Ver portafolio</a>
         </div>
       </div>
       <div class="prod-hero__visual">
         <div class="prod-hero__logo">
-          <img src="Imagenes/Kenfield-logo.png" alt="Kenfield K750" />
+          <img src="Imagenes/Kenfield-logo.png" alt="Kenfield" />
         </div>
         <div class="prod-stat-grid">
-          <div class="prod-stat"><div class="prod-stat__val">21–42%</div><div class="prod-stat__lbl">Ahorro energético</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">~10 m</div><div class="prod-stat__lbl">Payback promedio</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">30k+</div><div class="prod-stat__lbl">Instalaciones</div></div>
+          <div class="prod-stat"><div class="prod-stat__val">21–42%</div><div class="prod-stat__lbl">Ahorro energético (cámaras frías)</div></div>
+          <div class="prod-stat"><div class="prod-stat__val">30k+</div><div class="prod-stat__lbl">Instalaciones globales</div></div>
+          <div class="prod-stat"><div class="prod-stat__val">ISO 9001<br>/ 14001</div><div class="prod-stat__lbl">Calidad y medioambiente</div></div>
           <div class="prod-stat"><div class="prod-stat__val">10+ a</div><div class="prod-stat__lbl">Vida útil</div></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── MAIN BODY + SIDEBAR ── -->
   <section class="prod-body">
     <div class="container">
       <div class="prod-layout">
+
         <article class="prod-article">
 
-          <h2>¿Qué es el Kenfield K750?</h2>
-          <p>El Kenfield K750 es una junta magnética de alto rendimiento diseñada específicamente para puertas de cámaras frías de supermercado. A diferencia de las juntas PVC convencionales que se endurecen con los ciclos de temperatura y pierden su capacidad de sellado en 2–3 años, el K750 incorpora un <strong>núcleo magnético flexible</strong> que mantiene la presión de contacto constante durante toda su vida útil.</p>
-          <p>Cuando una junta pierde sellado, el compresor detecta la fuga térmica y compensa trabajando más ciclos por hora. El problema es silencioso — no activa ninguna alarma — pero se ve en la factura. Con el K750, ese sobreconsumo desaparece desde el primer mes post-instalación.</p>
+          <!-- ── 2. EL PROBLEMA ── -->
+          <h2>El punto ciego del retail: las puertas</h2>
+          <p>En una tienda de supermercado, las puertas son el componente más infravalorado del sistema. Una cortina de PVC rota cuesta unos pocos miles de pesos en reemplazo — pero puede estar costando millones al año en sobreconsumo del compresor. Una puerta de trastienda dañada se sigue usando hasta que se rompe del todo — mientras tanto, el ruido, el frío y el riesgo operativo se acumulan.</p>
+          <p>Kenfield fabrica puertas especializadas desde hace más de 40 años en Birmingham, Reino Unido. Son las puertas que ASDA, Tesco, Sainsbury's, Aldi, Lidl, M&S y McDonald's especifican cuando el costo de fallar es mayor que el costo de comprar bien.</p>
 
-          <h2>¿Por qué las juntas estándar fallan?</h2>
-          <p>Las juntas PVC convencionales están diseñadas para trabajo en temperatura ambiente. En el entorno de una cámara fría, se someten a ciclos de temperatura que van de +20°C (exterior) a −18°C (interior). Con el tiempo, el PVC se cristaliza y pierde flexibilidad — lo que los técnicos llaman "junta dura".</p>
-          <p>Una junta dura no se adapta a las irregularidades del marco de la puerta. El resultado: <strong>fugas térmicas invisibles</strong> que el compresor compensa trabajando más. En una cámara de congelados (−18°C), una junta deteriorada puede representar el equivalente a dejar la puerta entreabierta permanentemente.</p>
-          <p>El parche habitual es reemplazar la junta por otra idéntica que repetirá el mismo ciclo de degradación en 2–3 años. El K750 rompe ese ciclo con un material que <strong>no se endurece por encima ni por debajo de los rangos operativos</strong>.</p>
+          <!-- ── 3. PORTAFOLIO ── -->
+          <h2 id="portafolio">Cuatro soluciones, un mismo estándar</h2>
+          <div class="portfolio-grid">
 
+            <!-- K750 -->
+            <div class="kf-card kf-card--featured" id="k750">
+              <div class="kf-card__label">K750 · Más instalado</div>
+              <div class="kf-card__title">Puerta aislada para cámaras frías</div>
+              <div class="kf-card__desc">Diseño patentado, premiada como Refrigeration Product of the Year. Reemplaza las cortinas de PVC tradicionales en cámaras walk-in con un sistema flexible, aislado y de cierre automático.</div>
+              <div class="kf-card__data">
+                <div class="kf-card__data-row"><span>Ahorro (refrigerados)</span><span class="td-green">21–42%</span></div>
+                <div class="kf-card__data-row"><span>Ahorro (congelados)</span><span class="td-green">13–17%</span></div>
+                <div class="kf-card__data-row"><span>Ancho máx.</span><span>2.350 mm (par)</span></div>
+                <div class="kf-card__data-row"><span>Vida útil</span><span>10+ años</span></div>
+              </div>
+              <div class="kf-card__use"><strong>Ideal para:</strong> cámaras de refrigerados y congelados walk-in, 0,8–2,2 m de ancho.</div>
+              <a href="kenfield-k750.html" class="kf-card__cta">Ver ficha K750 →</a>
+            </div>
+
+            <!-- K2 -->
+            <div class="kf-card" id="k2">
+              <div class="kf-card__label">K2</div>
+              <div class="kf-card__title">Cortina aislada de alto rendimiento</div>
+              <div class="kf-card__desc">Cuando el K750 no es viable — aperturas demasiado anchas, tráfico de carros muy frecuente, acceso restringido — el K2 es la alternativa premium a las strip curtains de PVC convencionales. Misma lógica de aislación, formato cortina.</div>
+              <div class="kf-card__data">
+                <div class="kf-card__data-row"><span>Sellado</span><span class="td-green">Íntegro bajo tráfico</span></div>
+                <div class="kf-card__data-row"><span>Ancho máx.</span><span>Hasta 2.100 mm/cortina</span></div>
+                <div class="kf-card__data-row"><span>Vida útil</span><span>5+ años</span></div>
+                <div class="kf-card__data-row"><span>Mantenimiento</span><span>Sin mantenimiento</span></div>
+              </div>
+              <div class="kf-card__use"><strong>Ideal para:</strong> cámaras de refrigerados con tráfico intenso o aperturas mayores a 2,2 m.</div>
+              <a href="kenfield-k2.html" class="kf-card__cta">Ver ficha K2 →</a>
+            </div>
+
+            <!-- K150 -->
+            <div class="kf-card" id="k150">
+              <div class="kf-card__label">K150</div>
+              <div class="kf-card__title">Puerta de impacto en polietileno</div>
+              <div class="kf-card__desc">Panel de polietileno de 15 mm, bisagras de doble acción en acero inoxidable, paneles de visión integrados. Diseño finger-safe y 100% reciclable. Resiste golpes de carros, pallets y carga manual sin deformarse.</div>
+              <div class="kf-card__data">
+                <div class="kf-card__data-row"><span>Material</span><span>Polietileno 15 mm</span></div>
+                <div class="kf-card__data-row"><span>Ancho máx.</span><span>2.400 mm (par)</span></div>
+                <div class="kf-card__data-row"><span>Vida útil</span><span>10+ años</span></div>
+                <div class="kf-card__data-row"><span>Reciclable</span><span>100%</span></div>
+              </div>
+              <div class="kf-card__use"><strong>Ideal para:</strong> acceso a trastienda, cámaras secas, salas de preparación, zonas de carga.</div>
+              <a href="kenfield-k150.html" class="kf-card__cta">Ver ficha K150 →</a>
+            </div>
+
+            <!-- K550 -->
+            <div class="kf-card" id="k550">
+              <div class="kf-card__label">K550</div>
+              <div class="kf-card__title">Puerta de impacto con terminación premium</div>
+              <div class="kf-card__desc">Alternativa al K150 cuando la estética importa — pasillos visibles al cliente, accesos a salas especializadas, zonas de food service. Misma robustez de impacto, terminación GRP de alta calidad.</div>
+              <div class="kf-card__data">
+                <div class="kf-card__data-row"><span>Material</span><span>GRP / Polietileno</span></div>
+                <div class="kf-card__data-row"><span>Ancho máx.</span><span>2.400 mm (par)</span></div>
+                <div class="kf-card__data-row"><span>Vida útil</span><span>10+ años</span></div>
+                <div class="kf-card__data-row"><span>Aplicación</span><span>Zonas visibles al cliente</span></div>
+              </div>
+              <div class="kf-card__use"><strong>Ideal para:</strong> accesos visibles al cliente, food service, pastelería, áreas especializadas.</div>
+              <a href="kenfield-k550.html" class="kf-card__cta">Ver ficha K550 →</a>
+            </div>
+
+          </div>
+
+          <!-- ── 4. POR QUÉ KENFIELD ── -->
+          <h2>Lo que diferencia a Kenfield</h2>
+          <div class="why-grid">
+            <div class="why-card">
+              <div class="why-card__num">40+</div>
+              <div class="why-card__title">Fabricación británica con cuatro décadas de especialización</div>
+              <div class="why-card__desc">Diseñadas y fabricadas en Birmingham. ISO 9001 (calidad) e ISO 14001 (medioambiente). No es un commodity — es ingeniería específica para cada apertura.</div>
+            </div>
+            <div class="why-card">
+              <div class="why-card__num">9</div>
+              <div class="why-card__title">Especificadas por los retailers más exigentes de Europa</div>
+              <div class="why-card__desc">ASDA, Tesco, Sainsbury's, Aldi, Lidl, M&S, Iceland, Waitrose, McDonald's, Amazon. Si fallan en una tienda con 4.000 clientes diarios, no se especifican de nuevo. Llevan décadas siendo la elección por defecto.</div>
+            </div>
+            <div class="why-card">
+              <div class="why-card__num">2024</div>
+              <div class="why-card__title">Ahorro medido, no estimado</div>
+              <div class="why-card__desc">Estudio independiente de la Universidad de Warwick (2024) midiendo consumo real del compresor en laboratorio controlado. No es marketing — son kWh medidos contra escenarios reales.</div>
+            </div>
+          </div>
+
+          <!-- ── 5. CASO DE ESTUDIO WARWICK ── -->
+          <h2>El estudio de la Universidad de Warwick</h2>
+          <p>El Warwick Manufacturing Group (WMG) ejecutó un estudio termo-controlado en Coventry, Inglaterra, entre febrero y marzo de 2024. Comparó el consumo del compresor con K750 versus tres escenarios de cortinas PVC que representan condiciones reales de uso:</p>
+          <ul class="signals-list">
+            <li><span class="signals-list__dot"></span>Set completo de cortinas PVC</li>
+            <li><span class="signals-list__dot"></span>Cortina PVC con un strip faltante</li>
+            <li><span class="signals-list__dot"></span>Cortina PVC enganchada hacia un lado</li>
+          </ul>
+          <p>Los períodos de medición fueron de 9 horas con registro de kWh real. El aumento de consumo de cada escenario frente al K750:</p>
+          <div class="table-scroll">
+            <table class="prod-specs">
+              <thead>
+                <tr>
+                  <th>Escenario vs. K750</th>
+                  <th>Aumento (refrigerados)</th>
+                  <th>Aumento (congelados)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cortina PVC completa</td>
+                  <td class="td-green">+28,0 – 56,3%</td>
+                  <td class="td-green">+15,6%</td>
+                </tr>
+                <tr>
+                  <td>PVC con 1 strip faltante</td>
+                  <td class="td-green">+43,3 – 73,6%</td>
+                  <td class="td-green">+20,5%</td>
+                </tr>
+                <tr>
+                  <td>PVC enganchada a un lado</td>
+                  <td class="td-green">+63,5 – 98,2%</td>
+                  <td class="td-green">+25,3%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div class="prod-quote">
             <p>"Las mediciones mostraron una reducción consistente en todos los tipos de cámara estudiados. El mecanismo es claro: al mejorar el sellado se reduce la carga térmica y el compresor opera con menor duty cycle."</p>
-            <cite>— Informe de Investigación, Universidad de Warwick (2022)</cite>
+            <cite>— Informe de Investigación, Universidad de Warwick (2024)</cite>
           </div>
+          <p><a href="caso-kenfield.html" style="font-size:.9rem;font-weight:600;color:var(--green-700);text-decoration:none">Leer el caso completo →</a></p>
 
-          <h2>Beneficios clave</h2>
-          <div class="prod-benefits">
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">⚡</div>
-              <div class="prod-benefit__title">21–42% menos consumo</div>
-              <div class="prod-benefit__desc">El rango depende del tipo de cámara: el mayor ahorro se da en congelados (−18°C), donde cada fuga vale más energía.</div>
-            </div>
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">🧲</div>
-              <div class="prod-benefit__title">Sellado magnético permanente</div>
-              <div class="prod-benefit__desc">El núcleo magnético mantiene la presión de contacto constante sin importar los ciclos de temperatura. Sin degradación por frío.</div>
-            </div>
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">🔧</div>
-              <div class="prod-benefit__title">Sin vaciado de cámara</div>
-              <div class="prod-benefit__desc">El reemplazo se realiza puerta por puerta, 15–30 min por puerta. Sin corte de frío, sin mover producto. Una tienda completa en 1 noche.</div>
-            </div>
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">📅</div>
-              <div class="prod-benefit__title">10+ años sin mantenimiento</div>
-              <div class="prod-benefit__desc">A diferencia de las juntas PVC que requieren reemplazo cada 2–3 años, el K750 es una intervención única con retorno de largo plazo.</div>
-            </div>
-          </div>
-
-          <h2>Especificaciones técnicas</h2>
-          <table class="prod-specs">
-            <thead>
-              <tr><th>Característica</th><th>Detalle</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Aplicación</td><td>Puertas de cámaras frías (refrigeradas y congeladas)</td></tr>
-              <tr><td>Material exterior</td><td>Elastómero termoplástico grado alimentario</td></tr>
-              <tr><td>Núcleo</td><td>Magnético flexible (no se endurece por temperatura)</td></tr>
-              <tr><td>Rango de temperatura</td><td>−25°C a +25°C</td></tr>
-              <tr><td>Ahorro validado (congelados)</td><td class="td-green">31–42%</td></tr>
-              <tr><td>Ahorro validado (refrigerados)</td><td class="td-green">21–28%</td></tr>
-              <tr><td>Vida útil</td><td>10+ años (sin pérdida de propiedades)</td></tr>
-              <tr><td>Tiempo instalación por puerta</td><td>15–30 minutos</td></tr>
-              <tr><td>Payback promedio</td><td class="td-green">~10 meses</td></tr>
-              <tr><td>Certificaciones</td><td>CE, HACCP Compatible, Food Safe</td></tr>
-            </tbody>
-          </table>
-
-          <h2>¿Cuándo es el momento de reemplazar?</h2>
-          <p>No siempre es obvio cuándo una junta ha perdido su sellado. Las señales más claras son: escarcha visible alrededor del marco de la puerta, temperatura inconsistente entre cámaras del mismo circuito, y — el más común — un aumento progresivo en la factura de luz sin causa aparente.</p>
-          <p>Andek Group realiza una <strong>auditoría de juntas gratuita</strong>: revisamos el estado de cada junta, medimos la fuga térmica con cámara termográfica y calculamos el ahorro proyectado con el K750. Si tus juntas están bien, te lo decimos — si no, tienes los números exactos para tomar la decisión.</p>
+          <!-- ── 7. SEÑALES QUE IMPORTAN ── -->
+          <h2>Las señales que importan</h2>
+          <p>No siempre es obvio cuándo una puerta o cortina está costando más de lo que vale. Las señales más claras:</p>
+          <ul class="signals-list">
+            <li><span class="signals-list__dot"></span>Escarcha visible alrededor de la apertura o en el techo cercano a la cámara</li>
+            <li><span class="signals-list__dot"></span>Strips rotos, doblados o faltantes en cortinas PVC existentes</li>
+            <li><span class="signals-list__dot"></span>Temperatura inconsistente entre cámaras del mismo circuito de refrigeración</li>
+            <li><span class="signals-list__dot"></span>Aumento progresivo de la cuenta de luz sin causa operativa aparente</li>
+            <li><span class="signals-list__dot"></span>Puertas de impacto con daño estructural — paneles agrietados, bisagras desalineadas</li>
+          </ul>
+          <p>Andek realiza una auditoría de aperturas gratuita en tu tienda. Medimos fuga térmica con cámara termográfica, evaluamos el estado de las cortinas y puertas existentes, y calculamos el ahorro proyectado por apertura. Si tus puertas están bien, te lo decimos — si no, tienes los números exactos para decidir.</p>
 
         </article>
 
+        <!-- ── SIDEBAR ── -->
         <aside class="prod-sidebar">
           <div class="prod-cta-card">
-            <h4>¿Cuántas cámaras tienes?</h4>
-            <p>El ahorro depende del tipo y número de cámaras. Calculamos el retorno exacto con auditoría termográfica gratuita.</p>
+            <h4>¿Cuántas aperturas tienes?</h4>
+            <p>El ahorro depende del tipo y número de cámaras y accesos. Calculamos el retorno exacto con auditoría termográfica gratuita.</p>
             <a href="index.html#contact" class="flow-btn flow-btn--full">
               <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               <span class="flow-btn__text">Solicitar auditoría</span>
@@ -221,59 +375,118 @@
             </a>
           </div>
           <div class="prod-sidebar-card">
-            <h4>Datos del Producto</h4>
+            <h4>Datos de la Marca</h4>
             <ul class="prod-sidebar-list">
-              <li><span>Producto</span><span>Kenfield K750</span></li>
-              <li><span>Fabricante</span><span>Kenfield Ltd (UK)</span></li>
-              <li><span>Aplicación</span><span>Cámaras frías</span></li>
-              <li><span>Ahorro</span><span class="td-green">21–42%</span></li>
+              <li><span>Marca</span><span>Kenfield</span></li>
+              <li><span>Origen</span><span>Reino Unido (Birmingham)</span></li>
+              <li><span>Fundación</span><span>1980+</span></li>
               <li><span>Instalaciones</span><span>30.000+</span></li>
-              <li><span>Payback</span><span class="td-green">~10 meses</span></li>
-              <li><span>Vida útil</span><span>10+ años</span></li>
+              <li><span>Certificaciones</span><span>ISO 9001 / ISO 14001</span></li>
+              <li><span>Aplicaciones</span><span>Retail, food service, refrigeración</span></li>
             </ul>
           </div>
           <div class="prod-sidebar-card">
             <h4>Caso de Estudio</h4>
-            <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:14px">Warwick Study: 21–42% ahorro en 12 instalaciones reales. Validado por Universidad de Warwick.</p>
-            <a href="caso-kenfield.html" style="font-size:.875rem;font-weight:600;color:var(--green-700);text-decoration:none">Leer el caso completo →</a>
+            <p class="sidebar-study-body">Warwick Study: 21–42% ahorro en 12 instalaciones reales. Validado por Universidad de Warwick.</p>
+            <a href="caso-kenfield.html" class="sidebar-study-link">Leer el caso completo →</a>
           </div>
         </aside>
+
       </div>
     </div>
   </section>
 
-  <section class="prod-cases">
+  <!-- ── 6. COMPARATIVA RÁPIDA (sección completa) ── -->
+  <section class="kf-compare">
     <div class="container">
-      <h2>Kenfield K750 en acción</h2>
-      <p class="prod-cases__sub">Resultados validados por estudios universitarios independientes.</p>
-      <div class="prod-cases-grid">
-        <a href="caso-kenfield.html" class="prod-case-card">
-          <div style="height:150px;background:linear-gradient(135deg,#1E5038,#40916C);display:flex;align-items:center;justify-content:center">
-            <img src="Imagenes/Kenfield-logo.png" alt="Kenfield" style="max-width:160px;filter:brightness(0) invert(1);opacity:.9" />
-          </div>
-          <div class="prod-case-card__body">
-            <div class="prod-case-card__tag">Cámaras Frías · Reino Unido</div>
-            <div class="prod-case-card__title">Warwick Study: 21–42% menos consumo en compresores</div>
-            <div class="prod-case-card__kpi">12 instalaciones evaluadas · Payback ~10 meses</div>
-          </div>
-        </a>
-        <a href="caso-chile.html" class="prod-case-card">
-          <img src="Imagenes/Refrigerador.webp" alt="Chile" />
-          <div class="prod-case-card__body">
-            <div class="prod-case-card__tag">Cámaras Frías · Chile</div>
-            <div class="prod-case-card__title">Piloto Santiago 2024: resultados en 72 horas</div>
-            <div class="prod-case-card__kpi">Primer despliegue en Chile</div>
-          </div>
-        </a>
-        <div class="prod-case-card" style="background:var(--green-900);border-color:var(--green-700);display:flex;flex-direction:column;justify-content:center;padding:28px">
-          <div style="font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-400);margin-bottom:10px">Auditoría gratuita</div>
-          <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:12px">Revisamos tus juntas con cámara termográfica sin costo.</div>
-          <a href="index.html#contact" style="font-size:.875rem;font-weight:600;color:var(--green-400);text-decoration:none">Agendar auditoría →</a>
-        </div>
+      <h2>Comparativa rápida</h2>
+      <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Característica</th>
+              <th>K750</th>
+              <th>K2</th>
+              <th>K150</th>
+              <th>K550</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aplicación</td>
+              <td>Cámaras frías walk-in</td>
+              <td>Aperturas grandes / tráfico alto</td>
+              <td>Acceso alto tráfico no refrigerado</td>
+              <td>Acceso alto tráfico con estética</td>
+            </tr>
+            <tr>
+              <td>Rango temperatura</td>
+              <td>–35°C a 60°C</td>
+              <td>–35°C a 60°C</td>
+              <td>Ambiente</td>
+              <td>Ambiente</td>
+            </tr>
+            <tr>
+              <td>Material panel</td>
+              <td>PVC/PU 1000–1300 gsm</td>
+              <td>PVC/PU aislado</td>
+              <td>Polietileno 15 mm</td>
+              <td>GRP / Polietileno</td>
+            </tr>
+            <tr>
+              <td>Ancho máximo</td>
+              <td>2.350 mm (par)</td>
+              <td>Hasta 2.100 mm / cortina</td>
+              <td>2.400 mm (par)</td>
+              <td>2.400 mm (par)</td>
+            </tr>
+            <tr>
+              <td>Vida útil</td>
+              <td>10+ años</td>
+              <td>5+ años</td>
+              <td>10+ años</td>
+              <td>10+ años</td>
+            </tr>
+            <tr>
+              <td>Ahorro validado</td>
+              <td class="td-green">21–42%</td>
+              <td class="td-green">Mantiene sellado</td>
+              <td class="td-muted">—</td>
+              <td class="td-muted">—</td>
+            </tr>
+            <tr>
+              <td>Mantenimiento</td>
+              <td>Sin mantenimiento</td>
+              <td>Sin mantenimiento</td>
+              <td>Sin mantenimiento</td>
+              <td>Sin mantenimiento</td>
+            </tr>
+            <tr>
+              <td>Certificaciones</td>
+              <td>CE, HACCP, Food Safe</td>
+              <td>CE, Food Safe</td>
+              <td>CE, ISO 9001, Food Safe</td>
+              <td>CE, ISO 9001</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
+  <!-- ── 8. CTA FINAL ── -->
+  <section class="prod-cta-final">
+    <div class="container">
+      <h2>¿Cuántas aperturas tienes?</h2>
+      <p class="prod-cta-final__sub">El ahorro depende del número de cámaras, el tipo de operación y el estado actual de las puertas. Calculamos el retorno exacto con auditoría termográfica gratuita en tienda.</p>
+      <div class="cta-actions">
+        <a href="index.html#contact" class="btn-white">Solicitar auditoría</a>
+        <a href="index.html#contact" class="btn-outline-white">Hablar con un especialista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OTRAS SOLUCIONES ── -->
   <section class="prod-others">
     <div class="container">
       <h2>Otras soluciones Andek Group</h2>
@@ -328,7 +541,7 @@
         <ul class="footer-col__list">
           <li><a href="solucion-aerofoil.html">Aerofoil</a></li>
           <li><a href="solucion-clarifoil.html">Clarifoil</a></li>
-          <li><a href="solucion-kenfield.html">Kenfield K750</a></li>
+          <li><a href="solucion-kenfield.html">Kenfield</a></li>
           <li><a href="solucion-nualight.html">Nualight</a></li>
         </ul>
       </div>
@@ -362,6 +575,7 @@
       </div>
     </div>
   </footer>
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinksEl = document.getElementById('navLinks');
