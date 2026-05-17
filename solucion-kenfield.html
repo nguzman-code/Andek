@@ -13,8 +13,8 @@
     html { scroll-behavior: smooth; }
 
     /* ── HERO ── */
-    .prod-hero { background: var(--green-900); padding: 140px 0 80px; position: relative; overflow: hidden; }
-    .prod-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
+    .prod-hero { background: var(--green-900) url('Imagenes/clarioil-right-img-1.webp') right center / cover no-repeat; padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .prod-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,25,12,.97) 0%, rgba(12,25,12,.92) 40%, rgba(12,25,12,.72) 65%, rgba(12,25,12,.45) 100%); z-index: 1; }
     .prod-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
     .prod-hero__topbar { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
     .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; transition: color var(--transition); }
