@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="Marca/symbol.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aerofoil Energy — Tecnología F1 para Cases Abiertos | Andek Group</title>
+  <title>Aerofoil — Tecnología de Fórmula 1 para tu Refrigeración | Andek Group</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    .prod-hero { background: var(--green-900); padding: 140px 0 80px; position: relative; overflow: hidden; }
-    .prod-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
+    /* ── HERO ── */
+    .prod-hero { background: var(--green-900) url('Imagenes/Pagina AF.jpg') right center / cover no-repeat; padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .prod-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,25,12,.97) 0%, rgba(12,25,12,.92) 40%, rgba(12,25,12,.72) 65%, rgba(12,25,12,.45) 100%); z-index: 1; }
     .prod-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
     .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; margin-bottom: 28px; transition: color var(--transition); }
     .prod-back:hover { color: #fff; }
@@ -19,45 +20,105 @@
     .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
     .prod-hero__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; letter-spacing: -.02em; }
     .prod-hero__sub { font-size: 1.125rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; }
+    .prod-hero__sub strong { color: #fff; }
     .prod-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .prod-hero__visual { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); padding: 40px; display: flex; flex-direction: column; gap: 20px; }
-    .prod-hero__logo { display: flex; align-items: center; justify-content: center; padding: 24px; }
-    .prod-hero__logo img { max-width: 220px; filter: brightness(0) invert(1); opacity: .9; }
-    .prod-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .prod-stat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 16px; }
-    .prod-stat__val { font-size: 1.5rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 4px; }
-    .prod-stat__lbl { font-size: .75rem; color: rgba(255,255,255,.5); font-weight: 500; }
-    .prod-body { padding: 80px 0; }
+    .prod-hero__visual { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; gap: 18px; }
+    .prod-hero__logo { display: flex; align-items: center; justify-content: center; padding: 12px 24px; }
+    .prod-hero__logo img { max-width: 200px; filter: brightness(0) invert(1); opacity: .9; }
+    .prod-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .prod-stat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 14px; }
+    .prod-stat__val { font-size: 1.25rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 5px; }
+    .prod-stat__lbl { font-size: .7rem; color: rgba(255,255,255,.5); font-weight: 500; line-height: 1.3; }
+    .prod-hero__note { font-size: .75rem; color: rgba(255,255,255,.4); line-height: 1.5; border-top: 1px solid rgba(255,255,255,.1); padding-top: 14px; font-style: italic; }
+
+    /* ── VALIDATION BANNER ── */
+    .val-banner { background: var(--green-800); padding: 72px 0; }
+    .val-banner__title { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 700; color: #fff; text-align: center; margin-bottom: 52px; letter-spacing: -.01em; }
+    .val-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 52px; }
+    .val-stat { text-align: center; }
+    .val-stat__num { font-size: clamp(2.25rem, 4.5vw, 3.75rem); font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 10px; }
+    .val-stat__lbl { font-size: .875rem; color: rgba(255,255,255,.55); line-height: 1.4; }
+    .retailer-logos { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 20px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 36px; }
+    .retailer-name { font-size: .9375rem; font-weight: 600; color: rgba(255,255,255,.4); letter-spacing: .04em; }
+    .retailer-dot { color: rgba(255,255,255,.18); font-size: 1.25rem; }
+
+    /* ── MAIN BODY ── */
+    .prod-body { padding: 88px 0; }
     .prod-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
-    .prod-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 40px 0 16px; padding-top: 40px; border-top: 1px solid var(--gray-light); }
+    .prod-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 52px 0 16px; padding-top: 52px; border-top: 1px solid var(--gray-light); }
     .prod-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
     .prod-article p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
     .prod-article strong { color: var(--dark); }
+    .prod-article em { font-style: italic; }
+
+    /* Problem highlight box */
+    .problem-box { border-left: 4px solid var(--green-700); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 20px 0; }
+    .problem-box p { margin-bottom: 0; color: var(--dark); }
+
+    /* F1 quote */
     .prod-quote { border-left: 4px solid var(--green-400); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
     .prod-quote p { font-size: 1.0625rem; color: var(--dark); font-style: italic; line-height: 1.7; margin: 0 0 8px; }
     .prod-quote cite { font-size: .875rem; color: var(--gray); font-style: normal; font-weight: 600; }
+
+    /* Benefits grid */
     .prod-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
     .prod-benefit { background: var(--bg-alt); border: 1px solid var(--gray-light); border-radius: var(--radius); padding: 20px; }
     .prod-benefit__icon { font-size: 1.5rem; margin-bottom: 10px; }
     .prod-benefit__title { font-size: .9375rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
     .prod-benefit__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
+    .prod-benefit__desc strong { color: var(--dark); }
+
+    /* Specs table */
     .prod-specs { width: 100%; border-collapse: collapse; margin: 20px 0; }
     .prod-specs th { background: var(--green-900); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: .875rem; }
     .prod-specs td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); font-size: .9375rem; }
     .prod-specs tr:nth-child(even) td { background: var(--bg-alt); }
     .td-green { color: var(--green-700); font-weight: 700; }
+
+    /* Validation grid */
+    .validation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .val-card { background: var(--bg-alt); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; }
+    .val-card__icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .val-card__title { font-size: .9375rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.35; }
+    .val-card__body { font-size: .875rem; color: var(--gray); line-height: 1.65; }
+    .val-card__body strong { color: var(--dark); }
+
+    /* Testimonials */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .testimonial-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+    .testimonial-card__quote { font-size: .9375rem; color: var(--gray); font-style: italic; line-height: 1.7; flex: 1; }
+    .testimonial-card__quote::before { content: '\201C'; }
+    .testimonial-card__quote::after { content: '\201D'; }
+    .testimonial-card__divider { height: 1px; background: var(--gray-light); }
+    .testimonial-card__author-name { font-size: .875rem; font-weight: 700; color: var(--dark); display: block; margin-bottom: 2px; }
+    .testimonial-card__author-role { font-size: .8125rem; color: var(--gray); display: block; }
+
+    /* ── SIDEBAR ── */
     .prod-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 20px; }
     .prod-sidebar-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow); }
-    .prod-sidebar-card h4 { font-size: .875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
+    .prod-sidebar-card h4 { font-size: .8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
     .prod-sidebar-list { display: flex; flex-direction: column; gap: 9px; }
     .prod-sidebar-list li { display: flex; justify-content: space-between; font-size: .875rem; gap: 10px; }
     .prod-sidebar-list li span:first-child { color: var(--gray); }
     .prod-sidebar-list li span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
     .prod-cta-card { background: var(--green-900); border-radius: var(--radius-lg); padding: 26px 22px; }
-    .prod-cta-card h4 { font-size: 1.0625rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .prod-cta-card h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; text-transform: none; letter-spacing: 0; border-bottom: none; padding-bottom: 0; }
     .prod-cta-card p { font-size: .875rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 18px; }
-    .prod-cta-card .btn { width: 100%; justify-content: center; background: var(--green-400); border-color: var(--green-400); color: var(--green-900); font-weight: 700; }
-    .prod-cta-card .btn:hover { background: #5fc89a; border-color: #5fc89a; }
+    .sidebar-study-body { font-size: .875rem; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
+    .sidebar-study-link { font-size: .875rem; font-weight: 600; color: var(--green-700); text-decoration: none; }
+    .sidebar-study-link:hover { color: var(--green-900); }
+
+    /* ── CTA FINAL ── */
+    .prod-cta-final { background: var(--green-800); padding: 88px 0; text-align: center; }
+    .prod-cta-final h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -.01em; }
+    .prod-cta-final__sub { font-size: 1.0625rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .9375rem; font-weight: 700; background: #fff; color: var(--green-800); border: 2px solid #fff; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+    .btn-white:hover { background: var(--green-50); border-color: var(--green-50); }
+    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .9375rem; font-weight: 600; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35); cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,.75); background: rgba(255,255,255,.06); }
+
+    /* ── CASES & OTHERS ── */
     .prod-cases { padding: 80px 0; background: var(--bg-alt); }
     .prod-cases h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
     .prod-cases__sub { font-size: 1rem; color: var(--gray); margin-bottom: 36px; }
@@ -79,8 +140,28 @@
     .prod-other-card__title { font-size: 1rem; font-weight: 700; color: var(--dark); }
     .prod-other-card__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
     .prod-other-card__kpi { font-size: .8125rem; font-weight: 700; color: var(--green-700); }
-    @media (max-width: 1024px) { .prod-hero__inner { grid-template-columns: 1fr; } .prod-hero__visual { display: none; } .prod-layout { grid-template-columns: 1fr; } .prod-sidebar { position: static; } .prod-cases-grid { grid-template-columns: 1fr 1fr; } .prod-others-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .prod-hero { padding: 120px 0 60px; } .prod-benefits { grid-template-columns: 1fr; } .prod-cases-grid, .prod-others-grid { grid-template-columns: 1fr; } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .prod-hero__inner { grid-template-columns: 1fr; }
+      .prod-hero__visual { display: none; }
+      .prod-layout { grid-template-columns: 1fr; }
+      .prod-sidebar { position: static; }
+      .val-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .validation-grid { grid-template-columns: 1fr 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .prod-cases-grid, .prod-others-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .prod-hero { padding: 120px 0 60px; }
+      .prod-benefits { grid-template-columns: 1fr; }
+      .validation-grid { grid-template-columns: 1fr; }
+      .val-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .prod-cases-grid, .prod-others-grid { grid-template-columns: 1fr; }
+      .val-banner { padding: 52px 0; }
+      .prod-cta-final { padding: 60px 0; }
+      .prod-body { padding: 60px 0; }
+    }
   </style>
 </head>
 <body>
@@ -103,6 +184,7 @@
     </div>
   </nav>
 
+  <!-- ── 1. HERO ── -->
   <section class="prod-hero">
     <div class="container prod-hero__inner">
       <div>
@@ -110,13 +192,13 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           Volver a Soluciones
         </a>
-        <div class="prod-hero__tag">Cases Abiertos · ⭐ Más popular</div>
-        <h1 class="prod-hero__title">Aerofoil — Tecnología F1. Energía inteligente.</h1>
-        <p class="prod-hero__sub">Deflectores aerodinámicos para cases abiertos de supermercado. Desarrollados con Williams F1 Racing, crean una cortina de aire que retiene el frío dentro del case y reduce el consumo del compresor hasta un 25%.</p>
+        <div class="prod-hero__tag">CASES ABIERTOS · MÁS POPULAR</div>
+        <h1 class="prod-hero__title">Aerofoil — Tecnología de Fórmula 1 aplicada a tu refrigeración.</h1>
+        <p class="prod-hero__sub">Deflectores aerodinámicos diseñados con Williams F1 Racing. Se instalan en los estantes de tus cases abiertos y reducen hasta un <strong>25% el consumo del compresor</strong>, sin puertas, sin obras y sin cambiar la experiencia de compra.</p>
         <div class="prod-hero__actions">
           <a href="index.html#contact" class="flow-btn">
             <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Solicitar cotización</span>
+            <span class="flow-btn__text">Solicitar auditoría gratuita</span>
             <span class="flow-btn__circle"></span>
             <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
@@ -133,87 +215,194 @@
           <img src="Imagenes/aerofoil-energy-logo-650x137.png" alt="Aerofoil Energy" />
         </div>
         <div class="prod-stat-grid">
-          <div class="prod-stat"><div class="prod-stat__val">25%</div><div class="prod-stat__lbl">Ahorro energético</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">7–17 m</div><div class="prod-stat__lbl">Payback</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">42k kWh</div><div class="prod-stat__lbl">Ahorrados/año</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">F1</div><div class="prod-stat__lbl">Williams Racing</div></div>
+          <div class="prod-stat">
+            <div class="prod-stat__val">Hasta 25%</div>
+            <div class="prod-stat__lbl">Ahorro energético</div>
+          </div>
+          <div class="prod-stat">
+            <div class="prod-stat__val">7–17 m</div>
+            <div class="prod-stat__lbl">Payback</div>
+          </div>
+          <div class="prod-stat">
+            <div class="prod-stat__val">42.722 kWh*</div>
+            <div class="prod-stat__lbl">Ahorro típico/año</div>
+          </div>
+          <div class="prod-stat">
+            <div class="prod-stat__val">Williams F1</div>
+            <div class="prod-stat__lbl">Tecnología</div>
+          </div>
         </div>
+        <p class="prod-hero__note">*En tienda de ~100 m lineales de cases. Estudio CalNEXT 2024.</p>
       </div>
     </div>
   </section>
 
+  <!-- ── 2. FRANJA DE VALIDACIÓN GLOBAL ── -->
+  <section class="val-banner">
+    <div class="container">
+      <h2 class="val-banner__title">La tecnología que ya usan los retailers más grandes del mundo</h2>
+      <div class="val-stats-grid">
+        <div class="val-stat">
+          <div class="val-stat__num">10.500+</div>
+          <div class="val-stat__lbl">tiendas instaladas</div>
+        </div>
+        <div class="val-stat">
+          <div class="val-stat__num">2,75 TWh</div>
+          <div class="val-stat__lbl">energía ahorrada</div>
+        </div>
+        <div class="val-stat">
+          <div class="val-stat__num">750.000 t</div>
+          <div class="val-stat__lbl">CO₂ evitadas</div>
+        </div>
+        <div class="val-stat">
+          <div class="val-stat__num">USD 650M</div>
+          <div class="val-stat__lbl">en beneficio económico para clientes</div>
+        </div>
+      </div>
+      <div class="retailer-logos">
+        <span class="retailer-name">Sainsbury's</span>
+        <span class="retailer-dot">·</span>
+        <span class="retailer-name">Tesco</span>
+        <span class="retailer-dot">·</span>
+        <span class="retailer-name">ASDA-Walmart</span>
+        <span class="retailer-dot">·</span>
+        <span class="retailer-name">M&amp;S</span>
+        <span class="retailer-dot">·</span>
+        <span class="retailer-name">WHSmith</span>
+        <span class="retailer-dot">·</span>
+        <span class="retailer-name">Target</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3–9. CUERPO PRINCIPAL + SIDEBAR ── -->
   <section class="prod-body">
     <div class="container">
       <div class="prod-layout">
         <article class="prod-article">
 
+          <!-- 3. ¿Qué es Aerofoil? -->
           <h2>¿Qué es Aerofoil?</h2>
-          <p>Aerofoil es un sistema de deflectores aerodinámicos que se instalan en la parte frontal de los cases abiertos de supermercado — los expositores sin puerta de verdulería, carnes, lácteos y deli. Su función es crear una <strong>barrera de aire invisible</strong> que impide que el calor del pasillo entre al case y que el frío escape hacia el ambiente.</p>
-          <p>El resultado: el compresor trabaja menos ciclos porque pierde menos temperatura. Menos ciclos = menos consumo eléctrico = menos costo. El ahorro validado en estudios independientes es de <strong>25% en el consumo del circuito de refrigeración</strong> de cases abiertos.</p>
-          <p>Visualmente, los deflectores se integran como price tag holders. Los clientes no notan ningún cambio — solo cases que funcionan más eficientemente.</p>
+          <p>Aerofoil es un sistema de deflectores aerodinámicos que se instalan en los estantes de los cases abiertos de supermercado — los expositores sin puerta de verdulería, carnes, lácteos y deli. Su función es crear una <strong>barrera de aire invisible</strong> que impide que el calor del pasillo entre al case y que el frío escape hacia el ambiente.</p>
 
-          <h2>El origen: física de Fórmula 1</h2>
-          <p>Aerofoil nació de una colaboración con <strong>Williams F1 Racing</strong>. Los ingenieros del equipo aplicaron los principios de gestión de flujo de aire que mantienen un monoplaza pegado al asfalto a 300 km/h — los mismos principios que generan downforce — para contener el frío dentro de un case abierto de supermercado.</p>
-          <p>La física es la misma: se trata de controlar cómo fluye el aire para que vaya exactamente donde quieres, sin turbulencias ni dispersión. En un case abierto, eso significa <strong>una cortina densa y concentrada</strong> que no se rompe cuando un cliente extiende la mano para tomar un producto.</p>
-
-          <div class="prod-quote">
-            <p>"La tecnología detrás de Aerofoil es exactamente la misma física que usamos para generar downforce en nuestros autos. El aire se comporta igual a 300 km/h que en el pasillo de un supermercado — solo hay que saber dirigirlo."</p>
-            <cite>— Ingeniero Senior, Williams F1 Racing (Calnext Study, 2023)</cite>
+          <div class="problem-box">
+            <p><strong>El problema que resuelve:</strong> el <strong>70% de la energía</strong> que consume un case abierto se usa para generar y mantener la cortina de aire frío en su entrada. Cada vez que un cliente extiende la mano, esa cortina se rompe, el frío se escapa y el compresor trabaja más para recuperar la temperatura.</p>
           </div>
 
+          <p><strong>El resultado con Aerofoil:</strong> menos pérdida de frío = menos ciclos del compresor = <strong>hasta 25% menos consumo eléctrico</strong> en el circuito de refrigeración. Visualmente, los deflectores se integran como portaprecios. Los clientes no notan ningún cambio — solo cases que funcionan mejor.</p>
+
+          <!-- 4. El origen -->
+          <h2>El origen: física de Fórmula 1</h2>
+          <p>Aerofoil nació de una colaboración con <strong>Williams F1 Racing</strong>. Los ingenieros del equipo aplicaron los principios de gestión de flujo de aire que mantienen un monoplaza pegado al asfalto a 300 km/h — los mismos principios que generan <em>downforce</em> — para contener el frío dentro de un case abierto de supermercado.</p>
+          <p>La física es la misma: se trata de controlar cómo fluye el aire para que vaya exactamente donde quieres, sin turbulencias ni dispersión. En un case abierto, eso significa <strong>una cortina densa y concentrada</strong> que no se rompe cuando un cliente extiende la mano para tomar un producto.</p>
+          <p>Resultado: una cortina de aire <strong>más estable, más eficiente y más resistente</strong> que la de cualquier case estándar.</p>
+
+          <!-- 5. Beneficios clave -->
           <h2>Beneficios clave</h2>
           <div class="prod-benefits">
             <div class="prod-benefit">
               <div class="prod-benefit__icon">⚡</div>
               <div class="prod-benefit__title">25% menos consumo</div>
-              <div class="prod-benefit__desc">El compresor trabaja menos ciclos al reducirse la pérdida de temperatura. Ahorro de 42.722 kWh/año en tienda típica de 330 pies.</div>
+              <div class="prod-benefit__desc">El compresor trabaja menos ciclos al reducirse la pérdida de temperatura. Ahorro promedio de <strong>42.722 kWh/año</strong> en tienda típica de 100 m lineales de cases.</div>
             </div>
             <div class="prod-benefit">
-              <div class="prod-benefit__icon">🏎</div>
+              <div class="prod-benefit__icon">🏎️</div>
               <div class="prod-benefit__title">Tecnología Williams F1</div>
               <div class="prod-benefit__desc">Única solución de refrigeración retail desarrollada con un equipo de Fórmula 1. Aerodinámica computacional aplicada al supermercado.</div>
             </div>
             <div class="prod-benefit">
-              <div class="prod-benefit__icon">🌡</div>
+              <div class="prod-benefit__icon">🌡️</div>
               <div class="prod-benefit__title">Temperatura más estable</div>
-              <div class="prod-benefit__desc">Los productos mantienen temperatura más uniforme durante todo el horario de apertura, especialmente en horas de mayor tráfico.</div>
+              <div class="prod-benefit__desc">Los productos mantienen temperatura más uniforme durante todo el horario de apertura, especialmente en horas de mayor tráfico. Menos quiebre de cadena de frío = <strong>menos merma</strong>.</div>
             </div>
             <div class="prod-benefit">
               <div class="prod-benefit__icon">🔧</div>
-              <div class="prod-benefit__title">Instalación en 1 noche</div>
-              <div class="prod-benefit__desc">Se montan como price tag holders. Sin herramientas especiales, sin corte de corriente. 330 pies en una sola noche con 3 personas.</div>
+              <div class="prod-benefit__title">Instalación en una sola noche</div>
+              <div class="prod-benefit__desc">Se montan como portaprecios. Sin herramientas especiales, sin corte de corriente, sin obras. <strong>100 m lineales en una sola noche con 3 personas.</strong></div>
             </div>
           </div>
 
+          <!-- 6. Especificaciones técnicas -->
           <h2>Especificaciones técnicas</h2>
           <table class="prod-specs">
             <thead>
               <tr><th>Característica</th><th>Detalle</th></tr>
             </thead>
             <tbody>
-              <tr><td>Aplicación</td><td>Cases abiertos (verdulería, carnes, lácteos, deli)</td></tr>
+              <tr><td>Aplicación</td><td>Cases abiertos verticales (verdulería, carnes, lácteos, deli)</td></tr>
               <tr><td>Mecanismo</td><td>Deflectores aerodinámicos de aluminio extruido</td></tr>
-              <tr><td>Instalación</td><td>Price tag holder — sin modificación estructural</td></tr>
-              <tr><td>Compatibilidad</td><td>Cualquier case abierto con price tag rail estándar</td></tr>
-              <tr><td>Ahorro validado</td><td class="td-green">25% en circuito de refrigeración</td></tr>
-              <tr><td>kWh ahorrados/año (tienda 330 pies)</td><td class="td-green">42.722 kWh</td></tr>
-              <tr><td>Payback</td><td class="td-green">7–17 meses</td></tr>
-              <tr><td>Tiempo de instalación</td><td>1 noche (330 pies, 3 personas)</td></tr>
+              <tr><td>Instalación</td><td>Portaprecios — sin modificación estructural</td></tr>
+              <tr><td>Ahorro energético</td><td class="td-green">Hasta 25% del consumo del compresor</td></tr>
+              <tr><td>Reducción de temperatura del producto</td><td class="td-green">Hasta 2,9 °C (CalNEXT, 10 tiendas)</td></tr>
               <tr><td>Vida útil</td><td>10+ años</td></tr>
-              <tr><td>Tecnología base</td><td>Williams F1 Racing (aerodinámica computacional)</td></tr>
+              <tr><td>Mantenimiento</td><td>Ninguno</td></tr>
+              <tr><td>Fabricante</td><td>Aerofoil Energy (Reino Unido)</td></tr>
             </tbody>
           </table>
 
-          <h2>¿Cuántos pies tienes?</h2>
-          <p>El ahorro con Aerofoil es directamente proporcional a los pies lineales de cases abiertos. Una tienda pequeña con 80 pies ahorra menos en términos absolutos que una grande con 400 pies — pero el <strong>porcentaje de ahorro y el payback</strong> son prácticamente iguales en ambos casos.</p>
-          <p>El mayor retorno se obtiene en tiendas con alta temperatura ambiental (verano, o tiendas con mala climatización) y en zonas de mayor tráfico peatonal, donde la disruption de la cortina de aire es más frecuente.</p>
-          <p>Andek Group realiza auditoría energética gratuita para calcular el ahorro exacto según tus pies de cases, temperatura ambiente media y tarifa eléctrica.</p>
+          <!-- 7. ¿Cuántos metros? -->
+          <h2>¿Cuántos metros de cases tienes?</h2>
+          <p>El ahorro con Aerofoil es <strong>directamente proporcional a los metros lineales de cases abiertos</strong> que tengas. Una tienda chica con <strong>25 m</strong> ahorra menos en términos absolutos que una grande con <strong>120 m</strong> — pero el <strong>porcentaje de ahorro y el payback son prácticamente iguales</strong> en ambos casos.</p>
+          <p>El mayor retorno se obtiene en tiendas con alta temperatura ambiental (verano, o tiendas con climatización deficiente) y en zonas de mayor tráfico peatonal, donde la disrupción de la cortina de aire es más frecuente.</p>
+          <p><strong>Andek Group realiza una auditoría energética gratuita</strong> para calcular el ahorro exacto según tus metros de cases, temperatura ambiente media y tarifa eléctrica.</p>
+
+          <!-- 8. Validación independiente -->
+          <h2>Respaldado por estudios de terceros, no por marketing</h2>
+          <div class="validation-grid">
+            <div class="val-card">
+              <div class="val-card__icon">🔬</div>
+              <div class="val-card__title">CalNEXT 2024 (California, EE.UU.)</div>
+              <div class="val-card__body">Estudio de campo financiado por las utilities reguladas de California. 10 tiendas, más de 2.000 Aerofoils instalados en distintas zonas climáticas. Ahorros de <strong>9–14% del consumo total del compresor</strong> y payback de <strong>7–17 meses</strong>.</div>
+            </div>
+            <div class="val-card">
+              <div class="val-card__icon">🎓</div>
+              <div class="val-card__title">University of Warwick (Reino Unido)</div>
+              <div class="val-card__body">Modelado CFD (dinámica de fluidos computacional) y validación en laboratorio independiente que confirma el rendimiento aerodinámico de la cortina de aire.</div>
+            </div>
+            <div class="val-card">
+              <div class="val-card__icon">🏆</div>
+              <div class="val-card__title">Premios y reconocimientos</div>
+              <div class="val-card__body">Queen's Award for Enterprise · MacRobert Award (Royal Academy of Engineering, finalista) · IET Innovation Award · RAC Cooling Industry Awards · Certificación B Corp.</div>
+            </div>
+          </div>
+
+          <!-- 9. Testimonios -->
+          <h2>Lo que dicen los retailers globales</h2>
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-card__quote">Desde que instalamos Aerofoils, hemos reducido en un 15% la energía generada por los frigoríficos de toda nuestra zona.</p>
+              <div class="testimonial-card__divider"></div>
+              <div>
+                <span class="testimonial-card__author-name">Dave Merefield</span>
+                <span class="testimonial-card__author-role">Carbon Utilities &amp; Engineering Manager, Sainsbury's</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-card__quote">Elegimos Aerofoils tras realizar pruebas independientes en laboratorio y en tienda, que demostraron que la tecnología aportaba un beneficio energético con un diseño robusto.</p>
+              <div class="testimonial-card__divider"></div>
+              <div>
+                <span class="testimonial-card__author-name">Steven Rigby</span>
+                <span class="testimonial-card__author-role">Director de Propiedad, Tesco</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-card__quote">El despliegue de Aerofoils nos ayudará significativamente a reducir nuestro consumo de energía, además de mejorar la experiencia de compra de nuestros clientes.</p>
+              <div class="testimonial-card__divider"></div>
+              <div>
+                <span class="testimonial-card__author-name">Brian Churchyard</span>
+                <span class="testimonial-card__author-role">Director de Normas de Diseño, ASDA-Walmart</span>
+              </div>
+            </div>
+          </div>
 
         </article>
 
+        <!-- SIDEBAR -->
         <aside class="prod-sidebar">
+
+          <!-- Caja 1 — Verde oscuro -->
           <div class="prod-cta-card">
-            <h4>¿Cuántos pies de cases tienes?</h4>
+            <h4>¿Cuántos metros de cases tienes?</h4>
             <p>En 30 minutos calculamos el ahorro exacto para tu tienda y el retorno de inversión.</p>
             <a href="index.html#contact" class="flow-btn flow-btn--full">
               <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -222,38 +411,56 @@
               <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
+
+          <!-- Caja 2 — Datos del producto -->
           <div class="prod-sidebar-card">
             <h4>Datos del Producto</h4>
             <ul class="prod-sidebar-list">
               <li><span>Producto</span><span>Aerofoil Deflectors</span></li>
               <li><span>Fabricante</span><span>Aerofoil Energy (UK)</span></li>
               <li><span>Aplicación</span><span>Cases abiertos</span></li>
-              <li><span>Ahorro</span><span class="td-green">25%</span></li>
+              <li><span>Ahorro</span><span class="td-green">Hasta 25%</span></li>
               <li><span>Payback</span><span class="td-green">7–17 meses</span></li>
               <li><span>Tecnología</span><span>Williams F1 Racing</span></li>
               <li><span>Vida útil</span><span>10+ años</span></li>
             </ul>
           </div>
+
+          <!-- Caja 3 — Caso de estudio -->
           <div class="prod-sidebar-card">
-            <h4>Caso de Estudio</h4>
-            <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:14px">Calnext Study: 42.722 kWh ahorrados/año. Estudio independiente en tienda con 330 pies.</p>
-            <a href="caso-aerofoil.html" style="font-size:.875rem;font-weight:600;color:var(--green-700);text-decoration:none">Leer el caso completo →</a>
+            <h4>Estudio CalNEXT 2024</h4>
+            <p class="sidebar-study-body">42.722 kWh ahorrados/año en tienda de 100 m lineales. Estudio independiente financiado por utilities de California.</p>
+            <a href="caso-aerofoil.html" class="sidebar-study-link">Leer el caso completo →</a>
           </div>
+
         </aside>
       </div>
     </div>
   </section>
 
+  <!-- ── 10. CTA FINAL ── -->
+  <section class="prod-cta-final">
+    <div class="container">
+      <h2>¿Cuántos metros de cases abiertos tienes en tu tienda?</h2>
+      <p class="prod-cta-final__sub">En 30 minutos calculamos el ahorro energético exacto y el payback para tu caso específico. Auditoría gratuita y sin compromiso.</p>
+      <div class="cta-actions">
+        <a href="index.html#contact" class="btn-white">Solicitar auditoría →</a>
+        <a href="index.html#contact" class="btn-outline-white">Hablar con un especialista →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CASOS EN ACCIÓN ── -->
   <section class="prod-cases">
     <div class="container">
       <h2>Aerofoil en acción</h2>
       <p class="prod-cases__sub">Resultados validados por estudios independientes.</p>
       <div class="prod-cases-grid">
         <a href="caso-aerofoil.html" class="prod-case-card">
-          <img src="Imagenes/Refrigerador.webp" alt="Calnext Study" />
+          <img src="Imagenes/Refrigerador.webp" alt="CalNEXT Study" />
           <div class="prod-case-card__body">
-            <div class="prod-case-card__tag">Cases Abiertos · Reino Unido</div>
-            <div class="prod-case-card__title">Calnext Study: 42.722 kWh ahorrados al año</div>
+            <div class="prod-case-card__tag">Cases Abiertos · California, EE.UU.</div>
+            <div class="prod-case-card__title">CalNEXT 2024: 42.722 kWh ahorrados al año</div>
             <div class="prod-case-card__kpi">25% ahorro · Payback 7–17 meses</div>
           </div>
         </a>
@@ -267,13 +474,14 @@
         </a>
         <div class="prod-case-card" style="background:var(--green-900);border-color:var(--green-700);display:flex;flex-direction:column;justify-content:center;padding:28px">
           <div style="font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-400);margin-bottom:10px">Tu tienda</div>
-          <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:12px">¿Cuántos pies de cases abiertos tienes?</div>
+          <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:12px">¿Cuántos metros de cases abiertos tienes?</div>
           <a href="index.html#contact" style="font-size:.875rem;font-weight:600;color:var(--green-400);text-decoration:none">Calcular mi ahorro →</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── OTRAS SOLUCIONES ── -->
   <section class="prod-others">
     <div class="container">
       <h2>Otras soluciones Andek Group</h2>
@@ -337,7 +545,7 @@
         <h4 class="footer-col__title">Casos de Estudio</h4>
         <ul class="footer-col__list">
           <li><a href="caso-chile.html">Piloto Chile 2024</a></li>
-          <li><a href="caso-aerofoil.html">Aerofoil — Calnext</a></li>
+          <li><a href="caso-aerofoil.html">Aerofoil — CalNEXT</a></li>
           <li><a href="caso-kenfield.html">Kenfield — Warwick</a></li>
           <li><a href="caso-clarifoil.html">Clarifoil — ASDA UK</a></li>
           <li><a href="caso-nualight.html">Nualight — Retail Europeo</a></li>
@@ -362,6 +570,7 @@
       </div>
     </div>
   </footer>
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinksEl = document.getElementById('navLinks');
