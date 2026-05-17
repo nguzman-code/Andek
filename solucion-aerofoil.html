@@ -14,10 +14,11 @@
     .prod-hero { background: var(--green-900) url('Imagenes/Pagina AF.jpg') right center / cover no-repeat; padding: 140px 0 80px; position: relative; overflow: hidden; }
     .prod-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,25,12,.97) 0%, rgba(12,25,12,.92) 40%, rgba(12,25,12,.72) 65%, rgba(12,25,12,.45) 100%); z-index: 1; }
     .prod-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
-    .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; margin-bottom: 28px; transition: color var(--transition); }
+    .prod-hero__topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; transition: color var(--transition); }
     .prod-back:hover { color: #fff; }
     .prod-back svg { width: 16px; height: 16px; }
-    .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
+    .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; }
     .prod-hero__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; letter-spacing: -.02em; }
     .prod-hero__sub { font-size: 1.125rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; }
     .prod-hero__sub strong { color: #fff; }
@@ -188,11 +189,13 @@
   <section class="prod-hero">
     <div class="container prod-hero__inner">
       <div>
-        <a href="index.html#portfolio" class="prod-back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver a Soluciones
-        </a>
-        <div class="prod-hero__tag">CASES ABIERTOS · MÁS POPULAR</div>
+        <div class="prod-hero__topbar">
+          <a href="index.html#portfolio" class="prod-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Volver a Soluciones
+          </a>
+          <div class="prod-hero__tag">CASES ABIERTOS · MÁS POPULAR</div>
+        </div>
         <h1 class="prod-hero__title">Aerofoil — Tecnología de Fórmula 1 aplicada a tu refrigeración.</h1>
         <p class="prod-hero__sub">Deflectores aerodinámicos diseñados con Williams F1 Racing. Se instalan en los estantes de tus cases abiertos y reducen hasta un <strong>25% el consumo del compresor</strong>, sin puertas, sin obras y sin cambiar la experiencia de compra.</p>
         <div class="prod-hero__actions">
