@@ -2070,10 +2070,23 @@ textarea { resize: vertical; min-height: 110px; }
   margin-bottom: 6px;
   text-wrap: balance;
 }
+.sol-card__img-wrap {
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.sol-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .sol-card__desc {
   font-size: 14px;
   line-height: 1.55;
   color: var(--sol-ink-soft);
+  flex: 1;
 }
 .sol-card__footer {
   margin-top: auto;
