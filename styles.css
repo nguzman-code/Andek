@@ -2093,7 +2093,7 @@ textarea { resize: vertical; min-height: 110px; }
   padding-top: 14px;
   border-top: 1px solid var(--sol-line-soft);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .sol-card__impact {
@@ -2102,6 +2102,8 @@ textarea { resize: vertical; min-height: 110px; }
   font-weight: 500;
   color: var(--sol-accent);
   letter-spacing: -0.01em;
+  line-height: 1.4;
+  min-height: 2.8em;
 }
 .sol-card__arrow {
   color: var(--sol-ink-mute);
