@@ -249,7 +249,7 @@
 
         var detailSection = detailEl.parentElement.parentElement;
         if (hasBg) {
-          detailSection.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url("' + brand.bg + '")';
+          detailSection.style.backgroundImage = 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.40) 100%),url("' + brand.bg + '")';
           detailSection.style.backgroundSize = 'cover';
           detailSection.style.backgroundPosition = 'center';
         } else {
@@ -281,13 +281,18 @@
           + '<p style="font-size:13px;color:' + benefitTc + ';margin:0;line-height:1.55"><strong style="color:' + benefitStr + '">Beneficio para el cliente:</strong> ' + brand.benefit + '</p>'
           + '</div>';
 
+        var glassOpen  = hasBg ? '<div style="background:linear-gradient(160deg,rgba(0,0,0,0.52) 0%,rgba(0,0,0,0.28) 100%);border:1px solid rgba(255,255,255,0.10);border-radius:8px;padding:28px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)">' : '';
+        var glassClose = hasBg ? '</div>' : '';
+
         detailEl.innerHTML = '<div class="sol-detail__left">'
+          + glassOpen
           + '<div class="sol-detail__counter" style="color:' + mc + '">' + counter + '</div>'
           + '<h3 class="sol-detail__h3" style="color:' + tc + '">' + brand.name + '</h3>'
           + '<p style="font-size:13px;font-weight:600;color:' + mc + ';margin:0 0 10px;letter-spacing:0.02em;text-transform:uppercase">' + brand.tagline + '</p>'
           + '<p class="sol-detail__summary" style="color:' + tc + '">' + brand.description + '</p>'
           + benefitHtml
           + '<a href="#contact" class="sol-detail__cta' + (hasBg ? ' sol-detail__cta--on-dark' : '') + '" style="margin-top:20px">Solicitar evaluación en sitio →</a>'
+          + glassClose
           + '</div>'
           + '<div class="sol-cards">' + cardsHtml + '</div>';
       }
