@@ -60,20 +60,6 @@
     .gc-pillar__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.3; }
     .gc-pillar__desc { font-size: .875rem; color: var(--gray); line-height: 1.65; }
 
-    /* ── DIAGRAM ── */
-    .gc-diagram-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .gc-diagram-row { display: flex; align-items: stretch; justify-content: center; width: 100%; max-width: 700px; }
-    .gc-diagram-box { flex: 1; border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; }
-    .gc-diagram-box--door { background: rgba(153,60,29,.07); border: 1.5px solid rgba(153,60,29,.25); }
-    .gc-diagram-box--fso  { background: rgba(15,110,86,.07);  border: 1.5px solid rgba(15,110,86,.25);  }
-    .gc-diagram-box__name { font-size: 1.0625rem; font-weight: 700; margin-bottom: 8px; }
-    .gc-diagram-box--door .gc-diagram-box__name { color: #993C1D; }
-    .gc-diagram-box--fso  .gc-diagram-box__name { color: #0F6E56; }
-    .gc-diagram-box__desc { font-size: .8125rem; color: var(--gray); line-height: 1.55; }
-    .gc-diagram-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0 20px; flex-shrink: 0; }
-    .gc-diagram-arrow__label { font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--gray); white-space: nowrap; }
-    .gc-diagram-caption { font-size: .8125rem; color: var(--gray); text-align: center; border-top: 1px solid var(--gray-light); padding-top: 16px; width: 100%; max-width: 700px; font-style: italic; }
-
     /* ── PRODUCTS ── */
     .gc-products { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .gc-product-card { border: 0.5px solid var(--gray-light); border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; gap: 20px; background: var(--bg); }
@@ -124,10 +110,6 @@
     }
     @media (max-width: 768px) {
       .gc-products { grid-template-columns: 1fr; }
-      .gc-diagram-row { flex-direction: column; align-items: center; gap: 8px; max-width: 340px; margin: 0 auto; }
-      .gc-diagram-box { width: 100%; }
-      .gc-diagram-arrow { flex-direction: row; padding: 0; }
-      .gc-diagram-arrow__svg { transform: rotate(90deg); }
     }
     @media (max-width: 640px) {
       .prod-hero { padding: 120px 0 60px; }
@@ -274,40 +256,6 @@
     </div>
   </section>
 
-  <!-- ── 3. DOS PRODUCTOS ── -->
-  <section class="gc-section" id="diagram">
-    <div class="container">
-      <div class="gc-section__header">
-        <h2 class="gc-section__title">Dos productos que trabajan en conjunto</h2>
-        <p class="gc-section__sub">FSO y Door Sentry son soluciones independientes que se potencian al combinarse: cuando la puerta abre, el FSO baja los ventiladores; cuando cierra, vuelve a operación normal.</p>
-      </div>
-
-      <div class="gc-diagram-wrap">
-        <div class="gc-diagram-row">
-
-          <div class="gc-diagram-box gc-diagram-box--door">
-            <div class="gc-diagram-box__name">Door Sentry</div>
-            <div class="gc-diagram-box__desc">Sensor de puerta y alarma<br>17% ahorro de energía</div>
-          </div>
-
-          <div class="gc-diagram-arrow">
-            <span class="gc-diagram-arrow__label">señal apertura</span>
-            <svg class="gc-diagram-arrow__svg" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="24">
-              <path d="M2 12h40" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M35 6l7 6-7 6" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-
-          <div class="gc-diagram-box gc-diagram-box--fso">
-            <div class="gc-diagram-box__name">FSO</div>
-            <div class="gc-diagram-box__desc">Optimizador de ventiladores<br>36% ahorro en motores</div>
-          </div>
-
-        </div>
-        <p class="gc-diagram-caption">Door Sentry avisa al FSO cuando la puerta abre</p>
-      </div>
-    </div>
-  </section>
 
   <!-- ── 4. PRODUCTOS ── -->
   <section class="gc-section gc-section--alt">
@@ -404,7 +352,6 @@
       <p class="prod-cta-final__sub">Cotización personalizada con análisis de ROI según tu instalación. Soporte técnico integral desde el diseño hasta la puesta en marcha.</p>
       <div class="cta-actions">
         <a href="index.html#contact" class="btn-white">Solicitar cotización →</a>
-        <a href="#diagram" class="btn-outline-white">Ver integración técnica →</a>
       </div>
     </div>
   </section>
