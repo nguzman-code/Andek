@@ -274,7 +274,7 @@ ul { list-style: none; }
   overflow: hidden;
   padding: 100px 0 80px;
   background: var(--green-900);
-  background-image: url('Imagenes/Refrigerador.webp');
+  background-image: url('Imagenes/General/Refrigerador.webp');
   background-size: cover;
   background-position: center;
 }
@@ -1382,7 +1382,7 @@ textarea { resize: vertical; min-height: 110px; }
   position: relative;
   padding: 140px 0 140px;
   background: var(--green-900);
-  background-image: url('Imagenes/Refrigerador.webp');
+  background-image: url('Imagenes/General/Refrigerador.webp');
   background-size: cover;
   background-position: center;
   overflow: hidden;
