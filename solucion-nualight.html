@@ -1,88 +1,458 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="Marca/symbol.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nualight — LED Espectral CRI 95+ para Frescos | Andek Group</title>
+  <title>Nualight — Iluminación LED Espectral para Retail Refrigerado | Andek Group</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    .prod-hero { background: var(--green-900); padding: 140px 0 80px; position: relative; overflow: hidden; }
-    .prod-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
-    .prod-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
-    .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; margin-bottom: 28px; transition: color var(--transition); }
+    /* ── Variables Nualight ── */
+    :root {
+      --nl-dark:    #2D3A2E;
+      --nl-yellow:  #E8C547;
+      --nl-mist:    #C8D4C2;
+      --nl-bg:      #F5F5F0;
+      --nl-muted:   #A8B5A4;
+      --nl-body:    #4A4A4A;
+      --nl-head:    #1A1A1A;
+      /* Acentos por categoría */
+      --nl-meat:    #C8423A;
+      --nl-grocery: #639922;
+      --nl-dairy:   #BA7517;
+      --nl-bakery:  #D85A30;
+      --nl-fish:    #378ADD;
+      --nl-frozen:  #1D9E75;
+    }
+
+    /* ── Volver link ── */
+    .prod-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.55);
+      font-size: .875rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      transition: color var(--transition);
+    }
     .prod-back:hover { color: #fff; }
-    .prod-back svg { width: 16px; height: 16px; }
-    .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; margin-bottom: 20px; }
-    .prod-hero__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; letter-spacing: -.02em; }
-    .prod-hero__sub { font-size: 1.125rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; }
-    .prod-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .prod-hero__visual { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); padding: 40px; display: flex; flex-direction: column; gap: 20px; }
-    .prod-hero__logo { display: flex; align-items: center; justify-content: center; padding: 24px; }
-    .prod-hero__logo img { max-width: 220px; filter: brightness(0) invert(1); opacity: .9; }
-    .prod-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .prod-stat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 16px; }
-    .prod-stat__val { font-size: 1.5rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 4px; }
-    .prod-stat__lbl { font-size: .75rem; color: rgba(255,255,255,.5); font-weight: 500; }
-    .prod-body { padding: 80px 0; }
-    .prod-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
-    .prod-article h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin: 40px 0 16px; padding-top: 40px; border-top: 1px solid var(--gray-light); }
-    .prod-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-    .prod-article p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
-    .prod-article strong { color: var(--dark); }
-    .prod-quote { border-left: 4px solid var(--green-400); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
-    .prod-quote p { font-size: 1.0625rem; color: var(--dark); font-style: italic; line-height: 1.7; margin: 0 0 8px; }
-    .prod-quote cite { font-size: .875rem; color: var(--gray); font-style: normal; font-weight: 600; }
-    .prod-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
-    .prod-benefit { background: var(--bg-alt); border: 1px solid var(--gray-light); border-radius: var(--radius); padding: 20px; }
-    .prod-benefit__icon { font-size: 1.5rem; margin-bottom: 10px; }
-    .prod-benefit__title { font-size: .9375rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-    .prod-benefit__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
-    .prod-specs { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    .prod-specs th { background: var(--green-900); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: .875rem; }
-    .prod-specs td { padding: 12px 16px; border-bottom: 1px solid var(--gray-light); color: var(--dark); font-size: .9375rem; }
-    .prod-specs tr:nth-child(even) td { background: var(--bg-alt); }
-    .td-green { color: var(--green-700); font-weight: 700; }
-    .prod-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 20px; }
-    .prod-sidebar-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow); }
-    .prod-sidebar-card h4 { font-size: .875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-light); }
-    .prod-sidebar-list { display: flex; flex-direction: column; gap: 9px; }
-    .prod-sidebar-list li { display: flex; justify-content: space-between; font-size: .875rem; gap: 10px; }
-    .prod-sidebar-list li span:first-child { color: var(--gray); }
-    .prod-sidebar-list li span:last-child { font-weight: 600; color: var(--dark); text-align: right; }
-    .prod-cta-card { background: var(--green-900); border-radius: var(--radius-lg); padding: 26px 22px; }
-    .prod-cta-card h4 { font-size: 1.0625rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .prod-cta-card p { font-size: .875rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 18px; }
-    .prod-cta-card .btn { width: 100%; justify-content: center; background: var(--green-400); border-color: var(--green-400); color: var(--green-900); font-weight: 700; }
-    .prod-cta-card .btn:hover { background: #5fc89a; border-color: #5fc89a; }
-    .prod-cases { padding: 80px 0; background: var(--bg-alt); }
-    .prod-cases h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
-    .prod-cases__sub { font-size: 1rem; color: var(--gray); margin-bottom: 36px; }
-    .prod-cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .prod-case-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); }
-    .prod-case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .prod-case-card__body { padding: 18px; }
-    .prod-case-card__tag { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--green-700); margin-bottom: 6px; }
-    .prod-case-card__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.35; margin-bottom: 8px; }
-    .prod-case-card__kpi { font-size: .8125rem; color: var(--green-700); font-weight: 700; }
-    .prod-others { padding: 80px 0; }
-    .prod-others h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 36px; color: var(--dark); }
-    .prod-others-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .prod-other-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 24px; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); display: flex; flex-direction: column; gap: 14px; }
-    .prod-other-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .prod-other-card__logo { height: 56px; display: flex; align-items: center; }
-    .prod-other-card__logo img { max-height: 36px; max-width: 140px; object-fit: contain; mix-blend-mode: multiply; }
-    .prod-other-card__title { font-size: 1rem; font-weight: 700; color: var(--dark); }
-    .prod-other-card__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
-    .prod-other-card__kpi { font-size: .8125rem; font-weight: 700; color: var(--green-700); }
-    @media (max-width: 1024px) { .prod-hero__inner { grid-template-columns: 1fr; } .prod-hero__visual { display: none; } .prod-layout { grid-template-columns: 1fr; } .prod-sidebar { position: static; } .prod-cases-grid { grid-template-columns: 1fr 1fr; } .prod-others-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .prod-hero { padding: 120px 0 60px; } .prod-benefits { grid-template-columns: 1fr; } .prod-cases-grid, .prod-others-grid { grid-template-columns: 1fr; } }
+    .prod-back svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ── Eyebrow compartido ── */
+    .nl-eyebrow {
+      display: block;
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .nl-eyebrow--mist  { color: var(--nl-mist); }
+    .nl-eyebrow--gray  { color: var(--gray); }
+
+    /* ════════════════════════════════
+       SECCIÓN 1 — HERO
+    ════════════════════════════════ */
+    .nl-hero {
+      background: var(--nl-dark);
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .nl-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+    .nl-hero__inner { position: relative; z-index: 2; }
+
+    .nl-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      margin-bottom: 24px;
+    }
+    .nl-hero h1 em {
+      font-style: italic;
+      color: var(--nl-yellow);
+    }
+    .nl-hero__desc {
+      color: var(--nl-mist);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .nl-hero__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    /* Variante amarilla del flow-btn */
+    .flow-btn--yellow {
+      border-color: var(--nl-yellow);
+      background: var(--nl-yellow);
+      color: var(--nl-dark);
+    }
+    .flow-btn--yellow .flow-btn__arr  { stroke: var(--nl-dark); }
+    .flow-btn--yellow .flow-btn__circle { background: var(--nl-dark); }
+    .flow-btn--yellow:hover { color: #fff; border-color: transparent; }
+    .flow-btn--yellow:hover .flow-btn__arr { stroke: #fff; }
+
+    /* Grid de 4 métricas */
+    .nl-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .nl-stat {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .nl-stat__val {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--nl-yellow);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .nl-stat__lbl {
+      font-size: .6875rem;
+      color: var(--nl-muted);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    /* ════════════════════════════════
+       SECCIÓN 2 — EL COLOR VENDE
+    ════════════════════════════════ */
+    .nl-why {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .nl-why h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--nl-head);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: 32px;
+      max-width: 620px;
+    }
+    .nl-why__body { max-width: 680px; }
+    .nl-why__body p {
+      font-size: 1.0625rem;
+      color: var(--nl-body);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .nl-why__body p:last-child { margin-bottom: 0; }
+
+    /* ════════════════════════════════
+       SECCIÓN 3 — ESPECTRO POR CATEGORÍA
+    ════════════════════════════════ */
+    .nl-spectrum {
+      padding: 96px 0;
+      background: var(--nl-bg);
+    }
+    .nl-spectrum__head { margin-bottom: 48px; }
+    .nl-spectrum__head h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--nl-head);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: 16px;
+    }
+    .nl-spectrum__intro {
+      font-size: 1.0625rem;
+      color: var(--nl-body);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    .nl-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .nl-cat-card {
+      background: #fff;
+      border: .5px solid var(--gray-light);
+      border-radius: 12px;
+      padding: 20px;
+      border-top-width: 3px;
+      border-top-style: solid;
+    }
+    .nl-cat-card__icon {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+    }
+    .nl-cat-card__title {
+      font-size: .9375rem;
+      font-weight: 500;
+      color: var(--nl-head);
+      margin-bottom: 4px;
+    }
+    .nl-cat-card__sub {
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .nl-cat-card__desc {
+      font-size: .875rem;
+      color: var(--nl-body);
+      line-height: 1.55;
+    }
+
+    /* ════════════════════════════════
+       SECCIÓN 4 — DOBLE EFICIENCIA
+    ════════════════════════════════ */
+    .nl-efficiency {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .nl-efficiency__head { margin-bottom: 40px; }
+    .nl-efficiency__head h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--nl-head);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: 16px;
+    }
+    .nl-efficiency__intro {
+      font-size: 1.0625rem;
+      color: var(--nl-body);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+    .nl-eff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .nl-eff-card {
+      background: var(--nl-bg);
+      border: .5px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .nl-eff-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--nl-head);
+      margin-bottom: 10px;
+    }
+    .nl-eff-card p {
+      font-size: .9375rem;
+      color: var(--nl-body);
+      line-height: 1.7;
+    }
+    .nl-eff-banner {
+      background: var(--nl-bg);
+      border: .5px solid var(--gray-light);
+      border-radius: 8px;
+      padding: 20px 24px;
+      font-size: .9375rem;
+      color: var(--nl-body);
+      line-height: 1.65;
+    }
+    .nl-eff-banner strong { color: var(--nl-head); }
+
+    /* ════════════════════════════════
+       SECCIÓN 5 — GAMA DE PRODUCTO
+    ════════════════════════════════ */
+    .nl-range {
+      padding: 96px 0;
+      background: var(--nl-bg);
+    }
+    .nl-range__head { margin-bottom: 48px; }
+    .nl-range__head h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--nl-head);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+    .nl-product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .nl-product-card {
+      background: #fff;
+      border: .5px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .nl-product-card h3 {
+      font-size: .9375rem;
+      font-weight: 700;
+      color: var(--nl-head);
+    }
+    .nl-product-card p {
+      font-size: .875rem;
+      color: var(--nl-body);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .nl-link {
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--green-700);
+      text-decoration: none;
+      transition: color var(--transition);
+      margin-top: auto;
+    }
+    .nl-link:hover { color: var(--green-900); }
+
+    /* ════════════════════════════════
+       SECCIÓN 6 — CREDENCIALES
+    ════════════════════════════════ */
+    .nl-cred {
+      padding: 96px 0;
+      background: var(--nl-dark);
+    }
+    .nl-cred h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: 20px;
+    }
+    .nl-cred__intro {
+      font-size: 1.0625rem;
+      color: var(--nl-mist);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    .nl-clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .nl-client {
+      background: rgba(255,255,255,.06);
+      border: .5px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      font-size: .875rem;
+      color: var(--nl-mist);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .nl-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nl-badge {
+      background: rgba(255,255,255,.07);
+      border: .5px solid rgba(255,255,255,.18);
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--nl-mist);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ════════════════════════════════
+       SECCIÓN 7 — CTA FINAL
+    ════════════════════════════════ */
+    .nl-cta {
+      padding: 96px 0;
+      background: var(--nl-yellow);
+      text-align: center;
+    }
+    .nl-cta h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--nl-dark);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      max-width: 580px;
+      margin: 0 auto 20px;
+    }
+    .nl-cta p {
+      font-size: 1.0625rem;
+      color: var(--nl-dark);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      opacity: .8;
+    }
+
+    /* Variante oscura del flow-btn para fondo amarillo */
+    .flow-btn--nl-dark {
+      border-color: var(--nl-dark);
+      background: var(--nl-dark);
+      color: #fff;
+    }
+    .flow-btn--nl-dark .flow-btn__arr  { stroke: #fff; }
+    .flow-btn--nl-dark .flow-btn__circle { background: rgba(255,255,255,.95); }
+    .flow-btn--nl-dark:hover { color: var(--nl-dark); border-color: transparent; }
+    .flow-btn--nl-dark:hover .flow-btn__arr { stroke: var(--nl-dark); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .nl-stats         { grid-template-columns: repeat(2, 1fr); }
+      .nl-cat-grid      { grid-template-columns: repeat(2, 1fr); }
+      .nl-product-grid  { grid-template-columns: repeat(2, 1fr); }
+      .nl-clients-grid  { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nl-hero { padding: 120px 0 60px; }
+      .nl-hero__actions { flex-direction: column; }
+      .nl-hero__actions .flow-btn { width: 100%; justify-content: center; }
+      .nl-eff-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nl-why,
+      .nl-spectrum,
+      .nl-efficiency,
+      .nl-range,
+      .nl-cred,
+      .nl-cta { padding: 72px 0; }
+      .nl-cat-grid     { grid-template-columns: 1fr; }
+      .nl-product-grid { grid-template-columns: 1fr; }
+      .nl-clients-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ── NAVBAR ── -->
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo"><img src="Marca/Logo.png" alt="Andek Group" /></a>
@@ -90,7 +460,8 @@
         <li><a href="index.html" class="nav-link">Inicio</a></li>
         <li class="nav-dropdown">
           <a href="index.html#portfolio" class="nav-link nav-link--dropdown">
-            Soluciones <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Soluciones
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
           <ul class="nav-submenu">
             <li><a href="index.html#portfolio" class="nav-submenu__item">Todos los Productos</a></li>
@@ -105,213 +476,330 @@
       </ul>
       <div class="nav-indicator" id="navIndicator"></div>
       <a href="index.html#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
-        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         <span class="flow-btn__text">Contáctanos</span>
         <span class="flow-btn__circle"></span>
-        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <section class="prod-hero">
-    <div class="container prod-hero__inner">
-      <div>
-        <a href="index.html#portfolio" class="prod-back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver a Soluciones
+  <!-- ══════════════════════════════════════
+       SECCIÓN 1 — HERO
+  ══════════════════════════════════════ -->
+  <section class="nl-hero" aria-labelledby="hero-title">
+    <div class="container nl-hero__inner">
+
+      <a href="index.html#portfolio" class="prod-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver a Soluciones
+      </a>
+
+      <span class="nl-eyebrow nl-eyebrow--mist">NUALIGHT · CORK, IRLANDA · DESDE 2004</span>
+
+      <h1 id="hero-title">
+        La luz que hace<br>
+        que tus productos<br>
+        <em>se venden solos.</em>
+      </h1>
+
+      <p class="nl-hero__desc">
+        Luminarias LED de alto rendimiento diseñadas para los principales retailers del mundo.
+        Espectro optimizado por categoría — Red-tone para carnes, blanco natural para lácteos,
+        cálido para panadería. CRI alto que muestra los colores tal como son.
+      </p>
+
+      <div class="nl-hero__actions">
+        <a href="index.html#contact" class="flow-btn flow-btn--yellow">
+          <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span class="flow-btn__text">Solicitar cotización</span>
+          <span class="flow-btn__circle"></span>
+          <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <div class="prod-hero__tag">Iluminación Refrigerada</div>
-        <h1 class="prod-hero__title">Nualight — Ilumina mejor. Gasta menos. Vende más.</h1>
-        <p class="prod-hero__sub">Luminarias LED con espectro optimizado por categoría de producto. CRI 95+ para colores naturales en carne, verdura y lácteos. 35% menos consumo eléctrico y 12% más ventas en frescos — validado en 18 tiendas europeas.</p>
-        <div class="prod-hero__actions">
-          <a href="index.html#contact" class="flow-btn">
-            <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Solicitar cotización</span>
-            <span class="flow-btn__circle"></span>
-            <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="caso-nualight.html" class="flow-btn">
-            <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Ver caso de estudio</span>
-            <span class="flow-btn__circle"></span>
-            <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+        <a href="caso-nualight.html" class="flow-btn">
+          <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span class="flow-btn__text">Ver casos de estudio</span>
+          <span class="flow-btn__circle"></span>
+          <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="nl-stats" role="list" aria-label="Métricas clave">
+        <div class="nl-stat" role="listitem">
+          <div class="nl-stat__val">CRI 95+</div>
+          <div class="nl-stat__lbl">índice cromático</div>
+        </div>
+        <div class="nl-stat" role="listitem">
+          <div class="nl-stat__val">165</div>
+          <div class="nl-stat__lbl">lm/W · líder industria</div>
+        </div>
+        <div class="nl-stat" role="listitem">
+          <div class="nl-stat__val">100k h</div>
+          <div class="nl-stat__lbl">vida útil (L90)</div>
+        </div>
+        <div class="nl-stat" role="listitem">
+          <div class="nl-stat__val">20</div>
+          <div class="nl-stat__lbl">años en el mercado</div>
         </div>
       </div>
-      <div class="prod-hero__visual">
-        <div class="prod-hero__logo">
-          <img src="Imagenes/Logos/Marcas/nualight-logo-650x157.png" alt="Nualight" />
-        </div>
-        <div class="prod-stat-grid">
-          <div class="prod-stat"><div class="prod-stat__val">35%</div><div class="prod-stat__lbl">Ahorro iluminación</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">CRI 95+</div><div class="prod-stat__lbl">Índice cromático</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">+12%</div><div class="prod-stat__lbl">Ventas frescos</div></div>
-          <div class="prod-stat"><div class="prod-stat__val">100k h</div><div class="prod-stat__lbl">Vida útil</div></div>
-        </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 2 — EL COLOR VENDE
+  ══════════════════════════════════════ -->
+  <section class="nl-why">
+    <div class="container">
+      <span class="nl-eyebrow nl-eyebrow--gray">POR QUÉ NUALIGHT</span>
+      <h2>El color es lo que decide la compra</h2>
+      <div class="nl-why__body">
+        <p>
+          En retail, el cliente decide visualmente antes de leer cualquier precio o etiqueta.
+          La carne se ve apetecible o no se ve apetecible. La fruta se ve fresca o se ve cansada.
+          Esa percepción depende directamente de la calidad de la luz que la ilumina.
+        </p>
+        <p>
+          La mayoría de las luminarias de retail tienen un CRI de 75–80, lo que significa que
+          reproducen los colores con baja fidelidad. Los rojos pierden saturación, los verdes
+          amarillean, los blancos se ven grises. El producto sigue siendo el mismo, pero se vende
+          menos porque se ve peor.
+        </p>
+        <p>
+          Nualight diseña luminarias LED con CRI 95+ y espectros específicos por categoría.
+          Los colores se ven tal como los vería el cliente bajo luz natural, con toda su
+          saturación cromática intacta.
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="prod-body">
+  <!-- ══════════════════════════════════════
+       SECCIÓN 3 — ESPECTRO POR CATEGORÍA
+  ══════════════════════════════════════ -->
+  <section class="nl-spectrum">
     <div class="container">
-      <div class="prod-layout">
-        <article class="prod-article">
+      <div class="nl-spectrum__head">
+        <span class="nl-eyebrow nl-eyebrow--gray">ESPECTRO OPTIMIZADO</span>
+        <h2>Una luz para cada categoría</h2>
+        <p class="nl-spectrum__intro">
+          Un LED genérico ilumina todo igual. Nualight no. Cada gama tiene un espectro
+          calibrado para realzar el color natural del producto que está adentro de la góndola.
+        </p>
+      </div>
 
-          <h2>¿Qué es Nualight?</h2>
-          <p>Nualight es una gama de luminarias LED diseñada exclusivamente para la sección de frescos del supermercado. A diferencia de los LEDs genéricos — que tienen un CRI de 75–80 y reproducen los colores con baja fidelidad — Nualight usa un <strong>espectro optimizado por categoría</strong> para alcanzar CRI 95+, haciendo que la carne se vea roja y fresca, las verduras brillantes y los lácteos naturales.</p>
-          <p>El resultado tiene dos efectos simultáneos: <strong>el cliente compra más</strong> porque el producto se ve mejor, y <strong>la tienda gasta menos</strong> porque la luminaria consume menos y no genera calor dentro de la góndola de refrigeración.</p>
+      <div class="nl-cat-grid" role="list">
 
-          <h2>El doble problema de la iluminación genérica</h2>
-          <p>Las lámparas convencionales en sección de frescos tienen dos problemas que pocas tiendas asocian entre sí. El primero es visual: un CRI bajo distorsiona los colores y hace que los productos frescos se vean menos apetecibles. Los clientes lo perciben como menor frescura y toman menos productos — especialmente carne, donde el color es el principal indicador de calidad percibida.</p>
-          <p>El segundo es térmico: las lámparas convencionales generan calor dentro del espacio refrigerado. Ese calor es una carga adicional para el compresor — el sistema de refrigeración tiene que trabajar más ciclos para compensar el calor que emite la propia iluminación. <strong>Energía doble perdida</strong>: la que consume la lámpara y la que gasta el compresor para eliminar su calor.</p>
-          <p>Nualight resuelve ambos problemas a la vez: espectro diseñado para colores reales + disipación térmica hacia el exterior de la góndola.</p>
-
-          <div class="prod-quote">
-            <p>"Cuando instalamos Nualight en la sección de carnes, el equipo de ventas notó el cambio al día siguiente. Los clientes se paraban más frente al mostrador. La carne tenía un color que no habíamos visto antes con iluminación artificial."</p>
-            <cite>— Director de Operaciones, Cadena de supermercados, Países Bajos (2023)</cite>
-          </div>
-
-          <h2>Beneficios clave</h2>
-          <div class="prod-benefits">
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">💡</div>
-              <div class="prod-benefit__title">35% menos consumo</div>
-              <div class="prod-benefit__desc">Tecnología LED de última generación con drivers de alta eficiencia. Ahorro directo en la factura de iluminación desde el primer mes.</div>
-            </div>
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">🎨</div>
-              <div class="prod-benefit__title">CRI 95+ — colores reales</div>
-              <div class="prod-benefit__desc">Espectro multicanel optimizado por categoría: rojo para carnes, verde para verdulería, blanco natural para lácteos y deli.</div>
-            </div>
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">📈</div>
-              <div class="prod-benefit__title">+12% ventas en frescos</div>
-              <div class="prod-benefit__desc">Validado en 18 tiendas europeas durante 6 meses. El mayor aumento se da en carnes (+14%) y verdulería (+11%).</div>
-            </div>
-            <div class="prod-benefit">
-              <div class="prod-benefit__icon">📅</div>
-              <div class="prod-benefit__title">100.000 horas de vida</div>
-              <div class="prod-benefit__desc">L90 certificado: 15+ años sin reemplazo en operación de 18 horas diarias. Cero mantenimiento de iluminación en una década.</div>
-            </div>
-          </div>
-
-          <h2>Especificaciones técnicas</h2>
-          <table class="prod-specs">
-            <thead>
-              <tr><th>Característica</th><th>Detalle</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Aplicación</td><td>Góndolas refrigeradas de frescos (carnes, verdulería, lácteos, deli)</td></tr>
-              <tr><td>Índice de Reproducción Cromática</td><td class="td-green">CRI 95+</td></tr>
-              <tr><td>Temperatura de color</td><td>2.700K – 4.000K (según categoría)</td></tr>
-              <tr><td>Ahorro vs. fluorescente</td><td class="td-green">35%</td></tr>
-              <tr><td>Ahorro adicional refrigeración</td><td class="td-green">8–12%</td></tr>
-              <tr><td>Vida útil (L90)</td><td>100.000 horas</td></tr>
-              <tr><td>Rango de temperatura operativa</td><td>−10°C a +40°C</td></tr>
-              <tr><td>Disipación térmica</td><td>Exterior de la góndola (sin carga al compresor)</td></tr>
-              <tr><td>Payback promedio</td><td class="td-green">~15 meses</td></tr>
-              <tr><td>Certificaciones</td><td>CE, IP65, Food Safe, ENEC</td></tr>
-            </tbody>
-          </table>
-
-          <h2>El efecto sobre ventas: por qué el color importa</h2>
-          <p>La ciencia detrás del efecto Nualight en ventas está bien documentada en retail. El 80% de la decisión de compra de productos frescos ocurre visualmente, en el punto de venta. El color es el principal indicador de frescura que el cerebro usa para evaluar si un producto vale la pena.</p>
-          <p>Con un CRI de 78 (iluminación convencional), la carne pierde entre 15% y 20% de su saturación de rojo. El resultado: se ve más grisácea, menos fresca, menos apetecible. Con CRI 95+, los mismos productos se presentan tal como los vería el cliente bajo luz natural — con toda su saturación cromática intacta.</p>
-          <p>El estudio europeo Nualight midió esto con precisión: las tiendas con la nueva iluminación vieron un <strong>aumento sostenido de 12% en ventas de frescos</strong> durante 6 meses, sin ningún otro cambio en la operación de la tienda.</p>
-
-          <h2>15 años sin reemplazar una lámpara</h2>
-          <p>En una tienda con 200 metros de lineales de frescos, el costo de mantenimiento de iluminación fluorescente convencional puede representar 60–100 horas de trabajo técnico por año: reemplazo de tubos, trabajo en altura, disposición de residuos con mercurio, registro de operaciones de mantenimiento.</p>
-          <p>Con Nualight, ese costo desaparece completamente durante 15 años. No siempre se incluye en los cálculos de ROI, pero cuando se suma al ahorro energético, el <strong>retorno total mejora significativamente</strong> respecto al número de payback de 15 meses que se calcula solo con energía.</p>
-
+        <!-- Carnes frescas -->
+        <article class="nl-cat-card" role="listitem" style="border-top-color: var(--nl-meat);">
+          <svg class="nl-cat-card__icon" viewBox="0 0 24 24" fill="none" stroke="var(--nl-meat)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+          <div class="nl-cat-card__title">Carnes frescas</div>
+          <div class="nl-cat-card__sub">RED-TONE</div>
+          <p class="nl-cat-card__desc">Espectro específico que minimiza la decoloración visible y realza el rojo natural de la carne.</p>
         </article>
 
-        <aside class="prod-sidebar">
-          <div class="prod-cta-card">
-            <h4>¿Cuántos metros de frescos tienes?</h4>
-            <p>El retorno depende del metraje, tipo de producto y tarifa. Lo calculamos con números reales en 30 minutos.</p>
-            <a href="index.html#contact" class="flow-btn flow-btn--full">
-              <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              <span class="flow-btn__text">Solicitar auditoría</span>
-              <span class="flow-btn__circle"></span>
-              <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-          <div class="prod-sidebar-card">
-            <h4>Datos del Producto</h4>
-            <ul class="prod-sidebar-list">
-              <li><span>Producto</span><span>Nualight LED Retail</span></li>
-              <li><span>Fabricante</span><span>Nualight (Irlanda)</span></li>
-              <li><span>CRI</span><span class="td-green">95+</span></li>
-              <li><span>Ahorro iluminación</span><span class="td-green">35%</span></li>
-              <li><span>Ahorro refrigeración</span><span class="td-green">8–12%</span></li>
-              <li><span>Payback</span><span class="td-green">~15 meses</span></li>
-              <li><span>Vida útil</span><span>100.000 horas</span></li>
-            </ul>
-          </div>
-          <div class="prod-sidebar-card">
-            <h4>Caso de Estudio</h4>
-            <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:14px">18 tiendas europeas: 35% menos consumo + 12% más ventas en frescos durante 6 meses.</p>
-            <a href="caso-nualight.html" style="font-size:.875rem;font-weight:600;color:var(--green-700);text-decoration:none">Leer el caso completo →</a>
-          </div>
-        </aside>
+        <!-- Grocery -->
+        <article class="nl-cat-card" role="listitem" style="border-top-color: var(--nl-grocery);">
+          <svg class="nl-cat-card__icon" viewBox="0 0 24 24" fill="none" stroke="var(--nl-grocery)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+          <div class="nl-cat-card__title">Grocery</div>
+          <div class="nl-cat-card__sub">VIVACE® · 4000K</div>
+          <p class="nl-cat-card__desc">Blanco natural con tecnología Vivace® para saturación cromática alta en frutas y verduras.</p>
+        </article>
+
+        <!-- Lácteos -->
+        <article class="nl-cat-card" role="listitem" style="border-top-color: var(--nl-dairy);">
+          <svg class="nl-cat-card__icon" viewBox="0 0 24 24" fill="none" stroke="var(--nl-dairy)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S13 6.8 12 2c-1 4.8-2 6.8-4 8.5C6 12.1 5 14 5 16a7 7 0 0 0 7 6z"/>
+          </svg>
+          <div class="nl-cat-card__title">Lácteos</div>
+          <div class="nl-cat-card__sub">NATURAL WHITE · 4000K</div>
+          <p class="nl-cat-card__desc">Blanco neutro para mantener colores reales en quesos, yogures y embutidos.</p>
+        </article>
+
+        <!-- Bakery -->
+        <article class="nl-cat-card" role="listitem" style="border-top-color: var(--nl-bakery);">
+          <svg class="nl-cat-card__icon" viewBox="0 0 24 24" fill="none" stroke="var(--nl-bakery)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 22 16 8"/>
+            <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94z"/>
+            <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94z"/>
+            <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94z"/>
+          </svg>
+          <div class="nl-cat-card__title">Bakery &amp; Pastry</div>
+          <div class="nl-cat-card__sub">WARM WHITE · 3000K</div>
+          <p class="nl-cat-card__desc">Cálido dorado que acentúa la cocción y el tono natural del pan recién horneado.</p>
+        </article>
+
+        <!-- Pescadería -->
+        <article class="nl-cat-card" role="listitem" style="border-top-color: var(--nl-fish);">
+          <svg class="nl-cat-card__icon" viewBox="0 0 24 24" fill="none" stroke="var(--nl-fish)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6.5 12c.94-3.46 4.94-6 10.5-6-3 3-4 6 0 9-5.56 0-9.56-2.54-10.5-6z"/>
+            <path d="M18 7l.7 2.3-.7 1.7"/>
+            <path d="M2 12h3"/>
+          </svg>
+          <div class="nl-cat-card__title">Pescadería</div>
+          <div class="nl-cat-card__sub">COOL WHITE · 5000K</div>
+          <p class="nl-cat-card__desc">Frío que comunica frescura y realza el brillo natural de pescados y mariscos.</p>
+        </article>
+
+        <!-- Congelados -->
+        <article class="nl-cat-card" role="listitem" style="border-top-color: var(--nl-frozen);">
+          <svg class="nl-cat-card__icon" viewBox="0 0 24 24" fill="none" stroke="var(--nl-frozen)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="12" y1="2" x2="12" y2="22"/>
+            <path d="m20 16-4-4 4-4"/>
+            <path d="m4 8 4 4-4 4"/>
+            <path d="m16 4-4 4-4-4"/>
+            <path d="m8 20 4-4 4 4"/>
+          </svg>
+          <div class="nl-cat-card__title">Congelados</div>
+          <div class="nl-cat-card__sub">FREEZER RANGE · 5000K</div>
+          <p class="nl-cat-card__desc">Gama específica para freezer, certificada para arranque en frío sin parpadeo.</p>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <section class="prod-cases">
+  <!-- ══════════════════════════════════════
+       SECCIÓN 4 — DOBLE EFICIENCIA
+  ══════════════════════════════════════ -->
+  <section class="nl-efficiency">
     <div class="container">
-      <h2>Nualight en acción</h2>
-      <p class="prod-cases__sub">Resultados validados en retail europeo durante 6 meses.</p>
-      <div class="prod-cases-grid">
-        <a href="caso-nualight.html" class="prod-case-card">
-          <div style="height:150px;background:linear-gradient(135deg,#14532D,#166534);display:flex;align-items:center;justify-content:center">
-            <img src="Imagenes/Logos/Marcas/nualight-logo-650x157.png" alt="Nualight" style="max-width:160px;filter:brightness(0) invert(1);opacity:.9" />
-          </div>
-          <div class="prod-case-card__body">
-            <div class="prod-case-card__tag">Iluminación · 5 países europeos</div>
-            <div class="prod-case-card__title">18 tiendas: 35% menos consumo + 12% más ventas</div>
-            <div class="prod-case-card__kpi">CRI 95+ · Payback ~15 meses</div>
-          </div>
-        </a>
-        <div class="prod-case-card" style="background:var(--green-900);border-color:var(--green-700);display:flex;flex-direction:column;justify-content:center;padding:28px">
-          <div style="font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-400);margin-bottom:10px">Tu tienda</div>
-          <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:12px">¿Cuántos metros de frescos iluminas hoy?</div>
-          <a href="index.html#contact" style="font-size:.875rem;font-weight:600;color:var(--green-400);text-decoration:none">Calcular mi retorno →</a>
-        </div>
+      <div class="nl-efficiency__head">
+        <span class="nl-eyebrow nl-eyebrow--gray">EFICIENCIA</span>
+        <h2>Bajo consumo, líder en lúmenes por watt</h2>
+        <p class="nl-efficiency__intro">
+          Nualight ofrece la eficiencia líder de la industria: 165 lúmenes por watt en su gama ION.
+          Costos de vida útil menores que la iluminación convencional, con disipación térmica diseñada
+          para no añadir carga al sistema de refrigeración.
+        </p>
+      </div>
+
+      <div class="nl-eff-grid">
+        <article class="nl-eff-card">
+          <h3>Eficiencia eléctrica</h3>
+          <p>165 lm/W en gama ION. Drivers de alta eficiencia certificados específicamente para uso en
+          refrigeración. Reemplaza luminarias convencionales con un consumo significativamente menor.</p>
+        </article>
+        <article class="nl-eff-card">
+          <h3>Bajo aporte térmico</h3>
+          <p>Diseño que minimiza el calor disipado dentro del case refrigerado. Menor carga térmica para
+          el compresor, que no necesita compensar el calor de la propia iluminación.</p>
+        </article>
+      </div>
+
+      <div class="nl-eff-banner" role="note">
+        <strong>Lifetime cost menor que iluminación convencional.</strong> 100.000 horas de vida útil
+        certificada (L90) significan aproximadamente 15 años de operación sin reemplazo en una tienda
+        de 18 horas diarias.
       </div>
     </div>
   </section>
 
-  <section class="prod-others">
+  <!-- ══════════════════════════════════════
+       SECCIÓN 5 — GAMA DE PRODUCTO
+  ══════════════════════════════════════ -->
+  <section class="nl-range">
     <div class="container">
-      <h2>Otras soluciones Andek Group</h2>
-      <div class="prod-others-grid">
-        <a href="solucion-clarifoil.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/Clarifoil-brand-logo.png" alt="Clarifoil" />
-          </div>
-          <div class="prod-other-card__title">Clarifoil</div>
-          <div class="prod-other-card__desc">Láminas antiempañamiento para puertas de congelados. Reduce heaters 80%.</div>
-          <div class="prod-other-card__kpi">31–41% ahorro · Payback 8 m</div>
-        </a>
-        <a href="solucion-aerofoil.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/aerofoil-energy-logo-650x137.png" alt="Aerofoil" />
-          </div>
-          <div class="prod-other-card__title">Aerofoil Energy</div>
-          <div class="prod-other-card__desc">Deflectores aerodinámicos para góndolas abiertas. Tecnología Williams F1 Racing.</div>
-          <div class="prod-other-card__kpi">25% ahorro · Payback 7–17 m</div>
-        </a>
-        <a href="solucion-kenfield.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/Kenfield-logo.png" alt="Kenfield" />
-          </div>
-          <div class="prod-other-card__title">Kenfield K750</div>
-          <div class="prod-other-card__desc">Juntas magnéticas de alto rendimiento para cámaras frías.</div>
-          <div class="prod-other-card__kpi">21–42% ahorro · Payback ~10 m</div>
-        </a>
+      <div class="nl-range__head">
+        <span class="nl-eyebrow nl-eyebrow--gray">GAMA NUALIGHT</span>
+        <h2>Catálogo completo de iluminación retail</h2>
       </div>
+
+      <div class="nl-product-grid" role="list">
+
+        <article class="nl-product-card" role="listitem">
+          <h3>ION Vertical / Horizontal</h3>
+          <p>Gama principal de iluminación para cases refrigerados de chiller y freezer. Disponible en
+          múltiples longitudes y temperaturas de color. Eficiencia líder de industria con 165 lm/W.</p>
+          <a href="#" class="nl-link">Ver detalles →</a>
+        </article>
+
+        <article class="nl-product-card" role="listitem">
+          <h3>ORION Vertical / Horizontal</h3>
+          <p>Solución LED diseñada específicamente para retrofits. Alto rendimiento, integración simple,
+          costo-efectivo para upgrade de instalaciones existentes.</p>
+          <a href="#" class="nl-link">Ver detalles →</a>
+        </article>
+
+        <article class="nl-product-card" role="listitem">
+          <h3>HYPERCOLOUR</h3>
+          <p>Backlighting promocional para destacar productos y campañas en punto de venta.
+          Iluminación de alto impacto visual.</p>
+          <a href="#" class="nl-link">Ver detalles →</a>
+        </article>
+
+        <article class="nl-product-card" role="listitem">
+          <h3>QUICKRAIL PRO</h3>
+          <p>Sistema magnético plug &amp; play de distribución de energía para estanterías.
+          Compatible con gamas ION y ORION de canopy y estantería.</p>
+          <a href="#" class="nl-link">Ver detalles →</a>
+        </article>
+
+        <article class="nl-product-card" role="listitem">
+          <h3>LED Drivers</h3>
+          <p>Drivers certificados para uso en refrigeración, diseñados específicamente para
+          emparejar con las gamas ION y ORION.</p>
+          <a href="#" class="nl-link">Ver detalles →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 6 — CREDENCIALES Y CASOS
+  ══════════════════════════════════════ -->
+  <section class="nl-cred" aria-labelledby="cred-title">
+    <div class="container">
+      <span class="nl-eyebrow nl-eyebrow--mist">RESPALDO</span>
+      <h2 id="cred-title">20 años iluminando retail europeo</h2>
+      <p class="nl-cred__intro">
+        Nualight fue fundada en 2004 en Cork, Irlanda. Es parte del grupo Fulham y mantiene
+        certificación EcoVadis Gold por sus prácticas de sustentabilidad. Sus luminarias están
+        instaladas en cadenas líderes de retail en Europa.
+      </p>
+
+      <div class="nl-clients-grid" role="list" aria-label="Clientes de referencia">
+        <div class="nl-client" role="listitem">Auchan · Francia</div>
+        <div class="nl-client" role="listitem">PennyMarkt · Alemania</div>
+        <div class="nl-client" role="listitem">Ipercoop · Italia</div>
+        <div class="nl-client" role="listitem">Spar Eat 17 · Reino Unido</div>
+        <div class="nl-client" role="listitem">Hyperama Wholesale · Reino Unido</div>
+        <div class="nl-client" role="listitem">Prodega Cash &amp; Carry · Suiza</div>
+      </div>
+
+      <div class="nl-badges" role="list" aria-label="Certificaciones">
+        <span class="nl-badge" role="listitem">EcoVadis Gold</span>
+        <span class="nl-badge" role="listitem">DLC Certified</span>
+        <span class="nl-badge" role="listitem">HDR-RT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 7 — CTA FINAL
+  ══════════════════════════════════════ -->
+  <section class="nl-cta" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title">¿Cuántos metros de frescos iluminas hoy?</h2>
+      <p>
+        Cada tienda es distinta. Cuéntanos cuántos metros lineales de góndola refrigerada tienes
+        y qué tipo de productos vendes — te armamos una propuesta con la gama Nualight que aplica
+        a tu caso.
+      </p>
+      <a href="index.html#contact" class="flow-btn flow-btn--nl-dark">
+        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="flow-btn__text">Solicitar cotización</span>
+        <span class="flow-btn__circle"></span>
+        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
@@ -324,10 +812,10 @@
         <p class="footer-tagline">Tecnología para la eficiencia industrial. Diseñamos soluciones a medida para operaciones más inteligentes y sostenibles.</p>
         <div class="footer-social">
           <a href="https://www.linkedin.com/company/andek-solutions" class="footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
           <a href="https://www.instagram.com/andeksolutions" class="footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
           </a>
         </div>
       </div>
@@ -370,17 +858,22 @@
       </div>
     </div>
   </footer>
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinksEl = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navLinksEl.classList.toggle('open'); });
-    (function() {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinksEl.classList.toggle('open');
+    });
+    (function () {
       const dropdown = document.querySelector('.nav-dropdown');
       if (!dropdown) return;
       let closeTimer = null;
-      dropdown.addEventListener('mouseenter', function() { clearTimeout(closeTimer); dropdown.classList.add('submenu-open'); });
-      dropdown.addEventListener('mouseleave', function() { closeTimer = setTimeout(function() { dropdown.classList.remove('submenu-open'); }, 350); });
+      dropdown.addEventListener('mouseenter', function () { clearTimeout(closeTimer); dropdown.classList.add('submenu-open'); });
+      dropdown.addEventListener('mouseleave', function () { closeTimer = setTimeout(function () { dropdown.classList.remove('submenu-open'); }, 350); });
     })();
   </script>
+
 </body>
 </html>
