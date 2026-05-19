@@ -59,11 +59,13 @@
     .kf-card__cta:hover { color: var(--green-900); }
 
     /* ── WHY KENFIELD ── */
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 24px 0; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; margin: 24px 0; }
     .why-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 20px; }
     .why-card__num { font-size: 1.5rem; font-weight: 700; color: var(--green-200); line-height: 1.2; margin-bottom: 10px; }
     .why-card__title { font-size: .9rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.35; }
     .why-card__desc { font-size: .8125rem; color: var(--gray); line-height: 1.65; }
+    .why-card--logo { display: flex; align-items: center; justify-content: center; }
+    .why-card--logo img { max-width: 140px; width: 100%; opacity: .85; }
 
     /* ── QUOTE ── */
     .prod-quote { border-left: 4px solid var(--green-400); background: var(--green-50); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
@@ -162,6 +164,7 @@
       .prod-layout { grid-template-columns: 1fr; }
       .prod-sidebar { position: static; }
       .why-grid { grid-template-columns: 1fr 1fr; }
+      .why-card--logo { display: none; }
       .prod-others-grid { grid-template-columns: 1fr 1fr; }
       .kf-gallery-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -437,6 +440,9 @@
             <div class="why-card__num">21–42%</div>
             <div class="why-card__title">Te podemos mostrar el informe</div>
             <div class="why-card__desc">La Universidad de Warwick midió el consumo del compresor con K750 vs. cortinas PVC en condiciones controladas. Resultado: 21–42% menos kWh en cámaras de refrigerados, 13–17% en congelados. Si quieres ver el estudio completo antes de cotizar, te lo mandamos.</div>
+          </div>
+          <div class="why-card why-card--logo">
+            <img src="Imagenes/Logos/Marcas/Kenfield-logo.png" alt="Kenfield" />
           </div>
         </div>
 
