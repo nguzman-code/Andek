@@ -47,6 +47,11 @@
     .gc-section__header { max-width: 720px; margin-bottom: 48px; }
     .gc-section__title { font-size: clamp(1.375rem, 2.5vw, 1.75rem); font-weight: 700; color: var(--dark); line-height: 1.25; margin-bottom: 16px; letter-spacing: -.01em; }
     .gc-section__sub { font-size: 1rem; color: var(--gray); line-height: 1.75; }
+    .gc-section__header--split { max-width: 100%; display: flex; align-items: flex-start; gap: 56px; }
+    .gc-section__header--split .gc-section__text { flex: 1; }
+    .gc-section__header--split .gc-section__img { flex: 0 0 220px; border-radius: var(--radius-lg); overflow: hidden; margin-top: 52px; }
+    .gc-section__header--split .gc-section__img img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    @media (max-width: 768px) { .gc-section__header--split { flex-direction: column; } .gc-section__header--split .gc-section__img img { height: 140px; } }
 
     /* ── PILLARS ── */
     .gc-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -72,13 +77,14 @@
     /* ── PRODUCTS ── */
     .gc-products { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .gc-product-card { border: 0.5px solid var(--gray-light); border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; gap: 20px; background: var(--bg); }
-    .gc-product-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .gc-product-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; min-height: 80px; }
     .gc-product-card__name { font-size: 1.1875rem; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 5px; }
     .gc-product-card__subtitle { font-size: .875rem; color: var(--gray); line-height: 1.4; }
     .gc-badge { display: inline-flex; align-items: center; font-size: .8125rem; font-weight: 700; padding: 5px 12px; border-radius: 99px; white-space: nowrap; flex-shrink: 0; }
     .gc-badge--teal  { background: rgba(15,110,86,.10);  color: #0F6E56; border: 1px solid rgba(15,110,86,.22); }
     .gc-badge--coral { background: rgba(153,60,29,.09); color: #993C1D; border: 1px solid rgba(153,60,29,.20); }
-    .gc-product-card__img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); display: block; }
+    .gc-product-card__img-wrap { border-radius: var(--radius-lg); overflow: hidden; width: 100%; height: 200px; flex-shrink: 0; display: block; }
+    .gc-product-card__img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .gc-product-card__desc { font-size: .9375rem; color: var(--gray); line-height: 1.75; }
     .gc-product-card__specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; padding-top: 20px; border-top: 1px solid var(--gray-light); }
     .gc-spec__label { font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray); margin-bottom: 3px; }
@@ -238,51 +244,28 @@
   <!-- ── 2. CONTROL INTEGRAL ── -->
   <section class="gc-section gc-section--alt">
     <div class="container">
-      <div class="gc-section__header">
-        <h2 class="gc-section__title">Control integral, no productos sueltos</h2>
-        <p class="gc-section__sub">Guardian entiende el ciclo completo de refrigeración: cómo cada componente interactúa con los demás y cómo un cambio en un punto impacta al resto. Esa visión sistémica es lo que diferencia a un controlador genérico de uno que realmente ahorra energía.</p>
+      <div class="gc-section__header gc-section__header--split">
+        <div class="gc-section__text">
+          <h2 class="gc-section__title">Control integral, para refrigeración industrial</h2>
+          <p class="gc-section__sub">Guardian entiende el ciclo completo de refrigeración: cómo cada componente interactúa con los demás y cómo un cambio en un punto impacta al resto. Esa visión sistémica es lo que diferencia a un controlador genérico de uno que realmente ahorra energía.</p>
+        </div>
+        <div class="gc-section__img">
+          <img src="Imagenes/General/puerta_camara fria.jpg" alt="Puerta de cámara fría">
+        </div>
       </div>
       <div class="gc-pillars">
 
         <div class="gc-pillar">
-          <svg class="gc-pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-          </svg>
           <div class="gc-pillar__title">Ahorro directo e indirecto</div>
           <div class="gc-pillar__desc">Menos energía consumida y menos calor residual que enfriar.</div>
         </div>
 
-        <div class="gc-pillar">
-          <svg class="gc-pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
-            <rect x="2" y="3" width="20" height="14" rx="2"/>
-            <path d="M8 21h8"/>
-            <path d="M12 17v4"/>
-            <path d="M7 8l2 2 4-4"/>
-          </svg>
-          <div class="gc-pillar__title">Retrofit sin obra</div>
-          <div class="gc-pillar__desc">Instalación en menos de 1 hora, sin acceso a la cámara.</div>
-        </div>
-
-        <div class="gc-pillar">
-          <svg class="gc-pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
-            <path d="M12 2v4"/>
-            <path d="m16.2 7.8 2.9-2.9"/>
-            <path d="M18 12h4"/>
-            <path d="m16.2 16.2 2.9 2.9"/>
-            <path d="M12 18v4"/>
-            <path d="m4.9 19.1 2.9-2.9"/>
-            <path d="M2 12h4"/>
-            <path d="m4.9 4.9 2.9 2.9"/>
-          </svg>
+<div class="gc-pillar">
           <div class="gc-pillar__title">Compatible con tu sistema</div>
           <div class="gc-pillar__desc">Funciona con equipos de control y monitoreo existentes.</div>
         </div>
 
         <div class="gc-pillar">
-          <svg class="gc-pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
-            <path d="M3 3v18h18"/>
-            <path d="m7 16 4-4 4 4 4-4"/>
-          </svg>
           <div class="gc-pillar__title">Optimización continua</div>
           <div class="gc-pillar__desc">El sistema se autoajusta en tiempo real, no en setpoints fijos.</div>
         </div>
@@ -334,40 +317,6 @@
       </div>
       <div class="gc-products">
 
-        <!-- FSO -->
-        <div class="gc-product-card">
-          <div class="gc-product-card__header">
-            <div>
-              <div class="gc-product-card__name">Fan Speed Optimiser (FSO)</div>
-              <div class="gc-product-card__subtitle">Optimización de ventiladores en cámaras frías y de congelado</div>
-            </div>
-            <span class="gc-badge gc-badge--teal">36% ahorro</span>
-          </div>
-
-          <img class="gc-product-card__img" src="Imagenes/Productos/Guardian/guardian control 2.webp" alt="Fan Speed Optimiser FSO" />
-
-          <p class="gc-product-card__desc">Reduce la energía directa e indirecta consumida por motores monofásicos de evaporadores. Evalúa las condiciones de la cámara en tiempo real y ajusta la velocidad del ventilador sin afectar la temperatura del producto. Por cada 1 kWh ahorrado directo, hay 0,8 kWh adicionales indirectos en motores PSC y 0,35 kWh en motores EC.</p>
-
-          <div class="gc-product-card__specs">
-            <div>
-              <div class="gc-spec__label">Compatibilidad</div>
-              <div class="gc-spec__value">PSC, polo sombreado y EC</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Instalación</div>
-              <div class="gc-spec__value">Retrofit, menos de 1 hora</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Comunicación</div>
-              <div class="gc-spec__value">RS485 o Ethernet opcional</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Acceso a cámara</div>
-              <div class="gc-spec__value">No requerido</div>
-            </div>
-          </div>
-        </div>
-
         <!-- DOOR SENTRY -->
         <div class="gc-product-card">
           <div class="gc-product-card__header">
@@ -378,7 +327,9 @@
             <span class="gc-badge gc-badge--coral">17% ahorro</span>
           </div>
 
-          <img class="gc-product-card__img" src="Imagenes/Productos/Guardian/guardian.jpg" alt="Door Sentry" />
+          <div class="gc-product-card__img-wrap">
+            <img class="gc-product-card__img" src="Imagenes/Productos/Guardian/DS.webp" alt="Door Sentry" />
+          </div>
 
           <p class="gc-product-card__desc">Instala buenas prácticas de operación de puertas, ahorra energía, reduce mantenimiento, protege la calidad del producto y mantiene seguro al personal. Detecta puertas abiertas más tiempo del necesario y emite alarmas sonoras. Sus sensores generan una señal de apertura y cierre que el FSO puede usar para optimizar la velocidad del ventilador.</p>
 
@@ -403,6 +354,42 @@
 
           <div class="gc-callout">
             <p><strong>Combinable con FSO:</strong> cuando Door Sentry detecta puerta abierta, envía señal al FSO para reducir la velocidad de los ventiladores por un tiempo predeterminado. Esto mejora el confort del personal que ingresa, reduce el volumen de aire cálido y húmedo que entra a la cámara, y ahorra energía adicional.</p>
+          </div>
+        </div>
+
+        <!-- FSO -->
+        <div class="gc-product-card">
+          <div class="gc-product-card__header">
+            <div>
+              <div class="gc-product-card__name">Fan Speed Optimiser (FSO)</div>
+              <div class="gc-product-card__subtitle">Optimización de ventiladores en cámaras frías y de congelado</div>
+            </div>
+            <span class="gc-badge gc-badge--teal">36% ahorro</span>
+          </div>
+
+          <div class="gc-product-card__img-wrap">
+            <img class="gc-product-card__img" src="Imagenes/Productos/Guardian/FSO2.webp" alt="Fan Speed Optimiser FSO" />
+          </div>
+
+          <p class="gc-product-card__desc">Reduce la energía directa e indirecta consumida por motores monofásicos de evaporadores. Evalúa las condiciones de la cámara en tiempo real y ajusta la velocidad del ventilador sin afectar la temperatura del producto. Por cada 1 kWh ahorrado directo, hay 0,8 kWh adicionales indirectos en motores PSC y 0,35 kWh en motores EC.</p>
+
+          <div class="gc-product-card__specs">
+            <div>
+              <div class="gc-spec__label">Compatibilidad</div>
+              <div class="gc-spec__value">PSC, polo sombreado y EC</div>
+            </div>
+            <div>
+              <div class="gc-spec__label">Instalación</div>
+              <div class="gc-spec__value">Retrofit, menos de 1 hora</div>
+            </div>
+            <div>
+              <div class="gc-spec__label">Comunicación</div>
+              <div class="gc-spec__value">RS485 o Ethernet opcional</div>
+            </div>
+            <div>
+              <div class="gc-spec__label">Acceso a cámara</div>
+              <div class="gc-spec__value">No requerido</div>
+            </div>
           </div>
         </div>
 
