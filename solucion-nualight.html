@@ -360,21 +360,28 @@
       margin-bottom: 48px;
     }
     .nl-clients-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
       margin-bottom: 32px;
     }
     .nl-client {
-      background: rgba(255,255,255,.06);
-      border: .5px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.92);
+      border: .5px solid rgba(255,255,255,.15);
       border-radius: 8px;
-      padding: 16px;
-      text-align: center;
-      font-size: .875rem;
-      color: var(--nl-mist);
-      font-weight: 500;
-      line-height: 1.4;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(33.33% - 8px);
+      min-width: 160px;
+      height: 80px;
+    }
+    .nl-client img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
     .nl-badges {
       display: flex;
@@ -435,7 +442,7 @@
       .nl-stats         { grid-template-columns: repeat(2, 1fr); }
       .nl-cat-grid      { grid-template-columns: repeat(2, 1fr); }
       .nl-product-grid  { grid-template-columns: repeat(2, 1fr); }
-      .nl-clients-grid  { grid-template-columns: repeat(2, 1fr); }
+      .nl-clients-grid .nl-client { width: calc(50% - 6px); }
     }
     @media (max-width: 768px) {
       .nl-hero { padding: 120px 0 60px; }
@@ -452,7 +459,7 @@
       .nl-cta { padding: 72px 0; }
       .nl-cat-grid     { grid-template-columns: 1fr; }
       .nl-product-grid { grid-template-columns: 1fr; }
-      .nl-clients-grid { grid-template-columns: 1fr; }
+      .nl-clients-grid .nl-client { width: 100%; min-width: unset; }
     }
   </style>
 </head>
@@ -761,12 +768,13 @@
       </p>
 
       <div class="nl-clients-grid" role="list" aria-label="Clientes de referencia">
-        <div class="nl-client" role="listitem">Auchan · Francia</div>
-        <div class="nl-client" role="listitem">PennyMarkt · Alemania</div>
-        <div class="nl-client" role="listitem">Ipercoop · Italia</div>
-        <div class="nl-client" role="listitem">Spar Eat 17 · Reino Unido</div>
-        <div class="nl-client" role="listitem">Hyperama Wholesale · Reino Unido</div>
-        <div class="nl-client" role="listitem">Prodega Cash &amp; Carry · Suiza</div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/auchan.png" alt="Auchan"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/penny.png" alt="Penny Markt"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/ipercoop.png" alt="Ipercoop"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Logos/Clientes/harris teeter.png" alt="Harris Teeter"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/hyper.png" alt="Hyperama Wholesale"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Logos/Clientes/sainsbury.png" alt="Sainsbury's"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/migros.png" alt="Migros"></div>
       </div>
 
       <div class="nl-badges" role="list" aria-label="Certificaciones">
