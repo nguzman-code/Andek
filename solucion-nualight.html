@@ -73,7 +73,8 @@
       background-size: 72px 72px;
       pointer-events: none;
     }
-    .nl-hero__inner { position: relative; z-index: 2; max-width: 720px; }
+    .nl-hero__inner { position: relative; z-index: 2; }
+    .nl-hero__content { max-width: 600px; }
 
     .nl-hero h1 {
       font-size: clamp(2rem, 4.5vw, 3.25rem);
@@ -491,6 +492,8 @@
   <section class="nl-hero" aria-labelledby="hero-title">
     <div class="container nl-hero__inner">
 
+      <div class="nl-hero__content">
+
       <a href="index.html#portfolio" class="prod-back">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         Volver a Soluciones
@@ -523,6 +526,8 @@
           <span class="flow-btn__circle"></span>
           <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
+      </div>
+
       </div>
 
       <div class="nl-stats" role="list" aria-label="Métricas clave">
