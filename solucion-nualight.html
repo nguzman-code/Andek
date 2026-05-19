@@ -359,14 +359,32 @@
       max-width: 600px;
       margin-bottom: 48px;
     }
-    .nl-clients-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
-      gap: 24px 0;
+    .nl-cred__top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
       margin-bottom: 32px;
-      padding: 28px 0;
+    }
+    .nl-cred__text {
+      display: flex;
+      flex-direction: column;
+    }
+    .nl-cred__img-wrap {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .nl-cred__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .nl-clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px 0;
+      margin-bottom: 0;
+      padding: 24px 0;
       border-top: 1px solid rgba(255,255,255,.1);
       border-bottom: 1px solid rgba(255,255,255,.1);
     }
@@ -374,12 +392,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 16px;
+      padding: 0 12px;
     }
     .nl-client img {
-      height: 36px;
+      height: 28px;
       width: auto;
-      max-width: 120px;
+      max-width: 90px;
       object-fit: contain;
       filter: brightness(0) invert(1) opacity(.4);
       transition: opacity .2s;
@@ -444,8 +462,9 @@
       .nl-stats         { grid-template-columns: repeat(2, 1fr); }
       .nl-cat-grid      { grid-template-columns: repeat(2, 1fr); }
       .nl-product-grid  { grid-template-columns: repeat(2, 1fr); }
-      .nl-clients-grid { gap: 20px 0; }
-      .nl-clients-grid .nl-client { width: 33.33%; }
+      .nl-cred__top { grid-template-columns: 1fr; }
+      .nl-cred__img-wrap { height: 240px; }
+      .nl-clients-grid { grid-template-columns: repeat(4, 1fr); }
     }
     @media (max-width: 768px) {
       .nl-hero { padding: 120px 0 60px; }
@@ -462,7 +481,7 @@
       .nl-cta { padding: 72px 0; }
       .nl-cat-grid     { grid-template-columns: 1fr; }
       .nl-product-grid { grid-template-columns: 1fr; }
-      .nl-clients-grid .nl-client { width: 50%; }
+      .nl-clients-grid { grid-template-columns: repeat(4, 1fr); }
     }
   </style>
 </head>
@@ -763,28 +782,29 @@
   <section class="nl-cred" aria-labelledby="cred-title">
     <div class="container">
       <span class="nl-eyebrow nl-eyebrow--mist">RESPALDO</span>
-      <h2 id="cred-title">20 años iluminando retail europeo</h2>
-      <p class="nl-cred__intro">
-        Nualight fue fundada en 2004 en Cork, Irlanda. Es parte del grupo Fulham y mantiene
-        certificación EcoVadis Gold por sus prácticas de sustentabilidad. Sus luminarias están
-        instaladas en cadenas líderes de retail en Europa.
-      </p>
-
-      <div class="nl-clients-grid" role="list" aria-label="Clientes de referencia">
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/auchan-removebg-preview.png" alt="Auchan"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/penny-removebg-preview.png" alt="Penny Markt"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/ipercoop-removebg-preview.png" alt="Ipercoop"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/harris_teeter-removebg-preview.png" alt="Harris Teeter"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/hyper-removebg-preview.png" alt="Hyperama Wholesale"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/sainsbury-removebg-preview.png" alt="Sainsbury's"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/migros-removebg-preview.png" alt="Migros"></div>
+      <div class="nl-cred__top">
+        <div class="nl-cred__text">
+          <h2 id="cred-title">20 años iluminando retail europeo</h2>
+          <p class="nl-cred__intro">
+            Nualight fue fundada en 2004 en Cork, Irlanda. Es parte del grupo Fulham y mantiene
+            certificación EcoVadis Gold por sus prácticas de sustentabilidad. Sus luminarias están
+            instaladas en cadenas líderes de retail en Europa.
+          </p>
+          <div class="nl-clients-grid" role="list" aria-label="Clientes de referencia">
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/auchan-removebg-preview.png" alt="Auchan"></div>
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/penny-removebg-preview.png" alt="Penny Markt"></div>
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/ipercoop-removebg-preview.png" alt="Ipercoop"></div>
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/harris_teeter-removebg-preview.png" alt="Harris Teeter"></div>
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/hyper-removebg-preview.png" alt="Hyperama Wholesale"></div>
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/sainsbury-removebg-preview.png" alt="Sainsbury's"></div>
+            <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/migros-removebg-preview.png" alt="Migros"></div>
+          </div>
+        </div>
+        <div class="nl-cred__img-wrap">
+          <img src="Imagenes/Productos/Nualight/NL1.jpg" alt="Tienda Penny iluminada con Nualight">
+        </div>
       </div>
 
-      <div class="nl-badges" role="list" aria-label="Certificaciones">
-        <span class="nl-badge" role="listitem">EcoVadis Gold</span>
-        <span class="nl-badge" role="listitem">DLC Certified</span>
-        <span class="nl-badge" role="listitem">HDR-RT</span>
-      </div>
     </div>
   </section>
 
