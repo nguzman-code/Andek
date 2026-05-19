@@ -649,6 +649,13 @@
     const hamburger = document.getElementById('hamburger');
     const navLinksEl = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navLinksEl.classList.toggle('open'); });
+    (function() {
+      const dropdown = document.querySelector('.nav-dropdown');
+      if (!dropdown) return;
+      let closeTimer = null;
+      dropdown.addEventListener('mouseenter', function() { clearTimeout(closeTimer); dropdown.classList.add('submenu-open'); });
+      dropdown.addEventListener('mouseleave', function() { closeTimer = setTimeout(function() { dropdown.classList.remove('submenu-open'); }, 350); });
+    })();
   </script>
 </body>
 </html>
