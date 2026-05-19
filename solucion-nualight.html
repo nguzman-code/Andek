@@ -362,27 +362,29 @@
     .nl-clients-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+      justify-content: space-around;
+      align-items: center;
+      gap: 24px 0;
       margin-bottom: 32px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
     }
     .nl-client {
-      background: rgba(255,255,255,.92);
-      border: .5px solid rgba(255,255,255,.15);
-      border-radius: 8px;
-      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: calc(33.33% - 8px);
-      min-width: 160px;
-      height: 80px;
+      padding: 0 16px;
     }
     .nl-client img {
-      max-width: 100%;
-      max-height: 100%;
+      height: 36px;
+      width: auto;
+      max-width: 120px;
       object-fit: contain;
+      filter: brightness(0) invert(1) opacity(.4);
+      transition: opacity .2s;
     }
+    .nl-client img:hover { opacity: .75; }
     .nl-badges {
       display: flex;
       gap: 10px;
@@ -442,7 +444,8 @@
       .nl-stats         { grid-template-columns: repeat(2, 1fr); }
       .nl-cat-grid      { grid-template-columns: repeat(2, 1fr); }
       .nl-product-grid  { grid-template-columns: repeat(2, 1fr); }
-      .nl-clients-grid .nl-client { width: calc(50% - 6px); }
+      .nl-clients-grid { gap: 20px 0; }
+      .nl-clients-grid .nl-client { width: 33.33%; }
     }
     @media (max-width: 768px) {
       .nl-hero { padding: 120px 0 60px; }
@@ -459,7 +462,7 @@
       .nl-cta { padding: 72px 0; }
       .nl-cat-grid     { grid-template-columns: 1fr; }
       .nl-product-grid { grid-template-columns: 1fr; }
-      .nl-clients-grid .nl-client { width: 100%; min-width: unset; }
+      .nl-clients-grid .nl-client { width: 50%; }
     }
   </style>
 </head>
@@ -768,13 +771,13 @@
       </p>
 
       <div class="nl-clients-grid" role="list" aria-label="Clientes de referencia">
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/auchan.png" alt="Auchan"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/penny.png" alt="Penny Markt"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/ipercoop.png" alt="Ipercoop"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Logos/Clientes/harris teeter.png" alt="Harris Teeter"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/hyper.png" alt="Hyperama Wholesale"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Logos/Clientes/sainsbury.png" alt="Sainsbury's"></div>
-        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/migros.png" alt="Migros"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/auchan-removebg-preview.png" alt="Auchan"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/penny-removebg-preview.png" alt="Penny Markt"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/ipercoop-removebg-preview.png" alt="Ipercoop"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/harris_teeter-removebg-preview.png" alt="Harris Teeter"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/hyper-removebg-preview.png" alt="Hyperama Wholesale"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/sainsbury-removebg-preview.png" alt="Sainsbury's"></div>
+        <div class="nl-client" role="listitem"><img src="Imagenes/Productos/Nualight/Logos sin fondo/migros-removebg-preview.png" alt="Migros"></div>
       </div>
 
       <div class="nl-badges" role="list" aria-label="Certificaciones">
