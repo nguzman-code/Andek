@@ -1,640 +1,615 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="Marca/symbol.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andek Solutions | Technology for Industrial Efficiency</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andek Solutions | Eficiencia operacional para instalaciones comerciales</title>
+  <meta name="description" content="Representamos en Chile tecnologías probadas que reducen fallas, mantenimiento, horas de trabajo y consumo de energía en supermercados, food service, cámaras de frío y edificios.">
+  <meta property="og:title" content="Andek Solutions | Eficiencia operacional">
+  <meta property="og:description" content="Tecnologías probadas que reducen fallas, mantenimiento y consumo de energía. Se instalan sobre los equipos que ya tienes.">
+  <meta property="og:image" content="/assets/img/instalacion-aerofoil.webp">
+  <meta property="og:locale" content="es_CL">
+  <link rel="icon" href="/assets/img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/andek.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-iso" viewBox="60 60 1080 1080"><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(90 600 600)"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(180 600 600)"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(270 600 600)"/></symbol>
+  <symbol id="i-energia" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+  <symbol id="i-herr" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3.5 17.5l3 3 5.7-5.7a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></symbol>
+  <symbol id="i-seguridad" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-frio" viewBox="0 0 24 24"><path d="M12 2v20M3.5 7l17 10M3.5 17l17-10"/><path d="M9.5 4L12 6.5 14.5 4M9.5 20L12 17.5 14.5 20"/></symbol>
+  <symbol id="i-vidrio" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="1.5"/><path d="M9 6v3"/></symbol>
+  <symbol id="i-camara" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M2 21h20M12 3v18"/></symbol>
+  <symbol id="i-luz" viewBox="0 0 24 24"><path d="M9 18h6M10 21.5h4"/><path d="M12 2.5a6.5 6.5 0 0 0-4 11.6V16h8v-1.9a6.5 6.5 0 0 0-4-11.6z"/></symbol>
+  <symbol id="i-vent" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"/><path d="M12 10.5c0-4 1-7.5 3.5-7.5 2.2 0 2.2 3.3-2 7.3"/><path d="M13.5 12c4 0 7.5 1 7.5 3.5 0 2.2-3.3 2.2-7.3-2"/><path d="M12 13.5c0 4-1 7.5-3.5 7.5-2.2 0-2.2-3.3 2-7.3"/><path d="M10.5 12c-4 0-7.5-1-7.5-3.5 0-2.2 3.3-2.2 7.3 2"/></symbol>
+  <symbol id="i-agua" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="i-medicion" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><path d="M12 17l4.5-4.5"/></symbol>
+  <symbol id="i-propuesta" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7.5 9l4 4 3-3 4.5 4.5"/><path d="M19 11v3.5h-3.5"/></symbol>
+  <symbol id="i-piloto" viewBox="0 0 24 24"><path d="M9.5 3h5M10 3v6l-5 9.5A1.7 1.7 0 0 0 6.5 21h11a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+</svg>
 
-  <!-- ── NAVBAR ── -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#animated-hero" class="nav-logo">
-        <img src="Marca/Logo.png" alt="Andek Solutions" />
+<section class="hero on-dark" id="inicio">
+  <svg class="hero-trama" aria-hidden="true"><defs><pattern id="trama" width="240" height="240" patternUnits="userSpaceOnUse"><use href="#i-iso" x="40" y="40" width="160" height="160" fill="#FFFFFF" fill-opacity="0.05"></use></pattern></defs><rect width="100%" height="100%" fill="url(#trama)"></rect></svg>
+  <div class="container">
+    <header class="site-header">
+      <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio">
+        <svg aria-hidden="true"><use href="#i-iso"></use></svg>
+        <span class="logo-text"><b>ANDEK</b> <span>SOLUTIONS</span></span>
       </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#animated-hero" class="nav-link" data-section="animated-hero">Inicio</a></li>
-        <li class="nav-dropdown">
-          <a href="#portfolio" class="nav-link nav-link--dropdown" data-section="portfolio">
-            Soluciones <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </a>
-          <ul class="nav-submenu">
-            <li><a href="#portfolio" class="nav-submenu__item">Todos los Productos</a></li>
-            <li><a href="solucion-aerofoil.html" class="nav-submenu__item">Aerofoil</a></li>
-            <li><a href="solucion-clarifoil.html" class="nav-submenu__item">Clarifoil</a></li>
-            <li><a href="solucion-kenfield.html" class="nav-submenu__item">Kenfield</a></li>
-            <li><a href="solucion-nualight.html" class="nav-submenu__item">Nualight</a></li>
-            <li><a href="solucion-guardian.html" class="nav-submenu__item">Guardian Controls</a></li>
-          </ul>
-        </li>
-        <li><a href="#cases"     class="nav-link" data-section="cases">Casos de Estudio</a></li>
-        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
-      </ul>
-      <div class="nav-indicator" id="navIndicator"></div>
-      <a href="#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
-        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        <span class="flow-btn__text">Contáctanos</span>
-        <span class="flow-btn__circle"></span>
-        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menú">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-    </div>
-  </nav>
-
-
-  <!-- ── ANIMATED HERO ── -->
-  <section class="animated-hero" id="animated-hero">
-    <div class="animated-hero__inner">
-
-      <h2 class="animated-hero__heading">
-        <span class="static-line">Hacemos tu operación</span>
-        <span class="animated-hero__word-wrap" aria-live="polite">
-          <span class="animated-hero__word" aria-hidden="true">eficiente</span>
-          <span class="animated-hero__word" aria-hidden="true">sostenible</span>
-          <span class="animated-hero__word" aria-hidden="true">rentable</span>
-          <span class="animated-hero__word" aria-hidden="true">inteligente</span>
-          <span class="animated-hero__word" aria-hidden="true">innovadora</span>
-        </span>
-      </h2>
-
-      <p class="animated-hero__desc">
-        La eficiencia energética en retail no se improvisa. En Andek distribuimos en Chile tecnología probada en Europa y EE.UU.
-        que reduce <span class="hero-highlight">hasta un 20%</span> el consumo eléctrico de tus locales. Soluciones implementadas en cadenas líderes, con ROI documentado y soporte local.
-      </p>
-
-      <div class="animated-hero__actions">
-        <a href="#contact" class="flow-btn">
-          <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          <span class="flow-btn__text">Contáctanos</span>
-          <span class="flow-btn__circle"></span>
-          <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-        <a href="#portfolio" class="flow-btn">
-          <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          <span class="flow-btn__text">Ver soluciones</span>
-          <span class="flow-btn__circle"></span>
-          <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
+      <nav class="nav" id="navPrincipal" aria-label="Principal">
+        <a href="#eficiencia">Qué mejoramos</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#evidencia">Evidencia</a>
+        <a href="#como-trabajamos">Cómo trabajamos</a>
+        <a href="#nosotros">Nosotros</a>
+      </nav>
+      <a class="btn btn-senal header-cta" href="#contacto">Agenda un diagnóstico</a>
+    </header>
+    <div class="hero-body">
+      <p class="label">Eficiencia operacional</p>
+      <h1 class="h-display">Hacemos que tu operación gaste menos, falle menos y desperdicie menos.</h1>
+      <p class="lead">Representamos en Chile tecnologías probadas que reducen fallas, mantenimiento, horas de trabajo y consumo de energía. Se instalan sobre los equipos que ya tienes.</p>
+      <div><a class="btn btn-outline-claro" href="#eficiencia">Ver qué mejoramos</a></div>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">83 %</span><span class="stat-label">Menos fallas en congeladores</span></div>
+        <div class="stat"><span class="stat-num">25 %</span><span class="stat-label">Menos consumo en climatización</span></div>
+        <div class="stat"><span class="stat-num">100.000 h</span><span class="stat-label">Vida útil de luminarias</span></div>
       </div>
-
+      <p class="fuentes">Fuentes: CNT Technology, caso REWE · TCT Nanotech, piloto Hoffman Estates · Nualight</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── SOLUCIONES ── -->
-  <section class="sol-section" id="portfolio">
+<main>
+<section class="section bg-blanco" id="eficiencia">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">01 · Eficiencia operacional</p>
+      <h2 class="h1">Qué mejoramos en tu operación</h2>
+      <p class="lead">Cada tecnología actúa sobre uno o más costos de operación. Combinadas, cierran los puntos donde una instalación gasta, falla o desperdicia.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-energia"></use></svg>
+        <h3 class="h3">Energía</h3>
+        <p>Menos consumo en refrigeración, climatización, iluminación y ventilación, sin cambiar los equipos.</p>
+        <p class="marcas">HTF Compact · CNT · Aerofoil · Clarifoil · Kenfield · Guardian · Nualight</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-herr"></use></svg>
+        <h3 class="h3">Mantenimiento y fallas</h3>
+        <p>Menos fallas, descongelamientos, drenajes tapados y recambios. Soluciones de larga vida útil y bajo mantenimiento.</p>
+        <p class="marcas">CNT · Gel-clear · Aerofoil · Kenfield · Guardian · Nualight</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-temp"></use></svg>
+        <h3 class="h3">Producto y merma</h3>
+        <p>Temperatura más estable, menos hielo sobre el producto y mejor exhibición en góndolas, vitrinas y cámaras.</p>
+        <p class="marcas">CNT · Aerofoil · Clarifoil · Guardian · Nualight</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-seguridad"></use></svg>
+        <h3 class="h3">Personal y seguridad</h3>
+        <p>Menos horas en tareas manuales, como sacar hielo o vigilar puertas, y menos riesgos en cámaras de frío.</p>
+        <p class="marcas">CNT · Kenfield · Guardian</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero -->
-    <div class="sol-hero">
-      <div class="sol-inner">
-        <div class="sol-hero__left">
-          <p class="sol-eyebrow sol-eyebrow--accent">Soluciones · 5 marcas aliadas</p>
-          <h1 class="sol-hero__title">
-            Para cada desafío energético,<br>
-            tenemos a <em>la marca correcta</em> al lado.
-          </h1>
-        </div>
-        <div class="sol-hero__right">
-          <div class="hero-visual">
-            <div class="spin-ring">
-              <div class="spin-orbit">
-                <div class="spin-icon" style="--i:0;--total:5">
-                  <img src="Imagenes/Logos/Marcas/aerofoil-energy-logo-650x137.png" alt="Aerofoil Energy" />
-                </div>
-                <div class="spin-icon" style="--i:1;--total:5">
-                  <img src="Imagenes/Logos/Marcas/nualight-logo-650x157.png" alt="Nualight" />
-                </div>
-                <div class="spin-icon" style="--i:2;--total:5">
-                  <img src="Imagenes/Logos/Marcas/Kenfield-logo.png" alt="Kenfield" />
-                </div>
-                <div class="spin-icon" style="--i:3;--total:5">
-                  <img src="Imagenes/Logos/Marcas/Clarifoil-brand-logo.png" alt="Clarifoil" />
-                </div>
-                <div class="spin-icon" style="--i:4;--total:5">
-                  <img src="Imagenes/Logos/Marcas/Guardian-Controls-logo.png" alt="Guardian Controls" />
-                </div>
-              </div>
-              <div class="spin-center">
-                <img src="Marca/symbol.png" alt="Andek Solutions" />
-              </div>
-            </div>
+<section class="section" id="soluciones">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">02 · Soluciones</p>
+      <h2 class="h1">Soluciones por industria</h2>
+      <p class="lead">Selecciona tu industria. Cada tarjeta muestra un problema de operación, la tecnología que aplicamos y qué costos reduce.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Industrias">
+      <button class="tab" type="button" role="tab" id="tab-supermercados" aria-controls="panel-supermercados" aria-selected="true">Supermercados y conveniencia</button>
+      <button class="tab" type="button" role="tab" id="tab-food" aria-controls="panel-food" aria-selected="false" tabindex="-1">Comida rápida y food service</button>
+      <button class="tab" type="button" role="tab" id="tab-cd" aria-controls="panel-cd" aria-selected="false" tabindex="-1">Centros de distribución y cámaras de frío</button>
+      <button class="tab" type="button" role="tab" id="tab-agro" aria-controls="panel-agro" aria-selected="false" tabindex="-1">Agroindustria y alimentos</button>
+      <button class="tab" type="button" role="tab" id="tab-edificios" aria-controls="panel-edificios" aria-selected="false" tabindex="-1">Edificios, centros comerciales y hoteles</button>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="panel-supermercados" aria-labelledby="tab-supermercados" tabindex="0">
+      <div class="grid">
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="h3">El hielo en congeladores y cámaras genera fallas</h3>
+          <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y productos, descongelamientos más cortos y menos horas sacando hielo.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li><li class="tag">Producto</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">83 %</span>
+            <span class="cifra-txt">menos fallas vs. el año previo a la instalación</span>
+            <span class="fuente">Fuente: CNT Technology, caso REWE</span>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Problem Picker -->
-    <div class="sol-picker">
-      <div class="sol-inner">
-        <p class="sol-eyebrow">Explora nuestras marcas</p>
-        <div class="sol-tabs" id="solTabs" role="tablist"></div>
-      </div>
-    </div>
-
-    <!-- Problem Detail -->
-    <div class="sol-detail">
-      <div class="sol-inner">
-        <div class="sol-detail__grid" id="solDetailGrid"></div>
-      </div>
-    </div>
-
-    <script>
-    (function() {
-      var BRANDS = {
-        aerofoil: {
-          id: 'aerofoil', name: 'Aerofoil Energy', color: '#1F3A5F',
-          bg: 'Imagenes/Productos/Aerofoil/aerofoil1.jpg',
-          tagline: 'Aerodinámica aplicada al frío comercial',
-          description: 'A diferencia de las puertas, que crean una barrera entre el cliente y el producto y afectan la conversión, Aerofoil contiene el aire frío con deflectores aerodinámicos diseñados con ingenieros de Fórmula 1. Ahorro energético sin sacrificar la experiencia de compra.',
-          benefit: 'Reduce el consumo eléctrico del equipo de refrigeración hasta un 25% con un payback de 7 a 17 meses, validado por CalNEXT y operadores como Walmart, Tesco y Sainsbury\'s.',
-          solutions: {
-            'shelf-edge': { name: 'Shelf-Edge Aerofoil', short: 'Deflector aerodinámico para góndolas refrigeradas abiertas. Fortalece la cortina de aire y reduce la infiltración de calor hacia el interior.', impact: '-25% consumo energético', link: 'solucion-aerofoil.html', img: 'Imagenes/Productos/Invisidoor/invisidoor.jpg' },
-            'jetseal': { name: 'Jetseal', short: 'Tecnología aerodinámica para góndolas refrigeradas con puertas. Bloquea la infiltración de aire caliente por las juntas y mantiene la cortina de frío intacta.', impact: '-15% a -25% energía', link: 'solucion-aerofoil.html', img: 'Imagenes/Productos/Jetseal/jetseal.jpg' }
-          }
-        },
-        nualight: {
-          id: 'nualight', name: 'Nualight', color: '#2D6B52', bg: 'Imagenes/Productos/Nualight/nualight.png',
-          tagline: 'Iluminación LED de alto rendimiento para retail',
-          description: 'Soluciones LED diseñadas específicamente para el retail: vitrinas abiertas, exhibidores refrigerados y góndolas verticales. Con más de 20 años en el mercado y origen irlandés, Nualight combina máxima eficiencia lumens/watt, alto índice de reproducción cromática (CRI) y 100.000 horas de vida útil — mejorando la presentación del producto, reduciendo el consumo eléctrico y extendiendo el ciclo de los equipos.',
-          benefit: 'Hasta 165 lm/W de eficacia luminosa con una vida útil de 100,000 horas. Más luz, menos consumo, menos mantención — con opciones de temperatura de color optimizadas por categoría de producto.',
-          solutions: {
-            'ion-cases': { name: 'ION: Góndolas abiertas y cerradas', short: 'LED de alta eficacia con CRI superior para vitrinas refrigeradas verticales y horizontales. Diseñado para entornos de chiller y freezer con clasificación IP hasta IP67.', impact: '165 lm/W de eficacia', link: 'solucion-nualight.html', img: 'Imagenes/Productos/Nualight/nualight_carta 1.jpg' },
-            'red-tone': { name: 'Red-Tone: Frescos y carnes', short: 'Temperatura de color especialmente diseñada para minimizar la decoloración de carnes y realzar la apariencia de productos frescos, mejorando la percepción de calidad del cliente.', impact: 'Haz que tus productos destaquen', link: 'solucion-nualight.html', img: 'Imagenes/Productos/Nualight/Red-tone-Meat-Display.jpg' }
-          }
-        },
-        kenfield: {
-          id: 'kenfield', name: 'Kenfield', color: '#374151', bg: 'Imagenes/Productos/Kenfield/kenfield 3.jpg',
-          tagline: 'Soluciones de puertas industriales de alta eficiencia',
-          description: 'Con sede en Reino Unido, Kenfield desarrolla sistemas de puertas y cortinas térmicas diseñados para los entornos más exigentes del retail, la cadena de frío y la industria alimentaria. Sus soluciones — desde puertas aisladas para walk-in coolers hasta puertas de impacto para zonas de proceso — eliminan pérdidas de temperatura, protegen al personal y elevan la eficiencia operacional, con miles de instalaciones certificadas en supermercados de Europa.',
-          benefit: 'Reduce hasta un 42% el consumo del compresor versus cortinas de tiras, según estudio de la Universidad de Warwick (2024). Sin trampa de dedos, instalación simple, compatible con pasillos estrechos.',
-          solutions: {
-            'k750': { name: 'K750 Energy Door', short: 'Puerta flexible de alta eficiencia térmica para cámaras frías de temperatura media y baja. Liviana, resistente a la abrasión, sin marco externo. Especificada por ASDA, Sainsbury\'s, M&S, Aldi, Lidl y Morrisons.', impact: '-42% consumo del compresor', img: 'Imagenes/Productos/Kenfield/kenfield marca.jpg', link: 'solucion-kenfield.html' },
-            'instalacion': { name: 'Instalación sin fricciones', short: 'Diseño fit and forget: instalación rápida con soporte opcional incluido, sin obras mayores. El personal entra y sale libremente sin comprometer la barrera térmica.', impact: 'Sin downtime operacional', img: 'Imagenes/Productos/Kenfield/kenfield-k2.png', link: 'solucion-kenfield.html' }
-          }
-        },
-        clarifoil: {
-          id: 'clarifoil', name: 'Clarifoil', color: '#1A3A5C', bg: 'Imagenes/Productos/Clarifoil/Clarifoil.jpg',
-          tagline: 'Film antiempañante para puertas de congelados',
-          description: 'Clarifoil es un film de acetato de celulosa que se aplica por dentro de las puertas de congelados, eliminando la condensación sin necesidad de calefactores eléctricos. Fabricado a partir de pulpa de madera renovable, con más de 150,000 puertas instaladas en supermercados de UK, Europa y Norteamérica — incluyendo ASDA, Henderson Group y Eurospar.',
-          benefit: 'Permite reducir el consumo de los trim heaters hasta un 75%, ahorrando hasta 5 kWh por puerta por día. En una tienda con 100 puertas, eso equivale a más de $15,000 USD anuales en costos de energía. Instalación nocturna sin interrupción de ventas.',
-          solutions: {
-            'cf-visibilidad': { name: 'Visibilidad permanente del producto', short: 'Elimina el empañamiento incluso en períodos de alta humedad y con puertas de alta frecuencia de apertura. Los clientes ven el producto claramente en todo momento, mejorando la tasa de conversión en el pasillo de congelados.', impact: '31–51% ahorro energético por puerta', img: 'Imagenes/Productos/Clarifoil/clarioil-right-img-1.webp', link: 'solucion-clarifoil.html' },
-            'cf-instalacion': { name: 'Instalación overnight, sin downtime', short: 'Los equipos instalan 50–60 puertas por noche trabajando en grupos de 10, sin cerrar la tienda ni afectar el reabastecimiento. El film tiene garantía de 5 años y no amarillea ni se agrieta.', impact: '+1,000 kWh ahorrados por puerta/año', img: 'Imagenes/Productos/Clarifoil/Clarifoil 2.jpg', link: 'solucion-clarifoil.html' }
-          }
-        },
-        guardian: {
-          id: 'guardian', name: 'Guardian Controls', color: '#4A3F6B', bg: 'Imagenes/Productos/Guardian/guardian control 2.webp',
-          tagline: 'Control inteligente para cámaras frías y de congelación',
-          description: 'Guardian Controls desarrolla sistemas de monitoreo y optimización para cámaras frías y de congelación en retail, frigoríficos y plantas industriales. Su Door Sentry reduce hasta un 17% el consumo energético controlando aperturas de puerta, mientras que el Fan Speed Optimiser (FSO) entrega hasta 36% de ahorro al optimizar la velocidad de los ventiladores evaporadores — con más de 5.000 unidades instaladas en cadenas líderes de UK.',
-          benefit: 'Reducción directa e indirecta del consumo energético del sistema de refrigeración completo, con monitoreo en tiempo real y optimización continua. Compatible con retrofit en tiendas existentes sin necesidad de reemplazar equipos.',
-          solutions: {
-            'door-sentry': { name: 'Door Sentry: Control de Apertura de Puertas', short: 'Sistema de alarma por voz para puertas de cámaras frías y de congelación. Reduce hasta un 17% el consumo energético al evitar aperturas prolongadas, protege la calidad del producto almacenado y refuerza la seguridad del personal con alarmas de "operario atrapado" y sensor de gas. Más de 2.000 unidades instaladas en las principales cadenas de supermercados de UK.', impact: 'Hasta 17% de reducción en consumo energético', img: 'Imagenes/General/puerta_camara fria.jpg', link: '#contact' },
-            'fan-speed': { name: 'Fan Speed Optimiser: Optimización de Evaporadores', short: 'Reduce el consumo directo e indirecto de los motores de ventiladores evaporadores en cámaras frías y de congelación, con ahorros verificados de hasta 36%. Compatible con motores PSC, polo sombreado y EC. Instalación retrofit sin acceso a la cámara. Finalista en Refrigeration Product of the Year (ACR Awards 2015).', impact: 'Hasta 36% de ahorro en evaporadores', img: 'Imagenes/General/camra_ventilador.webp', link: '#contact' }
-          }
-        }
-      };
-
-      var BRAND_ORDER = ['aerofoil', 'nualight', 'kenfield', 'clarifoil', 'guardian'];
-
-      function initials(name) {
-        return name.split(' ').slice(0, 2).map(function(w) { return w[0]; }).join('').toUpperCase();
-      }
-
-      function wordmark(brand, size, muted) {
-        size = size || 14;
-        var sq = Math.round(size * 1.6);
-        var nameColor = muted ? '#6B7280' : '#1a2419';
-        return '<div style="display:flex;align-items:center;gap:' + Math.round(size * 0.55) + 'px">'
-          + '<div style="width:' + sq + 'px;height:' + sq + 'px;border-radius:3px;background:' + brand.color + ';display:flex;align-items:center;justify-content:center;flex-shrink:0">'
-          + '<span style="color:#fff;font-size:' + Math.round(size * 0.58) + 'px;font-weight:700;letter-spacing:0.02em">' + initials(brand.name) + '</span>'
-          + '</div>'
-          + '<span style="font-size:' + size + 'px;font-weight:600;letter-spacing:-0.01em;color:' + nameColor + '">' + brand.name + '</span>'
-          + '</div>';
-      }
-
-      // Marquee
-      var marqueeEl = document.getElementById('solMarquee');
-      if (marqueeEl) {
-        var triple = BRAND_ORDER.concat(BRAND_ORDER).concat(BRAND_ORDER);
-        marqueeEl.innerHTML = triple.map(function(bid) {
-          return '<div style="flex-shrink:0">' + wordmark(BRANDS[bid], 15, true) + '</div>';
-        }).join('');
-      }
-
-      // Tabs + Detail
-      var tabsEl = document.getElementById('solTabs');
-      var detailEl = document.getElementById('solDetailGrid');
-      var activeId = BRAND_ORDER[0];
-
-      function renderTabs() {
-        tabsEl.innerHTML = BRAND_ORDER.map(function(bid) {
-          var brand = BRANDS[bid];
-          var a = bid === activeId;
-          return '<button class="sol-tab' + (a ? ' sol-tab--active' : '') + '" data-id="' + bid + '" role="tab" aria-selected="' + a + '">' + brand.name + '</button>';
-        }).join('');
-      }
-
-      function renderDetail() {
-        var brand = BRANDS[activeId];
-        var idx = BRAND_ORDER.indexOf(activeId);
-        var counter = String(idx + 1).padStart(2, '0') + ' / ' + String(BRAND_ORDER.length).padStart(2, '0');
-        var hasBg = !!brand.bg;
-
-        var detailSection = detailEl.parentElement.parentElement;
-        if (hasBg) {
-          detailSection.style.backgroundImage = 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.40) 100%),url("' + brand.bg + '")';
-          detailSection.style.backgroundSize = 'cover';
-          detailSection.style.backgroundPosition = 'center';
-        } else {
-          detailSection.style.backgroundImage = '';
-          detailSection.style.backgroundSize = '';
-          detailSection.style.backgroundPosition = '';
-        }
-
-        var tc         = hasBg ? '#fff'                    : '#374151';
-        var mc         = hasBg ? 'rgba(255,255,255,0.65)'  : '#6B7280';
-        var benefitBg  = hasBg ? 'rgba(255,255,255,0.12)'  : '#f3f4f0';
-        var benefitTc  = hasBg ? 'rgba(255,255,255,0.9)'   : '#374151';
-        var benefitStr = hasBg ? '#fff'                    : brand.color;
-
-        var solKeys = Object.keys(brand.solutions);
-        var cardsHtml = solKeys.map(function(sid) {
-          var sol = brand.solutions[sid];
-          return '<a href="' + sol.link + '" class="sol-card">'
-            + (sol.img ? '<div class="sol-card__img-wrap"><img src="' + sol.img + '" alt=""></div>' : '')
-            + '<div class="sol-card__title">' + sol.name + '</div>'
-            + '<div class="sol-card__desc">' + sol.short + '</div>'
-            + '<div class="sol-card__footer">'
-            + '<span class="sol-card__impact">' + sol.impact + '</span>'
-            + '<span class="sol-card__arrow">→</span>'
-            + '</div></a>';
-        }).join('');
-
-        var benefitHtml = '<div style="margin-top:16px;padding:14px 16px;background:' + benefitBg + ';border-radius:3px;border-left:3px solid ' + brand.color + '">'
-          + '<p style="font-size:13px;color:' + benefitTc + ';margin:0;line-height:1.55"><strong style="color:' + benefitStr + '">Beneficio para el cliente:</strong> ' + brand.benefit + '</p>'
-          + '</div>';
-
-        var glassOpen  = hasBg ? '<div style="background:linear-gradient(160deg,rgba(0,0,0,0.52) 0%,rgba(0,0,0,0.28) 100%);border:1px solid rgba(255,255,255,0.10);border-radius:8px;padding:28px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)">' : '';
-        var glassClose = hasBg ? '</div>' : '';
-
-        detailEl.innerHTML = '<div class="sol-detail__left">'
-          + glassOpen
-          + '<div class="sol-detail__counter" style="color:' + mc + '">' + counter + '</div>'
-          + '<h3 class="sol-detail__h3" style="color:' + tc + '">' + brand.name + '</h3>'
-          + '<p style="font-size:13px;font-weight:600;color:' + mc + ';margin:0 0 10px;letter-spacing:0.02em;text-transform:uppercase">' + brand.tagline + '</p>'
-          + '<p class="sol-detail__summary" style="color:' + tc + '">' + brand.description + '</p>'
-          + benefitHtml
-          + '<a href="#contact" class="sol-detail__cta' + (hasBg ? ' sol-detail__cta--on-dark' : '') + '" style="margin-top:20px">Solicitar evaluación en sitio →</a>'
-          + glassClose
-          + '</div>'
-          + '<div class="sol-cards">' + cardsHtml + '</div>';
-      }
-
-      renderTabs();
-      renderDetail();
-
-      tabsEl.addEventListener('click', function(e) {
-        var btn = e.target.closest('.sol-tab');
-        if (!btn) return;
-        activeId = btn.dataset.id;
-        renderTabs();
-        renderDetail();
-      });
-    })();
-    </script>
-
-  </section>
-
-
-  <!-- ── NUESTROS CLIENTES ── -->
-  <section class="clients-section" id="clientes">
-    <div class="clients-header">
-      <h2>Confianza respaldada por las mejores cadenas del mundo</h2>
-      <p>Empresas líderes en retail y distribución ya operan con nuestras soluciones.</p>
-    </div>
-    <div class="clients-marquee-wrap">
-      <div class="clients-marquee">
-        <div class="clients-track" id="clientsTrack"></div>
-      </div>
-      <div class="clients-fade clients-fade--left"></div>
-      <div class="clients-fade clients-fade--right"></div>
-    </div>
-  </section>
-
-  <script>
-  (function() {
-    var CLIENTS = [
-      { name: 'Walmart',          src: 'Imagenes/Logos/Clientes/clientes sin fondo/walmart-removebg-preview.png' },
-      { name: 'Kroger',           src: 'Imagenes/Logos/Clientes/clientes sin fondo/kroger-removebg-preview.png' },
-      { name: "Sam's Club",       src: 'Imagenes/Logos/Clientes/clientes sin fondo/sams_club-removebg-preview.png' },
-      { name: 'Harris Teeter',    src: 'Imagenes/Logos/Clientes/clientes sin fondo/harris_teeter-removebg-preview.png' },
-      { name: 'The Fresh Market', src: 'Imagenes/Logos/Clientes/clientes sin fondo/the_fresh_market_logo-removebg-preview.png' },
-      { name: "Sainsbury's",      src: 'Imagenes/Logos/Clientes/clientes sin fondo/sainsbury-removebg-preview.png' },
-      { name: 'Target',           src: 'Imagenes/Logos/Clientes/clientes sin fondo/Target_logo.svg-removebg-preview.png' },
-    ];
-    var track = document.getElementById('clientsTrack');
-    if (!track) return;
-    var set = CLIENTS.concat(CLIENTS).concat(CLIENTS);
-    track.innerHTML = set.map(function(c) {
-      return '<div class="clients-item"><img src="' + c.src + '" alt="' + c.name + '" /></div>';
-    }).join('');
-  })();
-  </script>
-
-
-  <!-- ── CASOS DE ESTUDIO ── -->
-  <section class="section section-alt" id="cases">
-    <div class="container">
-      <div class="section-head">
-        <span class="pill pill-dark">Casos de Estudio</span>
-        <h2>Resultados reales, en terreno.</h2>
-        <p>Estudios independientes y pilotos validados en cadenas reales que respaldan el impacto de nuestras soluciones.</p>
-      </div>
-
-      <div class="cases-grid">
-
-        <!-- Caso 1: Aerofoil Energy — CalNEXT Field Assessment -->
-        <article class="case-card">
-          <div class="case-card__img-wrap">
-            <img src="Imagenes/Productos/Aerofoil/aerofoil2.jpg" alt="Deflectores aerodinámicos en góndola refrigerada" class="case-card__img" />
-          </div>
-          <div class="case-card__top">
-            <span class="case-tag case-tag--aerofoil">Aerofoil Energy</span>
-            <p class="case-source">CalNEXT Field Assessment · California, EE.UU.</p>
-            <h3 class="case-title">Góndolas refrigeradas abiertas en supermercados</h3>
-            <p class="case-desc">CalNEXT instaló deflectores aerodinámicos en 4 cadenas de supermercados de California midiendo su impacto en consumo del compresor. El ahorro promedio fue de 482 kWh por metro lineal instalado al año, con payback en menos de 17 meses.</p>
-          </div>
-          <div class="case-metrics">
-            <div class="case-metric">
-              <span class="case-metric__val">9–14%</span>
-              <span class="case-metric__lbl">Ahorro en consumo del compresor</span>
-            </div>
-            <div class="case-metric">
-              <span class="case-metric__val">482 kWh</span>
-              <span class="case-metric__lbl">Por metro lineal instalado / año</span>
-            </div>
-            <div class="case-metric">
-              <span class="case-metric__val">7–17 meses</span>
-              <span class="case-metric__lbl">Payback simple</span>
-            </div>
-          </div>
+          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
         </article>
-
-        <!-- Caso 2: Aerofoil Energy — MPH Global Piloto -->
-        <article class="case-card">
-          <div class="case-card__img-wrap">
-            <img src="Imagenes/Productos/Aerofoil/aerofoil1.jpg" alt="Instalación de aerofoils en supermercado" class="case-card__img" />
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-frio"></use></svg></div>
+          <h3 class="h3">Las góndolas abiertas botan aire frío</h3>
+          <p>Perfiles en el borde de cada repisa ordenan la cortina de aire. El producto mantiene una temperatura más estable, el compresor trabaja menos y no requieren mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Producto</li><li class="tag">Sin mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">9–14 %</span>
+            <span class="cifra-txt">menos consumo del compresor</span>
+            <span class="fuente">Fuente: CalNEXT, 2024</span>
           </div>
-          <div class="case-card__top">
-            <span class="case-tag case-tag--aerofoil">Aerofoil Energy</span>
-            <p class="case-source">MPH Global · Piloto 10 Tiendas · EE.UU. 2024</p>
-            <h3 class="case-title">Piloto en 10 tiendas · +2,000 unidades instaladas</h3>
-            <p class="case-desc">MPH Global instaló más de 2,000 aerofoils en 10 tiendas a lo largo de distintas zonas climáticas de EE.UU. La temperatura del producto y la carga de calor mejoraron en todos los sitios, validado con imágenes térmicas.</p>
-          </div>
-          <div class="case-metrics">
-            <div class="case-metric">
-              <span class="case-metric__val">−0.93°C</span>
-              <span class="case-metric__lbl">Reducción en temp. del producto</span>
-            </div>
-            <div class="case-metric">
-              <span class="case-metric__val">−1.16°C</span>
-              <span class="case-metric__lbl">Reducción en carga de calor</span>
-            </div>
-            <div class="case-metric">
-              <span class="case-metric__val">10 tiendas</span>
-              <span class="case-metric__lbl">Múltiples zonas climáticas EE.UU.</span>
-            </div>
-          </div>
+          <div class="card-pie"><span class="marca">Aerofoil</span><a class="link-flecha" href="/solucion-aerofoil.html">Ver solución →</a></div>
         </article>
-
-        <!-- Caso 3: Kenfield K750 — Universidad de Warwick -->
-        <article class="case-card">
-          <div class="case-card__img-wrap">
-            <img src="Imagenes/Productos/Kenfield/kenfield 1.JPEG" alt="Puerta Kenfield K750 en cámara fría" class="case-card__img" style="object-position: center 20%;" />
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-vidrio"></use></svg></div>
+          <h3 class="h3">Las puertas de vidrio se empañan</h3>
+          <p>Láminas anti-empañamiento en el interior del vidrio. El producto queda siempre visible y el heater baja de 100 % a 15–20 % de operación.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Exhibición</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">31–41 %</span>
+            <span class="cifra-txt">menos consumo por puerta</span>
+            <span class="fuente">Fuente: Clarifoil (fabricante)</span>
           </div>
-          <div class="case-card__top">
-            <span class="case-tag case-tag--kenfield">Kenfield K750</span>
-            <p class="case-source">Universidad de Warwick · Coventry, UK · 2024</p>
-            <h3 class="case-title">Laboratorio controlado: K750 vs. cortinas de tiras PVC</h3>
-            <p class="case-desc">La Universidad de Warwick comparó la puerta K750 contra cortinas de tiras PVC en condiciones de laboratorio representativas de supermercados reales, midiendo consumo del compresor y temperatura en 3 escenarios distintos.</p>
-          </div>
-          <div class="case-metrics">
-            <div class="case-metric">
-              <span class="case-metric__val">21–42%</span>
-              <span class="case-metric__lbl">Ahorro vs. PVC · Temp. media</span>
-            </div>
-            <div class="case-metric">
-              <span class="case-metric__val">13–17%</span>
-              <span class="case-metric__lbl">Ahorro vs. PVC · Temp. baja</span>
-            </div>
-            <div class="case-metric">
-              <span class="case-metric__val">−17–19°C</span>
-              <span class="case-metric__lbl">Temp. pico con puerta abierta</span>
-            </div>
-          </div>
+          <div class="card-pie"><span class="marca">Clarifoil</span><a class="link-flecha" href="/solucion-clarifoil.html">Ver solución →</a></div>
         </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONTACT ── -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-
-        <div class="contact-left">
-          <span class="pill pill-dark">Contacto</span>
-          <h2>Hablemos de<br />tu proyecto</h2>
-          <p>¿Tienes un desafío industrial que resolver? Nuestro equipo está listo para diseñar una solución a la medida de tu operación.</p>
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="ci-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.18 2 2 0 012.49-.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.59 7.77a16 16 0 006.29 6.29l1.16-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-              </div>
-              <div>
-                <strong>Teléfono</strong>
-                <span>+56 9 6919 3071</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="ci-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div>
-                <strong>Email</strong>
-                <span>contacto@andek.cl</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="ci-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <div>
-                <strong>Ubicación</strong>
-                <span>Santiago, Chile</span>
-              </div>
-            </div>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">21–42 %</span>
+            <span class="cifra-txt">de ahorro vs. cortina de PVC en refrigerado</span>
+            <span class="fuente">Fuente: Universidad de Warwick, 2024</span>
           </div>
-        </div>
-
-        <div class="contact-right">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nombre">Nombre <span>*</span></label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" />
-                <span class="ferr" id="nombreErr"></span>
-              </div>
-              <div class="form-group">
-                <label for="email">Email <span>*</span></label>
-                <input type="email" id="email" name="email" placeholder="tu@empresa.com" />
-                <span class="ferr" id="emailErr"></span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="empresa">Empresa</label>
-              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
-            </div>
-            <div class="form-group">
-              <label for="servicio">Servicio de interés</label>
-              <select id="servicio" name="servicio">
-                <option value="">Selecciona una opción</option>
-                <option value="aerofoil">Aerofoil</option>
-                <option value="clarifoil">Clarifoil</option>
-                <option value="kenfield">Kenfield K750</option>
-                <option value="nualight">Nualight</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="mensaje">Mensaje <span>*</span></label>
-              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto o necesidad…"></textarea>
-              <span class="ferr" id="mensajeErr"></span>
-            </div>
-            <button type="submit" class="flow-btn flow-btn--dark flow-btn--full" id="submitBtn">
-              <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              <span class="flow-btn__text">
-                <span class="btn-text">Enviar mensaje</span>
-                <span class="btn-loader" style="display:none">
-                  <svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                  </svg>
-                  Enviando…
-                </span>
-              </span>
-              <span class="flow-btn__circle"></span>
-              <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
-          </form>
-          <div class="form-success" id="formSuccess" style="display:none">
-            <div class="success-check">✓</div>
-            <h3>¡Mensaje enviado!</h3>
-            <p>Gracias por contactarnos. Te responderemos en menos de 24 horas.</p>
+          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+          <h3 class="h3">Los drenajes de condensado se tapan</h3>
+          <p>Tabletas que previenen el biofilm en bandejas y drenajes de equipos de frío y climatización. Menos fallas y malos olores, dentro del mantenimiento anual.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">1 año</span>
+            <span class="cifra-txt">de protección por tableta</span>
+            <span class="fuente">Fuente: Gel-clear (fabricante)</span>
           </div>
-        </div>
-
+          <div class="card-pie"><span class="marca">Gel-clear</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">06</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real. Menos consumo y menor mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">36 %</span>
+            <span class="cifra-txt">de ahorro promedio en motores de evaporador</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">07</span><svg class="icon" aria-hidden="true"><use href="#i-luz"></use></svg></div>
+          <h3 class="h3">Las luminarias consumen, calientan y hay que reemplazarlas</h3>
+          <p>LED con espectro por categoría de producto, menor aporte de calor al mueble y larga vida útil, lo que reduce recambios y mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Mantenimiento</li><li class="tag">Energía</li><li class="tag">Exhibición</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">100.000 h</span>
+            <span class="cifra-txt">de vida útil (L90)</span>
+            <span class="fuente">Fuente: Nualight (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Nualight</span><a class="link-flecha" href="/solucion-nualight.html">Ver solución →</a></div>
+        </article>
+      </div>
+      <div class="panel-pie"><a class="btn btn-outline" href="/industria-supermercados.html">Ver la página de supermercados y conveniencia</a></div>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="panel-food" aria-labelledby="tab-food" tabindex="0" hidden>
+      <div class="grid">
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="h3">El hielo en cámaras y congeladores genera fallas</h3>
+          <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores, compresores que trabajan menos y temperaturas más estables.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Energía</li><li class="tag">Producto</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">11–49 %</span>
+            <span class="cifra-txt">menos consumo en congeladores y cámaras</span>
+            <span class="fuente">Fuente: CNT Technology, caso McDonald’s</span>
+          </div>
+          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">21–42 %</span>
+            <span class="cifra-txt">de ahorro vs. cortina de PVC en refrigerado</span>
+            <span class="fuente">Fuente: Universidad de Warwick, 2024</span>
+          </div>
+          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-seguridad"></use></svg></div>
+          <h3 class="h3">Las puertas de cámara quedan abiertas</h3>
+          <p>Alarma automática de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Seguridad</li><li class="tag">Producto</li><li class="tag">Energía</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">17 %</span>
+            <span class="cifra-txt">de ahorro adicional en energía de cámara</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+          <h3 class="h3">Los drenajes de condensado se tapan</h3>
+          <p>Tabletas que previenen el biofilm en bandejas y drenajes de equipos de frío y climatización. Menos fallas y malos olores, dentro del mantenimiento anual.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">1 año</span>
+            <span class="cifra-txt">de protección por tableta</span>
+            <span class="fuente">Fuente: Gel-clear (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Gel-clear</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real. Menos consumo y menor mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">36 %</span>
+            <span class="cifra-txt">de ahorro promedio en motores de evaporador</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
       </div>
     </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="container footer-main">
-
-      <!-- Brand -->
-      <div class="footer-col footer-col--brand">
-        <img src="Marca/Logo.png" alt="Andek Solutions" />
-        <p class="footer-tagline">Tecnología para la eficiencia industrial. Diseñamos soluciones a medida para operaciones más inteligentes y sostenibles.</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/andek-solutions" class="footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/andeksolutions" class="footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          </a>
-        </div>
+    <div class="tab-panel" role="tabpanel" id="panel-cd" aria-labelledby="tab-cd" tabindex="0" hidden>
+      <div class="grid">
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="h3">El hielo en congeladores y cámaras genera fallas</h3>
+          <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y productos, descongelamientos más cortos y menos horas sacando hielo.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li><li class="tag">Producto</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">83 %</span>
+            <span class="cifra-txt">menos fallas vs. el año previo a la instalación</span>
+            <span class="fuente">Fuente: CNT Technology, caso REWE</span>
+          </div>
+          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="h3">Las aperturas grandes pierden frío con el tráfico</h3>
+          <p>Cortina aislada para aperturas grandes y tráfico intenso de personas y grúas, de bajo mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">5+ años</span>
+            <span class="cifra-txt">de vida útil (K2)</span>
+            <span class="fuente">Fuente: Kenfield (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/kenfield-k2.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-seguridad"></use></svg></div>
+          <h3 class="h3">Las puertas de cámara quedan abiertas</h3>
+          <p>Alarma automática de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Seguridad</li><li class="tag">Producto</li><li class="tag">Energía</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">17 %</span>
+            <span class="cifra-txt">de ahorro adicional en energía de cámara</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real. Menos consumo y menor mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">36 %</span>
+            <span class="cifra-txt">de ahorro promedio en motores de evaporador</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
+          <h3 class="h3">Los chillers de proceso consumen de más</h3>
+          <p>Nanofluido que mejora la transferencia de calor en circuitos de agua de chillers. Se agrega con el sistema en operación, sin modificar equipos ni afectar su garantía.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Sin detener equipos</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">11–13 %</span>
+            <span class="cifra-txt">menos consumo eléctrico en chiller de 450 kW</span>
+            <span class="fuente">Fuente: Quercy Réfrigération (Francia)</span>
+          </div>
+          <div class="card-pie"><span class="marca">HTF Compact ECO</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
       </div>
-
-      <!-- Soluciones -->
-      <div class="footer-col">
-        <h4 class="footer-col__title">Soluciones</h4>
-        <ul class="footer-col__list">
-          <li><a href="solucion-aerofoil.html">Aerofoil</a></li>
-          <li><a href="solucion-clarifoil.html">Clarifoil</a></li>
-          <li><a href="solucion-kenfield.html">Kenfield</a></li>
-          <li><a href="solucion-nualight.html">Nualight</a></li>
-        </ul>
-      </div>
-
-      <!-- Casos de Estudio -->
-      <div class="footer-col">
-        <h4 class="footer-col__title">Casos de Estudio</h4>
-        <ul class="footer-col__list">
-          <li><a href="caso-aerofoil.html">Aerofoil — Calnext</a></li>
-          <li><a href="caso-kenfield.html">Kenfield — Warwick</a></li>
-          <li><a href="caso-clarifoil.html">Clarifoil — ASDA UK</a></li>
-          <li><a href="caso-nualight.html">Nualight — Retail Europeo</a></li>
-        </ul>
-      </div>
-
-      <!-- Contacto -->
-      <div class="footer-col">
-        <h4 class="footer-col__title">Contacto</h4>
-        <ul class="footer-col__list">
-          <li><a href="#contact">Formulario de contacto</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><span>contacto@andek.cl</span></li>
-          <li><span>+56 9 6919 3071</span></li>
-          <li><span>Santiago, Chile</span></li>
-        </ul>
-      </div>
-
     </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2025 Andek Solutions. Todos los derechos reservados.</p>
+    <div class="tab-panel" role="tabpanel" id="panel-agro" aria-labelledby="tab-agro" tabindex="0" hidden>
+      <div class="grid">
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
+          <h3 class="h3">Los chillers de proceso consumen de más</h3>
+          <p>Nanofluido que mejora la transferencia de calor en circuitos de agua de chillers. Se agrega con el sistema en operación, sin modificar equipos ni afectar su garantía.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Sin detener equipos</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">11–13 %</span>
+            <span class="cifra-txt">menos consumo eléctrico en chiller de 450 kW</span>
+            <span class="fuente">Fuente: Quercy Réfrigération (Francia)</span>
+          </div>
+          <div class="card-pie"><span class="marca">HTF Compact ECO</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="h3">El hielo en congeladores y cámaras genera fallas</h3>
+          <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y productos, descongelamientos más cortos y menos horas sacando hielo.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li><li class="tag">Producto</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">83 %</span>
+            <span class="cifra-txt">menos fallas vs. el año previo a la instalación</span>
+            <span class="fuente">Fuente: CNT Technology, caso REWE</span>
+          </div>
+          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-seguridad"></use></svg></div>
+          <h3 class="h3">Las puertas de cámara quedan abiertas</h3>
+          <p>Alarma automática de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Seguridad</li><li class="tag">Producto</li><li class="tag">Energía</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">17 %</span>
+            <span class="cifra-txt">de ahorro adicional en energía de cámara</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real. Menos consumo y menor mantenimiento.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">36 %</span>
+            <span class="cifra-txt">de ahorro promedio en motores de evaporador</span>
+            <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">21–42 %</span>
+            <span class="cifra-txt">de ahorro vs. cortina de PVC en refrigerado</span>
+            <span class="fuente">Fuente: Universidad de Warwick, 2024</span>
+          </div>
+          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+        </article>
       </div>
     </div>
-  </footer>
+    <div class="tab-panel" role="tabpanel" id="panel-edificios" aria-labelledby="tab-edificios" tabindex="0" hidden>
+      <div class="grid">
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
+          <h3 class="h3">Los chillers y la climatización trabajan de más</h3>
+          <p>Nanofluido que mejora la transferencia de calor en circuitos de agua de chillers y sistemas HVAC. Se agrega con el sistema en operación, sin modificar equipos.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Capacidad</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">25 %</span>
+            <span class="cifra-txt">menos consumo eléctrico en climatización</span>
+            <span class="fuente">Fuente: TCT Nanotech, piloto Hoffman Estates (EE.UU.)</span>
+          </div>
+          <div class="card-pie"><span class="marca">HTF Compact ECO</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+        <article class="card card--gris card--solucion">
+          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+          <h3 class="h3">Los drenajes de condensado se tapan</h3>
+          <p>Tabletas que previenen el biofilm en bandejas y drenajes de equipos de frío y climatización. Menos fallas y malos olores, dentro del mantenimiento anual.</p>
+          <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li></ul>
+          <div class="cifra">
+            <span class="cifra-num">1 año</span>
+            <span class="cifra-txt">de protección por tableta</span>
+            <span class="fuente">Fuente: Gel-clear (fabricante)</span>
+          </div>
+          <div class="card-pie"><span class="marca">Gel-clear</span><a class="link-flecha" href="/#contacto">Solicitar ficha técnica →</a></div>
+        </article>
+      </div>
+    </div>
+    <p class="nota" style="margin-top:28px">Estamos incorporando nuevas tecnologías de eficiencia operacional. Si necesitas resolver algo que no aparece aquí, <a href="#contacto">escríbenos</a>.</p>
+  </div>
+</section>
 
-  <script src="script.js"></script>
-  <script>
-    // Delay dropdown close so user has time to move mouse into submenu
-    (function() {
-      const dropdown = document.querySelector('.nav-dropdown');
-      if (!dropdown) return;
-      let closeTimer = null;
-      const DELAY = 350; // ms before closing
+<section class="section bg-profundo on-dark" id="evidencia">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">03 · Evidencia</p>
+      <h2 class="h1">Resultados publicados</h2>
+      <p class="lead">Estudios independientes y pilotos de los fabricantes. En Chile validamos cada solución con un piloto medido.</p>
+    </div>
+    <div class="evidencia">
+      <div class="ev">
+        <span class="ev-num ev-num--senal">83 %</span>
+        <span class="ev-titulo">menos fallas en congeladores tras instalar filtros de humedad CNT</span>
+        <p>Comparado con los 365 días previos a la instalación. Descongelamientos 38 % más cortos en promedio.</p>
+        <span class="fuente">Fuente: CNT Technology, caso REWE (Alemania)</span>
+      </div>
+      <div class="ev">
+        <span class="ev-num">11–13 %</span>
+        <span class="ev-titulo">menos consumo eléctrico en un chiller industrial de 450 kW con HTF Compact ECO</span>
+        <p>Sin corrosión ni efecto en la garantía del equipo, según el propio fabricante del chiller.</p>
+        <span class="fuente">Fuente: Quercy Réfrigération (Francia), 2025</span>
+      </div>
+      <div class="ev">
+        <span class="ev-num">9–14 %</span>
+        <span class="ev-titulo">menos consumo del compresor en góndolas abiertas con Aerofoil</span>
+        <p>Supermercados de California. Payback estimado de 7 a 17 meses.</p>
+        <span class="fuente">Fuente: CalNEXT, 2024</span>
+      </div>
+      <div class="ev">
+        <span class="ev-num">21–42 %</span>
+        <span class="ev-titulo">de ahorro con puertas Kenfield K750 frente a cortinas de PVC</span>
+        <p>Cámaras refrigeradas. En cámaras de congelado: 13–17 %.</p>
+        <span class="fuente">Fuente: Universidad de Warwick, 2024</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-      function openMenu() {
-        clearTimeout(closeTimer);
-        dropdown.classList.add('submenu-open');
-      }
-      function scheduleClose() {
-        clearTimeout(closeTimer);
-        closeTimer = setTimeout(() => dropdown.classList.remove('submenu-open'), DELAY);
-      }
+<section class="section bg-blanco" id="como-trabajamos">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">04 · Cómo trabajamos</p>
+      <h2 class="h1">Cómo trabajamos</h2>
+      <p class="lead">Probamos en un local, medimos y recién entonces escalamos.</p>
+    </div>
+    <ol class="pasos">
+      <li class="card">
+        <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-medicion"></use></svg></div>
+        <h3 class="h3">Diagnóstico</h3>
+        <p>Revisamos tu operación en terreno: consumo de energía, mantenimiento, fallas recurrentes y tareas manuales.</p>
+      </li>
+      <li class="card">
+        <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-propuesta"></use></svg></div>
+        <h3 class="h3">Propuesta</h3>
+        <p>Definimos qué tecnología aplica, su costo y el retorno estimado para tu operación.</p>
+      </li>
+      <li class="card">
+        <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-piloto"></use></svg></div>
+        <h3 class="h3">Piloto medido</h3>
+        <p>Instalamos en un local o cámara y medimos el resultado contra una línea base.</p>
+      </li>
+      <li class="card">
+        <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+        <h3 class="h3">Escalamiento</h3>
+        <p>Con resultados validados, extendemos la solución al resto de la operación, con soporte local.</p>
+      </li>
+    </ol>
+  </div>
+</section>
 
-      dropdown.addEventListener('mouseenter', openMenu);
-      dropdown.addEventListener('mouseleave', scheduleClose);
-    })();
-  </script>
+<section class="section" id="nosotros">
+  <div class="container">
+    <div class="nosotros">
+      <div class="nosotros-texto">
+        <p class="label">05 · Nosotros</p>
+        <h2 class="h2">Eficiencia operacional para instalaciones comerciales</h2>
+        <p class="lead">Andek Solutions representa en Chile tecnologías probadas de eficiencia operacional. Cada marca del portafolio resuelve un punto donde se pierde energía o se produce una falla. Andek las integra en un solo sistema, sin reemplazar los equipos del cliente.</p>
+      </div>
+      <div class="nosotros-foto">
+        <img class="octogono" src="/assets/img/instalacion-aerofoil.webp" alt="Técnico instalando perfiles Aerofoil en una góndola refrigerada" width="900" height="900" loading="lazy">
+      </div>
+    </div>
+    <div class="principios">
+      <div class="principio"><h3 class="h3">Técnica</h3><p>Explicamos cómo funciona cada solución antes de proponerla.</p></div>
+      <div class="principio"><h3 class="h3">Clara</h3><p>Cada cifra indica su fuente.</p></div>
+      <div class="principio"><h3 class="h3">Confiable</h3><p>Validamos con un piloto antes de escalar.</p></div>
+    </div>
+    <aside class="fabricantes" aria-label="Para fabricantes">
+      <div>
+        <p class="label">Para fabricantes</p>
+        <h3>Buscamos tecnologías de eficiencia operacional con resultados medibles que aún no estén en Chile.</h3>
+        <p lang="en">We represent proven operational efficiency technologies in Chile. Contact us for partnership inquiries.</p>
+      </div>
+      <a class="btn btn-outline" href="#contacto">Contactar</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section bg-blanco" id="contacto">
+  <div class="container contacto">
+    <div class="contacto-texto">
+      <p class="label">06 · Contacto</p>
+      <h2 class="h1">Agenda un diagnóstico</h2>
+      <p class="lead">Cuéntanos sobre tu operación. Respondemos en menos de 24 horas hábiles.</p>
+      <div class="datos">
+        <a href="tel:+56969193071">+56 9 6919 3071</a>
+        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <span>Santiago, Chile</span>
+      </div>
+    </div>
+    <form class="form" id="formContacto" novalidate aria-label="Formulario de contacto">
+      <label class="campo">Nombre *<input type="text" name="nombre" autocomplete="name" required></label>
+      <label class="campo">Empresa *<input type="text" name="empresa" autocomplete="organization" required></label>
+      <label class="campo">Email *<input type="email" name="email" autocomplete="email" required></label>
+      <label class="campo">Teléfono<input type="tel" name="telefono" autocomplete="tel"></label>
+      <label class="campo">Industria
+        <select name="industria">
+          <option>Supermercados y conveniencia</option>
+          <option>Comida rápida y food service</option>
+          <option>Centros de distribución y cámaras de frío</option>
+          <option>Agroindustria y alimentos</option>
+          <option>Edificios, centros comerciales y hoteles</option>
+          <option>Otra</option>
+        </select>
+      </label>
+      <label class="campo">Qué quieres mejorar
+        <select name="area">
+          <option>Energía</option>
+          <option>Mantenimiento y fallas</option>
+          <option>Producto y merma</option>
+          <option>Personal y seguridad</option>
+          <option>No estoy seguro</option>
+        </select>
+      </label>
+      <label class="campo campo--ancho">Cuéntanos tu caso *<textarea name="mensaje" rows="4" required></textarea></label>
+      <label class="trampa" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+      <button class="btn btn-pizarra" type="submit">Enviar</button>
+      <p class="form-estado" id="formEstado" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer on-dark">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-marca">
+        <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio"><svg aria-hidden="true"><use href="#i-iso"></use></svg><span class="logo-text"><b>ANDEK</b> <span>SOLUTIONS</span></span></a>
+        <p>Tecnologías probadas de eficiencia operacional para instalaciones comerciales.</p>
+        <div class="footer-redes"><a href="https://www.linkedin.com/company/andek-solutions">LinkedIn</a><a href="https://www.instagram.com/andeksolutions">Instagram</a></div>
+      </div>
+      <nav class="footer-col" aria-label="Industrias">
+        <span class="label">Industrias</span>
+        <a href="/industria-supermercados.html">Supermercados y conveniencia</a>
+        <a href="/#soluciones">Comida rápida y food service</a>
+        <a href="/#soluciones">Centros de distribución</a>
+        <a href="/#soluciones">Agroindustria y alimentos</a>
+        <a href="/#soluciones">Edificios y centros comerciales</a>
+      </nav>
+      <nav class="footer-col" aria-label="Soluciones">
+        <span class="label">Soluciones</span>
+        <a href="/solucion-aerofoil.html">Aerofoil</a>
+        <a href="/solucion-clarifoil.html">Clarifoil</a>
+        <a href="/#contacto">CNT Technology</a>
+        <a href="/#contacto">Gel-clear</a>
+        <a href="/solucion-guardian.html">Guardian Controls</a>
+        <a href="/#contacto">HTF Compact ECO</a>
+        <a href="/solucion-kenfield.html">Kenfield</a>
+        <a href="/solucion-nualight.html">Nualight</a>
+      </nav>
+      <div class="footer-col">
+        <span class="label">Contacto</span>
+        <a href="tel:+56969193071">+56 9 6919 3071</a>
+        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <span>Santiago, Chile</span>
+      </div>
+    </div>
+    <div class="footer-legal">© <span id="anio">2026</span> Andek Solutions SpA</div>
+  </div>
+</footer>
+<script src="/assets/andek.js"></script>
 </body>
 </html>
