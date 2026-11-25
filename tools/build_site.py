@@ -5,16 +5,19 @@
 - Portada (index.html): solo se reemplazan los bloques marcados con
   <!--#NOMBRE--> ... <!--/NOMBRE-->; el resto del archivo se edita a mano.
 
-Uso:  python3 tools/build_site.py
+Uso:  python3 tools/build_site.py   (requiere Pillow: pip install pillow)
 """
 import html
 import re
 import sys
 from pathlib import Path
 
+from PIL import Image
+
 sys.path.insert(0, str(Path(__file__).parent))
 from sitio_datos import (AREAS, ORDEN, SOL, TARJETAS, INDUSTRIAS, ZONAS_SUPERMERCADOS,  # noqa: E402
-                         CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS)
+                         CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS,
+                         MAPA_DESTINO, MAPA_ORIGENES)
 
 RAIZ = Path(__file__).resolve().parent.parent
 e = html.escape
@@ -59,9 +62,10 @@ def cabecera(pref):
       <nav class="nav" id="navPrincipal" aria-label="Principal">
         <a href="{pref}#eficiencia">Qué mejoramos</a>
         <a href="{pref}#soluciones">Soluciones</a>
-        <a href="{pref}#evidencia">Casos de éxito</a>
         <a href="{pref}#como-trabajamos">Cómo trabajamos</a>
         <a href="{pref}#nosotros">Nosotros</a>
+        <a href="{pref}#fabricantes">Fabricantes</a>
+        <a href="{pref}#evidencia">Casos de éxito</a>
       </nav>
       <a class="btn btn-blanco header-cta" href="{pref}#contacto">Agenda un diagnóstico</a>
     </header>'''
@@ -145,17 +149,33 @@ def cta_banda(titulo, texto, boton='Contactar'):
 
 # ---------- Portada ----------
 
+# Foto propia para tarjetas que no usan la foto principal de su solución
+FOTO_TARJETA = {'sentry': ('/assets/img/fichas/guardian-door-sentry.webp', 'Alarma de puerta Door Sentry de Guardian Controls')}
+
+
+def logo(sol):
+    ruta = RAIZ / 'assets' / 'img' / 'logos' / f'{sol}.png'
+    with Image.open(ruta) as im:
+        w, h = im.size
+    return f'/assets/img/logos/{sol}.png', w, h
+
+
 def tarjeta(n, clave):
     sol, producto, resuelve, texto, tags, eid = TARJETAS[clave]
     s, c = SOL[sol], ev(sol, eid)
-    tags_html = ''.join(f'<li class="tag">{e(t)}</li>' for t in tags)
-    prod = f' <span class="card-producto">{e(producto)}</span>' if producto else ''
-    return f'''        <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="label">{e(s['origen'])}</span><svg class="icon" aria-hidden="true"><use href="#i-{s['icono']}"></use></svg></div>
-          <h3 class="card-marca">{e(s['nombre'])}{prod}</h3>
+    foto, alt = FOTO_TARJETA.get(clave) or s['img']
+    src, lw, lh = logo(sol)
+    # Igualar el peso visual de logos con proporciones distintas: misma área aproximada
+    alto = max(28, min(46, round((5200 / (lw / lh)) ** 0.5)))
+    prod = f'<span class="card-producto">{e(producto)}</span>' if producto else f'<span class="card-origen">{e(s["origen"])}</span>'
+    return f'''        <article class="card card--solucion">
+          <div class="card-foto"><img src="{foto}" alt="{e(alt)}" loading="lazy" width="800" height="600"></div>
+          <div class="card-marca">
+            <h3><img class="card-logo" src="{src}" alt="{e(s['nombre'])}" width="{lw}" height="{lh}" style="height:{alto}px"></h3>
+            {prod}
+          </div>
           <p class="card-resuelve">{e(resuelve)}</p>
-          <p>{e(texto)}</p>
-          <ul class="tags" aria-label="Qué mejora">{tags_html}</ul>
+          <p class="card-texto">{e(texto)}</p>
           <div class="cifra">
             <span class="cifra-num">{e(c['num'])}</span>
             <span class="cifra-txt">{e(c['titulo'])}</span>
@@ -202,6 +222,30 @@ def cifras():
         <span class="fuente">Fuente: {e(c['fuente'])}</span>
       </div>''')
     return '    <div class="cifras">\n' + '\n'.join(items) + '\n    </div>'
+
+
+def proyectar(lon, lat):
+    """Misma proyección que tools/generar_mapa.py (4 unidades por grado, latitudes 80 a -58)."""
+    return (lon + 180) * 4, (80 - lat) * 4
+
+
+def mapa():
+    dx, dy = proyectar(*MAPA_DESTINO)
+    lineas, origenes = [], []
+    for i, (lon, lat) in enumerate(MAPA_ORIGENES):
+        ox, oy = proyectar(lon, lat)
+        dist = ((dx - ox) ** 2 + (dy - oy) ** 2) ** 0.5
+        cx, cy = (ox + dx) / 2, max((oy + dy) / 2 - dist * 0.32, 12)
+        lineas.append(f'        <path class="mapa-linea" style="--i:{i}" pathLength="1" d="M{ox:.0f} {oy:.0f}Q{cx:.0f} {cy:.0f} {dx:.0f} {dy:.0f}"/>')
+        origenes.append(f'<circle style="--i:{i}" cx="{ox:.0f}" cy="{oy:.0f}" r="6"/>')
+    return f'''    <svg class="mapa" viewBox="0 0 1440 552" role="img" aria-label="Mapa del mundo con líneas que salen de distintos países y llegan a Chile">
+      <image href="/assets/img/mapa-puntos.svg" width="1440" height="552"/>
+      <g class="mapa-lineas">
+{chr(10).join(lineas)}
+      </g>
+      <g class="mapa-origenes">{''.join(origenes)}</g>
+      <g class="mapa-chile"><circle class="mapa-pulso" cx="{dx:.0f}" cy="{dy:.0f}" r="10"/><circle class="mapa-destino" cx="{dx:.0f}" cy="{dy:.0f}" r="10"/></g>
+    </svg>'''
 
 
 def bloque_ev(c, senal=False, enlace=None):
@@ -519,7 +563,7 @@ def main():
     print('industria-supermercados.html')
     reemplazar_bloques(RAIZ / 'index.html', {
         'ICONOS': ICONOS, 'CABECERA': cabecera(''), 'CIFRAS': cifras(), 'AREAS': areas(),
-        'PANELES': paneles(), 'EVIDENCIA': evidencia_portada(), 'PIE': pie(),
+        'PANELES': paneles(), 'EVIDENCIA': evidencia_portada(), 'MAPA': mapa(), 'PIE': pie(),
     })
     print('index.html')
 

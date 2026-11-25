@@ -142,45 +142,46 @@
     datos.forEach(function (d) { io.observe(d.el); });
   }
 
-  // Línea de tiempo: avanza sola, se puede hacer clic y se pausa con el mouse encima
+  // Línea de tiempo: avanza sola en ciclo. Solo se detiene mientras está fuera de pantalla.
   var tl = document.querySelector('[data-timeline]');
   if (tl) {
     var pasos = Array.prototype.slice.call(tl.querySelectorAll('.tl-paso'));
-    var progreso = tl.querySelector('.tl-progreso');
-    var activo = 0;
     var activarPaso = function (i) {
-      activo = i;
       pasos.forEach(function (p, j) {
         p.classList.toggle('is-activo', j === i);
         p.classList.toggle('is-hecho', j < i);
         var nodo = p.querySelector('.tl-nodo');
         if (j === i) nodo.setAttribute('aria-current', 'step'); else nodo.removeAttribute('aria-current');
       });
-      var pct = pasos.length > 1 ? (i / (pasos.length - 1)) * 100 : 0;
-      progreso.style.width = pct + '%';
-      progreso.style.setProperty('--tl-alto', pct + '%');
     };
     pasos.forEach(function (p, i) {
       p.querySelector('.tl-nodo').addEventListener('click', function () { activarPaso(i); });
-      p.querySelector('.tl-tiempo span').addEventListener('animationend', function () {
+      p.querySelector('.tl-barra span').addEventListener('animationend', function () {
         if (p.classList.contains('is-activo')) activarPaso((i + 1) % pasos.length);
       });
     });
     if (sinMovimiento) {
       tl.classList.add('sin-animacion');
-    } else {
+    } else if ('IntersectionObserver' in window) {
       tl.classList.add('en-pausa');
-      var visible = false, encima = false;
-      var actualizar = function () { tl.classList.toggle('en-pausa', !visible || encima); };
-      tl.addEventListener('mouseenter', function () { encima = true; actualizar(); });
-      tl.addEventListener('mouseleave', function () { encima = false; actualizar(); });
-      tl.addEventListener('focusin', function () { encima = true; actualizar(); });
-      tl.addEventListener('focusout', function () { encima = false; actualizar(); });
-      if ('IntersectionObserver' in window) {
-        new IntersectionObserver(function (en) { visible = en[0].isIntersecting; actualizar(); }, { threshold: 0.35 }).observe(tl);
-      } else { visible = true; actualizar(); }
+      new IntersectionObserver(function (en) { tl.classList.toggle('en-pausa', !en[0].isIntersecting); }, { threshold: 0.3 }).observe(tl);
     }
     activarPaso(0);
+  }
+
+  // Tipo de contacto: los fabricantes no necesitan industria ni área
+  var tipo = document.getElementById('tipoContacto');
+  if (tipo) {
+    var soloCliente = Array.prototype.slice.call(document.querySelectorAll('[data-solo-cliente]'));
+    var aplicarTipo = function () {
+      soloCliente.forEach(function (c) { c.hidden = tipo.value === 'fabricante'; });
+    };
+    tipo.addEventListener('change', aplicarTipo);
+    if (form) form.addEventListener('reset', function () { setTimeout(aplicarTipo, 0); });
+    document.querySelectorAll('[data-tipo-contacto]').forEach(function (a) {
+      a.addEventListener('click', function () { tipo.value = a.getAttribute('data-tipo-contacto'); aplicarTipo(); });
+    });
+    aplicarTipo();
   }
 
   var anio = document.getElementById('anio');

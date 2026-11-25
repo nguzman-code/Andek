@@ -10,7 +10,7 @@ fuente pública). Indicar siempre la fuente y el tipo.
 
 AREAS = {
     'Energía': ('energia', 'Menos consumo en refrigeración, climatización, iluminación y ventilación, sin cambiar los equipos.'),
-    'Mantenimiento y fallas': ('herr', 'Menos fallas, descongelamientos, drenajes tapados y recambios. Soluciones de larga vida útil y bajo mantenimiento.'),
+    'Mantenimiento y fallas': ('herr', 'Menos fallas, descongelamientos, drenajes tapados y recambios de equipos.'),
     'Producto y merma': ('temp', 'Temperatura más estable, menos hielo sobre el producto y mejor exhibición en góndolas, vitrinas y cámaras.'),
     'Personal y seguridad': ('seguridad', 'Menos horas en tareas manuales, como sacar hielo o vigilar puertas, y menos riesgos en cámaras de frío.'),
 }
@@ -97,7 +97,7 @@ SOL = {
         'titulo_pagina': 'CNT Technology: filtros de humedad para cámaras de frío y congeladores',
         'h1': 'Filtros de humedad para cámaras de frío y congeladores',
         'lead': 'Filtros moleculares que regulan la humedad del aire sin electricidad. Reducen el hielo en evaporadores y productos, los descongelamientos y las fallas.',
-        'img': None,
+        'img': ('/assets/img/fichas/cnt.webp', 'Filtros moleculares CNT Technology'),
         'problema': [
             'La humedad que entra a una cámara o congelador se congela en el evaporador y sobre los productos. El evaporador transfiere peor el calor, el compresor trabaja más y los descongelamientos se alargan.',
             'El hielo también provoca fallas inesperadas, pérdida de mercadería y horas del personal dedicadas a sacarlo.',
@@ -139,7 +139,7 @@ SOL = {
         'titulo_pagina': 'Gel-clear: tabletas para drenajes de condensado',
         'h1': 'Tabletas para drenajes de condensado',
         'lead': 'Previenen el biofilm en bandejas, drenajes y bombas de condensado de equipos de frío y climatización. Menos drenajes tapados, fallas y malos olores.',
-        'img': None,
+        'img': ('/assets/img/fichas/gelclear.webp', 'Tableta Gel-clear QP34 en una bandeja de condensado'),
         'problema': [
             'En las bandejas y drenajes de condensado de muebles refrigerados y equipos de climatización se forma biofilm. Los drenajes se tapan, el agua rebalsa y aparecen malos olores y fallas.',
             'Resolverlo exige visitas de mantenimiento correctivo y, a veces, detener el equipo.',
@@ -212,7 +212,7 @@ SOL = {
         'titulo_pagina': 'HTF Compact ECO: nanofluido para chillers y climatización',
         'h1': 'Nanofluido para chillers y sistemas de climatización',
         'lead': 'Se agrega al circuito de agua de chillers y sistemas HVAC en operación. Mejora la transferencia de calor y reduce el consumo eléctrico, sin modificar los equipos.',
-        'img': None,
+        'img': ('/assets/img/fichas/htf.webp', 'Torres de enfriamiento de un sistema de climatización'),
         'problema': [
             'En chillers y sistemas HVAC, la eficiencia depende de qué tan rápido el agua, o el agua con glicol, transfiere el calor en los intercambiadores. Si esa transferencia es limitada, el compresor trabaja más tiempo para lograr la misma temperatura.',
             'Cuando el sistema no da abasto, la alternativa habitual es ampliar o reemplazar equipos.',
@@ -277,6 +277,7 @@ SOL = {
         'specs': [('Fabricante', 'Kenfield (Birmingham, Reino Unido)'), ('Certificaciones', 'ISO 9001 e ISO 14001')],
         'evidencia': {
             'warwick': {'num': '21–42 %', 'titulo': 'menos consumo del compresor con K750 frente a cortinas de PVC en cámaras refrigeradas', 'detalle': 'En cámaras de congelado: 13–17 %.', 'fuente': 'Universidad de Warwick', 'tipo': 'Estudio independiente'},
+            'puertas': {'num': '+40.000', 'titulo': 'puertas Kenfield suministradas a supermercados', 'detalle': 'Tesco, Sainsbury’s, Aldi y Farmfoods las especifican desde hace años.', 'fuente': 'Kenfield, en The Grocer (Reino Unido)', 'tipo': 'Fabricante'},
         },
         'hero_ev': ['warwick'],
         'aplicaciones': ['supermercados', 'food', 'cd', 'agro'],
@@ -383,6 +384,12 @@ ZONAS_SUPERMERCADOS = [
 
 # Portada
 # Sección de cifras (segunda sección de la portada): solución, id de la cifra, texto corto
-CIFRAS = [('aerofoil', 'tiendas', 'Supermercados y tiendas con Aerofoil en el mundo'), ('cnt', 'rewe', 'Menos fallas en congeladores'), ('htf', 'hoffman', 'Menos consumo en climatización'), ('nualight', 'vida', 'Vida útil de las luminarias LED')]
+CIFRAS = [('kenfield', 'puertas', 'Puertas Kenfield instaladas en supermercados'), ('cnt', 'rewe', 'Menos fallas en congeladores'), ('htf', 'hoffman', 'Menos consumo en climatización'), ('nualight', 'vida', 'Vida útil de las luminarias LED')]
 EVIDENCIA_PORTADA = [('cnt', 'rewe'), ('htf', 'quercy'), ('aerofoil', 'calnext'), ('kenfield', 'warwick')]
 EVIDENCIA_SUPERMERCADOS = ('aerofoil', 'calnext')
+
+# Mapa de la sección Nosotros: líneas conceptuales desde distintas zonas del mundo
+# hacia Santiago. No representan el origen exacto de cada marca. (lon, lat)
+MAPA_DESTINO = (-70.67, -33.45)
+MAPA_ORIGENES = [(-122.3, 47.6), (-87.6, 41.9), (-1.9, 52.5), (10.0, 51.2), (12.5, 41.9),
+                 (18.1, 59.3), (34.8, 32.1), (121.5, 31.2), (139.7, 35.7), (151.2, -33.9)]

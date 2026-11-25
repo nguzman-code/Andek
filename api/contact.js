@@ -22,7 +22,8 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método no permitido' });
 
   const body = req.body || {};
-  const { nombre, empresa, email, telefono, industria, area, mensaje, sitio } = body;
+  const { nombre, empresa, email, telefono, industria, area, mensaje, sitio, tipo } = body;
+  const esFabricante = tipo === 'fabricante';
 
   // Campo trampa: si viene completo, es un bot. Respondemos OK sin enviar nada.
   if (sitio) return res.json({ success: true });
@@ -47,7 +48,7 @@ module.exports = async (req, res) => {
     from: `"Andek Solutions Web" <${process.env.SMTP_USER}>`,
     to: process.env.MAIL_TO || process.env.SMTP_USER,
     replyTo: email,
-    subject: `[Web] Nuevo contacto: ${nombre.trim()} (${(empresa || '').trim()})`,
+    subject: `[Web] ${esFabricante ? 'Fabricante' : 'Nuevo contacto'}: ${nombre.trim()} (${(empresa || '').trim()})`,
     html: `
       <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;padding:32px;color:#1B2B30">
         <div style="background:#1B2B30;padding:24px;border-radius:6px;margin-bottom:24px">
@@ -59,8 +60,8 @@ module.exports = async (req, res) => {
           ${fila('Empresa', esc(empresa))}
           ${fila('Email', `<a href="mailto:${esc(email)}">${esc(email)}</a>`)}
           ${fila('Teléfono', esc(telefono))}
-          ${fila('Industria', esc(industria))}
-          ${fila('Qué quiere mejorar', esc(area))}
+          ${fila('Tipo', esFabricante ? 'Fabricante que busca distribuidor' : 'Empresa (cliente)')}
+          ${esFabricante ? '' : fila('Industria', esc(industria)) + fila('Qué quiere mejorar', esc(area))}
         </table>
         <div style="margin-top:24px;background:#F6F8F8;border-radius:6px;padding:20px">
           <p style="color:#5D7279;font-size:13px;margin:0 0 8px">Mensaje</p>
