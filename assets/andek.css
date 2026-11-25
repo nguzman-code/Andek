@@ -385,5 +385,9 @@ a { color: var(--pizarra); }
   .card-foto img { transition: none; }
 }
 
-/* Qué mejoramos: textos justificados, con separación en sílabas para evitar espacios grandes */
-#eficiencia .card p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+/* Todos los textos justificados, con separación en sílabas para evitar espacios grandes.
+   Quedan alineados a la izquierda los títulos, etiquetas, fuentes, botones y cifras. */
+p:not(.label):not(.fuentes):not(.form-estado):not(.card-resuelve):not(.hero-tema):not(.grafico-nota),
+li:not(.tl-paso):not(.breadcrumb li),
+.cifra-txt, .cifra-grande-txt { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.breadcrumb li { text-align: left; }
