@@ -384,3 +384,6 @@ a { color: var(--pizarra); }
   .mapa-pulso { animation: none; opacity: 0; }
   .card-foto img { transition: none; }
 }
+
+/* Qué mejoramos: textos justificados, con separación en sílabas para evitar espacios grandes */
+#eficiencia .card p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
