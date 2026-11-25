@@ -324,28 +324,29 @@ SOL = {
     },
 }
 
-# Tarjetas de la portada (pestañas por industria): solución, título, texto, etiquetas, cifra (id de evidencia)
+# Tarjetas de la portada (pestañas por industria). La marca es lo principal.
+# clave: (solución, producto o '', qué resuelve, texto, etiquetas, id de la cifra)
 TARJETAS = {
-    'aerofoil': ('aerofoil', 'Las góndolas abiertas botan aire frío', 'Perfiles en el borde de cada repisa ordenan la cortina de aire. Temperatura más estable y menos trabajo del compresor, sin mantenimiento.', ['Energía', 'Producto', 'Sin mantenimiento'], 'calnext'),
-    'clarifoil': ('clarifoil', 'Las puertas de vidrio se empañan', 'Láminas anti-empañamiento en el interior del vidrio. El producto queda visible y el heater baja a 15–20 % de operación.', ['Energía', 'Exhibición'], 'ahorro'),
-    'kenfield': ('kenfield', 'Las cortinas de PVC dejan pasar calor', 'Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.', ['Energía', 'Mantenimiento', 'Personal'], 'warwick'),
-    'nualight': ('nualight', 'Las luminarias consumen, calientan y hay que reemplazarlas', 'LED con espectro por categoría, menos calor dentro del mueble y larga vida útil.', ['Mantenimiento', 'Energía', 'Exhibición'], 'vida'),
-    'fso': ('guardian', 'Los ventiladores giran siempre a tope', 'Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.', ['Energía', 'Mantenimiento'], 'fso'),
-    'sentry': ('guardian', 'Las puertas de cámara quedan abiertas', 'Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.', ['Seguridad', 'Producto', 'Energía'], 'sentry'),
-    'cnt': ('cnt', 'El hielo en congeladores y cámaras genera fallas', 'Filtros moleculares que regulan la humedad sin electricidad. Menos hielo, descongelamientos más cortos y menos horas sacando hielo.', ['Fallas', 'Mantenimiento', 'Personal', 'Producto'], 'rewe'),
-    'cntFood': ('cnt', 'El hielo en cámaras y congeladores genera fallas', 'Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y temperaturas más estables.', ['Fallas', 'Energía', 'Producto'], 'mcdonalds'),
-    'htf': ('htf', 'Los chillers y la climatización trabajan de más', 'Nanofluido que mejora la transferencia de calor en circuitos de agua. Se agrega con el sistema en operación.', ['Energía', 'Capacidad'], 'hoffman'),
-    'htfInd': ('htf', 'Los chillers de proceso consumen de más', 'Nanofluido que mejora la transferencia de calor en el circuito del chiller, sin modificar equipos ni afectar su garantía.', ['Energía', 'Sin detener equipos'], 'quercy'),
-    'gelclear': ('gelclear', 'Los drenajes de condensado se tapan', 'Tabletas que previenen el biofilm en bandejas y drenajes. Menos fallas y malos olores, dentro del mantenimiento anual.', ['Fallas', 'Mantenimiento'], 'qp34'),
+    'aerofoil': ('aerofoil', '', 'Góndolas abiertas que pierden frío', 'Perfiles en el borde de cada repisa ordenan la cortina de aire. Temperatura más estable y menos trabajo del compresor, sin mantenimiento.', ['Energía', 'Producto', 'Sin mantenimiento'], 'calnext'),
+    'clarifoil': ('clarifoil', '', 'Puertas de vidrio que se empañan', 'Láminas anti-empañamiento en el interior del vidrio. El producto queda visible y el heater baja a 15–20 % de operación.', ['Energía', 'Exhibición'], 'ahorro'),
+    'kenfield': ('kenfield', '', 'Cortinas de PVC que dejan pasar calor', 'Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.', ['Energía', 'Mantenimiento', 'Personal'], 'warwick'),
+    'nualight': ('nualight', '', 'Luminarias que consumen y calientan el mueble', 'LED con espectro por categoría, menos calor dentro del mueble y larga vida útil.', ['Mantenimiento', 'Energía', 'Exhibición'], 'vida'),
+    'fso': ('guardian', 'FSO', 'Ventiladores de evaporador siempre a tope', 'Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.', ['Energía', 'Mantenimiento'], 'fso'),
+    'sentry': ('guardian', 'Door Sentry', 'Puertas de cámara que quedan abiertas', 'Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.', ['Seguridad', 'Producto', 'Energía'], 'sentry'),
+    'cnt': ('cnt', '', 'Hielo y fallas en congeladores y cámaras', 'Filtros moleculares que regulan la humedad sin electricidad. Menos hielo, descongelamientos más cortos y menos horas sacando hielo.', ['Fallas', 'Mantenimiento', 'Personal', 'Producto'], 'rewe'),
+    'cntFood': ('cnt', '', 'Hielo y fallas en cámaras y congeladores', 'Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y temperaturas más estables.', ['Fallas', 'Energía', 'Producto'], 'mcdonalds'),
+    'htf': ('htf', '', 'Chillers y climatización que consumen de más', 'Nanofluido que mejora la transferencia de calor en circuitos de agua. Se agrega con el sistema en operación.', ['Energía', 'Capacidad'], 'hoffman'),
+    'htfInd': ('htf', '', 'Chillers de proceso que consumen de más', 'Nanofluido que mejora la transferencia de calor en el circuito del chiller, sin modificar equipos ni afectar su garantía.', ['Energía', 'Sin detener equipos'], 'quercy'),
+    'gelclear': ('gelclear', '', 'Drenajes de condensado que se tapan', 'Tabletas que previenen el biofilm en bandejas y drenajes. Menos fallas y malos olores, dentro del mantenimiento anual.', ['Fallas', 'Mantenimiento'], 'qp34'),
 }
 
 INDUSTRIAS = [
-    {'id': 'supermercados', 'nombre': 'Supermercados y conveniencia', 'archivo': 'industria-supermercados.html',
+    {'id': 'supermercados', 'nombre': 'Supermercados', 'archivo': 'industria-supermercados.html',
      'tarjetas': ['cnt', 'aerofoil', 'clarifoil', 'kenfield', 'gelclear', 'fso', 'nualight']},
-    {'id': 'food', 'nombre': 'Comida rápida y food service', 'archivo': None, 'tarjetas': ['cntFood', 'kenfield', 'sentry', 'gelclear', 'fso']},
-    {'id': 'cd', 'nombre': 'Centros de distribución y cámaras de frío', 'archivo': None, 'tarjetas': ['cnt', 'kenfield', 'sentry', 'fso', 'htfInd']},
-    {'id': 'agro', 'nombre': 'Agroindustria y alimentos', 'archivo': None, 'tarjetas': ['htfInd', 'cnt', 'sentry', 'fso', 'kenfield']},
-    {'id': 'edificios', 'nombre': 'Edificios, centros comerciales y hoteles', 'archivo': None, 'tarjetas': ['htf', 'gelclear']},
+    {'id': 'food', 'nombre': 'Food service', 'archivo': None, 'tarjetas': ['cntFood', 'kenfield', 'sentry', 'gelclear', 'fso']},
+    {'id': 'cd', 'nombre': 'Centros de distribución', 'archivo': None, 'tarjetas': ['cnt', 'kenfield', 'sentry', 'fso', 'htfInd']},
+    {'id': 'agro', 'nombre': 'Agroindustria', 'archivo': None, 'tarjetas': ['htfInd', 'cnt', 'sentry', 'fso', 'kenfield']},
+    {'id': 'edificios', 'nombre': 'Edificios', 'archivo': None, 'tarjetas': ['htf', 'gelclear']},
 ]
 
 # Página de industria: Supermercados. Cada zona toma su cifra de la ficha correspondiente.
@@ -381,6 +382,7 @@ ZONAS_SUPERMERCADOS = [
 ]
 
 # Portada
-HERO_STATS = [('cnt', 'rewe', 'Menos fallas en congeladores'), ('htf', 'hoffman', 'Menos consumo en climatización'), ('nualight', 'vida', 'Vida útil de luminarias')]
+# Sección de cifras (segunda sección de la portada): solución, id de la cifra, texto corto
+CIFRAS = [('aerofoil', 'tiendas', 'Supermercados y tiendas con Aerofoil en el mundo'), ('cnt', 'rewe', 'Menos fallas en congeladores'), ('htf', 'hoffman', 'Menos consumo en climatización'), ('nualight', 'vida', 'Vida útil de las luminarias LED')]
 EVIDENCIA_PORTADA = [('cnt', 'rewe'), ('htf', 'quercy'), ('aerofoil', 'calnext'), ('kenfield', 'warwick')]
 EVIDENCIA_SUPERMERCADOS = ('aerofoil', 'calnext')

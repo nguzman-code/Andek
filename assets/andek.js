@@ -73,13 +73,114 @@
         })
         .catch(function () {
           estado.className = 'form-estado error';
-          estado.textContent = 'No pudimos enviar el mensaje. Escríbenos a contacto@andek.cl o llámanos al +56 9 6919 3071.';
+          estado.textContent = 'No pudimos enviar el mensaje. Escríbenos a nguzman@andek.cl o llámanos al +56 9 6919 3071.';
         })
         .then(function () {
           boton.disabled = false;
           boton.textContent = 'Enviar';
         });
     });
+  }
+
+  var sinMovimiento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Título con palabra rotativa: gaste → falle → desperdicie
+  var rotador = document.querySelector('[data-rotador]');
+  if (rotador) {
+    var palabras = Array.prototype.slice.call(rotador.querySelectorAll('.rotador-palabra'));
+    if (sinMovimiento) {
+      var titulo = rotador.closest('.titulo-animado');
+      if (titulo) titulo.textContent = 'Hacemos que tu operación gaste menos, falle menos y desperdicie menos.';
+    } else if (palabras.length > 1) {
+      var actual = 0;
+      var ajustarAncho = function (i) { rotador.style.width = palabras[i].getBoundingClientRect().width + 'px'; };
+      palabras.forEach(function (p) { p.style.justifySelf = 'start'; p.style.whiteSpace = 'nowrap'; });
+      ajustarAncho(0);
+      rotador.style.transition = 'width .45s cubic-bezier(.22, 1, .36, 1)';
+      window.addEventListener('resize', function () { ajustarAncho(actual); });
+      setInterval(function () {
+        var previa = palabras[actual];
+        actual = (actual + 1) % palabras.length;
+        previa.classList.remove('is-visible');
+        previa.classList.add('is-saliendo');
+        setTimeout(function () { previa.classList.remove('is-saliendo'); }, 500);
+        palabras[actual].classList.add('is-visible');
+        ajustarAncho(actual);
+      }, 2200);
+    }
+  }
+
+  // Cifras que cuentan hasta su valor al aparecer en pantalla
+  var contadores = Array.prototype.slice.call(document.querySelectorAll('[data-contar]'));
+  if (contadores.length && !sinMovimiento && 'IntersectionObserver' in window) {
+    var preparar = function (el) {
+      var texto = el.textContent;
+      var m = texto.match(/[\d.]+/);
+      if (!m || /[–-]/.test(texto)) return null;
+      return { el: el, final: texto, antes: texto.slice(0, m.index), despues: texto.slice(m.index + m[0].length), valor: parseInt(m[0].replace(/\./g, ''), 10) };
+    };
+    var datos = contadores.map(preparar).filter(Boolean);
+    datos.forEach(function (d) { d.el.textContent = d.antes + '0' + d.despues; });
+    var animar = function (d) {
+      var inicio = null, dur = 1600;
+      var paso = function (ts) {
+        if (!inicio) inicio = ts;
+        var k = Math.min((ts - inicio) / dur, 1);
+        var v = Math.round(d.valor * (1 - Math.pow(1 - k, 3)));
+        d.el.textContent = k < 1 ? d.antes + v.toLocaleString('es-CL') + d.despues : d.final;
+        if (k < 1) requestAnimationFrame(paso);
+      };
+      requestAnimationFrame(paso);
+    };
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        datos.filter(function (d) { return d.el === en.target; }).forEach(animar);
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.4 });
+    datos.forEach(function (d) { io.observe(d.el); });
+  }
+
+  // Línea de tiempo: avanza sola, se puede hacer clic y se pausa con el mouse encima
+  var tl = document.querySelector('[data-timeline]');
+  if (tl) {
+    var pasos = Array.prototype.slice.call(tl.querySelectorAll('.tl-paso'));
+    var progreso = tl.querySelector('.tl-progreso');
+    var activo = 0;
+    var activarPaso = function (i) {
+      activo = i;
+      pasos.forEach(function (p, j) {
+        p.classList.toggle('is-activo', j === i);
+        p.classList.toggle('is-hecho', j < i);
+        var nodo = p.querySelector('.tl-nodo');
+        if (j === i) nodo.setAttribute('aria-current', 'step'); else nodo.removeAttribute('aria-current');
+      });
+      var pct = pasos.length > 1 ? (i / (pasos.length - 1)) * 100 : 0;
+      progreso.style.width = pct + '%';
+      progreso.style.setProperty('--tl-alto', pct + '%');
+    };
+    pasos.forEach(function (p, i) {
+      p.querySelector('.tl-nodo').addEventListener('click', function () { activarPaso(i); });
+      p.querySelector('.tl-tiempo span').addEventListener('animationend', function () {
+        if (p.classList.contains('is-activo')) activarPaso((i + 1) % pasos.length);
+      });
+    });
+    if (sinMovimiento) {
+      tl.classList.add('sin-animacion');
+    } else {
+      tl.classList.add('en-pausa');
+      var visible = false, encima = false;
+      var actualizar = function () { tl.classList.toggle('en-pausa', !visible || encima); };
+      tl.addEventListener('mouseenter', function () { encima = true; actualizar(); });
+      tl.addEventListener('mouseleave', function () { encima = false; actualizar(); });
+      tl.addEventListener('focusin', function () { encima = true; actualizar(); });
+      tl.addEventListener('focusout', function () { encima = false; actualizar(); });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (en) { visible = en[0].isIntersecting; actualizar(); }, { threshold: 0.35 }).observe(tl);
+      } else { visible = true; actualizar(); }
+    }
+    activarPaso(0);
   }
 
   var anio = document.getElementById('anio');

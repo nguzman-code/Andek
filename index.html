@@ -12,7 +12,7 @@
   <link rel="icon" href="/assets/img/isotipo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/andek.css">
 </head>
 <body>
@@ -50,31 +50,52 @@
       <nav class="nav" id="navPrincipal" aria-label="Principal">
         <a href="#eficiencia">Qué mejoramos</a>
         <a href="#soluciones">Soluciones</a>
-        <a href="#evidencia">Evidencia</a>
+        <a href="#evidencia">Casos de éxito</a>
         <a href="#como-trabajamos">Cómo trabajamos</a>
         <a href="#nosotros">Nosotros</a>
       </nav>
-      <a class="btn btn-senal header-cta" href="#contacto">Agenda un diagnóstico</a>
+      <a class="btn btn-blanco header-cta" href="#contacto">Agenda un diagnóstico</a>
     </header>
 <!--/CABECERA-->
     <div class="hero-body">
       <p class="label">Eficiencia operacional</p>
-      <h1 class="h-display">Hacemos que tu operación gaste menos, falle menos y desperdicie menos.</h1>
+      <h1 class="h-display"><span class="sr-only">Hacemos que tu operación gaste menos, falle menos y desperdicie menos.</span><span class="titulo-animado" aria-hidden="true">Hacemos que tu operación <span class="rotador" data-rotador><span class="rotador-palabra is-visible">gaste</span><span class="rotador-palabra">falle</span><span class="rotador-palabra">desperdicie</span></span> menos.</span></h1>
       <p class="lead">Representamos en Chile tecnologías probadas que reducen fallas, mantenimiento, horas de trabajo y consumo de energía. Se instalan sobre los equipos que ya tienes.</p>
       <div><a class="btn btn-outline-claro" href="#eficiencia">Ver qué mejoramos</a></div>
-<!--#HERO_STATS-->
-      <div class="stats">
-        <div class="stat"><span class="stat-num">83 %</span><span class="stat-label">Menos fallas en congeladores</span></div>
-        <div class="stat"><span class="stat-num">25 %</span><span class="stat-label">Menos consumo en climatización</span></div>
-        <div class="stat"><span class="stat-num">100.000 h</span><span class="stat-label">Vida útil de luminarias</span></div>
-      </div>
-      <p class="fuentes">Fuentes: CNT Technology, caso REWE (Alemania) · TCT Nanotech, piloto Hoffman Estates (EE.UU.), 2021 · Nualight (fabricante)</p>
-<!--/HERO_STATS-->
     </div>
   </div>
 </section>
 
 <main>
+<section class="section seccion-cifras" aria-label="Cifras">
+  <div class="container">
+<!--#CIFRAS-->
+    <div class="cifras">
+      <div class="cifra-grande">
+        <span class="cifra-grande-num" data-contar>12.000</span>
+        <span class="cifra-grande-txt">Supermercados y tiendas con Aerofoil en el mundo</span>
+        <span class="fuente">Fuente: aerofoil-energy.com</span>
+      </div>
+      <div class="cifra-grande">
+        <span class="cifra-grande-num" data-contar>83 %</span>
+        <span class="cifra-grande-txt">Menos fallas en congeladores</span>
+        <span class="fuente">Fuente: CNT Technology, caso REWE (Alemania)</span>
+      </div>
+      <div class="cifra-grande">
+        <span class="cifra-grande-num" data-contar>25 %</span>
+        <span class="cifra-grande-txt">Menos consumo en climatización</span>
+        <span class="fuente">Fuente: TCT Nanotech, piloto Hoffman Estates (EE.UU.), 2021</span>
+      </div>
+      <div class="cifra-grande">
+        <span class="cifra-grande-num" data-contar>100.000 h</span>
+        <span class="cifra-grande-txt">Vida útil de las luminarias LED</span>
+        <span class="fuente">Fuente: Nualight (fabricante)</span>
+      </div>
+    </div>
+<!--/CIFRAS-->
+  </div>
+</section>
+
 <section class="section bg-blanco" id="eficiencia">
   <div class="container">
     <div class="section-head">
@@ -88,25 +109,21 @@
         <svg class="icon icon-lg" aria-hidden="true"><use href="#i-energia"></use></svg>
         <h3 class="h3">Energía</h3>
         <p>Menos consumo en refrigeración, climatización, iluminación y ventilación, sin cambiar los equipos.</p>
-        <p class="marcas">Aerofoil · Clarifoil · CNT · Guardian · HTF Compact · Kenfield · Nualight</p>
       </article>
       <article class="card">
         <svg class="icon icon-lg" aria-hidden="true"><use href="#i-herr"></use></svg>
         <h3 class="h3">Mantenimiento y fallas</h3>
         <p>Menos fallas, descongelamientos, drenajes tapados y recambios. Soluciones de larga vida útil y bajo mantenimiento.</p>
-        <p class="marcas">Aerofoil · Clarifoil · CNT · Gel-clear · Guardian · HTF Compact · Kenfield · Nualight</p>
       </article>
       <article class="card">
         <svg class="icon icon-lg" aria-hidden="true"><use href="#i-temp"></use></svg>
         <h3 class="h3">Producto y merma</h3>
         <p>Temperatura más estable, menos hielo sobre el producto y mejor exhibición en góndolas, vitrinas y cámaras.</p>
-        <p class="marcas">Aerofoil · Clarifoil · CNT · Guardian · Nualight</p>
       </article>
       <article class="card">
         <svg class="icon icon-lg" aria-hidden="true"><use href="#i-seguridad"></use></svg>
         <h3 class="h3">Personal y seguridad</h3>
         <p>Menos horas en tareas manuales, como sacar hielo o vigilar puertas, y menos riesgos en cámaras de frío.</p>
-        <p class="marcas">CNT · Guardian · Kenfield</p>
       </article>
     </div>
 <!--/AREAS-->
@@ -118,21 +135,22 @@
     <div class="section-head">
       <p class="label">02 · Soluciones</p>
       <h2 class="h1">Soluciones por industria</h2>
-      <p class="lead">Selecciona tu industria. Cada tarjeta muestra un problema de operación, la tecnología que aplicamos y qué costos reduce.</p>
+      <p class="lead">Selecciona tu industria. Cada tarjeta muestra la marca, el problema que resuelve y un resultado medido.</p>
     </div>
 <!--#PANELES-->
     <div class="tabs" role="tablist" aria-label="Industrias">
-      <button class="tab" type="button" role="tab" id="tab-supermercados" aria-controls="panel-supermercados" aria-selected="true">Supermercados y conveniencia</button>
-      <button class="tab" type="button" role="tab" id="tab-food" aria-controls="panel-food" aria-selected="false" tabindex="-1">Comida rápida y food service</button>
-      <button class="tab" type="button" role="tab" id="tab-cd" aria-controls="panel-cd" aria-selected="false" tabindex="-1">Centros de distribución y cámaras de frío</button>
-      <button class="tab" type="button" role="tab" id="tab-agro" aria-controls="panel-agro" aria-selected="false" tabindex="-1">Agroindustria y alimentos</button>
-      <button class="tab" type="button" role="tab" id="tab-edificios" aria-controls="panel-edificios" aria-selected="false" tabindex="-1">Edificios, centros comerciales y hoteles</button>
+      <button class="tab" type="button" role="tab" id="tab-supermercados" aria-controls="panel-supermercados" aria-selected="true">Supermercados</button>
+      <button class="tab" type="button" role="tab" id="tab-food" aria-controls="panel-food" aria-selected="false" tabindex="-1">Food service</button>
+      <button class="tab" type="button" role="tab" id="tab-cd" aria-controls="panel-cd" aria-selected="false" tabindex="-1">Centros de distribución</button>
+      <button class="tab" type="button" role="tab" id="tab-agro" aria-controls="panel-agro" aria-selected="false" tabindex="-1">Agroindustria</button>
+      <button class="tab" type="button" role="tab" id="tab-edificios" aria-controls="panel-edificios" aria-selected="false" tabindex="-1">Edificios</button>
     </div>
     <div class="tab-panel" role="tabpanel" id="panel-supermercados" aria-labelledby="tab-supermercados" tabindex="0">
       <div class="grid">
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
-          <h3 class="h3">El hielo en congeladores y cámaras genera fallas</h3>
+          <div class="card-top"><span class="label">Alemania</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="card-marca">CNT Technology</h3>
+          <p class="card-resuelve">Hielo y fallas en congeladores y cámaras</p>
           <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo, descongelamientos más cortos y menos horas sacando hielo.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li><li class="tag">Producto</li></ul>
           <div class="cifra">
@@ -140,11 +158,12 @@
             <span class="cifra-txt">menos fallas en congeladores vs. los 365 días previos a la instalación</span>
             <span class="fuente">Fuente: CNT Technology, caso REWE (Alemania)</span>
           </div>
-          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/solucion-cnt.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-cnt.html">Ver CNT Technology →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-frio"></use></svg></div>
-          <h3 class="h3">Las góndolas abiertas botan aire frío</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-frio"></use></svg></div>
+          <h3 class="card-marca">Aerofoil</h3>
+          <p class="card-resuelve">Góndolas abiertas que pierden frío</p>
           <p>Perfiles en el borde de cada repisa ordenan la cortina de aire. Temperatura más estable y menos trabajo del compresor, sin mantenimiento.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Producto</li><li class="tag">Sin mantenimiento</li></ul>
           <div class="cifra">
@@ -152,11 +171,12 @@
             <span class="cifra-txt">menos consumo del compresor en góndolas abiertas</span>
             <span class="fuente">Fuente: CalNEXT, 2024</span>
           </div>
-          <div class="card-pie"><span class="marca">Aerofoil</span><a class="link-flecha" href="/solucion-aerofoil.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-aerofoil.html">Ver Aerofoil →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-vidrio"></use></svg></div>
-          <h3 class="h3">Las puertas de vidrio se empañan</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vidrio"></use></svg></div>
+          <h3 class="card-marca">Clarifoil</h3>
+          <p class="card-resuelve">Puertas de vidrio que se empañan</p>
           <p>Láminas anti-empañamiento en el interior del vidrio. El producto queda visible y el heater baja a 15–20 % de operación.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Exhibición</li></ul>
           <div class="cifra">
@@ -164,11 +184,12 @@
             <span class="cifra-txt">menos consumo energético por puerta</span>
             <span class="fuente">Fuente: Clarifoil (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Clarifoil</span><a class="link-flecha" href="/solucion-clarifoil.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-clarifoil.html">Ver Clarifoil →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
-          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="card-marca">Kenfield</h3>
+          <p class="card-resuelve">Cortinas de PVC que dejan pasar calor</p>
           <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
           <div class="cifra">
@@ -176,11 +197,12 @@
             <span class="cifra-txt">menos consumo del compresor con K750 frente a cortinas de PVC en cámaras refrigeradas</span>
             <span class="fuente">Fuente: Universidad de Warwick</span>
           </div>
-          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-kenfield.html">Ver Kenfield →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
-          <h3 class="h3">Los drenajes de condensado se tapan</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+          <h3 class="card-marca">Gel-clear</h3>
+          <p class="card-resuelve">Drenajes de condensado que se tapan</p>
           <p>Tabletas que previenen el biofilm en bandejas y drenajes. Menos fallas y malos olores, dentro del mantenimiento anual.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -188,11 +210,12 @@
             <span class="cifra-txt">de protección con una tableta por equipo (QP34)</span>
             <span class="fuente">Fuente: Gel-clear (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Gel-clear</span><a class="link-flecha" href="/solucion-gelclear.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-gelclear.html">Ver Gel-clear →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">06</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">FSO</span></h3>
+          <p class="card-resuelve">Ventiladores de evaporador siempre a tope</p>
           <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -200,11 +223,12 @@
             <span class="cifra-txt">de ahorro promedio en motores de evaporador con FSO</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">07</span><svg class="icon" aria-hidden="true"><use href="#i-luz"></use></svg></div>
-          <h3 class="h3">Las luminarias consumen, calientan y hay que reemplazarlas</h3>
+          <div class="card-top"><span class="label">Irlanda</span><svg class="icon" aria-hidden="true"><use href="#i-luz"></use></svg></div>
+          <h3 class="card-marca">Nualight</h3>
+          <p class="card-resuelve">Luminarias que consumen y calientan el mueble</p>
           <p>LED con espectro por categoría, menos calor dentro del mueble y larga vida útil.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Mantenimiento</li><li class="tag">Energía</li><li class="tag">Exhibición</li></ul>
           <div class="cifra">
@@ -212,16 +236,17 @@
             <span class="cifra-txt">de vida útil (L90)</span>
             <span class="fuente">Fuente: Nualight (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Nualight</span><a class="link-flecha" href="/solucion-nualight.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-nualight.html">Ver Nualight →</a></div>
         </article>
       </div>
-      <div class="panel-pie"><a class="btn btn-outline" href="/industria-supermercados.html">Ver la página de supermercados y conveniencia</a></div>
+      <div class="panel-pie"><a class="btn btn-outline" href="/industria-supermercados.html">Ver la página de supermercados</a></div>
     </div>
     <div class="tab-panel" role="tabpanel" id="panel-food" aria-labelledby="tab-food" tabindex="0" hidden>
       <div class="grid">
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
-          <h3 class="h3">El hielo en cámaras y congeladores genera fallas</h3>
+          <div class="card-top"><span class="label">Alemania</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="card-marca">CNT Technology</h3>
+          <p class="card-resuelve">Hielo y fallas en cámaras y congeladores</p>
           <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y temperaturas más estables.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Energía</li><li class="tag">Producto</li></ul>
           <div class="cifra">
@@ -229,11 +254,12 @@
             <span class="cifra-txt">menos consumo de energía en congelador (11 %) y cámara de frío (49 %)</span>
             <span class="fuente">Fuente: CNT Technology, caso McDonald’s (Alemania)</span>
           </div>
-          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/solucion-cnt.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-cnt.html">Ver CNT Technology →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
-          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="card-marca">Kenfield</h3>
+          <p class="card-resuelve">Cortinas de PVC que dejan pasar calor</p>
           <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
           <div class="cifra">
@@ -241,11 +267,12 @@
             <span class="cifra-txt">menos consumo del compresor con K750 frente a cortinas de PVC en cámaras refrigeradas</span>
             <span class="fuente">Fuente: Universidad de Warwick</span>
           </div>
-          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-kenfield.html">Ver Kenfield →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Las puertas de cámara quedan abiertas</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">Door Sentry</span></h3>
+          <p class="card-resuelve">Puertas de cámara que quedan abiertas</p>
           <p>Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Seguridad</li><li class="tag">Producto</li><li class="tag">Energía</li></ul>
           <div class="cifra">
@@ -253,11 +280,12 @@
             <span class="cifra-txt">de ahorro adicional en energía de cámara con Door Sentry</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
-          <h3 class="h3">Los drenajes de condensado se tapan</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+          <h3 class="card-marca">Gel-clear</h3>
+          <p class="card-resuelve">Drenajes de condensado que se tapan</p>
           <p>Tabletas que previenen el biofilm en bandejas y drenajes. Menos fallas y malos olores, dentro del mantenimiento anual.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -265,11 +293,12 @@
             <span class="cifra-txt">de protección con una tableta por equipo (QP34)</span>
             <span class="fuente">Fuente: Gel-clear (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Gel-clear</span><a class="link-flecha" href="/solucion-gelclear.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-gelclear.html">Ver Gel-clear →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">FSO</span></h3>
+          <p class="card-resuelve">Ventiladores de evaporador siempre a tope</p>
           <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -277,15 +306,16 @@
             <span class="cifra-txt">de ahorro promedio en motores de evaporador con FSO</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
       </div>
     </div>
     <div class="tab-panel" role="tabpanel" id="panel-cd" aria-labelledby="tab-cd" tabindex="0" hidden>
       <div class="grid">
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
-          <h3 class="h3">El hielo en congeladores y cámaras genera fallas</h3>
+          <div class="card-top"><span class="label">Alemania</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="card-marca">CNT Technology</h3>
+          <p class="card-resuelve">Hielo y fallas en congeladores y cámaras</p>
           <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo, descongelamientos más cortos y menos horas sacando hielo.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li><li class="tag">Producto</li></ul>
           <div class="cifra">
@@ -293,11 +323,12 @@
             <span class="cifra-txt">menos fallas en congeladores vs. los 365 días previos a la instalación</span>
             <span class="fuente">Fuente: CNT Technology, caso REWE (Alemania)</span>
           </div>
-          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/solucion-cnt.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-cnt.html">Ver CNT Technology →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
-          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="card-marca">Kenfield</h3>
+          <p class="card-resuelve">Cortinas de PVC que dejan pasar calor</p>
           <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
           <div class="cifra">
@@ -305,11 +336,12 @@
             <span class="cifra-txt">menos consumo del compresor con K750 frente a cortinas de PVC en cámaras refrigeradas</span>
             <span class="fuente">Fuente: Universidad de Warwick</span>
           </div>
-          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-kenfield.html">Ver Kenfield →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Las puertas de cámara quedan abiertas</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">Door Sentry</span></h3>
+          <p class="card-resuelve">Puertas de cámara que quedan abiertas</p>
           <p>Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Seguridad</li><li class="tag">Producto</li><li class="tag">Energía</li></ul>
           <div class="cifra">
@@ -317,11 +349,12 @@
             <span class="cifra-txt">de ahorro adicional en energía de cámara con Door Sentry</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">FSO</span></h3>
+          <p class="card-resuelve">Ventiladores de evaporador siempre a tope</p>
           <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -329,11 +362,12 @@
             <span class="cifra-txt">de ahorro promedio en motores de evaporador con FSO</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
-          <h3 class="h3">Los chillers de proceso consumen de más</h3>
+          <div class="card-top"><span class="label">Italia</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
+          <h3 class="card-marca">HTF Compact ECO</h3>
+          <p class="card-resuelve">Chillers de proceso que consumen de más</p>
           <p>Nanofluido que mejora la transferencia de calor en el circuito del chiller, sin modificar equipos ni afectar su garantía.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Sin detener equipos</li></ul>
           <div class="cifra">
@@ -341,15 +375,16 @@
             <span class="cifra-txt">menos consumo eléctrico en un chiller industrial de 450 kW</span>
             <span class="fuente">Fuente: Quercy Réfrigération (Francia), 2025</span>
           </div>
-          <div class="card-pie"><span class="marca">HTF Compact ECO</span><a class="link-flecha" href="/solucion-htf.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-htf.html">Ver HTF Compact ECO →</a></div>
         </article>
       </div>
     </div>
     <div class="tab-panel" role="tabpanel" id="panel-agro" aria-labelledby="tab-agro" tabindex="0" hidden>
       <div class="grid">
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
-          <h3 class="h3">Los chillers de proceso consumen de más</h3>
+          <div class="card-top"><span class="label">Italia</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
+          <h3 class="card-marca">HTF Compact ECO</h3>
+          <p class="card-resuelve">Chillers de proceso que consumen de más</p>
           <p>Nanofluido que mejora la transferencia de calor en el circuito del chiller, sin modificar equipos ni afectar su garantía.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Sin detener equipos</li></ul>
           <div class="cifra">
@@ -357,11 +392,12 @@
             <span class="cifra-txt">menos consumo eléctrico en un chiller industrial de 450 kW</span>
             <span class="fuente">Fuente: Quercy Réfrigération (Francia), 2025</span>
           </div>
-          <div class="card-pie"><span class="marca">HTF Compact ECO</span><a class="link-flecha" href="/solucion-htf.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-htf.html">Ver HTF Compact ECO →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
-          <h3 class="h3">El hielo en congeladores y cámaras genera fallas</h3>
+          <div class="card-top"><span class="label">Alemania</span><svg class="icon" aria-hidden="true"><use href="#i-agua"></use></svg></div>
+          <h3 class="card-marca">CNT Technology</h3>
+          <p class="card-resuelve">Hielo y fallas en congeladores y cámaras</p>
           <p>Filtros moleculares que regulan la humedad sin electricidad. Menos hielo, descongelamientos más cortos y menos horas sacando hielo.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li><li class="tag">Producto</li></ul>
           <div class="cifra">
@@ -369,11 +405,12 @@
             <span class="cifra-txt">menos fallas en congeladores vs. los 365 días previos a la instalación</span>
             <span class="fuente">Fuente: CNT Technology, caso REWE (Alemania)</span>
           </div>
-          <div class="card-pie"><span class="marca">CNT Technology</span><a class="link-flecha" href="/solucion-cnt.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-cnt.html">Ver CNT Technology →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Las puertas de cámara quedan abiertas</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">Door Sentry</span></h3>
+          <p class="card-resuelve">Puertas de cámara que quedan abiertas</p>
           <p>Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Seguridad</li><li class="tag">Producto</li><li class="tag">Energía</li></ul>
           <div class="cifra">
@@ -381,11 +418,12 @@
             <span class="cifra-txt">de ahorro adicional en energía de cámara con Door Sentry</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
-          <h3 class="h3">Los ventiladores giran siempre a tope</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-vent"></use></svg></div>
+          <h3 class="card-marca">Guardian Controls <span class="card-producto">FSO</span></h3>
+          <p class="card-resuelve">Ventiladores de evaporador siempre a tope</p>
           <p>Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -393,11 +431,12 @@
             <span class="cifra-txt">de ahorro promedio en motores de evaporador con FSO</span>
             <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Guardian Controls</span><a class="link-flecha" href="/solucion-guardian.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-guardian.html">Ver Guardian Controls →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">05</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
-          <h3 class="h3">Las cortinas de PVC dejan pasar calor</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-camara"></use></svg></div>
+          <h3 class="card-marca">Kenfield</h3>
+          <p class="card-resuelve">Cortinas de PVC que dejan pasar calor</p>
           <p>Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Mantenimiento</li><li class="tag">Personal</li></ul>
           <div class="cifra">
@@ -405,15 +444,16 @@
             <span class="cifra-txt">menos consumo del compresor con K750 frente a cortinas de PVC en cámaras refrigeradas</span>
             <span class="fuente">Fuente: Universidad de Warwick</span>
           </div>
-          <div class="card-pie"><span class="marca">Kenfield</span><a class="link-flecha" href="/solucion-kenfield.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-kenfield.html">Ver Kenfield →</a></div>
         </article>
       </div>
     </div>
     <div class="tab-panel" role="tabpanel" id="panel-edificios" aria-labelledby="tab-edificios" tabindex="0" hidden>
       <div class="grid">
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
-          <h3 class="h3">Los chillers y la climatización trabajan de más</h3>
+          <div class="card-top"><span class="label">Italia</span><svg class="icon" aria-hidden="true"><use href="#i-temp"></use></svg></div>
+          <h3 class="card-marca">HTF Compact ECO</h3>
+          <p class="card-resuelve">Chillers y climatización que consumen de más</p>
           <p>Nanofluido que mejora la transferencia de calor en circuitos de agua. Se agrega con el sistema en operación.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Energía</li><li class="tag">Capacidad</li></ul>
           <div class="cifra">
@@ -421,11 +461,12 @@
             <span class="cifra-txt">menos consumo eléctrico en el sistema HVAC de un edificio municipal</span>
             <span class="fuente">Fuente: TCT Nanotech, piloto Hoffman Estates (EE.UU.), 2021</span>
           </div>
-          <div class="card-pie"><span class="marca">HTF Compact ECO</span><a class="link-flecha" href="/solucion-htf.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-htf.html">Ver HTF Compact ECO →</a></div>
         </article>
         <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
-          <h3 class="h3">Los drenajes de condensado se tapan</h3>
+          <div class="card-top"><span class="label">Reino Unido</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
+          <h3 class="card-marca">Gel-clear</h3>
+          <p class="card-resuelve">Drenajes de condensado que se tapan</p>
           <p>Tabletas que previenen el biofilm en bandejas y drenajes. Menos fallas y malos olores, dentro del mantenimiento anual.</p>
           <ul class="tags" aria-label="Qué mejora"><li class="tag">Fallas</li><li class="tag">Mantenimiento</li></ul>
           <div class="cifra">
@@ -433,7 +474,7 @@
             <span class="cifra-txt">de protección con una tableta por equipo (QP34)</span>
             <span class="fuente">Fuente: Gel-clear (fabricante)</span>
           </div>
-          <div class="card-pie"><span class="marca">Gel-clear</span><a class="link-flecha" href="/solucion-gelclear.html">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/solucion-gelclear.html">Ver Gel-clear →</a></div>
         </article>
       </div>
     </div>
@@ -445,9 +486,9 @@
 <section class="section bg-profundo on-dark" id="evidencia">
   <div class="container">
     <div class="section-head">
-      <p class="label">03 · Evidencia</p>
-      <h2 class="h1">Resultados publicados</h2>
-      <p class="lead">Estudios independientes y pilotos de los fabricantes. En Chile validamos cada solución con un piloto medido.</p>
+      <p class="label">03 · Casos de éxito</p>
+      <h2 class="h1">Casos de éxito</h2>
+      <p class="lead">Resultados medidos por estudios independientes, clientes y fabricantes. En Chile validamos cada solución con un piloto en tu operación.</p>
     </div>
 <!--#EVIDENCIA-->
     <div class="evidencia">
@@ -457,7 +498,7 @@
         <span class="ev-titulo">menos fallas en congeladores vs. los 365 días previos a la instalación</span>
         <p>Descongelamientos hasta 87 % más cortos (38 % en promedio). Menos hielo en productos y equipos.</p>
         <span class="fuente">Fuente: CNT Technology, caso REWE (Alemania)</span>
-        <a class="ev-link" href="/solucion-cnt.html#evidencia">Ver la evidencia completa →</a>
+        <a class="ev-link" href="/solucion-cnt.html#evidencia">Ver el caso completo →</a>
       </div>
       <div class="ev">
         <span class="ev-tipo">Carta del fabricante del chiller</span>
@@ -465,7 +506,7 @@
         <span class="ev-titulo">menos consumo eléctrico en un chiller industrial de 450 kW</span>
         <p>Sin corrosión ni efecto en la garantía del equipo, según el propio fabricante del chiller.</p>
         <span class="fuente">Fuente: Quercy Réfrigération (Francia), 2025</span>
-        <a class="ev-link" href="/solucion-htf.html#evidencia">Ver la evidencia completa →</a>
+        <a class="ev-link" href="/solucion-htf.html#evidencia">Ver el caso completo →</a>
       </div>
       <div class="ev">
         <span class="ev-tipo">Estudio independiente</span>
@@ -473,7 +514,7 @@
         <span class="ev-titulo">menos consumo del compresor en góndolas abiertas</span>
         <p>Estudio de campo en supermercados de California. Payback estimado de 7 a 17 meses.</p>
         <span class="fuente">Fuente: CalNEXT, 2024</span>
-        <a class="ev-link" href="/solucion-aerofoil.html#evidencia">Ver la evidencia completa →</a>
+        <a class="ev-link" href="/solucion-aerofoil.html#evidencia">Ver el caso completo →</a>
       </div>
       <div class="ev">
         <span class="ev-tipo">Estudio independiente</span>
@@ -481,7 +522,7 @@
         <span class="ev-titulo">menos consumo del compresor con K750 frente a cortinas de PVC en cámaras refrigeradas</span>
         <p>En cámaras de congelado: 13–17 %.</p>
         <span class="fuente">Fuente: Universidad de Warwick</span>
-        <a class="ev-link" href="/solucion-kenfield.html#evidencia">Ver la evidencia completa →</a>
+        <a class="ev-link" href="/solucion-kenfield.html#evidencia">Ver el caso completo →</a>
       </div>
     </div>
 <!--/EVIDENCIA-->
@@ -495,28 +536,47 @@
       <h2 class="h1">Cómo trabajamos</h2>
       <p class="lead">Probamos en un local, medimos y recién entonces escalamos.</p>
     </div>
-    <ol class="pasos">
-      <li class="card">
-        <div class="card-top"><span class="num">01</span><svg class="icon" aria-hidden="true"><use href="#i-medicion"></use></svg></div>
-        <h3 class="h3">Diagnóstico</h3>
-        <p>Revisamos tu operación en terreno: consumo de energía, mantenimiento, fallas recurrentes y tareas manuales.</p>
-      </li>
-      <li class="card">
-        <div class="card-top"><span class="num">02</span><svg class="icon" aria-hidden="true"><use href="#i-propuesta"></use></svg></div>
-        <h3 class="h3">Propuesta</h3>
-        <p>Definimos qué tecnología aplica, su costo y el retorno estimado para tu operación.</p>
-      </li>
-      <li class="card">
-        <div class="card-top"><span class="num">03</span><svg class="icon" aria-hidden="true"><use href="#i-piloto"></use></svg></div>
-        <h3 class="h3">Piloto medido</h3>
-        <p>Instalamos en un local o cámara y medimos el resultado contra una línea base.</p>
-      </li>
-      <li class="card">
-        <div class="card-top"><span class="num">04</span><svg class="icon" aria-hidden="true"><use href="#i-herr"></use></svg></div>
-        <h3 class="h3">Escalamiento</h3>
-        <p>Con resultados validados, extendemos la solución al resto de la operación, con soporte local.</p>
-      </li>
-    </ol>
+    <div class="timeline" data-timeline>
+      <div class="tl-linea" aria-hidden="true"><span class="tl-progreso"></span></div>
+      <ol class="tl-pasos">
+        <li class="tl-paso is-activo">
+          <button class="tl-nodo" type="button" aria-label="Ver paso 1: Diagnóstico" aria-current="step"><span>01</span></button>
+          <div class="tl-contenido">
+            <svg class="icon icon-lg" aria-hidden="true"><use href="#i-medicion"></use></svg>
+            <h3 class="h3">Diagnóstico</h3>
+            <p>Revisamos tu operación en terreno: consumo de energía, mantenimiento, fallas recurrentes y tareas manuales.</p>
+            <span class="tl-tiempo" aria-hidden="true"><span></span></span>
+          </div>
+        </li>
+        <li class="tl-paso">
+          <button class="tl-nodo" type="button" aria-label="Ver paso 2: Propuesta"><span>02</span></button>
+          <div class="tl-contenido">
+            <svg class="icon icon-lg" aria-hidden="true"><use href="#i-propuesta"></use></svg>
+            <h3 class="h3">Propuesta</h3>
+            <p>Definimos qué tecnología aplica, su costo y el retorno estimado para tu operación.</p>
+            <span class="tl-tiempo" aria-hidden="true"><span></span></span>
+          </div>
+        </li>
+        <li class="tl-paso">
+          <button class="tl-nodo" type="button" aria-label="Ver paso 3: Piloto medido"><span>03</span></button>
+          <div class="tl-contenido">
+            <svg class="icon icon-lg" aria-hidden="true"><use href="#i-piloto"></use></svg>
+            <h3 class="h3">Piloto medido</h3>
+            <p>Instalamos en un local o cámara y medimos el resultado contra una línea base.</p>
+            <span class="tl-tiempo" aria-hidden="true"><span></span></span>
+          </div>
+        </li>
+        <li class="tl-paso">
+          <button class="tl-nodo" type="button" aria-label="Ver paso 4: Escalamiento"><span>04</span></button>
+          <div class="tl-contenido">
+            <svg class="icon icon-lg" aria-hidden="true"><use href="#i-herr"></use></svg>
+            <h3 class="h3">Escalamiento</h3>
+            <p>Con resultados validados, extendemos la solución al resto de la operación, con soporte local.</p>
+            <span class="tl-tiempo" aria-hidden="true"><span></span></span>
+          </div>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -525,17 +585,16 @@
     <div class="nosotros">
       <div class="nosotros-texto">
         <p class="label">05 · Nosotros</p>
-        <h2 class="h2">Eficiencia operacional para instalaciones comerciales</h2>
-        <p class="lead">Andek Solutions representa en Chile tecnologías probadas de eficiencia operacional. Cada marca del portafolio resuelve un punto donde se pierde energía o se produce una falla. Andek las integra en un solo sistema, sin reemplazar los equipos del cliente.</p>
+        <h2 class="h2">Quiénes somos</h2>
+        <p class="lead">Andek Solutions existe para ser el puente entre la tecnología que ya funciona en otros mercados y las empresas en Chile. Nuestro objetivo es que operen con más eficiencia y menores costos.</p>
+        <ul class="como-lista">
+          <li><b>Seleccionamos.</b> Solo traemos soluciones con resultados medidos.</li>
+          <li><b>Implementamos.</b> Diagnóstico, importación, instalación y seguimiento.</li>
+        </ul>
       </div>
       <div class="nosotros-foto">
         <img class="octogono" src="/assets/img/instalacion-aerofoil.webp" alt="Técnico instalando perfiles Aerofoil en una góndola refrigerada" width="900" height="900" loading="lazy">
       </div>
-    </div>
-    <div class="principios">
-      <div class="principio"><h3 class="h3">Técnica</h3><p>Explicamos cómo funciona cada solución antes de proponerla.</p></div>
-      <div class="principio"><h3 class="h3">Clara</h3><p>Cada cifra indica su fuente.</p></div>
-      <div class="principio"><h3 class="h3">Confiable</h3><p>Validamos con un piloto antes de escalar.</p></div>
     </div>
     <aside class="fabricantes" aria-label="Para fabricantes">
       <div>
@@ -556,7 +615,7 @@
       <p class="lead">Cuéntanos sobre tu operación. Respondemos en menos de 24 horas hábiles.</p>
       <div class="datos">
         <a href="tel:+56969193071">+56 9 6919 3071</a>
-        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <a href="mailto:nguzman@andek.cl">nguzman@andek.cl</a>
         <span>Santiago, Chile</span>
       </div>
     </div>
@@ -567,11 +626,11 @@
       <label class="campo">Teléfono<input type="tel" name="telefono" autocomplete="tel"></label>
       <label class="campo">Industria
         <select name="industria">
-          <option>Supermercados y conveniencia</option>
-          <option>Comida rápida y food service</option>
-          <option>Centros de distribución y cámaras de frío</option>
-          <option>Agroindustria y alimentos</option>
-          <option>Edificios, centros comerciales y hoteles</option>
+          <option>Supermercados</option>
+          <option>Food service</option>
+          <option>Centros de distribución</option>
+          <option>Agroindustria</option>
+          <option>Edificios</option>
           <option>Otra</option>
         </select>
       </label>
@@ -604,11 +663,11 @@
       </div>
       <nav class="footer-col" aria-label="Industrias">
         <span class="label">Industrias</span>
-        <a href="/industria-supermercados.html">Supermercados y conveniencia</a>
-        <a href="/#soluciones">Comida rápida y food service</a>
-        <a href="/#soluciones">Centros de distribución y cámaras de frío</a>
-        <a href="/#soluciones">Agroindustria y alimentos</a>
-        <a href="/#soluciones">Edificios, centros comerciales y hoteles</a>
+        <a href="/industria-supermercados.html">Supermercados</a>
+        <a href="/#soluciones">Food service</a>
+        <a href="/#soluciones">Centros de distribución</a>
+        <a href="/#soluciones">Agroindustria</a>
+        <a href="/#soluciones">Edificios</a>
       </nav>
       <nav class="footer-col" aria-label="Soluciones">
         <span class="label">Soluciones</span>
@@ -624,7 +683,7 @@
       <div class="footer-col">
         <span class="label">Contacto</span>
         <a href="tel:+56969193071">+56 9 6919 3071</a>
-        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <a href="mailto:nguzman@andek.cl">nguzman@andek.cl</a>
         <span>Santiago, Chile</span>
       </div>
     </div>

@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from sitio_datos import (AREAS, ORDEN, SOL, TARJETAS, INDUSTRIAS, ZONAS_SUPERMERCADOS,  # noqa: E402
-                         HERO_STATS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS)
+                         CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS)
 
 RAIZ = Path(__file__).resolve().parent.parent
 e = html.escape
@@ -59,11 +59,11 @@ def cabecera(pref):
       <nav class="nav" id="navPrincipal" aria-label="Principal">
         <a href="{pref}#eficiencia">Qué mejoramos</a>
         <a href="{pref}#soluciones">Soluciones</a>
-        <a href="{pref}#evidencia">Evidencia</a>
+        <a href="{pref}#evidencia">Casos de éxito</a>
         <a href="{pref}#como-trabajamos">Cómo trabajamos</a>
         <a href="{pref}#nosotros">Nosotros</a>
       </nav>
-      <a class="btn btn-senal header-cta" href="{pref}#contacto">Agenda un diagnóstico</a>
+      <a class="btn btn-blanco header-cta" href="{pref}#contacto">Agenda un diagnóstico</a>
     </header>'''
 
 
@@ -94,7 +94,7 @@ def pie():
       <div class="footer-col">
         <span class="label">Contacto</span>
         <a href="tel:+56969193071">+56 9 6919 3071</a>
-        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <a href="mailto:nguzman@andek.cl">nguzman@andek.cl</a>
         <span>Santiago, Chile</span>
       </div>
     </div>
@@ -118,7 +118,7 @@ def documento(titulo, descripcion, cuerpo, og_img='/assets/img/instalacion-aerof
   <link rel="icon" href="/assets/img/isotipo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/andek.css">
 </head>
 <body>
@@ -146,12 +146,14 @@ def cta_banda(titulo, texto, boton='Contactar'):
 # ---------- Portada ----------
 
 def tarjeta(n, clave):
-    sol, titulo, texto, tags, eid = TARJETAS[clave]
+    sol, producto, resuelve, texto, tags, eid = TARJETAS[clave]
     s, c = SOL[sol], ev(sol, eid)
     tags_html = ''.join(f'<li class="tag">{e(t)}</li>' for t in tags)
+    prod = f' <span class="card-producto">{e(producto)}</span>' if producto else ''
     return f'''        <article class="card card--gris card--solucion">
-          <div class="card-top"><span class="num">{n:02d}</span><svg class="icon" aria-hidden="true"><use href="#i-{s['icono']}"></use></svg></div>
-          <h3 class="h3">{e(titulo)}</h3>
+          <div class="card-top"><span class="label">{e(s['origen'])}</span><svg class="icon" aria-hidden="true"><use href="#i-{s['icono']}"></use></svg></div>
+          <h3 class="card-marca">{e(s['nombre'])}{prod}</h3>
+          <p class="card-resuelve">{e(resuelve)}</p>
           <p>{e(texto)}</p>
           <ul class="tags" aria-label="Qué mejora">{tags_html}</ul>
           <div class="cifra">
@@ -159,7 +161,7 @@ def tarjeta(n, clave):
             <span class="cifra-txt">{e(c['titulo'])}</span>
             <span class="fuente">Fuente: {e(c['fuente'])}</span>
           </div>
-          <div class="card-pie"><span class="marca">{e(s['nombre'])}</span><a class="link-flecha" href="/{s['archivo']}">Ver solución →</a></div>
+          <div class="card-pie"><a class="link-flecha" href="/{s['archivo']}">Ver {e(s['nombre'])} →</a></div>
         </article>'''
 
 
@@ -182,24 +184,28 @@ def paneles():
 def areas():
     bloques = []
     for area, (icono, texto) in AREAS.items():
-        marcas = ' · '.join(SOL[k]['corto'] for k in ORDEN if any(m[0] == area for m in SOL[k]['mejoras']))
         bloques.append(f'''      <article class="card">
         <svg class="icon icon-lg" aria-hidden="true"><use href="#i-{icono}"></use></svg>
         <h3 class="h3">{e(area)}</h3>
         <p>{e(texto)}</p>
-        <p class="marcas">{e(marcas)}</p>
       </article>''')
     return '    <div class="grid">\n' + '\n'.join(bloques) + '\n    </div>'
 
 
-def hero_stats():
-    stats = '\n'.join(f'        <div class="stat"><span class="stat-num">{e(ev(s, i)["num"])}</span><span class="stat-label">{e(l)}</span></div>' for s, i, l in HERO_STATS)
-    fuentes = ' · '.join(ev(s, i)['fuente'] for s, i, _ in HERO_STATS)
-    return f'      <div class="stats">\n{stats}\n      </div>\n      <p class="fuentes">Fuentes: {e(fuentes)}</p>'
+def cifras():
+    items = []
+    for s, i, texto in CIFRAS:
+        c = ev(s, i)
+        items.append(f'''      <div class="cifra-grande">
+        <span class="cifra-grande-num" data-contar>{e(c['num'])}</span>
+        <span class="cifra-grande-txt">{e(texto)}</span>
+        <span class="fuente">Fuente: {e(c['fuente'])}</span>
+      </div>''')
+    return '    <div class="cifras">\n' + '\n'.join(items) + '\n    </div>'
 
 
 def bloque_ev(c, senal=False, enlace=None):
-    link = f'\n        <a class="ev-link" href="{enlace}">Ver la evidencia completa →</a>' if enlace else ''
+    link = f'\n        <a class="ev-link" href="{enlace}">Ver el caso completo →</a>' if enlace else ''
     detalle = f'\n        <p>{e(c["detalle"])}</p>' if c['detalle'] else ''
     return f'''      <div class="ev">
         <span class="ev-tipo">{e(c['tipo'])}</span>
@@ -357,9 +363,9 @@ def ficha(clave):
 <section class="section bg-profundo on-dark" id="evidencia">
   <div class="container">
     <div class="section-head">
-      <p class="label">Evidencia</p>
-      <h2 class="h1">Resultados publicados</h2>
-      <p class="lead">Cada cifra indica su fuente. En Chile validamos cada solución con un piloto medido en tu operación.</p>
+      <p class="label">{e(s['nombre'])}</p>
+      <h2 class="h1">Casos de éxito</h2>
+      <p class="lead">Resultados medidos por estudios independientes, clientes y fabricantes. En Chile validamos cada solución con un piloto en tu operación.</p>
     </div>
     <div class="evidencia">
 {evidencias}
@@ -388,7 +394,7 @@ def ficha(clave):
 # ---------- Industria: Supermercados ----------
 
 PLANO = '''<figure class="plano">
-          <svg role="img" aria-label="Plano de un supermercado con siete puntos numerados: góndolas abiertas, puertas de vidrio de congelados, acceso a la cámara de frío, evaporador de la cámara, iluminación de vitrinas, hielo en la cámara y drenajes de condensado" viewBox="0 0 520 380" font-family="IBM Plex Mono, monospace">
+          <svg role="img" aria-label="Plano de un supermercado con siete puntos numerados: góndolas abiertas, puertas de vidrio de congelados, acceso a la cámara de frío, evaporador de la cámara, iluminación de vitrinas, hielo en la cámara y drenajes de condensado" viewBox="0 0 520 380" font-family="Inter, system-ui, sans-serif">
             <rect x="20" y="20" width="480" height="340" rx="6" fill="#FFFFFF" stroke="#96A1A5" stroke-width="1.5"/>
             <rect x="36" y="36" width="160" height="100" rx="4" fill="#E7EBEC" stroke="#5D7279" stroke-width="1.5"/>
             <text x="50" y="122" font-size="11" fill="#2D444B" letter-spacing="1">CÁMARA DE FRÍO</text>
@@ -447,8 +453,8 @@ def industria_supermercados():
       <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Soluciones</a></li><li aria-current="page">Supermercados</li></ol></nav>
       <div class="hero-industria">
         <div>
-          <h1 class="h-display h-ficha">Supermercados y tiendas de conveniencia</h1>
-          <p class="lead">Siete puntos donde un supermercado pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.</p>
+          <h1 class="h-display h-ficha">Supermercados</h1>
+          <p class="lead">Siete puntos donde un supermercado o tienda de conveniencia pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.</p>
           <div><a class="btn btn-outline-claro" href="#puntos">Ver los siete puntos</a></div>
         </div>
         {PLANO}
@@ -475,7 +481,7 @@ def industria_supermercados():
         <p class="label">{e(d['tipo'])}</p>
         <h2 class="h2">{e(SOL[sol_d]['nombre'])} en supermercados de California</h2>
         <p>{e(d['detalle'])}</p>
-        <a class="link-flecha" href="/{SOL[sol_d]['archivo']}#evidencia">Ver la evidencia completa →</a>
+        <a class="link-flecha" href="/{SOL[sol_d]['archivo']}#evidencia">Ver el caso completo →</a>
       </div>
       <div class="destacado-cifras">
         <div><span class="ev-num ev-num--senal">{e(d['num'])}</span><span class="ev-titulo">{e(d['titulo'])}</span></div>
@@ -500,7 +506,7 @@ def industria_supermercados():
 
 {cta_banda('Agenda un diagnóstico en tu tienda', 'Revisamos tu operación y te entregamos una estimación de ahorro y retorno.')}
 </main>'''
-    return documento('Supermercados y tiendas de conveniencia | Andek Solutions',
+    return documento('Supermercados | Andek Solutions',
                      'Siete puntos donde un supermercado pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno.',
                      cuerpo)
 
@@ -512,7 +518,7 @@ def main():
     (RAIZ / 'industria-supermercados.html').write_text(industria_supermercados(), encoding='utf-8')
     print('industria-supermercados.html')
     reemplazar_bloques(RAIZ / 'index.html', {
-        'ICONOS': ICONOS, 'CABECERA': cabecera(''), 'HERO_STATS': hero_stats(), 'AREAS': areas(),
+        'ICONOS': ICONOS, 'CABECERA': cabecera(''), 'CIFRAS': cifras(), 'AREAS': areas(),
         'PANELES': paneles(), 'EVIDENCIA': evidencia_portada(), 'PIE': pie(),
     })
     print('index.html')
