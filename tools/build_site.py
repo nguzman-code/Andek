@@ -50,6 +50,30 @@ ICONOS = f'''<svg width="0" height="0" style="position:absolute" aria-hidden="tr
 TRAMA = '<svg class="hero-trama" aria-hidden="true"><defs><pattern id="trama" width="240" height="240" patternUnits="userSpaceOnUse"><use href="#i-iso" x="40" y="40" width="160" height="160" fill="#FFFFFF" fill-opacity="0.05"></use></pattern></defs><rect width="100%" height="100%" fill="url(#trama)"></rect></svg>'
 
 
+def menu_soluciones(pref):
+    """Menú desplegable de Soluciones: industrias y las marcas que aplican en cada una."""
+    cols = []
+    for ind in INDUSTRIAS:
+        destino = f'/{ind["archivo"]}' if ind['archivo'] else f'{pref}#soluciones-{ind["id"]}'
+        sols = []
+        for k in ind['tarjetas']:
+            s = TARJETAS[k][0]
+            if s not in sols:
+                sols.append(s)
+        items = ''.join(f'<li><a href="/{SOL[s]["archivo"]}">{e(SOL[s]["nombre"])}</a></li>' for s in sols)
+        cols.append(f'<div class="megamenu-col"><a class="megamenu-ind" href="{destino}">{e(ind["nombre"])}&nbsp;<span aria-hidden="true">→</span></a><ul>{items}</ul></div>')
+    return f'''        <div class="nav-item" data-menu>
+          <a class="nav-menu" href="{pref}#soluciones" aria-haspopup="true" aria-expanded="false">Industrias <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="megamenu">
+            <div class="megamenu-panel">
+              <p class="megamenu-titulo">Soluciones por industria</p>
+              <div class="megamenu-grid">{''.join(cols)}</div>
+              <a class="megamenu-todas" href="{pref}#soluciones">Ver todas las soluciones →</a>
+            </div>
+          </div>
+        </div>'''
+
+
 def cabecera(pref):
     return f'''    <header class="site-header">
       <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio">
@@ -61,7 +85,7 @@ def cabecera(pref):
       </button>
       <nav class="nav" id="navPrincipal" aria-label="Principal">
         <a href="{pref}#eficiencia">Qué mejoramos</a>
-        <a href="{pref}#soluciones">Soluciones</a>
+{menu_soluciones(pref)}
         <a href="{pref}#como-trabajamos">Cómo trabajamos</a>
         <a href="{pref}#nosotros">Nosotros</a>
         <a href="{pref}#fabricantes">Fabricantes</a>
