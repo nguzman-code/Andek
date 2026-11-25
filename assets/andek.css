@@ -420,3 +420,29 @@ a { color: var(--pizarra); }
   .hero-foto img { transform: none; }
 }
 @media (max-width: 600px) { .hero-fotos { max-width: 250px; } .hero-body--split { gap: 40px; } }
+
+/* Hero opción 2: gráfico animado */
+.grafico { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--r); background: rgba(255, 255, 255, .04); }
+.grafico-cabeza { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.grafico .hero-tema { max-width: none; height: 22px; }
+.grafico .hero-tema-item { text-align: left; font-size: 13px; color: #fff; transition: opacity .25s ease, transform .25s ease; }
+.grafico .hero-tema-item.is-visible { transition: opacity .5s ease .3s, transform .5s ease .3s; }
+.grafico-tendencia { display: flex; width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .3); align-items: center; justify-content: center; }
+.grafico-tendencia svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.grafico-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.grafico-grilla line { stroke: rgba(255, 255, 255, .08); stroke-width: 1; }
+.grafico-marca { stroke: rgba(255, 255, 255, .4); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.grafico-serie { opacity: 0; transition: opacity .3s ease; }
+.grafico-serie.is-visible { opacity: 1; transition: opacity .3s ease .3s; }
+.grafico-linea { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 2; stroke-dashoffset: 1.5; transition: stroke-dashoffset 0s .3s; }
+.grafico-serie.is-visible .grafico-linea { stroke-dashoffset: 0; transition: stroke-dashoffset 2.2s cubic-bezier(.45, 0, .2, 1) .3s; }
+.grafico-area { fill: url(#graficoRelleno); opacity: 0; transition: opacity 0s .5s; }
+.grafico-serie.is-visible .grafico-area { opacity: 1; transition: opacity 1s ease 1.3s; }
+.grafico-punto { fill: #fff; opacity: 0; transition: opacity 0s .5s; }
+.grafico-serie.is-visible .grafico-punto { opacity: 1; transition: opacity .4s ease 2.2s; }
+.grafico-pie { display: grid; grid-template-columns: 40% 60%; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #C3CCCF; }
+.grafico-pie span + span { padding-left: 12px; }
+.grafico-nota { margin: 0; font-size: 12px; color: var(--niebla); }
+@media (prefers-reduced-motion: reduce) {
+  .grafico-serie, .grafico-linea, .grafico-area, .grafico-punto { transition: none !important; }
+}

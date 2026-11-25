@@ -87,7 +87,7 @@
   // Título con palabra rotativa: gaste → falle → desperdicie
   var rotador = document.querySelector('[data-rotador]');
   // Fotos y temas del hero que cambian junto con la palabra (si existen)
-  var sincronizados = [document.querySelectorAll('.hero-foto'), document.querySelectorAll('.hero-tema-item')];
+  var sincronizados = [document.querySelectorAll('.hero-foto, .grafico-serie'), document.querySelectorAll('.hero-tema-item')];
   var sincronizar = function (i) {
     sincronizados.forEach(function (lista) {
       Array.prototype.forEach.call(lista, function (el, j) { el.classList.toggle('is-visible', j === i); });
@@ -98,12 +98,15 @@
     if (sinMovimiento) {
       var titulo = rotador.closest('.titulo-animado');
       if (titulo) titulo.textContent = 'Hacemos que tu operación gaste menos, falle menos y desperdicie menos.';
+      sincronizar(0);
     } else if (palabras.length > 1) {
       var actual = 0;
       var ajustarAncho = function (i) { rotador.style.width = palabras[i].getBoundingClientRect().width + 'px'; };
       palabras.forEach(function (p) { p.style.justifySelf = 'start'; p.style.whiteSpace = 'nowrap'; });
       ajustarAncho(0);
       rotador.style.transition = 'width .45s cubic-bezier(.22, 1, .36, 1)';
+      // El gráfico se dibuja después de la entrada del hero
+      setTimeout(function () { sincronizar(0); }, 500);
       window.addEventListener('resize', function () { ajustarAncho(actual); });
       setInterval(function () {
         var previa = palabras[actual];
@@ -114,7 +117,7 @@
         palabras[actual].classList.add('is-visible');
         ajustarAncho(actual);
         sincronizar(actual);
-      }, sincronizados[0].length ? 3200 : 2200);
+      }, document.querySelector('.grafico-serie') ? 4200 : (sincronizados[0].length ? 3200 : 2200));
     }
   }
 

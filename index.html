@@ -69,12 +69,34 @@
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-fotos">
-          <figure class="hero-foto is-visible"><img src="/assets/img/fichas/aerofoil.webp" alt="" width="1200" height="900"></figure>
-          <figure class="hero-foto"><img src="/assets/img/fichas/guardian.webp" alt="" width="1200" height="900"></figure>
-          <figure class="hero-foto"><img src="/assets/img/fichas/nualight.webp" alt="" width="1200" height="900"></figure>
+        <div class="grafico">
+          <div class="grafico-cabeza">
+            <p class="hero-tema"><span class="hero-tema-item is-visible">Consumo de energía</span><span class="hero-tema-item">Fallas y mantenciones</span><span class="hero-tema-item">Merma de producto</span></p>
+            <span class="grafico-tendencia"><svg viewBox="0 0 24 24"><path d="M5 8l7 8 7-8"/></svg></span>
+          </div>
+          <svg class="grafico-svg" viewBox="0 0 400 220">
+            <defs><linearGradient id="graficoRelleno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".16"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>
+            <g class="grafico-grilla"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="140" x2="400" y2="140"/><line x1="0" y1="190" x2="400" y2="190"/></g>
+            <line class="grafico-marca" x1="160" y1="0" x2="160" y2="220"/>
+            <g class="grafico-serie">
+              <path class="grafico-area" d="M0 62C20 55 30 70 50 64S80 52 100 60S130 70 160 58C185 52 195 125 225 136S260 146 290 140S340 132 360 142S390 146 400 141L400 220L0 220Z"/>
+              <path class="grafico-linea" pathLength="1" d="M0 62C20 55 30 70 50 64S80 52 100 60S130 70 160 58C185 52 195 125 225 136S260 146 290 140S340 132 360 142S390 146 400 141"/>
+              <circle class="grafico-punto" cx="400" cy="141" r="5"/>
+            </g>
+            <g class="grafico-serie">
+              <path class="grafico-area" d="M0 120L18 118L26 52L34 122L60 116L70 64L80 118L104 120L114 40L124 120L150 114L160 110C180 112 200 150 230 156L250 154L262 140L272 156L320 158L345 150L355 159L400 157L400 220L0 220Z"/>
+              <path class="grafico-linea" pathLength="1" d="M0 120L18 118L26 52L34 122L60 116L70 64L80 118L104 120L114 40L124 120L150 114L160 110C180 112 200 150 230 156L250 154L262 140L272 156L320 158L345 150L355 159L400 157"/>
+              <circle class="grafico-punto" cx="400" cy="157" r="5"/>
+            </g>
+            <g class="grafico-serie">
+              <path class="grafico-area" d="M0 70C40 66 80 74 120 68S150 66 160 70C200 80 230 120 270 140S350 160 400 162L400 220L0 220Z"/>
+              <path class="grafico-linea" pathLength="1" d="M0 70C40 66 80 74 120 68S150 66 160 70C200 80 230 120 270 140S350 160 400 162"/>
+              <circle class="grafico-punto" cx="400" cy="162" r="5"/>
+            </g>
+          </svg>
+          <div class="grafico-pie"><span>Antes</span><span>Con la solución instalada</span></div>
+          <p class="grafico-nota">Gráfico ilustrativo</p>
         </div>
-        <p class="hero-tema"><span class="hero-tema-item is-visible">Energía</span><span class="hero-tema-item">Mantenimiento y fallas</span><span class="hero-tema-item">Producto y merma</span></p>
       </div>
     </div>
   </div>
