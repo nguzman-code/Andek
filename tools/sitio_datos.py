@@ -16,7 +16,7 @@ AREAS = {
 }
 
 # Orden en que se listan las soluciones en el pie y en las áreas de mejora
-ORDEN = ['aerofoil', 'clarifoil', 'cnt', 'gelclear', 'guardian', 'htf', 'kenfield', 'nualight']
+ORDEN = ['aerofoil', 'biopipe', 'clarifoil', 'cnt', 'gelclear', 'guardian', 'htf', 'kenfield', 'nualight']
 
 SOL = {
     'aerofoil': {
@@ -55,6 +55,41 @@ SOL = {
         'aplicaciones': ['supermercados'],
     },
 
+    'biopipe': {
+        'nombre': 'BioPipe', 'corto': 'BioPipe', 'origen': 'Reino Unido', 'archivo': 'solucion-biopipe.html', 'icono': 'agua',
+        'titulo_pagina': 'BioPipe: tubería de drenaje que evita el biofilm',
+        'h1': 'Tubería de drenaje que evita el biofilm',
+        'lead': 'Sistema de drenaje para refrigeración y climatización que impide que el biofilm se adhiera a la tubería. Menos drenajes tapados, fugas de agua y llamados de mantención, sin químicos ni reaplicaciones.',
+        'img': ('/assets/img/fichas/biopipe.webp', 'Tuberías de drenaje BioPipe'),
+        'antes_despues': ('/assets/img/fichas/biopipe-antes.webp', '/assets/img/fichas/biopipe-despues.webp', 'Drenaje convencional con biofilm acumulado', 'Tubería BioPipe en la inspección de los 12 meses'),
+        'problema': [
+            'Las bacterias del agua de condensado se adhieren a la tubería de drenaje y forman una capa de biofilm. Con el tiempo el drenaje se tapa, el agua rebalsa y aparecen fugas bajo los muebles refrigerados.',
+            'En los muebles actuales queda poco espacio para el drenaje y la pendiente es baja, lo que acelera el problema. Las soluciones químicas dependen de reaplicarse y de que se cumplan los programas de limpieza.',
+        ],
+        'solucion': [
+            'BioPipe es una tubería de drenaje cuyo material fue modificado con zinc, un mineral natural. Su superficie impide que bacterias, hongos y biofilm se adhieran.',
+            'No lleva químicos, recubrimientos ni biocidas, y no se desgasta: el efecto dura toda la vida de la tubería. Se instala igual que un drenaje convencional, sin equipos ni capacitación especial.',
+        ],
+        'mejoras': [
+            ('Mantenimiento y fallas', 'Menos drenajes tapados, fugas de agua y llamados de mantención correctiva.'),
+            ('Personal y seguridad', 'Menos agua en el piso de la sala de ventas y menos horas del equipo técnico destinadas a drenajes.'),
+        ],
+        'specs_titulo': 'Especificaciones',
+        'specs': [('Sistemas', 'ABS con unión por solvente (BS EN 1455-1) y PVC Schedule 40 (ASTM D1785 / D2665)'),
+                  ('Tecnología', 'Superficie modificada con zinc, sin biocidas, plata, triclosán ni nanomateriales'),
+                  ('Ensayos', 'ISO 22196 e ISO 21702'),
+                  ('Certificación', 'Producto aprobado WRAS'),
+                  ('Instalación', 'Pendiente recomendada de 10 mm por metro (1 en 100)'),
+                  ('Fin de vida útil', 'Reutilizable y 100 % reciclable'),
+                  ('Fabricante', 'Bio Products Group (Warrington, Reino Unido)')],
+        'evidencia': {
+            'fugas': {'num': '93 %', 'titulo': 'menos fugas de agua en un período de 16 meses', 'detalle': 'Caso en tiendas del Reino Unido entre septiembre de 2018 y enero de 2020.', 'fuente': 'Bio Products Group (fabricante)', 'tipo': 'Caso del fabricante'},
+            'payback': {'num': '< 1 año', 'titulo': 'de retorno de la inversión', 'detalle': 'Con un costo total de propiedad menor que el de un drenaje convencional.', 'fuente': 'Bio Products Group (fabricante)', 'tipo': 'Dato del fabricante'},
+            'iso': {'num': 'Hasta 99,999 %', 'titulo': 'de efectividad contra el crecimiento de bacterias en la superficie', 'detalle': 'Ensayo según ISO 22196, que mide la actividad antibacteriana en plásticos.', 'fuente': 'Bio Products Group, ensayo ISO 22196', 'tipo': 'Ensayo de laboratorio'},
+        },
+        'hero_ev': ['fugas', 'payback'],
+        'aplicaciones': ['supermercados', 'cd', 'edificios'],
+    },
     'clarifoil': {
         'nombre': 'Clarifoil', 'corto': 'Clarifoil', 'origen': 'Reino Unido', 'archivo': 'solucion-clarifoil.html', 'icono': 'vidrio',
         'titulo_pagina': 'Clarifoil: láminas anti-empañamiento para puertas de vidrio',
@@ -338,16 +373,17 @@ TARJETAS = {
     'cntFood': ('cnt', '', 'Hielo y fallas en cámaras y congeladores', 'Filtros moleculares que regulan la humedad sin electricidad. Menos hielo en evaporadores y temperaturas más estables.', ['Fallas', 'Energía', 'Producto'], 'mcdonalds'),
     'htf': ('htf', '', 'Chillers y climatización que consumen de más', 'Nanofluido que mejora la transferencia de calor en circuitos de agua. Se agrega con el sistema en operación.', ['Energía', 'Capacidad'], 'hoffman'),
     'htfInd': ('htf', '', 'Chillers de proceso que consumen de más', 'Nanofluido que mejora la transferencia de calor en el circuito del chiller, sin modificar equipos ni afectar su garantía.', ['Energía', 'Sin detener equipos'], 'quercy'),
+    'biopipe': ('biopipe', '', 'Fugas de agua por drenajes tapados', 'Tubería de drenaje con una superficie que impide que el biofilm se adhiera. Menos fugas y mantenciones, sin químicos.', [], 'fugas'),
     'gelclear': ('gelclear', '', 'Drenajes de condensado que se tapan', 'Tabletas que previenen el biofilm en bandejas y drenajes. Menos fallas y malos olores, dentro del mantenimiento anual.', ['Fallas', 'Mantenimiento'], 'qp34'),
 }
 
 INDUSTRIAS = [
     {'id': 'supermercados', 'nombre': 'Supermercados', 'archivo': 'industria-supermercados.html',
-     'tarjetas': ['cnt', 'aerofoil', 'clarifoil', 'kenfield', 'gelclear', 'fso', 'nualight']},
+     'tarjetas': ['cnt', 'aerofoil', 'clarifoil', 'kenfield', 'gelclear', 'biopipe', 'fso', 'nualight']},
     {'id': 'food', 'nombre': 'Food service', 'archivo': None, 'tarjetas': ['cntFood', 'kenfield', 'sentry', 'gelclear', 'fso']},
-    {'id': 'cd', 'nombre': 'Centros de distribución', 'archivo': None, 'tarjetas': ['cnt', 'kenfield', 'sentry', 'fso', 'htfInd']},
+    {'id': 'cd', 'nombre': 'Centros de distribución', 'archivo': None, 'tarjetas': ['cnt', 'kenfield', 'sentry', 'fso', 'biopipe', 'htfInd']},
     {'id': 'agro', 'nombre': 'Agroindustria', 'archivo': None, 'tarjetas': ['htfInd', 'cnt', 'sentry', 'fso', 'kenfield']},
-    {'id': 'edificios', 'nombre': 'Edificios', 'archivo': None, 'tarjetas': ['htf', 'gelclear']},
+    {'id': 'edificios', 'nombre': 'Edificios', 'archivo': None, 'tarjetas': ['htf', 'gelclear', 'biopipe']},
 ]
 
 # Página de industria: Supermercados. Cada zona toma su cifra de la ficha correspondiente.
@@ -378,7 +414,7 @@ ZONAS_SUPERMERCADOS = [
      'extra': ('Instalación', 'Sin intervenir el equipo, sin conexión eléctrica')},
     {'sol': 'gelclear', 'ev': 'qp34', 'titulo': 'Los drenajes de condensado se tapan', 'donde': 'Muebles refrigerados y climatización',
      'pasa': 'En las bandejas y drenajes de condensado se forma biofilm. Los drenajes se tapan, aparecen malos olores y fallas en los equipos.',
-     'hacemos': 'Ponemos una tableta en la bandeja de cada equipo. Se disuelve con el agua de condensado y protege todo el drenaje contra el biofilm.',
+     'hacemos': 'Ponemos una tableta en la bandeja de cada equipo. Se disuelve con el agua de condensado y protege todo el drenaje contra el biofilm. En equipos nuevos o recambios de drenaje, la tubería BioPipe evita que el biofilm se adhiera desde el origen.',
      'extra': ('Instalación', 'Una tableta por equipo, una vez al año')},
 ]
 
@@ -393,3 +429,7 @@ EVIDENCIA_SUPERMERCADOS = ('aerofoil', 'calnext')
 MAPA_DESTINO = (-70.67, -33.45)
 MAPA_ORIGENES = [(-122.3, 47.6), (-87.6, 41.9), (-1.9, 52.5), (10.0, 51.2), (12.5, 41.9),
                  (18.1, 59.3), (34.8, 32.1), (121.5, 31.2), (139.7, 35.7), (151.2, -33.9)]
+
+# Franja de clientes bajo las cifras (los mismos logos de la portada del sitio anterior)
+CLIENTES = [('Walmart', 'walmart'), ('Kroger', 'kroger'), ("Sam's Club", 'sams-club'), ('Harris Teeter', 'harris-teeter'),
+            ('The Fresh Market', 'the-fresh-market'), ("Sainsbury's", 'sainsburys'), ('Target', 'target')]
