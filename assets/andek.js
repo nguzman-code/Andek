@@ -18,6 +18,18 @@
     });
   }
 
+  // Menú desplegable de Soluciones (aria-expanded para lectores de pantalla)
+  document.querySelectorAll('[data-menu]').forEach(function (item) {
+    var enlace = item.querySelector('.nav-menu');
+    var fijar = function (abierto) { enlace.setAttribute('aria-expanded', abierto ? 'true' : 'false'); };
+    item.addEventListener('mouseenter', function () { fijar(true); });
+    item.addEventListener('mouseleave', function () { fijar(false); });
+    item.addEventListener('focusin', function () { fijar(true); });
+    item.addEventListener('focusout', function (ev) { if (!item.contains(ev.relatedTarget)) fijar(false); });
+    item.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { enlace.focus(); item.classList.add('cerrado'); fijar(false); } });
+    item.addEventListener('mouseleave', function () { item.classList.remove('cerrado'); });
+  });
+
   // Pestañas de industria
   var tablist = document.querySelector('[role="tablist"]');
   if (tablist) {
@@ -32,6 +44,17 @@
       });
       if (foco) tab.focus();
     };
+    // Abrir una industria desde el menú: /#soluciones-food abre esa pestaña
+    var abrirDesdeHash = function () {
+      var m = location.hash.match(/^#soluciones-([\w-]+)$/);
+      var tab = m && document.getElementById('tab-' + m[1]);
+      if (!tab) return;
+      activar(tab, false);
+      var seccion = document.getElementById('soluciones');
+      if (seccion) seccion.scrollIntoView();
+    };
+    window.addEventListener('hashchange', abrirDesdeHash);
+    abrirDesdeHash();
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () { activar(tab, false); });
       tab.addEventListener('keydown', function (e) {
