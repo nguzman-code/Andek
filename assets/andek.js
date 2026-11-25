@@ -86,6 +86,13 @@
 
   // Título con palabra rotativa: gaste → falle → desperdicie
   var rotador = document.querySelector('[data-rotador]');
+  // Fotos y temas del hero que cambian junto con la palabra (si existen)
+  var sincronizados = [document.querySelectorAll('.hero-foto'), document.querySelectorAll('.hero-tema-item')];
+  var sincronizar = function (i) {
+    sincronizados.forEach(function (lista) {
+      Array.prototype.forEach.call(lista, function (el, j) { el.classList.toggle('is-visible', j === i); });
+    });
+  };
   if (rotador) {
     var palabras = Array.prototype.slice.call(rotador.querySelectorAll('.rotador-palabra'));
     if (sinMovimiento) {
@@ -106,7 +113,8 @@
         setTimeout(function () { previa.classList.remove('is-saliendo'); }, 500);
         palabras[actual].classList.add('is-visible');
         ajustarAncho(actual);
-      }, 2200);
+        sincronizar(actual);
+      }, sincronizados[0].length ? 3200 : 2200);
     }
   }
 
