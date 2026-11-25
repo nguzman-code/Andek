@@ -150,7 +150,9 @@ def cta_banda(titulo, texto, boton='Contactar'):
 # ---------- Portada ----------
 
 # Foto propia para tarjetas que no usan la foto principal de su solución
-FOTO_TARJETA = {'sentry': ('/assets/img/fichas/guardian-door-sentry.webp', 'Alarma de puerta Door Sentry de Guardian Controls')}
+FOTO_TARJETA = {'sentry': ('/assets/img/fichas/guardian-door-sentry.webp', 'Alarma de puerta Door Sentry de Guardian Controls'),
+                # Temporal, hasta tener fotos de Kenfield en alta resolución
+                'kenfield': ('/assets/img/fichas/kenfield-tarjeta.webp', 'Operaria pasando por una puerta Kenfield K750 con una bandeja')}
 
 
 def logo(sol):
