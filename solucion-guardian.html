@@ -1,470 +1,246 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="Marca/symbol.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guardian Controls — El cerebro de tu cámara fría | Andek Solutions</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <style>
-    html { scroll-behavior: smooth; }
-
-    /* ── HERO ── */
-    .prod-hero { background: var(--green-900) url('Imagenes/Productos/Guardian/guardian.jpg') right center / cover no-repeat; padding: 140px 0 80px; position: relative; overflow: hidden; }
-    .prod-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,25,12,.97) 0%, rgba(12,25,12,.92) 40%, rgba(12,25,12,.72) 65%, rgba(12,25,12,.45) 100%); z-index: 1; }
-    .prod-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
-    .prod-hero__topbar { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
-    .prod-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .9rem; font-weight: 500; transition: color var(--transition); text-decoration: none; }
-    .prod-back:hover { color: #fff; }
-    .prod-back svg { width: 16px; height: 16px; }
-    .prod-hero__tag { display: inline-block; background: rgba(82,183,136,.2); color: var(--green-400); border: 1px solid rgba(82,183,136,.3); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 5px 14px; border-radius: 99px; }
-    .prod-hero__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; letter-spacing: -.02em; }
-    .prod-hero__sub { font-size: 1.125rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; }
-    .prod-hero__sub strong { color: #fff; }
-    .prod-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .prod-hero__visual { background: rgba(12,25,12,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; gap: 18px; }
-    .prod-hero__logo { display: flex; align-items: center; justify-content: center; padding: 12px 24px; }
-    .prod-hero__logo img { max-width: 220px; filter: brightness(0) invert(1); opacity: .9; }
-    .prod-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .prod-stat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 14px; }
-    .prod-stat--full { grid-column: 1 / -1; }
-    .prod-stat__val { font-size: 1.25rem; font-weight: 700; color: var(--green-400); line-height: 1; margin-bottom: 5px; }
-    .prod-stat__lbl { font-size: .7rem; color: rgba(255,255,255,.5); font-weight: 500; line-height: 1.3; }
-
-    /* ── VAL BANNER ── */
-    .val-banner { background: var(--green-800); padding: 64px 0; }
-    .val-banner__title { font-size: clamp(1.125rem, 2vw, 1.375rem); font-weight: 700; color: #fff; text-align: center; margin-bottom: 44px; letter-spacing: -.01em; }
-    .val-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 12px 40px; text-align: center; }
-    .val-stat__num { font-size: clamp(1.75rem, 3vw, 2.375rem); font-weight: 700; color: var(--green-400); line-height: 1.15; align-self: end; }
-    .val-stat__lbl { font-size: .8125rem; color: rgba(255,255,255,.5); line-height: 1.4; align-self: start; }
-
-    /* ── SECTION PATTERN ── */
-    .gc-section { padding: 80px 0; }
-    .gc-section--alt { background: var(--bg-alt); }
-    .gc-section__header { max-width: 720px; margin-bottom: 48px; }
-    .gc-section__title { font-size: clamp(1.375rem, 2.5vw, 1.75rem); font-weight: 700; color: var(--dark); line-height: 1.25; margin-bottom: 16px; letter-spacing: -.01em; }
-    .gc-section__sub { font-size: 1rem; color: var(--gray); line-height: 1.75; }
-    .gc-section__header--split { max-width: 100%; display: flex; align-items: flex-start; gap: 56px; }
-    .gc-section__header--split .gc-section__text { flex: 1; }
-    .gc-section__header--split .gc-section__img { flex: 0 0 220px; border-radius: var(--radius-lg); overflow: hidden; margin-top: 52px; }
-    .gc-section__header--split .gc-section__img img { width: 100%; height: 180px; object-fit: cover; display: block; }
-    @media (max-width: 768px) { .gc-section__header--split { flex-direction: column; } .gc-section__header--split .gc-section__img img { height: 140px; } }
-
-    /* ── PILLARS ── */
-    .gc-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .gc-pillar { background: var(--bg); border: 0.5px solid var(--gray-light); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-    .gc-pillar__icon { color: var(--green-500); flex-shrink: 0; }
-    .gc-pillar__title { font-size: .9375rem; font-weight: 700; color: var(--dark); line-height: 1.3; }
-    .gc-pillar__desc { font-size: .875rem; color: var(--gray); line-height: 1.65; }
-
-    /* ── PRODUCTS ── */
-    .gc-products { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .gc-product-card { border: 0.5px solid var(--gray-light); border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; gap: 20px; background: var(--bg); }
-    .gc-product-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; min-height: 80px; }
-    .gc-product-card__name { font-size: 1.1875rem; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 5px; }
-    .gc-product-card__subtitle { font-size: .875rem; color: var(--gray); line-height: 1.4; }
-    .gc-badge { display: inline-flex; align-items: center; font-size: .8125rem; font-weight: 700; padding: 5px 12px; border-radius: 99px; white-space: nowrap; flex-shrink: 0; }
-    .gc-badge--teal  { background: rgba(15,110,86,.10);  color: #0F6E56; border: 1px solid rgba(15,110,86,.22); }
-    .gc-badge--coral { background: rgba(153,60,29,.09); color: #993C1D; border: 1px solid rgba(153,60,29,.20); }
-    .gc-product-card__img-wrap { border-radius: var(--radius-lg); overflow: hidden; width: 100%; height: 200px; flex-shrink: 0; display: block; }
-    .gc-product-card__img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .gc-product-card__desc { font-size: .9375rem; color: var(--gray); line-height: 1.75; }
-    .gc-product-card__specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; padding-top: 20px; border-top: 1px solid var(--gray-light); }
-    .gc-spec__label { font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray); margin-bottom: 3px; }
-    .gc-spec__value { font-size: .875rem; color: var(--dark); font-weight: 500; line-height: 1.4; }
-    .gc-callout { border-radius: var(--radius); padding: 16px 18px; background: rgba(30,82,208,.05); border: 1px solid rgba(30,82,208,.14); }
-    .gc-callout p { font-size: .875rem; color: #1e3a8a; line-height: 1.7; margin: 0; }
-    .gc-callout strong { color: #1e3a8a; }
-
-    /* ── CTA FINAL ── */
-    .prod-cta-final { background: var(--green-800); padding: 88px 0; text-align: center; }
-    .prod-cta-final h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -.01em; }
-    .prod-cta-final__sub { font-size: 1.0625rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; max-width: 540px; margin-left: auto; margin-right: auto; }
-    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .9375rem; font-weight: 700; background: #fff; color: var(--green-800); border: 2px solid #fff; cursor: pointer; transition: all var(--transition); white-space: nowrap; text-decoration: none; }
-    .btn-white:hover { background: var(--green-50); border-color: var(--green-50); }
-    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .9375rem; font-weight: 600; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35); cursor: pointer; transition: all var(--transition); white-space: nowrap; text-decoration: none; }
-    .btn-outline-white:hover { border-color: rgba(255,255,255,.75); background: rgba(255,255,255,.06); }
-
-    /* ── OTHER PRODUCTS ── */
-    .prod-others { padding: 80px 0; }
-    .prod-others h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 36px; color: var(--dark); }
-    .prod-others-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .prod-other-card { background: var(--bg); border: 1px solid var(--gray-light); border-radius: var(--radius-lg); padding: 24px; text-decoration: none; color: inherit; transition: transform var(--transition), box-shadow var(--transition); display: flex; flex-direction: column; gap: 14px; }
-    .prod-other-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .prod-other-card__logo { height: 56px; display: flex; align-items: center; }
-    .prod-other-card__logo img { max-height: 36px; max-width: 140px; object-fit: contain; mix-blend-mode: multiply; }
-    .prod-other-card__title { font-size: 1rem; font-weight: 700; color: var(--dark); }
-    .prod-other-card__desc { font-size: .875rem; color: var(--gray); line-height: 1.6; }
-    .prod-other-card__kpi { font-size: .8125rem; font-weight: 700; color: var(--green-700); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .prod-hero__inner { grid-template-columns: 1fr; }
-      .prod-hero__visual { display: none; }
-      .gc-pillars { grid-template-columns: repeat(2, 1fr); }
-      .prod-others-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .gc-products { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .prod-hero { padding: 120px 0 60px; }
-      .gc-section { padding: 56px 0; }
-      .gc-pillars { grid-template-columns: 1fr; }
-      .prod-cta-final { padding: 60px 0; }
-      .val-stats-grid { gap: 10px 20px; }
-    }
-    @media (max-width: 480px) {
-      .prod-others-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guardian Controls: control de ventiladores y alarmas para cámaras de frío | Andek Solutions</title>
+  <meta name="description" content="Dos equipos que se instalan sobre la cámara existente: el FSO ajusta la velocidad de los ventiladores del evaporador según la demanda y Door Sentry avisa cuando una puerta queda abierta.">
+  <meta property="og:title" content="Guardian Controls: control de ventiladores y alarmas para cámaras de frío | Andek Solutions">
+  <meta property="og:description" content="Dos equipos que se instalan sobre la cámara existente: el FSO ajusta la velocidad de los ventiladores del evaporador según la demanda y Door Sentry avisa cuando una puerta queda abierta.">
+  <meta property="og:image" content="/assets/img/fichas/guardian.webp">
+  <meta property="og:locale" content="es_CL">
+  <link rel="icon" href="/assets/img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/andek.css">
 </head>
 <body>
-
-  <!-- ── NAV ── -->
-  <nav class="navbar scrolled" id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="Marca/Logo.png" alt="Andek Solutions" /></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="nav-link">Inicio</a></li>
-        <li class="nav-dropdown">
-          <a href="index.html#portfolio" class="nav-link nav-link--dropdown">
-            Soluciones <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </a>
-          <ul class="nav-submenu">
-            <li><a href="index.html#portfolio" class="nav-submenu__item">Todos los Productos</a></li>
-            <li><a href="solucion-aerofoil.html" class="nav-submenu__item">Aerofoil</a></li>
-            <li><a href="solucion-clarifoil.html" class="nav-submenu__item">Clarifoil</a></li>
-            <li><a href="solucion-kenfield.html" class="nav-submenu__item">Kenfield</a></li>
-            <li><a href="solucion-nualight.html" class="nav-submenu__item">Nualight</a></li>
-            <li><a href="solucion-guardian.html" class="nav-submenu__item">Guardian Controls</a></li>
-          </ul>
-        </li>
-        <li><a href="index.html#cases" class="nav-link">Casos de Estudio</a></li>
-        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
-      </ul>
-      <div class="nav-indicator" id="navIndicator"></div>
-      <a href="index.html#contact" class="flow-btn flow-btn--dark flow-btn--sm nav-cta">
-        <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        <span class="flow-btn__text">Contáctanos</span>
-        <span class="flow-btn__circle"></span>
-        <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-iso" viewBox="60 60 1080 1080"><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(90 600 600)"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(180 600 600)"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(270 600 600)"/></symbol>
+  <symbol id="i-energia" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+  <symbol id="i-herr" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3.5 17.5l3 3 5.7-5.7a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></symbol>
+  <symbol id="i-seguridad" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-frio" viewBox="0 0 24 24"><path d="M12 2v20M3.5 7l17 10M3.5 17l17-10"/><path d="M9.5 4L12 6.5 14.5 4M9.5 20L12 17.5 14.5 20"/></symbol>
+  <symbol id="i-vidrio" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="1.5"/><path d="M9 6v3"/></symbol>
+  <symbol id="i-camara" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M2 21h20M12 3v18"/></symbol>
+  <symbol id="i-luz" viewBox="0 0 24 24"><path d="M9 18h6M10 21.5h4"/><path d="M12 2.5a6.5 6.5 0 0 0-4 11.6V16h8v-1.9a6.5 6.5 0 0 0-4-11.6z"/></symbol>
+  <symbol id="i-vent" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"/><path d="M12 10.5c0-4 1-7.5 3.5-7.5 2.2 0 2.2 3.3-2 7.3"/><path d="M13.5 12c4 0 7.5 1 7.5 3.5 0 2.2-3.3 2.2-7.3-2"/><path d="M12 13.5c0 4-1 7.5-3.5 7.5-2.2 0-2.2-3.3 2-7.3"/><path d="M10.5 12c-4 0-7.5-1-7.5-3.5 0-2.2 3.3-2.2 7.3 2"/></symbol>
+  <symbol id="i-agua" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="i-medicion" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><path d="M12 17l4.5-4.5"/></symbol>
+  <symbol id="i-propuesta" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7.5 9l4 4 3-3 4.5 4.5"/><path d="M19 11v3.5h-3.5"/></symbol>
+  <symbol id="i-piloto" viewBox="0 0 24 24"><path d="M9.5 3h5M10 3v6l-5 9.5A1.7 1.7 0 0 0 6.5 21h11a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+</svg>
+<section class="hero on-dark">
+  <svg class="hero-trama" aria-hidden="true"><defs><pattern id="trama" width="240" height="240" patternUnits="userSpaceOnUse"><use href="#i-iso" x="40" y="40" width="160" height="160" fill="#FFFFFF" fill-opacity="0.05"></use></pattern></defs><rect width="100%" height="100%" fill="url(#trama)"></rect></svg>
+  <div class="container">
+    <header class="site-header">
+      <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio">
+        <svg aria-hidden="true"><use href="#i-iso"></use></svg>
+        <span class="logo-text"><b>ANDEK</b> <span>SOLUTIONS</span></span>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menú">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav" id="navPrincipal" aria-label="Principal">
+        <a href="/#eficiencia">Qué mejoramos</a>
+        <a href="/#soluciones">Soluciones</a>
+        <a href="/#evidencia">Evidencia</a>
+        <a href="/#como-trabajamos">Cómo trabajamos</a>
+        <a href="/#nosotros">Nosotros</a>
+      </nav>
+      <a class="btn btn-senal header-cta" href="/#contacto">Agenda un diagnóstico</a>
+    </header>
+    <div class="hero-body hero-body--interior">
+      <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Soluciones</a></li><li aria-current="page">Guardian Controls</li></ol></nav>
+      <div class="hero-industria">
+        <div>
+          <p class="label">Guardian Controls · Reino Unido</p>
+          <h1 class="h-display h-ficha">Control de ventiladores y alarmas para cámaras de frío</h1>
+          <p class="lead">Dos equipos que se instalan sobre la cámara existente: el FSO ajusta la velocidad de los ventiladores del evaporador según la demanda y Door Sentry avisa cuando una puerta queda abierta.</p>
+          <div class="stats stats--ficha">
+          <div class="stat"><span class="stat-num">36 %</span><span class="stat-label">de ahorro promedio en motores de evaporador con FSO</span></div>
+          <div class="stat"><span class="stat-num">17 %</span><span class="stat-label">de ahorro adicional en energía de cámara con Door Sentry</span></div>
+          </div>
+          <p class="fuentes">Fuentes: Guardian Controls (fabricante)</p>
+        </div>
+        <figure class="ficha-foto"><img src="/assets/img/fichas/guardian.webp" alt="Cámara de frío con evaporadores en el techo" width="1200" height="900"></figure>
+      </div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- ── 1. HERO ── -->
-  <section class="prod-hero">
-    <div class="container prod-hero__inner">
+<main>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Qué resuelve</p>
+      <h2 class="h1">El problema y cómo lo resuelve</h2>
+    </div>
+    <div class="dos-col">
       <div>
-        <div class="prod-hero__topbar">
-          <a href="index.html#portfolio" class="prod-back">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            Volver a Soluciones
-          </a>
-          <div class="prod-hero__tag">SOFTWARE Y CONTROLS</div>
-        </div>
-        <h1 class="prod-hero__title">Guardian Controls: el cerebro de tu cámara fría</h1>
-        <p class="prod-hero__sub">Más de 30 años diseñando sistemas de control y monitoreo energéticamente eficientes para refrigeración. Soluciones probadas en las cadenas de supermercados más grandes del Reino Unido, con <strong>ahorros verificados</strong> y payback corto.</p>
-        <div class="prod-hero__actions">
-          <a href="index.html#contact" class="flow-btn">
-            <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Solicitar cotización</span>
-            <span class="flow-btn__circle"></span>
-            <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="#diagram" class="flow-btn">
-            <svg class="flow-btn__arr flow-btn__arr--left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span class="flow-btn__text">Ver integración técnica</span>
-            <span class="flow-btn__circle"></span>
-            <svg class="flow-btn__arr flow-btn__arr--right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
+        <h3 class="h3">El problema</h3>
+          <p>Los ventiladores de los evaporadores suelen funcionar a velocidad fija, aunque la cámara no lo necesite. Consumen energía y agregan calor que el sistema tiene que sacar.</p>
+          <p>Las puertas de cámara quedan abiertas más tiempo del necesario: entra aire cálido y húmedo, se forma hielo y el producto pierde temperatura.</p>
       </div>
-      <div class="prod-hero__visual">
-        <div class="prod-hero__logo">
-          <img src="Imagenes/Logos/Marcas/Guardian-Controls-logo.png" alt="Guardian Controls" />
-        </div>
-        <div class="prod-stat-grid">
-          <div class="prod-stat">
-            <div class="prod-stat__val">36%</div>
-            <div class="prod-stat__lbl">Ahorro promedio en motores de evaporador</div>
-          </div>
-          <div class="prod-stat">
-            <div class="prod-stat__val">17%</div>
-            <div class="prod-stat__lbl">Ahorro adicional en energía de cámara</div>
-          </div>
-          <div class="prod-stat prod-stat--full">
-            <div class="prod-stat__val">+5.000</div>
-            <div class="prod-stat__lbl">Unidades FSO instaladas en supermercados UK</div>
-          </div>
-        </div>
+      <div>
+        <h3 class="h3">Cómo lo resuelve</h3>
+          <p>El Fan Speed Optimiser (FSO) evalúa las condiciones de la cámara en tiempo real y ajusta la velocidad de los ventiladores sin afectar la temperatura del producto.</p>
+          <p>Door Sentry detecta puertas abiertas más tiempo del necesario y emite una alarma. Combinado con el FSO, baja la velocidad de los ventiladores mientras la puerta está abierta.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── FRANJA DE VALIDACIÓN ── -->
-  <section class="val-banner">
-    <div class="container">
-      <h2 class="val-banner__title">30 años de resultados verificados en refrigeración industrial</h2>
-      <div class="val-stats-grid">
-        <div class="val-stat__num">36%</div>
-        <div class="val-stat__num">17%</div>
-        <div class="val-stat__num">+5.000</div>
-        <div class="val-stat__lbl">ahorro promedio en motores de evaporador</div>
-        <div class="val-stat__lbl">ahorro adicional en energía de cámara</div>
-        <div class="val-stat__lbl">unidades FSO instaladas en supermercados UK</div>
+<section class="section bg-blanco">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Qué mejora</p>
+      <h2 class="h1">Qué mejora en tu operación</h2>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-energia"></use></svg>
+        <h3 class="h3">Energía</h3>
+        <p>Menos consumo directo de los motores y menos calor que sacar de la cámara.</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-temp"></use></svg>
+        <h3 class="h3">Producto y merma</h3>
+        <p>Protege la temperatura del producto cuando las puertas quedan abiertas.</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-herr"></use></svg>
+        <h3 class="h3">Mantenimiento y fallas</h3>
+        <p>Door Sentry ayuda a reducir el mantenimiento al evitar puertas abiertas.</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-seguridad"></use></svg>
+        <h3 class="h3">Personal y seguridad</h3>
+        <p>Door Sentry incluye entradas para alarma de hombre atrapado y sensor de gas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin-top:0">
+      <p class="label">Guardian Controls</p>
+      <h2 class="h1">Equipos</h2>
+    </div>
+    <div class="modelos">
+      <article class="card modelo" id="fso">
+        
+        <h3 class="h3">Fan Speed Optimiser (FSO)</h3>
+        <p>Optimiza la velocidad de los ventiladores de evaporadores en cámaras de frío y congelado.</p>
+        <dl><div><dt>Compatibilidad</dt><dd>Motores PSC, polo sombreado y EC</dd></div><div><dt>Instalación</dt><dd>Retrofit en menos de 1 hora, sin entrar a la cámara</dd></div><div><dt>Comunicación</dt><dd>RS485 o Ethernet opcional</dd></div><div><dt>Ahorro indirecto</dt><dd>Por cada 1 kWh ahorrado en el motor, 0,8 kWh adicionales en motores PSC y 0,35 kWh en motores EC</dd></div></dl>
+      </article>
+      <article class="card modelo" id="door-sentry">
+        <img src="/assets/img/fichas/guardian-door-sentry.webp" alt="Guardian Controls Door Sentry" loading="lazy">
+        <h3 class="h3">Door Sentry</h3>
+        <p>Alarma sonora y control de puerta. Su señal de apertura permite al FSO bajar la velocidad de los ventiladores.</p>
+        <dl><div><dt>Montaje</dt><dd>Pared o panel, 230 V o 24 V</dd></div><div><dt>Instalación</dt><dd>Rápida, sin entrar a la cámara</dd></div><div><dt>Entradas adicionales</dt><dd>Hombre atrapado y sensor de gas</dd></div><div><dt>Comunicación</dt><dd>RS485 o Ethernet opcional</dd></div></dl>
+      </article>
+    </div>
+    <h3 class="h2 subtitulo-tabla">Datos de la marca</h3>
+    <table class="specs"><tbody><tr><th scope="row">Fabricante</th><td>Guardian Controls (Reino Unido)</td></tr></tbody></table>
+  </div>
+</section>
+
+<section class="section bg-profundo on-dark" id="evidencia">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Evidencia</p>
+      <h2 class="h1">Resultados publicados</h2>
+      <p class="lead">Cada cifra indica su fuente. En Chile validamos cada solución con un piloto medido en tu operación.</p>
+    </div>
+    <div class="evidencia">
+      <div class="ev">
+        <span class="ev-tipo">Dato del fabricante</span>
+        <span class="ev-num ev-num--senal">36 %</span>
+        <span class="ev-titulo">de ahorro promedio en motores de evaporador con FSO</span>
+        <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+      </div>
+      <div class="ev">
+        <span class="ev-tipo">Dato del fabricante</span>
+        <span class="ev-num">17 %</span>
+        <span class="ev-titulo">de ahorro adicional en energía de cámara con Door Sentry</span>
+        <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
+      </div>
+      <div class="ev">
+        <span class="ev-tipo">Dato del fabricante</span>
+        <span class="ev-num">+5.000</span>
+        <span class="ev-titulo">unidades FSO instaladas en supermercados del Reino Unido</span>
+        <span class="fuente">Fuente: Guardian Controls (fabricante)</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── 2. CONTROL INTEGRAL ── -->
-  <section class="gc-section gc-section--alt">
-    <div class="container">
-      <div class="gc-section__header gc-section__header--split">
-        <div class="gc-section__text">
-          <h2 class="gc-section__title">Control integral, para refrigeración industrial</h2>
-          <p class="gc-section__sub">Guardian entiende el ciclo completo de refrigeración: cómo cada componente interactúa con los demás y cómo un cambio en un punto impacta al resto. Esa visión sistémica es lo que diferencia a un controlador genérico de uno que realmente ahorra energía.</p>
-        </div>
-        <div class="gc-section__img">
-          <img src="Imagenes/General/puerta_camara fria.jpg" alt="Puerta de cámara fría">
-        </div>
-      </div>
-      <div class="gc-pillars">
-
-        <div class="gc-pillar">
-          <div class="gc-pillar__title">Ahorro directo e indirecto</div>
-          <div class="gc-pillar__desc">Menos energía consumida y menos calor residual que enfriar.</div>
-        </div>
-
-<div class="gc-pillar">
-          <div class="gc-pillar__title">Compatible con tu sistema</div>
-          <div class="gc-pillar__desc">Funciona con equipos de control y monitoreo existentes.</div>
-        </div>
-
-        <div class="gc-pillar">
-          <div class="gc-pillar__title">Optimización continua</div>
-          <div class="gc-pillar__desc">El sistema se autoajusta en tiempo real, no en setpoints fijos.</div>
-        </div>
-
-      </div>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Dónde se aplica</p>
+      <h2 class="h2">Industrias</h2>
     </div>
-  </section>
-
-
-  <!-- ── 4. PRODUCTOS ── -->
-  <section class="gc-section gc-section--alt">
-    <div class="container">
-      <div class="gc-section__header">
-        <h2 class="gc-section__title">Productos</h2>
-      </div>
-      <div class="gc-products">
-
-        <!-- DOOR SENTRY -->
-        <div class="gc-product-card">
-          <div class="gc-product-card__header">
-            <div>
-              <div class="gc-product-card__name">Door Sentry</div>
-              <div class="gc-product-card__subtitle">Sistema de alarma sonora y control de puerta</div>
-            </div>
-            <span class="gc-badge gc-badge--coral">17% ahorro</span>
-          </div>
-
-          <div class="gc-product-card__img-wrap">
-            <img class="gc-product-card__img" src="Imagenes/Productos/Guardian/DS.webp" alt="Door Sentry" />
-          </div>
-
-          <p class="gc-product-card__desc">Instala buenas prácticas de operación de puertas, ahorra energía, reduce mantenimiento, protege la calidad del producto y mantiene seguro al personal. Detecta puertas abiertas más tiempo del necesario y emite alarmas sonoras. Sus sensores generan una señal de apertura y cierre que el FSO puede usar para optimizar la velocidad del ventilador.</p>
-
-          <div class="gc-product-card__specs">
-            <div>
-              <div class="gc-spec__label">Montaje</div>
-              <div class="gc-spec__value">Pared o panel, 230V o 24V</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Instalación</div>
-              <div class="gc-spec__value">Rápida, sin acceso a cámara</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Entradas adicionales</div>
-              <div class="gc-spec__value">Hombre atrapado y sensor de gas</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Comunicación</div>
-              <div class="gc-spec__value">RS485 o Ethernet opcional</div>
-            </div>
-          </div>
-
-          <div class="gc-callout">
-            <p><strong>Combinable con FSO:</strong> cuando Door Sentry detecta puerta abierta, envía señal al FSO para reducir la velocidad de los ventiladores por un tiempo predeterminado. Esto mejora el confort del personal que ingresa, reduce el volumen de aire cálido y húmedo que entra a la cámara, y ahorra energía adicional.</p>
-          </div>
-        </div>
-
-        <!-- FSO -->
-        <div class="gc-product-card">
-          <div class="gc-product-card__header">
-            <div>
-              <div class="gc-product-card__name">Fan Speed Optimiser (FSO)</div>
-              <div class="gc-product-card__subtitle">Optimización de ventiladores en cámaras frías y de congelado</div>
-            </div>
-            <span class="gc-badge gc-badge--teal">36% ahorro</span>
-          </div>
-
-          <div class="gc-product-card__img-wrap">
-            <img class="gc-product-card__img" src="Imagenes/Productos/Guardian/FSO2.webp" alt="Fan Speed Optimiser FSO" />
-          </div>
-
-          <p class="gc-product-card__desc">Reduce la energía directa e indirecta consumida por motores monofásicos de evaporadores. Evalúa las condiciones de la cámara en tiempo real y ajusta la velocidad del ventilador sin afectar la temperatura del producto. Por cada 1 kWh ahorrado directo, hay 0,8 kWh adicionales indirectos en motores PSC y 0,35 kWh en motores EC.</p>
-
-          <div class="gc-product-card__specs">
-            <div>
-              <div class="gc-spec__label">Compatibilidad</div>
-              <div class="gc-spec__value">PSC, polo sombreado y EC</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Instalación</div>
-              <div class="gc-spec__value">Retrofit, menos de 1 hora</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Comunicación</div>
-              <div class="gc-spec__value">RS485 o Ethernet opcional</div>
-            </div>
-            <div>
-              <div class="gc-spec__label">Acceso a cámara</div>
-              <div class="gc-spec__value">No requerido</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <div class="chips">
+      <a class="chip" href="/industria-supermercados.html">Supermercados y conveniencia</a>
+      <a class="chip" href="/#soluciones">Comida rápida y food service</a>
+      <a class="chip" href="/#soluciones">Centros de distribución y cámaras de frío</a>
+      <a class="chip" href="/#soluciones">Agroindustria y alimentos</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── 5. CTA FINAL ── -->
-  <section class="prod-cta-final">
-    <div class="container">
-      <h2>¿Cuánto ahorraría tu operación con Guardian?</h2>
-      <p class="prod-cta-final__sub">Cotización personalizada con análisis de ROI según tu instalación. Soporte técnico integral desde el diseño hasta la puesta en marcha.</p>
-      <div class="cta-actions">
-        <a href="index.html#contact" class="btn-white">Solicitar cotización →</a>
-      </div>
+<section class="section bg-pizarra on-dark">
+  <div class="container cta-banda">
+    <div>
+      <h2 class="h2">Evalúa Guardian Controls en tu operación</h2>
+      <p class="lead">Revisamos tu caso y te entregamos una estimación de resultados y retorno.</p>
     </div>
-  </section>
-
-  <!-- ── OTRAS SOLUCIONES ── -->
-  <section class="prod-others">
-    <div class="container">
-      <h2>Otras soluciones Andek Solutions</h2>
-      <div class="prod-others-grid">
-        <a href="solucion-aerofoil.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/aerofoil-energy-logo-650x137.png" alt="Aerofoil" />
-          </div>
-          <div class="prod-other-card__title">Aerofoil Energy</div>
-          <div class="prod-other-card__desc">Deflectores aerodinámicos para góndolas abiertas. Tecnología Williams F1 Racing.</div>
-          <div class="prod-other-card__kpi">25% ahorro · Payback 7–17 m</div>
-        </a>
-        <a href="solucion-clarifoil.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/Clarifoil-brand-logo.png" alt="Clarifoil" />
-          </div>
-          <div class="prod-other-card__title">Clarifoil</div>
-          <div class="prod-other-card__desc">Láminas antiempañamiento para puertas de congelados. Reduce heaters 80%.</div>
-          <div class="prod-other-card__kpi">31–41% ahorro · Payback ~8 m</div>
-        </a>
-        <a href="solucion-kenfield.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/Kenfield-logo.png" alt="Kenfield" />
-          </div>
-          <div class="prod-other-card__title">Kenfield K750</div>
-          <div class="prod-other-card__desc">Juntas magnéticas de alto rendimiento para cámaras frías y puertas refrigeradas.</div>
-          <div class="prod-other-card__kpi">21–42% ahorro · Payback ~10 m</div>
-        </a>
-        <a href="solucion-nualight.html" class="prod-other-card">
-          <div class="prod-other-card__logo">
-            <img src="Imagenes/Logos/Marcas/nualight-logo-650x157.png" alt="Nualight" />
-          </div>
-          <div class="prod-other-card__title">Nualight</div>
-          <div class="prod-other-card__desc">LED espectral CRI 95+ para iluminación de góndolas de retail.</div>
-          <div class="prod-other-card__kpi">35% ahorro · +12% ventas frescos</div>
-        </a>
+    <a class="btn btn-blanco" href="/#contacto">Contactar</a>
+  </div>
+</section>
+</main>
+<footer class="footer on-dark">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-marca">
+        <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio"><svg aria-hidden="true"><use href="#i-iso"></use></svg><span class="logo-text"><b>ANDEK</b> <span>SOLUTIONS</span></span></a>
+        <p>Tecnologías probadas de eficiencia operacional para instalaciones comerciales.</p>
+        <div class="footer-redes"><a href="https://www.linkedin.com/company/andek-solutions">LinkedIn</a><a href="https://www.instagram.com/andeksolutions">Instagram</a></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="container footer-main">
-
-      <div class="footer-col footer-col--brand">
-        <img src="Marca/Logo.png" alt="Andek Solutions" />
-        <p class="footer-tagline">Tecnología para la eficiencia industrial. Diseñamos soluciones a medida para operaciones más inteligentes y sostenibles.</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/andek-solutions" class="footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/andeksolutions" class="footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          </a>
-        </div>
-      </div>
-
+      <nav class="footer-col" aria-label="Industrias">
+        <span class="label">Industrias</span>
+        <a href="/industria-supermercados.html">Supermercados y conveniencia</a>
+        <a href="/#soluciones">Comida rápida y food service</a>
+        <a href="/#soluciones">Centros de distribución y cámaras de frío</a>
+        <a href="/#soluciones">Agroindustria y alimentos</a>
+        <a href="/#soluciones">Edificios, centros comerciales y hoteles</a>
+      </nav>
+      <nav class="footer-col" aria-label="Soluciones">
+        <span class="label">Soluciones</span>
+        <a href="/solucion-aerofoil.html">Aerofoil</a>
+        <a href="/solucion-clarifoil.html">Clarifoil</a>
+        <a href="/solucion-cnt.html">CNT Technology</a>
+        <a href="/solucion-gelclear.html">Gel-clear</a>
+        <a href="/solucion-guardian.html">Guardian Controls</a>
+        <a href="/solucion-htf.html">HTF Compact ECO</a>
+        <a href="/solucion-kenfield.html">Kenfield</a>
+        <a href="/solucion-nualight.html">Nualight</a>
+      </nav>
       <div class="footer-col">
-        <h4 class="footer-col__title">Soluciones</h4>
-        <ul class="footer-col__list">
-          <li><a href="solucion-aerofoil.html">Aerofoil</a></li>
-          <li><a href="solucion-clarifoil.html">Clarifoil</a></li>
-          <li><a href="solucion-kenfield.html">Kenfield K750</a></li>
-          <li><a href="solucion-nualight.html">Nualight</a></li>
-          <li><a href="solucion-guardian.html">Guardian Controls</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col__title">Casos de Estudio</h4>
-        <ul class="footer-col__list">
-          <li><a href="caso-aerofoil.html">Aerofoil — CalNEXT</a></li>
-          <li><a href="caso-kenfield.html">Kenfield — Warwick</a></li>
-          <li><a href="caso-clarifoil.html">Clarifoil — ASDA UK</a></li>
-          <li><a href="caso-nualight.html">Nualight — Retail Europeo</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col__title">Contacto</h4>
-        <ul class="footer-col__list">
-          <li><a href="index.html#contact">Formulario de contacto</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><span>contacto@andek.cl</span></li>
-          <li><span>+56 9 6919 3071</span></li>
-          <li><span>Santiago, Chile</span></li>
-        </ul>
-      </div>
-
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2025 Andek Solutions. Todos los derechos reservados.</p>
+        <span class="label">Contacto</span>
+        <a href="tel:+56969193071">+56 9 6919 3071</a>
+        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <span>Santiago, Chile</span>
       </div>
     </div>
-  </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinksEl = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navLinksEl.classList.toggle('open'); });
-    (function() {
-      const dropdown = document.querySelector('.nav-dropdown');
-      if (!dropdown) return;
-      let closeTimer = null;
-      dropdown.addEventListener('mouseenter', function() { clearTimeout(closeTimer); dropdown.classList.add('submenu-open'); });
-      dropdown.addEventListener('mouseleave', function() { closeTimer = setTimeout(function() { dropdown.classList.remove('submenu-open'); }, 350); });
-    })();
-  </script>
+    <div class="footer-legal">© <span id="anio">2026</span> Andek Solutions SpA</div>
+  </div>
+</footer>
+<script src="/assets/andek.js"></script>
 </body>
 </html>

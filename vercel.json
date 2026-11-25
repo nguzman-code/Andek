@@ -2,5 +2,16 @@
   "version": 2,
   "buildCommand": "",
   "outputDirectory": ".",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    { "source": "/caso-aerofoil.html", "destination": "/solucion-aerofoil.html#evidencia", "permanent": true },
+    { "source": "/caso-clarifoil.html", "destination": "/solucion-clarifoil.html#evidencia", "permanent": true },
+    { "source": "/caso-kenfield.html", "destination": "/solucion-kenfield.html#evidencia", "permanent": true },
+    { "source": "/caso-nualight.html", "destination": "/solucion-nualight.html#evidencia", "permanent": true },
+    { "source": "/kenfield-k750.html", "destination": "/solucion-kenfield.html#k750", "permanent": true },
+    { "source": "/kenfield-k2.html", "destination": "/solucion-kenfield.html#k2", "permanent": true },
+    { "source": "/kenfield-k150.html", "destination": "/solucion-kenfield.html#k150", "permanent": true },
+    { "source": "/kenfield-k550.html", "destination": "/solucion-kenfield.html#k550", "permanent": true },
+    { "source": "/nosotros.html", "destination": "/#nosotros", "permanent": true }
+  ]
 }

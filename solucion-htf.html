@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTF Compact ECO: nanofluido para chillers y climatización | Andek Solutions</title>
+  <meta name="description" content="Se agrega al circuito de agua de chillers y sistemas HVAC en operación. Mejora la transferencia de calor y reduce el consumo eléctrico, sin modificar los equipos.">
+  <meta property="og:title" content="HTF Compact ECO: nanofluido para chillers y climatización | Andek Solutions">
+  <meta property="og:description" content="Se agrega al circuito de agua de chillers y sistemas HVAC en operación. Mejora la transferencia de calor y reduce el consumo eléctrico, sin modificar los equipos.">
+  <meta property="og:image" content="/assets/img/instalacion-aerofoil.webp">
+  <meta property="og:locale" content="es_CL">
+  <link rel="icon" href="/assets/img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/andek.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-iso" viewBox="60 60 1080 1080"><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(90 600 600)"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(180 600 600)"/><path d="M328 60H678C640 78 604 102 575 131L135 572C95 520 60 450 60 360V328Z" transform="rotate(270 600 600)"/></symbol>
+  <symbol id="i-energia" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+  <symbol id="i-herr" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3.5 17.5l3 3 5.7-5.7a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></symbol>
+  <symbol id="i-seguridad" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-frio" viewBox="0 0 24 24"><path d="M12 2v20M3.5 7l17 10M3.5 17l17-10"/><path d="M9.5 4L12 6.5 14.5 4M9.5 20L12 17.5 14.5 20"/></symbol>
+  <symbol id="i-vidrio" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="1.5"/><path d="M9 6v3"/></symbol>
+  <symbol id="i-camara" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M2 21h20M12 3v18"/></symbol>
+  <symbol id="i-luz" viewBox="0 0 24 24"><path d="M9 18h6M10 21.5h4"/><path d="M12 2.5a6.5 6.5 0 0 0-4 11.6V16h8v-1.9a6.5 6.5 0 0 0-4-11.6z"/></symbol>
+  <symbol id="i-vent" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"/><path d="M12 10.5c0-4 1-7.5 3.5-7.5 2.2 0 2.2 3.3-2 7.3"/><path d="M13.5 12c4 0 7.5 1 7.5 3.5 0 2.2-3.3 2.2-7.3-2"/><path d="M12 13.5c0 4-1 7.5-3.5 7.5-2.2 0-2.2-3.3 2-7.3"/><path d="M10.5 12c-4 0-7.5-1-7.5-3.5 0-2.2 3.3-2.2 7.3 2"/></symbol>
+  <symbol id="i-agua" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="i-medicion" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><path d="M12 17l4.5-4.5"/></symbol>
+  <symbol id="i-propuesta" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7.5 9l4 4 3-3 4.5 4.5"/><path d="M19 11v3.5h-3.5"/></symbol>
+  <symbol id="i-piloto" viewBox="0 0 24 24"><path d="M9.5 3h5M10 3v6l-5 9.5A1.7 1.7 0 0 0 6.5 21h11a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+</svg>
+<section class="hero on-dark">
+  <svg class="hero-trama" aria-hidden="true"><defs><pattern id="trama" width="240" height="240" patternUnits="userSpaceOnUse"><use href="#i-iso" x="40" y="40" width="160" height="160" fill="#FFFFFF" fill-opacity="0.05"></use></pattern></defs><rect width="100%" height="100%" fill="url(#trama)"></rect></svg>
+  <div class="container">
+    <header class="site-header">
+      <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio">
+        <svg aria-hidden="true"><use href="#i-iso"></use></svg>
+        <span class="logo-text"><b>ANDEK</b> <span>SOLUTIONS</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menú">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav" id="navPrincipal" aria-label="Principal">
+        <a href="/#eficiencia">Qué mejoramos</a>
+        <a href="/#soluciones">Soluciones</a>
+        <a href="/#evidencia">Evidencia</a>
+        <a href="/#como-trabajamos">Cómo trabajamos</a>
+        <a href="/#nosotros">Nosotros</a>
+      </nav>
+      <a class="btn btn-senal header-cta" href="/#contacto">Agenda un diagnóstico</a>
+    </header>
+    <div class="hero-body hero-body--interior">
+      <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Soluciones</a></li><li aria-current="page">HTF Compact ECO</li></ol></nav>
+      <div class="hero-industria">
+        <div>
+          <p class="label">HTF Compact ECO · Italia</p>
+          <h1 class="h-display h-ficha">Nanofluido para chillers y sistemas de climatización</h1>
+          <p class="lead">Se agrega al circuito de agua de chillers y sistemas HVAC en operación. Mejora la transferencia de calor y reduce el consumo eléctrico, sin modificar los equipos.</p>
+          <div class="stats stats--ficha">
+          <div class="stat"><span class="stat-num">25 %</span><span class="stat-label">menos consumo eléctrico en el sistema HVAC de un edificio municipal</span></div>
+          <div class="stat"><span class="stat-num">11–13 %</span><span class="stat-label">menos consumo eléctrico en un chiller industrial de 450 kW</span></div>
+          </div>
+          <p class="fuentes">Fuentes: TCT Nanotech, piloto Hoffman Estates (EE.UU.), 2021 · Quercy Réfrigération (Francia), 2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Qué resuelve</p>
+      <h2 class="h1">El problema y cómo lo resuelve</h2>
+    </div>
+    <div class="dos-col">
+      <div>
+        <h3 class="h3">El problema</h3>
+          <p>En chillers y sistemas HVAC, la eficiencia depende de qué tan rápido el agua, o el agua con glicol, transfiere el calor en los intercambiadores. Si esa transferencia es limitada, el compresor trabaja más tiempo para lograr la misma temperatura.</p>
+          <p>Cuando el sistema no da abasto, la alternativa habitual es ampliar o reemplazar equipos.</p>
+      </div>
+      <div>
+        <h3 class="h3">Cómo lo resuelve</h3>
+          <p>HTF Compact ECO es un nanofluido con nanopartículas de óxidos metálicos en suspensión. Aumenta la conductividad térmica del fluido y mejora el intercambio de calor.</p>
+          <p>Se dosifica con el sistema funcionando, mediante una bomba, sin detener ni modificar los equipos. El equipo de TCT apoya la evaluación, la instalación y el monitoreo de resultados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-blanco">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Qué mejora</p>
+      <h2 class="h1">Qué mejora en tu operación</h2>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-energia"></use></svg>
+        <h3 class="h3">Energía</h3>
+        <p>Menos consumo eléctrico y menos tiempo de compresor. Más capacidad de enfriamiento con el mismo equipo.</p>
+      </article>
+      <article class="card">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-herr"></use></svg>
+        <h3 class="h3">Mantenimiento y fallas</h3>
+        <p>No corrosivo según ensayos ASTM, sin efecto en la garantía del chiller según su fabricante.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">HTF Compact ECO</p>
+      <h2 class="h1">Datos técnicos</h2>
+    </div>
+    <table class="specs"><tbody><tr><th scope="row">Aplicación</th><td>Chillers, sistemas HVAC, enfriamiento de procesos y data centers</td></tr><tr><th scope="row">Fluido base</th><td>Agua o agua con glicol</td></tr><tr><th scope="row">Instalación</th><td>Dosificación con el sistema en operación</td></tr><tr><th scope="row">Corrosión</th><td>No corrosivo (ensayos ASTM D1384 y D2570)</td></tr><tr><th scope="row">Seguridad</th><td>No favorece pseudomonas ni legionella. No se clasifica como residuo peligroso</td></tr><tr><th scope="row">Fabricante</th><td>TCT Nanotech (Brindisi, Italia). Planta certificada ISO 9001 e ISO 14001</td></tr></tbody></table>
+  </div>
+</section>
+
+<section class="section bg-profundo on-dark" id="evidencia">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Evidencia</p>
+      <h2 class="h1">Resultados publicados</h2>
+      <p class="lead">Cada cifra indica su fuente. En Chile validamos cada solución con un piloto medido en tu operación.</p>
+    </div>
+    <div class="evidencia">
+      <div class="ev">
+        <span class="ev-tipo">Piloto del fabricante</span>
+        <span class="ev-num ev-num--senal">25 %</span>
+        <span class="ev-titulo">menos consumo eléctrico en el sistema HVAC de un edificio municipal</span>
+        <p>El salto térmico del agua helada pasó de 4 °F a 9 °F y las válvulas de balance volvieron a operar en rango.</p>
+        <span class="fuente">Fuente: TCT Nanotech, piloto Hoffman Estates (EE.UU.), 2021</span>
+      </div>
+      <div class="ev">
+        <span class="ev-tipo">Carta del fabricante del chiller</span>
+        <span class="ev-num">11–13 %</span>
+        <span class="ev-titulo">menos consumo eléctrico en un chiller industrial de 450 kW</span>
+        <p>Sin corrosión ni efecto en la garantía del equipo, según el propio fabricante del chiller.</p>
+        <span class="fuente">Fuente: Quercy Réfrigération (Francia), 2025</span>
+      </div>
+      <div class="ev">
+        <span class="ev-tipo">Caso del fabricante</span>
+        <span class="ev-num">22 %</span>
+        <span class="ev-titulo">menos consumo del chiller en una planta de alimentos</span>
+        <p>Seis meses de monitoreo. En una cámara de frío enfriada por chiller: 13 % menos en dos meses.</p>
+        <span class="fuente">Fuente: TCT Nanotech, caso industria de alimentos (Francia)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Dónde se aplica</p>
+      <h2 class="h2">Industrias</h2>
+    </div>
+    <div class="chips">
+      <a class="chip" href="/#soluciones">Centros de distribución y cámaras de frío</a>
+      <a class="chip" href="/#soluciones">Agroindustria y alimentos</a>
+      <a class="chip" href="/#soluciones">Edificios, centros comerciales y hoteles</a>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-pizarra on-dark">
+  <div class="container cta-banda">
+    <div>
+      <h2 class="h2">Evalúa HTF Compact ECO en tu operación</h2>
+      <p class="lead">Revisamos tu caso y te entregamos una estimación de resultados y retorno.</p>
+    </div>
+    <a class="btn btn-blanco" href="/#contacto">Contactar</a>
+  </div>
+</section>
+</main>
+<footer class="footer on-dark">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-marca">
+        <a class="logo" href="/" aria-label="Andek Solutions, ir al inicio"><svg aria-hidden="true"><use href="#i-iso"></use></svg><span class="logo-text"><b>ANDEK</b> <span>SOLUTIONS</span></span></a>
+        <p>Tecnologías probadas de eficiencia operacional para instalaciones comerciales.</p>
+        <div class="footer-redes"><a href="https://www.linkedin.com/company/andek-solutions">LinkedIn</a><a href="https://www.instagram.com/andeksolutions">Instagram</a></div>
+      </div>
+      <nav class="footer-col" aria-label="Industrias">
+        <span class="label">Industrias</span>
+        <a href="/industria-supermercados.html">Supermercados y conveniencia</a>
+        <a href="/#soluciones">Comida rápida y food service</a>
+        <a href="/#soluciones">Centros de distribución y cámaras de frío</a>
+        <a href="/#soluciones">Agroindustria y alimentos</a>
+        <a href="/#soluciones">Edificios, centros comerciales y hoteles</a>
+      </nav>
+      <nav class="footer-col" aria-label="Soluciones">
+        <span class="label">Soluciones</span>
+        <a href="/solucion-aerofoil.html">Aerofoil</a>
+        <a href="/solucion-clarifoil.html">Clarifoil</a>
+        <a href="/solucion-cnt.html">CNT Technology</a>
+        <a href="/solucion-gelclear.html">Gel-clear</a>
+        <a href="/solucion-guardian.html">Guardian Controls</a>
+        <a href="/solucion-htf.html">HTF Compact ECO</a>
+        <a href="/solucion-kenfield.html">Kenfield</a>
+        <a href="/solucion-nualight.html">Nualight</a>
+      </nav>
+      <div class="footer-col">
+        <span class="label">Contacto</span>
+        <a href="tel:+56969193071">+56 9 6919 3071</a>
+        <a href="mailto:contacto@andek.cl">contacto@andek.cl</a>
+        <span>Santiago, Chile</span>
+      </div>
+    </div>
+    <div class="footer-legal">© <span id="anio">2026</span> Andek Solutions SpA</div>
+  </div>
+</footer>
+<script src="/assets/andek.js"></script>
+</body>
+</html>
