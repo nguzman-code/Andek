@@ -87,7 +87,7 @@
   // Título con palabra rotativa: gaste → falle → desperdicie
   var rotador = document.querySelector('[data-rotador]');
   // Fotos y temas del hero que cambian junto con la palabra (si existen)
-  var sincronizados = [document.querySelectorAll('.hero-foto, .grafico-serie'), document.querySelectorAll('.hero-tema-item')];
+  var sincronizados = [document.querySelectorAll('.hero-foto, .grafico-serie'), document.querySelectorAll('.hero-tema-item'), document.querySelectorAll('.grafico-tab'), document.querySelectorAll('.grafico-paso')];
   var sincronizar = function (i) {
     sincronizados.forEach(function (lista) {
       Array.prototype.forEach.call(lista, function (el, j) { el.classList.toggle('is-visible', j === i); });

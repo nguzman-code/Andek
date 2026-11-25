@@ -71,31 +71,44 @@
       <div class="hero-visual" aria-hidden="true">
         <div class="grafico">
           <div class="grafico-cabeza">
-            <p class="hero-tema"><span class="hero-tema-item is-visible">Consumo de energía</span><span class="hero-tema-item">Fallas y mantenciones</span><span class="hero-tema-item">Merma de producto</span></p>
-            <span class="grafico-tendencia"><svg viewBox="0 0 24 24"><path d="M5 8l7 8 7-8"/></svg></span>
+            <div class="grafico-tabs"><span class="grafico-tab">Energía</span><span class="grafico-tab">Fallas</span><span class="grafico-tab">Merma</span></div>
+            <span class="grafico-tendencia"><svg viewBox="0 0 24 24"><path d="M4 7l6 6 4-4 6 6M20 10v5h-5"/></svg></span>
           </div>
-          <svg class="grafico-svg" viewBox="0 0 400 220">
-            <defs><linearGradient id="graficoRelleno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".16"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>
-            <g class="grafico-grilla"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="140" x2="400" y2="140"/><line x1="0" y1="190" x2="400" y2="190"/></g>
-            <line class="grafico-marca" x1="160" y1="0" x2="160" y2="220"/>
+          <svg class="grafico-svg" viewBox="0 0 400 206">
+            <defs>
+              <linearGradient id="graficoRelleno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".2"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+              <linearGradient id="graficoTrazo" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="400" y2="0"><stop offset="0" stop-color="#96A1A5"/><stop offset="0.365" stop-color="#96A1A5"/><stop offset="0.435" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+            </defs>
+            <rect class="grafico-antes" x="0" y="28" width="150" height="154"/>
+            <g class="grafico-grilla"><line x1="0" y1="66" x2="400" y2="66"/><line x1="0" y1="106" x2="400" y2="106"/><line x1="0" y1="146" x2="400" y2="146"/><line x1="0" y1="182" x2="400" y2="182"/></g>
+            <line class="grafico-marca" x1="150" y1="28" x2="150" y2="182"/>
+            <rect class="grafico-etiqueta" x="108" y="4" width="84" height="22" rx="6"/>
+            <text class="grafico-etiqueta-txt" x="150" y="19" text-anchor="middle">INSTALACIÓN</text>
             <g class="grafico-serie">
-              <path class="grafico-area" d="M0 62C20 55 30 70 50 64S80 52 100 60S130 70 160 58C185 52 195 125 225 136S260 146 290 140S340 132 360 142S390 146 400 141L400 220L0 220Z"/>
-              <path class="grafico-linea" pathLength="1" d="M0 62C20 55 30 70 50 64S80 52 100 60S130 70 160 58C185 52 195 125 225 136S260 146 290 140S340 132 360 142S390 146 400 141"/>
-              <circle class="grafico-punto" cx="400" cy="141" r="5"/>
+              <path class="grafico-area" d="M0 66C4.2 64.7 16.7 57.7 25 58C33.3 58.3 41.7 67.7 50 68C58.3 68.3 66.7 60.3 75 60C83.3 59.7 91.7 66.5 100 66C108.3 65.5 116.7 57.7 125 57C133.3 56.3 141.2 57.2 150 62C158.8 66.8 168.8 76.0 178 86C187.2 96.0 196.0 113.3 205 122C214.0 130.7 222.0 134.5 232 138C242.0 141.5 253.7 142.8 265 143C276.3 143.2 287.5 138.7 300 139C312.5 139.3 328.0 144.7 340 145C352.0 145.3 362.0 141.3 372 141C382.0 140.7 395.3 142.7 400 143L400 182L0 182Z"/>
+              <path class="grafico-linea" pathLength="1" d="M0 66C4.2 64.7 16.7 57.7 25 58C33.3 58.3 41.7 67.7 50 68C58.3 68.3 66.7 60.3 75 60C83.3 59.7 91.7 66.5 100 66C108.3 65.5 116.7 57.7 125 57C133.3 56.3 141.2 57.2 150 62C158.8 66.8 168.8 76.0 178 86C187.2 96.0 196.0 113.3 205 122C214.0 130.7 222.0 134.5 232 138C242.0 141.5 253.7 142.8 265 143C276.3 143.2 287.5 138.7 300 139C312.5 139.3 328.0 144.7 340 145C352.0 145.3 362.0 141.3 372 141C382.0 140.7 395.3 142.7 400 143"/>
+              <circle class="grafico-halo" cx="400" cy="143" r="12"/>
+              <circle class="grafico-punto" cx="400" cy="143" r="5"/>
             </g>
             <g class="grafico-serie">
-              <path class="grafico-area" d="M0 120L18 118L26 52L34 122L60 116L70 64L80 118L104 120L114 40L124 120L150 114L160 110C180 112 200 150 230 156L250 154L262 140L272 156L320 158L345 150L355 159L400 157L400 220L0 220Z"/>
-              <path class="grafico-linea" pathLength="1" d="M0 120L18 118L26 52L34 122L60 116L70 64L80 118L104 120L114 40L124 120L150 114L160 110C180 112 200 150 230 156L250 154L262 140L272 156L320 158L345 150L355 159L400 157"/>
-              <circle class="grafico-punto" cx="400" cy="157" r="5"/>
+              <path class="grafico-area" d="M0 112C2.7 111.0 11.0 114.3 16 106C21.0 97.7 25.3 61.3 30 62C34.7 62.7 38.7 101.5 44 110C49.3 118.5 56.3 122.7 62 113C67.7 103.3 72.7 52.8 78 52C83.3 51.2 88.3 98.2 94 108C99.7 117.8 106.7 117.0 112 111C117.3 105.0 121.3 72.5 126 72C130.7 71.5 136.0 102.3 140 108C144.0 113.7 143.7 103.3 150 106C156.3 108.7 168.0 118.2 178 124C188.0 129.8 198.8 137.3 210 141C221.2 144.7 232.5 145.7 245 146C257.5 146.3 271.7 142.7 285 143C298.3 143.3 311.7 147.7 325 148C338.3 148.3 352.5 145.2 365 145C377.5 144.8 394.2 146.7 400 147L400 182L0 182Z"/>
+              <path class="grafico-linea" pathLength="1" d="M0 112C2.7 111.0 11.0 114.3 16 106C21.0 97.7 25.3 61.3 30 62C34.7 62.7 38.7 101.5 44 110C49.3 118.5 56.3 122.7 62 113C67.7 103.3 72.7 52.8 78 52C83.3 51.2 88.3 98.2 94 108C99.7 117.8 106.7 117.0 112 111C117.3 105.0 121.3 72.5 126 72C130.7 71.5 136.0 102.3 140 108C144.0 113.7 143.7 103.3 150 106C156.3 108.7 168.0 118.2 178 124C188.0 129.8 198.8 137.3 210 141C221.2 144.7 232.5 145.7 245 146C257.5 146.3 271.7 142.7 285 143C298.3 143.3 311.7 147.7 325 148C338.3 148.3 352.5 145.2 365 145C377.5 144.8 394.2 146.7 400 147"/>
+              <circle class="grafico-halo" cx="400" cy="147" r="12"/>
+              <circle class="grafico-punto" cx="400" cy="147" r="5"/>
             </g>
             <g class="grafico-serie">
-              <path class="grafico-area" d="M0 70C40 66 80 74 120 68S150 66 160 70C200 80 230 120 270 140S350 160 400 162L400 220L0 220Z"/>
-              <path class="grafico-linea" pathLength="1" d="M0 70C40 66 80 74 120 68S150 66 160 70C200 80 230 120 270 140S350 160 400 162"/>
-              <circle class="grafico-punto" cx="400" cy="162" r="5"/>
+              <path class="grafico-area" d="M0 64C6.7 63.3 26.7 59.5 40 60C53.3 60.5 66.7 66.8 80 67C93.3 67.2 108.3 61.3 120 61C131.7 60.7 138.3 61.2 150 65C161.7 68.8 176.7 76.0 190 84C203.3 92.0 216.7 105.0 230 113C243.3 121.0 256.7 127.2 270 132C283.3 136.8 296.7 139.7 310 142C323.3 144.3 335.0 145.0 350 146C365.0 147.0 391.7 147.7 400 148L400 182L0 182Z"/>
+              <path class="grafico-linea" pathLength="1" d="M0 64C6.7 63.3 26.7 59.5 40 60C53.3 60.5 66.7 66.8 80 67C93.3 67.2 108.3 61.3 120 61C131.7 60.7 138.3 61.2 150 65C161.7 68.8 176.7 76.0 190 84C203.3 92.0 216.7 105.0 230 113C243.3 121.0 256.7 127.2 270 132C283.3 136.8 296.7 139.7 310 142C323.3 144.3 335.0 145.0 350 146C365.0 147.0 391.7 147.7 400 148"/>
+              <circle class="grafico-halo" cx="400" cy="148" r="12"/>
+              <circle class="grafico-punto" cx="400" cy="148" r="5"/>
             </g>
+            <text class="grafico-eje" x="75.0" y="200" text-anchor="middle">ANTES</text>
+            <text class="grafico-eje" x="275.0" y="200" text-anchor="middle">DESPUÉS</text>
           </svg>
-          <div class="grafico-pie"><span>Antes</span><span>Con la solución instalada</span></div>
-          <p class="grafico-nota">Gráfico ilustrativo</p>
+          <div class="grafico-pie">
+            <div class="grafico-progreso"><span class="grafico-paso"><i></i></span><span class="grafico-paso"><i></i></span><span class="grafico-paso"><i></i></span></div>
+            <span class="grafico-nota">Gráfico ilustrativo</span>
+          </div>
         </div>
       </div>
     </div>
