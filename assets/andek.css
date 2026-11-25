@@ -293,10 +293,11 @@ a { color: var(--pizarra); }
 }
 
 /* Título animado (portada) */
-.rotador { display: inline-grid; overflow: hidden; vertical-align: bottom; height: 1.12em; color: var(--senal); }
-.rotador-palabra { grid-area: 1 / 1; transform: translateY(110%); opacity: 0; transition: transform .5s cubic-bezier(.22, 1, .36, 1), opacity .35s ease; }
-.rotador-palabra.is-visible { transform: translateY(0); opacity: 1; }
-.rotador-palabra.is-saliendo { transform: translateY(-110%); opacity: 0; }
+.rotador { display: inline-grid; vertical-align: bottom; }
+.rotador-palabra { grid-area: 1 / 1; justify-self: start; white-space: nowrap; opacity: 0; transform: translateY(.3em); filter: blur(6px); transition: opacity .55s ease, transform .7s cubic-bezier(.22, 1, .36, 1), filter .55s ease; }
+.rotador-palabra.is-visible { opacity: 1; transform: none; filter: none; transition-delay: .2s; }
+.rotador-palabra.is-saliendo { opacity: 0; transform: translateY(-.3em); filter: blur(6px); transition-duration: .35s; transition-delay: 0s; }
+.rotador-verbo { color: var(--senal); }
 
 /* Sección de cifras */
 .seccion-cifras { padding: 72px 0; border-bottom: 1px solid var(--linea); }
@@ -395,7 +396,7 @@ li:not(.tl-paso):not(.breadcrumb li),
 /* Hero con fotos sincronizadas a la palabra */
 .hero-body--split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: center; gap: 48px 64px; }
 .hero-texto { min-width: 0; display: flex; flex-direction: column; gap: 28px; }
-.hero-body--split .h-display { font-size: clamp(40px, 4.6vw, 60px); }
+.hero-body--split .h-display { font-size: clamp(38px, 3.7vw, 48px); }
 .hero-acciones { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero-visual { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
 .hero-fotos { position: relative; width: 100%; max-width: 440px; aspect-ratio: 1 / 1; background: rgba(255, 255, 255, .06); clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
@@ -463,6 +464,7 @@ li:not(.tl-paso):not(.breadcrumb li),
 @media (prefers-reduced-motion: reduce) {
   .grafico-serie, .grafico-linea, .grafico-area, .grafico-punto, .grafico-tab { transition: none !important; }
   .grafico-halo, .grafico-paso i { animation: none !important; }
+}
 
 /* Nuestros clientes: franja de logos en movimiento continuo */
 .seccion-clientes { padding: 8px 0 72px; background: #fff; }
@@ -481,3 +483,4 @@ li:not(.tl-paso):not(.breadcrumb li),
   .clientes-lista { flex-wrap: wrap; gap: 32px 48px; }
   .clientes-franja { -webkit-mask-image: none; mask-image: none; }
 }
+@media (max-width: 600px) { .hero-body--split .h-display { font-size: min(8.8vw, 40px); } }

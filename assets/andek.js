@@ -101,21 +101,16 @@
       sincronizar(0);
     } else if (palabras.length > 1) {
       var actual = 0;
-      var ajustarAncho = function (i) { rotador.style.width = palabras[i].getBoundingClientRect().width + 'px'; };
-      palabras.forEach(function (p) { p.style.justifySelf = 'start'; p.style.whiteSpace = 'nowrap'; });
-      ajustarAncho(0);
-      rotador.style.transition = 'width .45s cubic-bezier(.22, 1, .36, 1)';
+      // Las frases completas ("gaste menos.") se apilan en la misma celda: nada se desplaza al cambiar
       // El gráfico se dibuja después de la entrada del hero
       setTimeout(function () { sincronizar(0); }, 500);
-      window.addEventListener('resize', function () { ajustarAncho(actual); });
       setInterval(function () {
         var previa = palabras[actual];
         actual = (actual + 1) % palabras.length;
         previa.classList.remove('is-visible');
         previa.classList.add('is-saliendo');
-        setTimeout(function () { previa.classList.remove('is-saliendo'); }, 500);
+        setTimeout(function () { previa.classList.remove('is-saliendo'); }, 600);
         palabras[actual].classList.add('is-visible');
-        ajustarAncho(actual);
         sincronizar(actual);
       }, document.querySelector('.grafico-serie') ? 4200 : (sincronizados[0].length ? 3200 : 2200));
     }
