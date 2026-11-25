@@ -17,7 +17,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from sitio_datos import (AREAS, ORDEN, SOL, TARJETAS, INDUSTRIAS, ZONAS_SUPERMERCADOS,  # noqa: E402
                          CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS,
-                         MAPA_DESTINO, MAPA_ORIGENES)
+                         MAPA_DESTINO, MAPA_ORIGENES, CLIENTES)
 
 RAIZ = Path(__file__).resolve().parent.parent
 e = html.escape
@@ -224,6 +224,26 @@ def cifras():
         <span class="fuente">Fuente: {e(c['fuente'])}</span>
       </div>''')
     return '    <div class="cifras">\n' + '\n'.join(items) + '\n    </div>'
+
+
+def clientes():
+    def logos(oculto):
+        items = []
+        for nombre, archivo in CLIENTES:
+            with Image.open(RAIZ / 'assets' / 'img' / 'clientes' / f'{archivo}.png') as im:
+                w, h = im.size
+            alto = max(26, min(54, round((4200 / (w / h)) ** 0.5)))
+            alt = '' if oculto else e(nombre)
+            items.append(f'<li><img src="/assets/img/clientes/{archivo}.png" alt="{alt}" width="{w}" height="{h}" style="height:{alto}px" loading="lazy"></li>')
+        extra = ' aria-hidden="true"' if oculto else ''
+        return f'<ul class="clientes-lista"{extra}>' + ''.join(items) + '</ul>'
+    return f'''    <div class="clientes-cabeza">
+      <p class="label">Nuestros clientes</p>
+      <p class="clientes-txt">Cadenas de retail que ya operan con las soluciones que representamos.</p>
+    </div>
+    <div class="clientes-franja">
+      <div class="clientes-pista">{logos(False)}{logos(True)}</div>
+    </div>'''
 
 
 def proyectar(lon, lat):
@@ -565,7 +585,7 @@ def main():
     print('industria-supermercados.html')
     reemplazar_bloques(RAIZ / 'index.html', {
         'ICONOS': ICONOS, 'CABECERA': cabecera(''), 'CIFRAS': cifras(), 'AREAS': areas(),
-        'PANELES': paneles(), 'EVIDENCIA': evidencia_portada(), 'MAPA': mapa(), 'PIE': pie(),
+        'PANELES': paneles(), 'EVIDENCIA': evidencia_portada(), 'MAPA': mapa(), 'CLIENTES': clientes(), 'PIE': pie(),
     })
     print('index.html')
 

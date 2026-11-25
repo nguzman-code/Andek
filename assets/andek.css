@@ -387,9 +387,9 @@ a { color: var(--pizarra); }
 
 /* Todos los textos justificados, con separación en sílabas para evitar espacios grandes.
    Quedan alineados a la izquierda los títulos, etiquetas, fuentes, botones y cifras. */
-p:not(.label):not(.fuentes):not(.form-estado):not(.card-resuelve):not(.hero-tema):not(.grafico-nota),
+p:not(.label):not(.fuentes):not(.form-estado):not(.card-resuelve):not(.hero-tema):not(.grafico-nota):not(.clientes-txt),
 li:not(.tl-paso):not(.breadcrumb li),
-.cifra-txt, .cifra-grande-txt { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.cifra-txt { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 .breadcrumb li { text-align: left; }
 
 /* Hero con fotos sincronizadas a la palabra */
@@ -463,4 +463,21 @@ li:not(.tl-paso):not(.breadcrumb li),
 @media (prefers-reduced-motion: reduce) {
   .grafico-serie, .grafico-linea, .grafico-area, .grafico-punto, .grafico-tab { transition: none !important; }
   .grafico-halo, .grafico-paso i { animation: none !important; }
+
+/* Nuestros clientes: franja de logos en movimiento continuo */
+.seccion-clientes { padding: 8px 0 72px; background: #fff; }
+.clientes-cabeza { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 28px; padding-top: 40px; border-top: 1px solid var(--linea); }
+.clientes-cabeza .clientes-txt { margin: 0; font-size: 15px; color: var(--pizarra-500); text-align: left; }
+.clientes-franja { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.clientes-pista { display: flex; width: max-content; animation: clientes-mover 36s linear infinite; }
+.clientes-lista { display: flex; align-items: center; gap: 72px; margin: 0; padding: 0 36px; list-style: none; }
+.clientes-lista li { flex: none; text-align: left; }
+.clientes-lista img { display: block; width: auto; filter: grayscale(1); opacity: .8; transition: filter .3s ease, opacity .3s ease; }
+.clientes-lista img:hover { filter: none; opacity: 1; }
+@keyframes clientes-mover { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .clientes-pista { animation: none; width: auto; flex-wrap: wrap; }
+  .clientes-lista[aria-hidden] { display: none; }
+  .clientes-lista { flex-wrap: wrap; gap: 32px 48px; }
+  .clientes-franja { -webkit-mask-image: none; mask-image: none; }
 }
