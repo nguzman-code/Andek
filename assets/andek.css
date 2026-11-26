@@ -490,7 +490,9 @@ li:not(.tl-paso):not(.breadcrumb li),
 .nav .nav-menu { display: inline-flex; align-items: center; gap: 4px; }
 .nav-menu svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease; }
 .nav-item:hover .nav-menu svg, .nav-item:focus-within .nav-menu svg { transform: rotate(180deg); }
-.megamenu { position: absolute; left: 0; right: 0; top: 100%; padding-top: 4px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility 0s .2s; }
+.megamenu { position: absolute; left: 0; right: 0; top: 100%; padding-top: 4px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease .25s, transform .2s ease .25s, visibility 0s .45s; }
+/* Puente invisible entre el ítem del menú y el panel, para que no se cierre al bajar el mouse */
+.megamenu::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: 30px; }
 .nav-item:hover .megamenu, .nav-item:focus-within .megamenu { opacity: 1; visibility: visible; transform: none; transition: opacity .2s ease, transform .2s ease, visibility 0s; }
 .nav-item.cerrado .megamenu { opacity: 0; visibility: hidden; }
 .megamenu-panel { padding: 28px 32px; border: 1px solid var(--linea); border-radius: var(--r); background: #fff; color: var(--profundo); }
