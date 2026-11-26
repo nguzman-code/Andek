@@ -434,3 +434,79 @@ MAPA_ORIGENES = [(-122.3, 47.6), (-87.6, 41.9), (-1.9, 52.5), (10.0, 51.2), (12.
 # Franja de clientes bajo las cifras (los mismos logos de la portada del sitio anterior)
 CLIENTES = [('Walmart', 'walmart'), ('Kroger', 'kroger'), ("Sam's Club", 'sams-club'), ('Harris Teeter', 'harris-teeter'),
             ('The Fresh Market', 'the-fresh-market'), ("Sainsbury's", 'sainsburys'), ('Target', 'target')]
+
+# ── Páginas propias de las demás industrias ──
+# Reutilizan los textos de las zonas de supermercados; solo cambia "dónde" según la industria.
+def _zona(sol, ev=None, **cambios):
+    base = next(z for z in ZONAS_SUPERMERCADOS if z['sol'] == sol)
+    z = dict(base, **cambios)
+    if ev:
+        z['ev'] = ev
+    return z
+
+
+_ZONA_BIOPIPE = {'sol': 'biopipe', 'ev': 'fugas', 'titulo': 'Los drenajes se tapan y generan fugas de agua',
+                 'donde': 'Tuberías de drenaje de los evaporadores',
+                 'pasa': 'Las bacterias del agua de condensado forman biofilm dentro de la tubería. El drenaje se tapa, el agua rebalsa y hay que llamar a mantención.',
+                 'hacemos': 'Instalamos tubería de drenaje BioPipe, cuya superficie impide que el biofilm se adhiera. Sin químicos ni reaplicaciones.',
+                 'extra': ('Duración', 'Toda la vida útil de la tubería')}
+
+_ZONA_HTF = {'sol': 'htf', 'ev': 'quercy', 'titulo': 'Los chillers de proceso consumen de más',
+             'donde': 'Chillers y circuitos de agua de proceso',
+             'pasa': 'La eficiencia del chiller depende de qué tan rápido el agua, o el agua con glicol, transfiere el calor. Si esa transferencia es limitada, el compresor trabaja más tiempo para lograr la misma temperatura.',
+             'hacemos': 'Agregamos HTF Compact ECO al circuito: un nanofluido que mejora el intercambio de calor. Se dosifica con el sistema funcionando, sin detener ni modificar los equipos.',
+             'extra': ('Instalación', 'Con el sistema en operación')}
+
+_FAQ_MEDICION = ('¿Cómo se mide el resultado?', 'Antes de instalar medimos una línea base de consumo, fallas o mantenimiento, según el caso. Después del piloto comparamos contra esa misma medición.')
+_FAQ_FRIO = ('¿Hay que detener la operación para instalar?', 'No. Los filtros CNT no requieren intervenir el equipo y el control de Guardian se instala en menos de 1 hora sin entrar a la cámara. Coordinamos cada instalación con tu equipo de operaciones.')
+
+PAGINAS_INDUSTRIA = {
+    'food': {
+        'archivo': 'industria-food-service.html',
+        'lead': 'Tres puntos donde una cocina, restaurante o casino pierde energía, producto u horas de mantenimiento en su cadena de frío, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.',
+        'zonas': [_zona('cnt', 'mcdonalds', donde='Cámaras y congeladores de la cocina'),
+                  _zona('kenfield', donde='Accesos a cámaras de frío y bodegas'),
+                  _zona('guardian')],
+        'destacado': ('cnt', 'mcdonalds', 'CNT Technology en McDonald’s (Alemania)'),
+        'faq': [_FAQ_FRIO, _FAQ_MEDICION, ('¿Se puede partir con un solo local?', 'Sí. Recomendamos un piloto en un local o en una cámara, y escalar con los resultados medidos.')],
+        'cta': ('Agenda un diagnóstico en tu cocina', 'Revisamos tu cadena de frío y te entregamos una estimación de ahorro y retorno.'),
+    },
+    'frigorificos': {
+        'archivo': 'industria-frigorificos.html',
+        'lead': 'Cuatro puntos donde una bodega refrigerada o centro de frío pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.',
+        'zonas': [_zona('cnt', donde='Cámaras de frío y de congelado'),
+                  _zona('kenfield', donde='Accesos a cámaras y zonas de carga'),
+                  _zona('guardian'),
+                  _ZONA_BIOPIPE],
+        'destacado': ('cnt', 'rewe', 'CNT Technology en congeladores de REWE (Alemania)'),
+        'faq': [_FAQ_FRIO, _FAQ_MEDICION, ('¿Se puede partir con una sola cámara?', 'Sí. Recomendamos un piloto en una cámara o en un grupo de equipos, y escalar con los resultados medidos.')],
+        'cta': ('Agenda un diagnóstico en tu frigorífico', 'Revisamos tu operación y te entregamos una estimación de ahorro y retorno.'),
+    },
+    'agro': {
+        'archivo': 'industria-agroindustria.html',
+        'lead': 'Cuatro puntos donde un packing, central frutícola o planta de proceso pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos.',
+        'zonas': [_ZONA_HTF,
+                  _zona('cnt', donde='Cámaras de frío y de congelado'),
+                  _zona('guardian'),
+                  _zona('kenfield', donde='Accesos a cámaras y zonas de carga')],
+        'destacado': ('htf', 'fyb', 'HTF Compact ECO en una planta de alimentos (Francia)'),
+        'faq': [('¿Hay que detener la operación para instalar?', 'No. HTF Compact ECO se dosifica con el chiller funcionando, los filtros CNT no requieren intervenir el equipo y el control de Guardian se instala en menos de 1 hora sin entrar a la cámara.'),
+                _FAQ_MEDICION,
+                ('¿Se puede partir con una sola cámara o un solo chiller?', 'Sí. Recomendamos un piloto en un equipo y escalar con los resultados medidos.')],
+        'cta': ('Agenda un diagnóstico en tu planta', 'Revisamos tu operación y te entregamos una estimación de ahorro y retorno.'),
+    },
+    'edificios': {
+        'archivo': 'industria-edificios.html',
+        'lead': 'Oficinas, centros comerciales, hoteles, clínicas y data centers gastan buena parte de su energía en climatización. Así la reducimos sin reemplazar los chillers.',
+        'zonas': [dict(_ZONA_HTF, ev='hoffman', titulo='La climatización consume de más', donde='Chillers y circuitos de agua helada',
+                       pasa='En chillers y sistemas HVAC, la eficiencia depende de qué tan rápido el agua transfiere el calor en los intercambiadores. Si esa transferencia es limitada, el compresor trabaja más tiempo y la alternativa habitual es ampliar o reemplazar equipos.')],
+        'destacado': ('htf', 'hoffman', 'HTF Compact ECO en un edificio municipal (EE.UU.)'),
+        'faq': [('¿Hay que detener la climatización para instalar?', 'No. HTF Compact ECO se dosifica con el sistema funcionando, mediante una bomba, sin detener ni modificar los equipos.'),
+                _FAQ_MEDICION,
+                ('¿Se puede partir con un solo edificio?', 'Sí. Recomendamos un piloto en un sistema y escalar con los resultados medidos.')],
+        'cta': ('Agenda un diagnóstico en tu edificio', 'Revisamos tu sistema de climatización y te entregamos una estimación de ahorro y retorno.'),
+    },
+}
+for _ind in INDUSTRIAS:
+    if _ind['id'] in PAGINAS_INDUSTRIA:
+        _ind['archivo'] = PAGINAS_INDUSTRIA[_ind['id']]['archivo']
