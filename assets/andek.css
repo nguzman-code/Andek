@@ -388,7 +388,7 @@ a { color: var(--pizarra); }
 
 /* Todos los textos justificados, con separación en sílabas para evitar espacios grandes.
    Quedan alineados a la izquierda los títulos, etiquetas, fuentes, botones y cifras. */
-p:not(.label):not(.fuentes):not(.form-estado):not(.card-resuelve):not(.hero-tema):not(.grafico-nota):not(.clientes-txt),
+p:not(.label):not(.fuentes):not(.form-estado):not(.card-resuelve):not(.hero-tema):not(.grafico-nota):not(.clientes-txt):not(.panel-desc),
 li:not(.tl-paso):not(.breadcrumb li),
 .cifra-txt { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 .breadcrumb li { text-align: left; }
@@ -500,7 +500,8 @@ li:not(.tl-paso):not(.breadcrumb li),
 .megamenu-col ul { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .megamenu-col li { text-align: left !important; }
 .nav .megamenu a { color: var(--profundo); border: 0; padding: 0; }
-.nav .megamenu-ind { font-family: var(--f-titulo); font-size: 15px; font-weight: 600; color: var(--pizarra); white-space: nowrap; }
+.nav .megamenu-ind { font-family: var(--f-titulo); font-size: 15px; font-weight: 600; color: var(--pizarra); line-height: 1.3; }
+.megamenu-ind .nw { white-space: nowrap; }
 .nav .megamenu-ind span { display: inline-block; transition: transform .2s ease; }
 .nav .megamenu-ind:hover span { transform: translateX(3px); }
 .nav .megamenu-col ul a { font-family: var(--f-dato); font-size: 14px; font-weight: 400; color: var(--pizarra-500); }
@@ -516,3 +517,6 @@ li:not(.tl-paso):not(.breadcrumb li),
   .nav .megamenu a.megamenu-ind { font-size: 15px; font-weight: 500; color: #C3CCCF; padding: 4px 0; }
 }
 @media (prefers-reduced-motion: reduce) { .megamenu, .nav-menu svg { transition: none; } }
+
+/* Descripción corta de cada industria sobre sus tarjetas */
+.tab-panel .panel-desc { margin: 0 0 24px; font-size: 16px; color: var(--pizarra-500); text-align: left; }
