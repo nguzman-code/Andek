@@ -415,7 +415,7 @@ ZONAS_SUPERMERCADOS = [
      'extra': ('Instalación', 'Sin intervenir el equipo, sin conexión eléctrica')},
     {'sol': 'gelclear', 'ev': 'qp34', 'titulo': 'Los drenajes de condensado se tapan', 'donde': 'Muebles refrigerados y climatización',
      'pasa': 'En las bandejas y drenajes de condensado se forma biofilm. Los drenajes se tapan, aparecen malos olores y fallas en los equipos.',
-     'hacemos': 'Ponemos una tableta en la bandeja de cada equipo. Se disuelve con el agua de condensado y protege todo el drenaje contra el biofilm. En equipos nuevos o recambios de drenaje, la tubería BioPipe evita que el biofilm se adhiera desde el origen.',
+     'hacemos': 'Ponemos una tableta en la bandeja de cada equipo. Se disuelve con el agua de condensado y protege todo el drenaje contra el biofilm.',
      'extra': ('Instalación', 'Una tableta por equipo, una vez al año')},
 ]
 
@@ -451,8 +451,8 @@ _ZONA_BIOPIPE = {'sol': 'biopipe', 'ev': 'fugas', 'titulo': 'Los drenajes se tap
                  'hacemos': 'Instalamos tubería de drenaje BioPipe, cuya superficie impide que el biofilm se adhiera. Sin químicos ni reaplicaciones.',
                  'extra': ('Duración', 'Toda la vida útil de la tubería')}
 
-_ZONA_HTF = {'sol': 'htf', 'ev': 'quercy', 'titulo': 'Los chillers de proceso consumen de más',
-             'donde': 'Chillers y circuitos de agua de proceso',
+_ZONA_HTF = {'sol': 'htf', 'ev': 'hoffman', 'titulo': 'Los chillers y la climatización consumen de más',
+             'donde': 'Chillers y circuitos de agua',
              'pasa': 'La eficiencia del chiller depende de qué tan rápido el agua, o el agua con glicol, transfiere el calor. Si esa transferencia es limitada, el compresor trabaja más tiempo para lograr la misma temperatura.',
              'hacemos': 'Agregamos HTF Compact ECO al circuito: un nanofluido que mejora el intercambio de calor. Se dosifica con el sistema funcionando, sin detener ni modificar los equipos.',
              'extra': ('Instalación', 'Con el sistema en operación')}
@@ -461,9 +461,18 @@ _FAQ_MEDICION = ('¿Cómo se mide el resultado?', 'Antes de instalar medimos una
 _FAQ_FRIO = ('¿Hay que detener la operación para instalar?', 'No. Los filtros CNT no requieren intervenir el equipo y el control de Guardian se instala en menos de 1 hora sin entrar a la cámara. Coordinamos cada instalación con tu equipo de operaciones.')
 
 PAGINAS_INDUSTRIA = {
+    'supermercados': {
+        'archivo': 'industria-supermercados.html',
+        'lead': 'Tecnologías que bajan el consumo de energía, las fallas y la merma en supermercados y tiendas de conveniencia. Todas se instalan sin reemplazar los equipos de frío.',
+        'destacado': ('aerofoil', 'calnext', 'Aerofoil en supermercados de California'),
+        'faq': [('¿Hay que cerrar la tienda para instalar?', 'No. Aerofoil se instala de noche sin cortar la energía, Clarifoil toma 15–20 minutos por puerta y los filtros CNT no requieren intervenir el equipo. Coordinamos cada instalación con el equipo de operaciones.'),
+                _FAQ_MEDICION,
+                ('¿Se puede partir con una sola tienda?', 'Sí. Recomendamos un piloto en un local o en un grupo de muebles, y escalar con los resultados medidos.')],
+        'cta': ('Agenda un diagnóstico en tu tienda', 'Revisamos tu operación y te entregamos una estimación de ahorro y retorno.'),
+    },
     'food': {
         'archivo': 'industria-food-service.html',
-        'lead': 'Tres puntos donde una cocina, restaurante o casino pierde energía, producto u horas de mantenimiento en su cadena de frío, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.',
+        'lead': 'Tecnologías que bajan el consumo de energía, las fallas y la merma en la cadena de frío de cocinas, restaurantes y casinos. Todas se instalan sin reemplazar los equipos de frío.',
         'zonas': [_zona('cnt', 'mcdonalds', donde='Cámaras y congeladores de la cocina'),
                   _zona('kenfield', donde='Accesos a cámaras de frío y bodegas'),
                   _zona('guardian')],
@@ -473,7 +482,7 @@ PAGINAS_INDUSTRIA = {
     },
     'frigorificos': {
         'archivo': 'industria-frigorificos.html',
-        'lead': 'Cuatro puntos donde una bodega refrigerada o centro de frío pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.',
+        'lead': 'Tecnologías que bajan el consumo de energía, las fallas y la merma en bodegas refrigeradas y centros de frío. Todas se instalan sin reemplazar los equipos de frío.',
         'zonas': [_zona('cnt', donde='Cámaras de frío y de congelado'),
                   _zona('kenfield', donde='Accesos a cámaras y zonas de carga'),
                   _zona('guardian'),
@@ -484,7 +493,7 @@ PAGINAS_INDUSTRIA = {
     },
     'agro': {
         'archivo': 'industria-agroindustria.html',
-        'lead': 'Cuatro puntos donde un packing, central frutícola o planta de proceso pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos.',
+        'lead': 'Tecnologías que bajan el consumo de energía, las fallas y la merma en packings, centrales frutícolas y plantas de proceso. Todas se instalan sin reemplazar los equipos.',
         'zonas': [_ZONA_HTF,
                   _zona('cnt', donde='Cámaras de frío y de congelado'),
                   _zona('guardian'),
@@ -510,3 +519,9 @@ PAGINAS_INDUSTRIA = {
 for _ind in INDUSTRIAS:
     if _ind['id'] in PAGINAS_INDUSTRIA:
         _ind['archivo'] = PAGINAS_INDUSTRIA[_ind['id']]['archivo']
+
+
+# Una sola tarjeta por marca en las páginas de industria (se repite igual en cada industria donde aplica)
+DETALLE_SOLUCION = {z['sol']: z for z in ZONAS_SUPERMERCADOS}
+DETALLE_SOLUCION['biopipe'] = _ZONA_BIOPIPE
+DETALLE_SOLUCION['htf'] = _ZONA_HTF
