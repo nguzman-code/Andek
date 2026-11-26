@@ -400,8 +400,7 @@ li:not(.tl-paso):not(.breadcrumb li),
 .clientes-pista { display: flex; width: max-content; animation: clientes-mover 36s linear infinite; }
 .clientes-lista { display: flex; align-items: center; gap: 72px; margin: 0; padding: 0 36px; list-style: none; }
 .clientes-lista li { flex: none; text-align: left; }
-.clientes-lista img { display: block; width: auto; filter: grayscale(1); opacity: .8; transition: filter .3s ease, opacity .3s ease; }
-.clientes-lista img:hover { filter: none; opacity: 1; }
+.clientes-lista img { display: block; width: auto; }
 @keyframes clientes-mover { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .clientes-pista { animation: none; width: auto; flex-wrap: wrap; }
