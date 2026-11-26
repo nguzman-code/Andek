@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from sitio_datos import (AREAS, ORDEN, SOL, TARJETAS, INDUSTRIAS, ZONAS_SUPERMERCADOS,  # noqa: E402
                          CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS,
                          MAPA_DESTINO, MAPA_ORIGENES, CLIENTES, PAGINAS_INDUSTRIA,
-                         DETALLE_SOLUCION)
+                         DETALLE_SOLUCION, HERO_DATO, HERO_CIFRAS)
 
 RAIZ = Path(__file__).resolve().parent.parent
 e = html.escape
@@ -183,8 +183,7 @@ def cta_banda(titulo, texto, boton='Contactar'):
 
 # Foto propia para tarjetas que no usan la foto principal de su solución
 FOTO_TARJETA = {'sentry': ('/assets/img/fichas/guardian-door-sentry.webp', 'Alarma de puerta Door Sentry de Guardian Controls'),
-                # Temporal, hasta tener fotos de Kenfield en alta resolución
-                'kenfield': ('/assets/img/fichas/kenfield-tarjeta.webp', 'Operaria pasando por una puerta Kenfield K750 con una bandeja')}
+}
 
 
 def logo(sol):
@@ -531,7 +530,43 @@ def ficha(clave):
 
 # ---------- Industria: Supermercados ----------
 
-def industria_pagina(iid):
+def hero_cifras(iid, sols):
+    """Opción A del hero: tres resultados con su marca y fuente."""
+    filas = HERO_CIFRAS.get(iid) or [(s, HERO_DATO[s][0], HERO_DATO[s][1]) for s in sols[:3]]
+    items = []
+    for s, eid, txt in filas:
+        c = ev(s, eid)
+        items.append(f'''<li><span class="hi-num" data-contar>{e(c['num'])}</span><span class="hi-txt">{e(txt)}</span><span class="hi-fuente"><strong>{e(SOL[s]['nombre'])}</strong> · Fuente: {e(c['fuente'])}</span></li>''')
+    return f'''<div class="hi-bloque">
+          <p class="label">Resultados de nuestras tecnologías</p>
+          <ul class="hi-cifras">{''.join(items)}</ul>
+        </div>'''
+
+
+def hero_vitrina(sols):
+    """Opción B del hero: vitrina que rota por las marcas de la industria."""
+    items, botones = [], []
+    for i, s in enumerate(sols):
+        eid, txt = HERO_DATO[s]
+        c = ev(s, eid)
+        foto, alt = FOTO_TARJETA.get(s) or SOL[s]['img']
+        activo = ' is-activo' if i == 0 else ''
+        items.append(f'''<a class="vitrina-item{activo}" href="#sol-{s}"{"" if i == 0 else ' tabindex="-1" aria-hidden="true"'}>
+            <img class="vitrina-foto" src="{foto}" alt="{e(alt)}"{"" if i == 0 else ' loading="lazy"'} width="800" height="600">
+            <span class="vitrina-logo">{logo_html(s, "vitrina-logo-img", 2400, 30)}</span>
+            <span class="vitrina-dato"><span class="vitrina-num">{e(c['num'])}</span><span class="vitrina-txt">{e(txt)}</span><span class="vitrina-fuente">Fuente: {e(c['fuente'])}</span></span>
+          </a>''')
+        botones.append(f'<button type="button" class="{"is-activo" if i == 0 else ""}" aria-label="Ver {e(SOL[s]["nombre"])}"><span></span></button>')
+    nav = f'<div class="vitrina-nav">{"".join(botones)}</div>' if len(sols) > 1 else ''
+    return f'''<div class="vitrina" data-vitrina>
+          <div class="vitrina-marco">
+          {"".join(items)}
+          </div>
+          {nav}
+        </div>'''
+
+
+def industria_pagina(iid, hero='logos'):
     ind = next(i for i in INDUSTRIAS if i['id'] == iid)
     pg = PAGINAS_INDUSTRIA[iid]
     sols = soluciones_de(ind)
@@ -541,6 +576,15 @@ def industria_pagina(iid):
     boton = f'Ver las {n} soluciones' if n > 1 else f'Ver la solución'
     sol_d, ev_d, titulo_d = pg['destacado']
     d = ev(sol_d, ev_d)
+    if hero == 'cifras':
+        lado = hero_cifras(iid, sols)
+    elif hero == 'vitrina':
+        lado = hero_vitrina(sols)
+    else:
+        lado = f'''<div class="logos-industria{" logos-industria--uno" if n == 1 else ""}">
+          <p class="label">Tecnologías que aplicamos</p>
+          <ul>{logos}</ul>
+        </div>'''
     faq = ''.join(f'<details{" open" if i == 0 else ""}><summary>{e(q)}</summary><p>{e(r)}</p></details>' for i, (q, r) in enumerate(pg['faq']))
     cuerpo = f'''<section class="hero on-dark">
   {TRAMA}
@@ -548,16 +592,13 @@ def industria_pagina(iid):
 {cabecera('/')}
     <div class="hero-body hero-body--interior">
       <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Industrias</a></li><li aria-current="page">{e(ind['nombre'])}</li></ol></nav>
-      <div class="hero-industria">
+      <div class="hero-industria hero-industria--{hero}">
         <div class="hero-industria-texto">
           <h1 class="h-display h-ficha">{e(ind['nombre'])}</h1>
           <p class="lead">{e(pg['lead'])}</p>
           <div><a class="btn btn-blanco" href="#soluciones-industria">{boton}</a></div>
         </div>
-        <div class="logos-industria{" logos-industria--uno" if n == 1 else ""}">
-          <p class="label">Tecnologías que aplicamos</p>
-          <ul>{logos}</ul>
-        </div>
+        {lado}
       </div>
     </div>
   </div>
@@ -613,7 +654,11 @@ def main():
         print('ficha', SOL[k]['archivo'])
     for iid, pg in PAGINAS_INDUSTRIA.items():
         (RAIZ / pg['archivo']).write_text(industria_pagina(iid), encoding='utf-8')
-    print('industria-supermercados.html')
+    # Vistas previas de las dos opciones de hero (no indexadas)
+    for letra, var in (('a', 'cifras'), ('b', 'vitrina')):
+        html = industria_pagina('supermercados', var).replace('<head>', '<head>\n  <meta name="robots" content="noindex">', 1)
+        (RAIZ / f'industria-supermercados-hero-{letra}.html').write_text(html, encoding='utf-8')
+    print('industrias y vistas previas del hero')
     reemplazar_bloques(RAIZ / 'index.html', {
         'ICONOS': ICONOS, 'CABECERA': cabecera(''), 'CIFRAS': cifras(), 'AREAS': areas(),
         'PANELES': paneles(), 'EVIDENCIA': evidencia_portada(), 'MAPA': mapa(), 'CLIENTES': clientes(), 'PIE': pie(),
