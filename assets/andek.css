@@ -457,3 +457,45 @@ li:not(.tl-paso):not(.breadcrumb li),
 .puntos-lista .marcador { flex: none; }
 .puntos-txt { display: flex; flex-direction: column; gap: 2px; font-family: var(--f-titulo); font-size: 17px; font-weight: 500; line-height: 1.3; }
 .puntos-txt small { font-family: var(--f-dato); font-size: 13px; font-weight: 400; color: var(--niebla); }
+
+/* Páginas de industria: hero con logos de las marcas */
+.hero-industria-texto { display: flex; flex-direction: column; gap: 22px; }
+.hero-industria-quien { margin: 0; font-size: 15px; color: #C3CCCF; text-align: left !important; }
+.logos-industria { padding: 28px; border-radius: var(--r); background: #fff; }
+.logos-industria .label { margin: 0 0 18px; color: var(--pizarra-500); }
+.logos-industria ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.logos-industria li { text-align: left !important; border-top: 1px solid var(--linea); }
+.logos-industria li:nth-child(-n+2) { border-top: 0; }
+.logos-industria li:nth-child(odd) { border-right: 1px solid var(--linea); }
+.logos-industria a { display: flex; align-items: center; justify-content: center; min-height: 88px; padding: 14px; transition: background .2s ease; }
+.logos-industria a:hover { background: var(--blanco); }
+.logo-industria { display: block; width: auto; max-width: 100%; object-fit: contain; }
+.logos-industria--uno ul { grid-template-columns: 1fr; }
+.logos-industria--uno li { border-right: 0 !important; }
+
+/* Páginas de industria: una tarjeta por marca */
+.sol-lista { display: flex; flex-direction: column; gap: 24px; }
+.sol-card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); overflow: hidden; border: 1px solid var(--linea); border-radius: var(--r); background: #fff; scroll-margin-top: 24px; transition: border-color .3s ease; }
+.sol-card:hover { border-color: var(--pizarra-500); }
+.sol-card:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.sol-card:nth-child(even) .sol-foto { order: 2; }
+.sol-foto { min-height: 100%; background: var(--hielo); }
+.sol-foto img { display: block; width: 100%; height: 100%; min-height: 320px; object-fit: cover; }
+.sol-cuerpo { display: flex; flex-direction: column; gap: 18px; padding: 32px 36px; }
+.sol-marca { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.sol-titulo { margin: 0; font-family: var(--f-titulo); font-size: 24px; font-weight: 600; line-height: 1.25; color: var(--pizarra); text-align: left !important; }
+.sol-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.sol-cols p { margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--pizarra-500); }
+.sol-datos { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 24px; align-items: start; padding: 20px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.sol-cifra { display: flex; flex-direction: column; gap: 4px; }
+.sol-cifra .cifra-txt { text-align: left !important; -webkit-hyphens: manual; hyphens: manual; }
+.logos-industria--uno a { min-height: 140px; }
+.sol-extra { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--pizarra); }
+.sol-cuerpo .link-flecha { align-self: flex-start; }
+@media (max-width: 900px) {
+  .sol-card, .sol-card:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .sol-card:nth-child(even) .sol-foto { order: 0; }
+  .sol-foto img { min-height: 0; aspect-ratio: 16 / 9; height: auto; }
+  .sol-cuerpo { padding: 24px; }
+  .sol-cols, .sol-datos { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+}
