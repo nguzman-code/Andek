@@ -316,7 +316,7 @@ a { color: var(--pizarra); }
 .como-lista b { color: var(--pizarra); font-weight: 600; }
 
 /* Línea de tiempo: cómo trabajamos */
-.timeline { margin-top: 56px; --tl-duracion: 4.5s; }
+.timeline { margin-top: 56px; --tl-duracion: 3s; }
 .tl-pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .tl-paso { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .tl-cabeza { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; padding-right: 14px; }
