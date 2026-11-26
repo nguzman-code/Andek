@@ -17,7 +17,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from sitio_datos import (AREAS, ORDEN, SOL, TARJETAS, INDUSTRIAS, ZONAS_SUPERMERCADOS,  # noqa: E402
                          CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS,
-                         MAPA_DESTINO, MAPA_ORIGENES, CLIENTES)
+                         MAPA_DESTINO, MAPA_ORIGENES, CLIENTES, PAGINAS_INDUSTRIA)
 
 RAIZ = Path(__file__).resolve().parent.parent
 e = html.escape
@@ -548,7 +548,7 @@ def industria_supermercados():
   <div class="container">
 {cabecera('/')}
     <div class="hero-body hero-body--interior">
-      <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Soluciones</a></li><li aria-current="page">Supermercados</li></ol></nav>
+      <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Industrias</a></li><li aria-current="page">Supermercados</li></ol></nav>
       <div class="hero-industria">
         <div>
           <h1 class="h-display h-ficha">Supermercados</h1>
@@ -609,11 +609,106 @@ def industria_supermercados():
                      cuerpo)
 
 
+def zona_html(n, z):
+    s, c = SOL[z['sol']], ev(z['sol'], z['ev'])
+    k, v = z['extra']
+    return f'''    <article class="zona" id="punto-{n}">
+      <div class="zona-titulo"><span class="marcador">{n}</span><div><h3>{e(z['titulo'])}</h3><span class="zona-donde">{e(z['donde'])}</span></div></div>
+      <div class="zona-cuerpo">
+        <div class="zona-col"><span class="label">Qué pasa</span><p>{e(z['pasa'])}</p></div>
+        <div class="zona-col"><span class="label">Qué hacemos</span><p>{e(z['hacemos'])}</p></div>
+        <div class="zona-dato">
+          <div><span class="cifra-num">{e(c['num'])}</span><span class="cifra-txt">{e(c['titulo'])}</span><span class="fuente">Fuente: {e(c['fuente'])}</span></div>
+          <div class="extra"><span class="label">{e(k)}</span><span>{e(v)}</span></div>
+          <div class="pie"><span class="marca">{e(s['nombre'])}</span><a class="link-flecha" href="/{s['archivo']}">Ver la ficha →</a></div>
+        </div>
+      </div>
+    </article>'''
+
+
+NUMEROS = {1: 'un punto', 2: 'dos puntos', 3: 'tres puntos', 4: 'cuatro puntos', 5: 'cinco puntos'}
+
+
+def industria_pagina(iid):
+    ind = next(i for i in INDUSTRIAS if i['id'] == iid)
+    pg = PAGINAS_INDUSTRIA[iid]
+    zonas = pg['zonas']
+    lista = ''.join(f'<li><a href="#punto-{n}"><span class="marcador">{n}</span><span class="puntos-txt">{e(z["titulo"])}<small>{e(z["donde"])}</small></span></a></li>'
+                    for n, z in enumerate(zonas, 1))
+    boton = f'Ver los {NUMEROS[len(zonas)]}' if len(zonas) > 1 else 'Ver cómo lo hacemos'
+    sol_d, ev_d, titulo_d = pg['destacado']
+    d = ev(sol_d, ev_d)
+    faq = ''.join(f'<details{" open" if i == 0 else ""}><summary>{e(q)}</summary><p>{e(r)}</p></details>' for i, (q, r) in enumerate(pg['faq']))
+    cuerpo = f'''<section class="hero on-dark">
+  {TRAMA}
+  <div class="container">
+{cabecera('/')}
+    <div class="hero-body hero-body--interior">
+      <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Industrias</a></li><li aria-current="page">{e(ind['nombre'])}</li></ol></nav>
+      <div class="hero-industria">
+        <div>
+          <h1 class="h-display h-ficha">{e(ind['nombre'])}</h1>
+          <p class="lead">{e(pg['lead'])}</p>
+          <div><a class="btn btn-outline-claro" href="#puntos">{boton}</a></div>
+        </div>
+        <div class="puntos-resumen">
+          <p class="label">{e(ind['descripcion'])}</p>
+          <ol class="puntos-lista">{lista}</ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="section" id="puntos">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:32px">
+      <p class="label">{'Puntos de pérdida' if len(zonas) > 1 else 'Punto de pérdida'}</p>
+      <h2 class="h1">{'Qué pasa y qué hacemos en cada punto' if len(zonas) > 1 else 'Qué pasa y qué hacemos'}</h2>
+    </div>
+{chr(10).join(zona_html(n, z) for n, z in enumerate(zonas, 1))}
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" aria-label="Evidencia">
+  <div class="container">
+    <div class="destacado on-dark">
+      <div>
+        <p class="label">{e(d['tipo'])}</p>
+        <h2 class="h2">{e(titulo_d)}</h2>
+        <p>{e(d['detalle'])}</p>
+        <a class="link-flecha" href="/{SOL[sol_d]['archivo']}#evidencia">Ver el caso completo →</a>
+      </div>
+      <div class="destacado-cifras">
+        <div><span class="ev-num ev-num--senal">{e(d['num'])}</span><span class="ev-titulo">{e(d['titulo'])}</span></div>
+        <span class="fuente" style="flex-basis:100%;color:var(--niebla)">Fuente: {e(d['fuente'])}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" aria-label="Preguntas frecuentes">
+  <div class="container">
+    <div class="faq">
+      <h2 class="h2">Preguntas frecuentes</h2>
+      <div>{faq}</div>
+    </div>
+  </div>
+</section>
+
+{cta_banda(*pg['cta'])}
+</main>'''
+    return documento(f'{ind["nombre"]} | Andek Solutions', pg['lead'], cuerpo)
+
+
 def main():
     for k in ORDEN:
         (RAIZ / SOL[k]['archivo']).write_text(ficha(k), encoding='utf-8')
         print('ficha', SOL[k]['archivo'])
     (RAIZ / 'industria-supermercados.html').write_text(industria_supermercados(), encoding='utf-8')
+    for iid, pg in PAGINAS_INDUSTRIA.items():
+        (RAIZ / pg['archivo']).write_text(industria_pagina(iid), encoding='utf-8')
     print('industria-supermercados.html')
     reemplazar_bloques(RAIZ / 'index.html', {
         'ICONOS': ICONOS, 'CABECERA': cabecera(''), 'CIFRAS': cifras(), 'AREAS': areas(),
