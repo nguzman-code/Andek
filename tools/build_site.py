@@ -17,7 +17,8 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from sitio_datos import (AREAS, ORDEN, SOL, TARJETAS, INDUSTRIAS, ZONAS_SUPERMERCADOS,  # noqa: E402
                          CIFRAS, EVIDENCIA_PORTADA, EVIDENCIA_SUPERMERCADOS,
-                         MAPA_DESTINO, MAPA_ORIGENES, CLIENTES, PAGINAS_INDUSTRIA)
+                         MAPA_DESTINO, MAPA_ORIGENES, CLIENTES, PAGINAS_INDUSTRIA,
+                         DETALLE_SOLUCION)
 
 RAIZ = Path(__file__).resolve().parent.parent
 e = html.escape
@@ -191,6 +192,45 @@ def logo(sol):
     with Image.open(ruta) as im:
         w, h = im.size
     return f'/assets/img/logos/{sol}.png', w, h
+
+
+def logo_html(sol, clase='card-logo', area=5200, tope=48):
+    src, lw, lh = logo(sol)
+    alto = max(26, min(tope, round((area / (lw / lh)) ** 0.5)))
+    return f'<img class="{clase}" src="{src}" alt="{e(SOL[sol]["nombre"])}" width="{lw}" height="{lh}" style="height:{alto}px">'
+
+
+def soluciones_de(ind):
+    sols = []
+    for k in ind['tarjetas']:
+        s = TARJETAS[k][0]
+        if s not in sols:
+            sols.append(s)
+    return sols
+
+
+def tarjeta_detalle(sol):
+    """Tarjeta de una marca en las páginas de industria. Es la misma en todas las industrias."""
+    s, z = SOL[sol], DETALLE_SOLUCION[sol]
+    c = ev(sol, z['ev'])
+    k, v = z['extra']
+    foto, alt = FOTO_TARJETA.get(sol) or s['img']
+    return f'''    <article class="sol-card" id="sol-{sol}">
+      <div class="sol-foto"><img src="{foto}" alt="{e(alt)}" loading="lazy" width="800" height="600"></div>
+      <div class="sol-cuerpo">
+        <div class="sol-marca"><h3 class="sr-only">{e(s['nombre'])}</h3>{logo_html(sol)}<span class="card-origen">{e(s['origen'])}</span></div>
+        <p class="sol-titulo">{e(z['titulo'])}</p>
+        <div class="sol-cols">
+          <div><span class="label">Qué pasa</span><p>{e(z['pasa'])}</p></div>
+          <div><span class="label">Qué hacemos</span><p>{e(z['hacemos'])}</p></div>
+        </div>
+        <div class="sol-datos">
+          <div class="sol-cifra"><span class="cifra-num">{e(c['num'])}</span><span class="cifra-txt">{e(c['titulo'])}</span><span class="fuente">Fuente: {e(c['fuente'])}</span></div>
+          <div class="sol-extra"><span class="label">{e(k)}</span><span>{e(v)}</span></div>
+        </div>
+        <a class="link-flecha" href="/{s['archivo']}">Ver la ficha de {e(s['nombre'])} →</a>
+      </div>
+    </article>'''
 
 
 def tarjeta(n, clave):
@@ -491,151 +531,14 @@ def ficha(clave):
 
 # ---------- Industria: Supermercados ----------
 
-PLANO = '''<figure class="plano">
-          <svg role="img" aria-label="Plano de un supermercado con siete puntos numerados: góndolas abiertas, puertas de vidrio de congelados, acceso a la cámara de frío, evaporador de la cámara, iluminación de vitrinas, hielo en la cámara y drenajes de condensado" viewBox="0 0 520 380" font-family="Inter, system-ui, sans-serif">
-            <rect x="20" y="20" width="480" height="340" rx="6" fill="#FFFFFF" stroke="#96A1A5" stroke-width="1.5"/>
-            <rect x="36" y="36" width="160" height="100" rx="4" fill="#E7EBEC" stroke="#5D7279" stroke-width="1.5"/>
-            <text x="50" y="122" font-size="11" fill="#2D444B" letter-spacing="1">CÁMARA DE FRÍO</text>
-            <rect x="50" y="48" width="66" height="18" rx="3" fill="#FFFFFF" stroke="#5D7279"/>
-            <circle cx="64" cy="57" r="5" fill="none" stroke="#2D444B" stroke-width="1.5"/>
-            <circle cx="83" cy="57" r="5" fill="none" stroke="#2D444B" stroke-width="1.5"/>
-            <circle cx="102" cy="57" r="5" fill="none" stroke="#2D444B" stroke-width="1.5"/>
-            <line x1="120" y1="136" x2="168" y2="136" stroke="#2D444B" stroke-width="5" stroke-linecap="round"/>
-            <rect x="36" y="160" width="30" height="184" rx="3" fill="#E7EBEC" stroke="#5D7279" stroke-width="1.5"/>
-            <text x="0" y="0" font-size="11" fill="#2D444B" letter-spacing="1" transform="translate(56 334) rotate(-90)">GÓNDOLAS ABIERTAS</text>
-            <rect x="150" y="196" width="210" height="28" rx="3" fill="#E7EBEC" stroke="#5D7279" stroke-width="1.5"/>
-            <path d="M176 196v28M202 196v28M228 196v28M254 196v28M280 196v28M306 196v28M332 196v28" stroke="#5D7279" stroke-width="1.2"/>
-            <text x="168" y="246" font-size="11" fill="#2D444B" letter-spacing="1">PUERTAS DE CONGELADOS</text>
-            <rect x="150" y="268" width="210" height="14" rx="3" fill="#E7EBEC"/>
-            <rect x="150" y="304" width="210" height="14" rx="3" fill="#E7EBEC"/>
-            <rect x="396" y="70" width="88" height="140" rx="4" fill="#E7EBEC" stroke="#5D7279" stroke-width="1.5"/>
-            <text x="408" y="228" font-size="11" fill="#2D444B" letter-spacing="1">VITRINAS</text>
-            <path d="M410 60l-6-10M440 58v-12M470 60l6-10" stroke="#5D7279" stroke-width="1.5" stroke-linecap="round"/>
-            <text x="418" y="344" font-size="11" fill="#5D7279" letter-spacing="1">ENTRADA</text>
-            <g><circle cx="88" cy="252" r="14" fill="#F2A93B"/><text x="88" y="257" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">1</text></g>
-            <g><circle cx="255" cy="180" r="14" fill="#F2A93B"/><text x="255" y="185" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">2</text></g>
-            <g><circle cx="144" cy="156" r="14" fill="#F2A93B"/><text x="144" y="161" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">3</text></g>
-            <g><circle cx="138" cy="57" r="14" fill="#F2A93B"/><text x="138" y="62" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">4</text></g>
-            <g><circle cx="440" cy="140" r="14" fill="#F2A93B"/><text x="440" y="145" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">5</text></g>
-            <g><circle cx="172" cy="92" r="14" fill="#F2A93B"/><text x="172" y="97" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">6</text></g>
-            <g><circle cx="88" cy="318" r="14" fill="#F2A93B"/><text x="88" y="323" font-size="13" font-weight="500" fill="#1B2B30" text-anchor="middle">7</text></g>
-          </svg>
-          <figcaption><span>1 Góndolas</span><span>2 Puertas de vidrio</span><span>3 Acceso a cámara</span><span>4 Evaporador</span><span>5 Iluminación</span><span>6 Hielo y humedad</span><span>7 Drenajes</span></figcaption>
-        </figure>'''
-
-
-def industria_supermercados():
-    zonas = []
-    for n, z in enumerate(ZONAS_SUPERMERCADOS, 1):
-        s, c = SOL[z['sol']], ev(z['sol'], z['ev'])
-        k, v = z['extra']
-        zonas.append(f'''    <article class="zona">
-      <div class="zona-titulo"><span class="marcador">{n}</span><div><h3>{e(z['titulo'])}</h3><span class="zona-donde">{e(z['donde'])}</span></div></div>
-      <div class="zona-cuerpo">
-        <div class="zona-col"><span class="label">Qué pasa</span><p>{e(z['pasa'])}</p></div>
-        <div class="zona-col"><span class="label">Qué hacemos</span><p>{e(z['hacemos'])}</p></div>
-        <div class="zona-dato">
-          <div><span class="cifra-num">{e(c['num'])}</span><span class="cifra-txt">{e(c['titulo'])}</span><span class="fuente">Fuente: {e(c['fuente'])}</span></div>
-          <div class="extra"><span class="label">{e(k)}</span><span>{e(v)}</span></div>
-          <div class="pie"><span class="marca">{e(s['nombre'])}</span><a class="link-flecha" href="/{s['archivo']}">Ver la ficha →</a></div>
-        </div>
-      </div>
-    </article>''')
-    sol_d, ev_d = EVIDENCIA_SUPERMERCADOS
-    d = ev(sol_d, ev_d)
-    cuerpo = f'''<section class="hero on-dark">
-  {TRAMA}
-  <div class="container">
-{cabecera('/')}
-    <div class="hero-body hero-body--interior">
-      <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Industrias</a></li><li aria-current="page">Supermercados</li></ol></nav>
-      <div class="hero-industria">
-        <div>
-          <h1 class="h-display h-ficha">Supermercados</h1>
-          <p class="lead">Siete puntos donde un supermercado o tienda de conveniencia pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno. Todas se instalan sin reemplazar los equipos de frío.</p>
-          <div><a class="btn btn-outline-claro" href="#puntos">Ver los siete puntos</a></div>
-        </div>
-        {PLANO}
-      </div>
-    </div>
-  </div>
-</section>
-
-<main>
-<section class="section" id="puntos">
-  <div class="container">
-    <div class="section-head" style="margin-bottom:32px">
-      <p class="label">Puntos de pérdida</p>
-      <h2 class="h1">Qué pasa y qué hacemos en cada punto</h2>
-    </div>
-{chr(10).join(zonas)}
-  </div>
-</section>
-
-<section class="section" style="padding-top:0" aria-label="Evidencia">
-  <div class="container">
-    <div class="destacado on-dark">
-      <div>
-        <p class="label">{e(d['tipo'])}</p>
-        <h2 class="h2">{e(SOL[sol_d]['nombre'])} en supermercados de California</h2>
-        <p>{e(d['detalle'])}</p>
-        <a class="link-flecha" href="/{SOL[sol_d]['archivo']}#evidencia">Ver el caso completo →</a>
-      </div>
-      <div class="destacado-cifras">
-        <div><span class="ev-num ev-num--senal">{e(d['num'])}</span><span class="ev-titulo">{e(d['titulo'])}</span></div>
-        <span class="fuente" style="flex-basis:100%;color:var(--niebla)">Fuente: {e(d['fuente'])}</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0" aria-label="Preguntas frecuentes">
-  <div class="container">
-    <div class="faq">
-      <h2 class="h2">Preguntas frecuentes</h2>
-      <div>
-        <details open><summary>¿Hay que cerrar la tienda para instalar?</summary><p>No. Aerofoil se instala de noche sin cortar la energía, Clarifoil toma 15–20 minutos por puerta y los filtros CNT no requieren intervenir el equipo. Coordinamos cada instalación con el equipo de operaciones.</p></details>
-        <details><summary>¿Cómo se mide el resultado?</summary><p>Antes de instalar medimos una línea base de consumo, fallas o mantenimiento, según el caso. Después del piloto comparamos contra esa misma medición.</p></details>
-        <details><summary>¿Se puede partir con una sola tienda?</summary><p>Sí. Recomendamos un piloto en un local o en un grupo de muebles, y escalar con los resultados medidos.</p></details>
-      </div>
-    </div>
-  </div>
-</section>
-
-{cta_banda('Agenda un diagnóstico en tu tienda', 'Revisamos tu operación y te entregamos una estimación de ahorro y retorno.')}
-</main>'''
-    return documento('Supermercados | Andek Solutions',
-                     'Siete puntos donde un supermercado pierde energía, producto u horas de mantenimiento, y la tecnología que aplicamos en cada uno.',
-                     cuerpo)
-
-
-def zona_html(n, z):
-    s, c = SOL[z['sol']], ev(z['sol'], z['ev'])
-    k, v = z['extra']
-    return f'''    <article class="zona" id="punto-{n}">
-      <div class="zona-titulo"><span class="marcador">{n}</span><div><h3>{e(z['titulo'])}</h3><span class="zona-donde">{e(z['donde'])}</span></div></div>
-      <div class="zona-cuerpo">
-        <div class="zona-col"><span class="label">Qué pasa</span><p>{e(z['pasa'])}</p></div>
-        <div class="zona-col"><span class="label">Qué hacemos</span><p>{e(z['hacemos'])}</p></div>
-        <div class="zona-dato">
-          <div><span class="cifra-num">{e(c['num'])}</span><span class="cifra-txt">{e(c['titulo'])}</span><span class="fuente">Fuente: {e(c['fuente'])}</span></div>
-          <div class="extra"><span class="label">{e(k)}</span><span>{e(v)}</span></div>
-          <div class="pie"><span class="marca">{e(s['nombre'])}</span><a class="link-flecha" href="/{s['archivo']}">Ver la ficha →</a></div>
-        </div>
-      </div>
-    </article>'''
-
-
-NUMEROS = {1: 'un punto', 2: 'dos puntos', 3: 'tres puntos', 4: 'cuatro puntos', 5: 'cinco puntos'}
-
-
 def industria_pagina(iid):
     ind = next(i for i in INDUSTRIAS if i['id'] == iid)
     pg = PAGINAS_INDUSTRIA[iid]
-    zonas = pg['zonas']
-    lista = ''.join(f'<li><a href="#punto-{n}"><span class="marcador">{n}</span><span class="puntos-txt">{e(z["titulo"])}<small>{e(z["donde"])}</small></span></a></li>'
-                    for n, z in enumerate(zonas, 1))
-    boton = f'Ver los {NUMEROS[len(zonas)]}' if len(zonas) > 1 else 'Ver cómo lo hacemos'
+    sols = soluciones_de(ind)
+    n = len(sols)
+    area, tope = (14000, 80) if n == 1 else (4200, 48)
+    logos = ''.join(f'<li><a href="#sol-{s}" aria-label="{e(SOL[s]["nombre"])}">{logo_html(s, "logo-industria", area, tope)}</a></li>' for s in sols)
+    boton = f'Ver las {n} soluciones' if n > 1 else f'Ver la solución'
     sol_d, ev_d, titulo_d = pg['destacado']
     d = ev(sol_d, ev_d)
     faq = ''.join(f'<details{" open" if i == 0 else ""}><summary>{e(q)}</summary><p>{e(r)}</p></details>' for i, (q, r) in enumerate(pg['faq']))
@@ -646,14 +549,14 @@ def industria_pagina(iid):
     <div class="hero-body hero-body--interior">
       <nav aria-label="Ruta"><ol class="breadcrumb"><li><a href="/">Inicio</a></li><li><a href="/#soluciones">Industrias</a></li><li aria-current="page">{e(ind['nombre'])}</li></ol></nav>
       <div class="hero-industria">
-        <div>
+        <div class="hero-industria-texto">
           <h1 class="h-display h-ficha">{e(ind['nombre'])}</h1>
           <p class="lead">{e(pg['lead'])}</p>
-          <div><a class="btn btn-outline-claro" href="#puntos">{boton}</a></div>
+          <div><a class="btn btn-blanco" href="#soluciones-industria">{boton}</a></div>
         </div>
-        <div class="puntos-resumen">
-          <p class="label">{e(ind['descripcion'])}</p>
-          <ol class="puntos-lista">{lista}</ol>
+        <div class="logos-industria{" logos-industria--uno" if n == 1 else ""}">
+          <p class="label">Tecnologías que aplicamos</p>
+          <ul>{logos}</ul>
         </div>
       </div>
     </div>
@@ -661,13 +564,15 @@ def industria_pagina(iid):
 </section>
 
 <main>
-<section class="section" id="puntos">
+<section class="section" id="soluciones-industria">
   <div class="container">
     <div class="section-head" style="margin-bottom:32px">
-      <p class="label">{'Puntos de pérdida' if len(zonas) > 1 else 'Punto de pérdida'}</p>
-      <h2 class="h1">{'Qué pasa y qué hacemos en cada punto' if len(zonas) > 1 else 'Qué pasa y qué hacemos'}</h2>
+      <p class="label">Soluciones para {e(ind['nombre'].lower())}</p>
+      <h2 class="h1">Qué pasa y qué hacemos</h2>
     </div>
-{chr(10).join(zona_html(n, z) for n, z in enumerate(zonas, 1))}
+    <div class="sol-lista">
+{chr(10).join(tarjeta_detalle(s) for s in sols)}
+    </div>
   </div>
 </section>
 
@@ -706,7 +611,6 @@ def main():
     for k in ORDEN:
         (RAIZ / SOL[k]['archivo']).write_text(ficha(k), encoding='utf-8')
         print('ficha', SOL[k]['archivo'])
-    (RAIZ / 'industria-supermercados.html').write_text(industria_supermercados(), encoding='utf-8')
     for iid, pg in PAGINAS_INDUSTRIA.items():
         (RAIZ / pg['archivo']).write_text(industria_pagina(iid), encoding='utf-8')
     print('industria-supermercados.html')
