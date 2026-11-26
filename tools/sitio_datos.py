@@ -88,7 +88,7 @@ SOL = {
             'iso': {'num': 'Hasta 99,999 %', 'titulo': 'de efectividad contra el crecimiento de bacterias en la superficie', 'detalle': 'Ensayo según ISO 22196, que mide la actividad antibacteriana en plásticos.', 'fuente': 'Bio Products Group, ensayo ISO 22196', 'tipo': 'Ensayo de laboratorio'},
         },
         'hero_ev': ['fugas', 'payback'],
-        'aplicaciones': ['supermercados', 'cd', 'edificios'],
+        'aplicaciones': ['supermercados', 'frigorificos'],
     },
     'clarifoil': {
         'nombre': 'Clarifoil', 'corto': 'Clarifoil', 'origen': 'Reino Unido', 'archivo': 'solucion-clarifoil.html', 'icono': 'vidrio',
@@ -166,7 +166,7 @@ SOL = {
             'mcdonalds': {'num': '11–49 %', 'titulo': 'menos consumo de energía en congelador (11 %) y cámara de frío (49 %)', 'detalle': 'Tiempo de compresor entre 8 % y 43 % menor, con temperaturas más estables.', 'fuente': 'CNT Technology, caso McDonald’s (Alemania)', 'tipo': 'Caso del fabricante'},
         },
         'hero_ev': ['rewe', 'mcdonalds'],
-        'aplicaciones': ['supermercados', 'food', 'cd', 'agro'],
+        'aplicaciones': ['supermercados', 'food', 'frigorificos', 'agro'],
     },
 
     'gelclear': {
@@ -201,7 +201,7 @@ SOL = {
             'qp34': {'num': '1 año', 'titulo': 'de protección con una tableta por equipo (QP34)', 'detalle': 'Sus fórmulas EVAP-TAB y TGS18 protegen 6 meses.', 'fuente': 'Gel-clear (fabricante)', 'tipo': 'Dato del fabricante'},
         },
         'hero_ev': ['qp34'],
-        'aplicaciones': ['supermercados', 'food', 'edificios'],
+        'aplicaciones': ['supermercados'],
     },
 
     'guardian': {
@@ -239,7 +239,7 @@ SOL = {
             'unidades': {'num': '+5.000', 'titulo': 'unidades FSO instaladas en supermercados del Reino Unido', 'detalle': '', 'fuente': 'Guardian Controls (fabricante)', 'tipo': 'Dato del fabricante'},
         },
         'hero_ev': ['fso', 'sentry'],
-        'aplicaciones': ['supermercados', 'food', 'cd', 'agro'],
+        'aplicaciones': ['supermercados', 'food', 'frigorificos', 'agro'],
     },
 
     'htf': {
@@ -275,7 +275,7 @@ SOL = {
             'fyb': {'num': '22 %', 'titulo': 'menos consumo del chiller en una planta de alimentos', 'detalle': 'Seis meses de monitoreo. En una cámara de frío enfriada por chiller: 13 % menos en dos meses.', 'fuente': 'TCT Nanotech, caso industria de alimentos (Francia)', 'tipo': 'Caso del fabricante'},
         },
         'hero_ev': ['hoffman', 'quercy'],
-        'aplicaciones': ['cd', 'agro', 'edificios'],
+        'aplicaciones': ['agro', 'edificios'],
     },
 
     'kenfield': {
@@ -315,7 +315,7 @@ SOL = {
             'puertas': {'num': '+40.000', 'titulo': 'puertas Kenfield suministradas a supermercados', 'detalle': 'Tesco, Sainsbury’s, Aldi y Farmfoods las especifican desde hace años.', 'fuente': 'Kenfield, en The Grocer (Reino Unido)', 'tipo': 'Fabricante'},
         },
         'hero_ev': ['warwick'],
-        'aplicaciones': ['supermercados', 'food', 'cd', 'agro'],
+        'aplicaciones': ['supermercados', 'food', 'frigorificos', 'agro'],
     },
 
     'nualight': {
@@ -367,6 +367,7 @@ TARJETAS = {
     'clarifoil': ('clarifoil', '', 'Puertas de vidrio que se empañan', 'Láminas anti-empañamiento en el interior del vidrio. El producto queda visible y el heater baja a 15–20 % de operación.', ['Energía', 'Exhibición'], 'ahorro'),
     'kenfield': ('kenfield', '', 'Cortinas de PVC que dejan pasar calor', 'Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.', ['Energía', 'Mantenimiento', 'Personal'], 'warwick'),
     'nualight': ('nualight', '', 'Luminarias que consumen y calientan el mueble', 'LED con espectro por categoría, menos calor dentro del mueble y larga vida útil.', ['Mantenimiento', 'Energía', 'Exhibición'], 'vida'),
+    'guardian': ('guardian', '', 'Ventiladores a tope y puertas de cámara abiertas', 'Control que ajusta los ventiladores del evaporador según la demanda y alarma de puerta abierta. Menos consumo y producto protegido.', [], 'fso'),
     'fso': ('guardian', 'FSO', 'Ventiladores de evaporador siempre a tope', 'Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.', ['Energía', 'Mantenimiento'], 'fso'),
     'sentry': ('guardian', 'Door Sentry', 'Puertas de cámara que quedan abiertas', 'Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.', ['Seguridad', 'Producto', 'Energía'], 'sentry'),
     'cnt': ('cnt', '', 'Hielo y fallas en congeladores y cámaras', 'Filtros moleculares que regulan la humedad sin electricidad. Menos hielo, descongelamientos más cortos y menos horas sacando hielo.', ['Fallas', 'Mantenimiento', 'Personal', 'Producto'], 'rewe'),
@@ -378,12 +379,12 @@ TARJETAS = {
 }
 
 INDUSTRIAS = [
-    {'id': 'supermercados', 'nombre': 'Supermercados', 'archivo': 'industria-supermercados.html',
-     'tarjetas': ['cnt', 'aerofoil', 'clarifoil', 'kenfield', 'gelclear', 'biopipe', 'fso', 'nualight']},
-    {'id': 'food', 'nombre': 'Food service', 'archivo': None, 'tarjetas': ['cntFood', 'kenfield', 'sentry', 'gelclear', 'fso']},
-    {'id': 'cd', 'nombre': 'Centros de distribución', 'archivo': None, 'tarjetas': ['cnt', 'kenfield', 'sentry', 'fso', 'biopipe', 'htfInd']},
-    {'id': 'agro', 'nombre': 'Agroindustria', 'archivo': None, 'tarjetas': ['htfInd', 'cnt', 'sentry', 'fso', 'kenfield']},
-    {'id': 'edificios', 'nombre': 'Edificios', 'archivo': None, 'tarjetas': ['htf', 'gelclear', 'biopipe']},
+    {'id': 'supermercados', 'descripcion': 'Supermercados, hipermercados y tiendas de conveniencia.', 'nombre': 'Supermercados', 'archivo': 'industria-supermercados.html',
+     'tarjetas': ['cnt', 'aerofoil', 'clarifoil', 'kenfield', 'gelclear', 'biopipe', 'guardian', 'nualight']},
+    {'id': 'food', 'descripcion': 'Restaurantes, cadenas de comida rápida, casinos y cocinas centrales.', 'nombre': 'Food service', 'archivo': None, 'tarjetas': ['cntFood', 'kenfield', 'guardian']},
+    {'id': 'frigorificos', 'descripcion': 'Bodegas refrigeradas y centros de frío de cadenas y operadores logísticos.', 'nombre': 'Frigoríficos', 'archivo': None, 'tarjetas': ['cnt', 'kenfield', 'guardian', 'biopipe']},
+    {'id': 'agro', 'descripcion': 'Packings, centrales frutícolas y plantas de proceso.', 'nombre': 'Agroindustria', 'archivo': None, 'tarjetas': ['htfInd', 'cnt', 'guardian', 'kenfield']},
+    {'id': 'edificios', 'descripcion': 'Oficinas, centros comerciales, hoteles, clínicas y data centers con climatización central.', 'nombre': 'Edificios e infraestructura', 'archivo': None, 'tarjetas': ['htf']},
 ]
 
 # Página de industria: Supermercados. Cada zona toma su cifra de la ficha correspondiente.
@@ -400,7 +401,7 @@ ZONAS_SUPERMERCADOS = [
      'pasa': 'Las cortinas de PVC y las puertas convencionales sellan mal. En cada paso entra calor a la cámara.',
      'hacemos': 'Reemplazamos por puertas aisladas de cierre automático: K750 para cámaras refrigeradas o de congelado; K150 y K550 para trastiendas y zonas de alto tráfico.',
      'extra': ('Vida útil', 'Más de 10 años (K750)')},
-    {'sol': 'guardian', 'ev': 'fso', 'titulo': 'Los ventiladores giran siempre a tope', 'donde': 'Evaporadores de cámaras',
+    {'sol': 'guardian', 'ev': 'fso', 'titulo': 'Ventiladores a tope y puertas que quedan abiertas', 'donde': 'Evaporadores y puertas de cámaras',
      'pasa': 'Los ventiladores del evaporador funcionan a velocidad fija aunque la cámara no lo necesite, y las puertas suelen quedar abiertas más de lo necesario.',
      'hacemos': 'Instalamos un control que ajusta la velocidad de los ventiladores según la demanda (FSO) y una alarma de puerta abierta (Door Sentry).',
      'extra': ('Instalación', 'Menos de 1 hora, sin entrar a la cámara')},
