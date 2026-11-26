@@ -50,6 +50,13 @@ ICONOS = f'''<svg width="0" height="0" style="position:absolute" aria-hidden="tr
 TRAMA = '<svg class="hero-trama" aria-hidden="true"><defs><pattern id="trama" width="240" height="240" patternUnits="userSpaceOnUse"><use href="#i-iso" x="40" y="40" width="160" height="160" fill="#FFFFFF" fill-opacity="0.05"></use></pattern></defs><rect width="100%" height="100%" fill="url(#trama)"></rect></svg>'
 
 
+def titulo_menu(nombre):
+    """La última palabra y la flecha nunca se separan, aunque el título use dos líneas."""
+    *resto, ultima = nombre.split(' ')
+    inicio = e(' '.join(resto)) + ' ' if resto else ''
+    return f'{inicio}<span class="nw">{e(ultima)}&nbsp;<span aria-hidden="true">→</span></span>'
+
+
 def menu_soluciones(pref):
     """Menú desplegable de Soluciones: industrias y las marcas que aplican en cada una."""
     cols = []
@@ -61,7 +68,7 @@ def menu_soluciones(pref):
             if s not in sols:
                 sols.append(s)
         items = ''.join(f'<li><a href="/{SOL[s]["archivo"]}">{e(SOL[s]["nombre"])}</a></li>' for s in sols)
-        cols.append(f'<div class="megamenu-col"><a class="megamenu-ind" href="{destino}">{e(ind["nombre"])}&nbsp;<span aria-hidden="true">→</span></a><ul>{items}</ul></div>')
+        cols.append(f'<div class="megamenu-col"><a class="megamenu-ind" href="{destino}">{titulo_menu(ind["nombre"])}</a><ul>{items}</ul></div>')
     return f'''        <div class="nav-item" data-menu>
           <a class="nav-menu" href="{pref}#soluciones" aria-haspopup="true" aria-expanded="false">Industrias <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
           <div class="megamenu">
@@ -220,6 +227,7 @@ def paneles():
         cards = '\n'.join(tarjeta(n + 1, k) for n, k in enumerate(ind['tarjetas']))
         pie_panel = f'\n      <div class="panel-pie"><a class="btn btn-outline" href="/{ind["archivo"]}">Ver la página de {e(ind["nombre"].lower())}</a></div>' if ind['archivo'] else ''
         panels.append(f'''    <div class="tab-panel" role="tabpanel" id="panel-{iid}" aria-labelledby="tab-{iid}" tabindex="0"{"" if sel else " hidden"}>
+      <p class="panel-desc">{e(ind['descripcion'])}</p>
       <div class="grid">
 {cards}
       </div>{pie_panel}
