@@ -283,7 +283,7 @@ SOL = {
         'titulo_pagina': 'Kenfield: puertas aisladas y de alto tráfico para cámaras y trastiendas',
         'h1': 'Puertas aisladas y de alto tráfico para cámaras y trastiendas',
         'lead': 'Puertas y cortinas aisladas que reemplazan las cortinas de PVC en cámaras de frío, y puertas de impacto para accesos con tráfico de carros y pallets.',
-        'img': ('/assets/img/fichas/kenfield.webp', 'Puerta aislada Kenfield en el acceso a una cámara de frío'),
+        'img': ('/assets/img/fichas/kenfield-k250.webp', 'Operaria cruzando una puerta abatible Kenfield con una caja de fruta'),
         'problema': [
             'Las cortinas de PVC se dañan, se endurecen y sellan mal. En cada paso entra calor a la cámara y el compresor tiene que compensarlo.',
             'En trastiendas y zonas de carga, las puertas convencionales reciben golpes de carros y pallets todos los días y terminan fallando.',
@@ -322,20 +322,20 @@ SOL = {
         'nombre': 'Nualight', 'corto': 'Nualight', 'origen': 'Irlanda', 'archivo': 'solucion-nualight.html', 'icono': 'luz',
         'titulo_pagina': 'Nualight: iluminación LED para muebles refrigerados',
         'h1': 'Iluminación LED para muebles refrigerados',
-        'lead': 'Luminarias con espectros calibrados por categoría de producto, alta eficiencia y bajo aporte de calor al mueble.',
+        'lead': 'Luminarias LED que muestran cada producto con su color real y mantienen su rendimiento por años: espectros calibrados por categoría y 100.000 horas de vida útil.',
         'img': ('/assets/img/fichas/nualight.webp', 'Muebles refrigerados iluminados con LED Nualight'),
         'problema': [
             'La mayoría de las luminarias de retail tienen un índice de reproducción cromática (CRI) de 75–80: los rojos pierden saturación y los blancos se ven grises. El producto se ve menos fresco.',
-            'Además, una luminaria ineficiente consume más y agrega calor dentro del mueble refrigerado.',
+            'Además, una luminaria de baja calidad pierde intensidad con el tiempo y falla antes de lo previsto. Hay que reemplazarla e intervenir el mueble más seguido.',
         ],
         'solucion': [
             'Nualight diseña luminarias LED con CRI 95+ y espectros específicos por categoría, para que cada producto se vea con su color natural.',
-            'Su gama ION alcanza 165 lúmenes por watt, con disipación térmica diseñada para no sumar carga al sistema de refrigeración.',
+            'Están diseñadas para durar: 100.000 horas de vida útil (L90), cerca de 15 años a 18 horas diarias. Su gama ION, además, alcanza 165 lúmenes por watt.',
         ],
         'mejoras': [
-            ('Energía', 'Alta eficiencia (165 lm/W en gama ION) y menos calor dentro del mueble.'),
+            ('Producto y merma', 'CRI 95+ y espectros por categoría: cada producto se ve con su color natural.'),
             ('Mantenimiento y fallas', '100.000 horas de vida útil (L90): cerca de 15 años a 18 horas diarias.'),
-            ('Producto y merma', 'Espectros por categoría que muestran el color natural del producto.'),
+            ('Energía', 'Alta eficiencia: 165 lm/W en la gama ION.'),
         ],
         'modelos_titulo': 'Gamas',
         'modelos': [
@@ -366,7 +366,7 @@ TARJETAS = {
     'aerofoil': ('aerofoil', '', 'Góndolas abiertas que pierden frío', 'Perfiles en el borde de cada repisa ordenan la cortina de aire. Temperatura más estable y menos trabajo del compresor, sin mantenimiento.', ['Energía', 'Producto', 'Sin mantenimiento'], 'calnext'),
     'clarifoil': ('clarifoil', '', 'Puertas de vidrio que se empañan', 'Láminas anti-empañamiento en el interior del vidrio. El producto queda visible y el heater baja a 15–20 % de operación.', ['Energía', 'Exhibición'], 'ahorro'),
     'kenfield': ('kenfield', '', 'Cortinas de PVC que dejan pasar calor', 'Puertas aisladas de cierre automático, de bajo mantenimiento y diseñadas para accesos de alto tráfico.', ['Energía', 'Mantenimiento', 'Personal'], 'warwick'),
-    'nualight': ('nualight', '', 'Luminarias que consumen y calientan el mueble', 'LED con espectro por categoría, menos calor dentro del mueble y larga vida útil.', ['Mantenimiento', 'Energía', 'Exhibición'], 'vida'),
+    'nualight': ('nualight', '', 'Productos mal iluminados y luminarias que duran poco', 'LED de alta calidad con espectro por categoría: el producto se ve con su color real y la luminaria dura años.', ['Exhibición', 'Mantenimiento', 'Energía'], 'vida'),
     'guardian': ('guardian', '', 'Ventiladores a tope y puertas de cámara abiertas', 'Control que ajusta los ventiladores del evaporador según la demanda y alarma de puerta abierta. Menos consumo y producto protegido.', [], 'fso'),
     'fso': ('guardian', 'FSO', 'Ventiladores de evaporador siempre a tope', 'Control que ajusta la velocidad de los ventiladores del evaporador según la demanda real.', ['Energía', 'Mantenimiento'], 'fso'),
     'sentry': ('guardian', 'Door Sentry', 'Puertas de cámara que quedan abiertas', 'Alarma de puerta abierta, con entradas para hombre atrapado y sensor de gas. Protege el producto y al personal.', ['Seguridad', 'Producto', 'Energía'], 'sentry'),
@@ -405,10 +405,10 @@ ZONAS_SUPERMERCADOS = [
      'pasa': 'Los ventiladores del evaporador funcionan a velocidad fija aunque la cámara no lo necesite, y las puertas suelen quedar abiertas más de lo necesario.',
      'hacemos': 'Instalamos un control que ajusta la velocidad de los ventiladores según la demanda (FSO) y una alarma de puerta abierta (Door Sentry).',
      'extra': ('Instalación', 'Menos de 1 hora, sin entrar a la cámara')},
-    {'sol': 'nualight', 'ev': 'vida', 'titulo': 'La iluminación calienta el mueble', 'donde': 'Vitrinas y muebles refrigerados',
-     'pasa': 'Una luminaria ineficiente consume más, agrega calor al mueble refrigerado y altera el color del producto.',
-     'hacemos': 'Instalamos LED con espectro calibrado por categoría: carnes, lácteos, panadería, pescadería y congelados.',
-     'extra': ('Instalación', 'Gama ORION para recambio en muebles existentes')},
+    {'sol': 'nualight', 'ev': 'vida', 'titulo': 'Productos mal iluminados y luminarias que duran poco', 'donde': 'Vitrinas y muebles refrigerados',
+     'pasa': 'Una luminaria de baja calidad muestra el producto con colores apagados: carnes, frutas y lácteos se ven menos frescos. Con el tiempo pierde intensidad y hay que reemplazarla antes de lo previsto.',
+     'hacemos': 'Instalamos luminarias LED Nualight con espectro calibrado para cada categoría de producto. El producto se ve con su color real y la luminaria está diseñada para durar.',
+     'extra': ('Color', 'CRI 95+, frente a 75–80 de las luminarias habituales de retail')},
     {'sol': 'cnt', 'ev': 'rewe', 'titulo': 'El hielo en cámaras y congeladores genera fallas', 'donde': 'Cámaras de frío y congeladores',
      'pasa': 'La humedad del aire se congela en el evaporador y sobre los productos. Hay más descongelamientos, más fallas y horas del equipo dedicadas a sacar hielo.',
      'hacemos': 'Instalamos filtros moleculares en la entrada de aire del evaporador. Regulan la humedad sin electricidad y no requieren intervenir el equipo.',
@@ -525,3 +525,24 @@ for _ind in INDUSTRIAS:
 DETALLE_SOLUCION = {z['sol']: z for z in ZONAS_SUPERMERCADOS}
 DETALLE_SOLUCION['biopipe'] = _ZONA_BIOPIPE
 DETALLE_SOLUCION['htf'] = _ZONA_HTF
+
+
+# Dato principal de cada marca para el hero de las páginas de industria (evidencia, texto corto)
+HERO_DATO = {
+    'cnt': ('rewe', 'menos fallas en congeladores'),
+    'aerofoil': ('calnext', 'menos consumo del compresor en góndolas abiertas'),
+    'clarifoil': ('ahorro', 'menos consumo de energía por puerta'),
+    'kenfield': ('warwick', 'menos consumo del compresor frente a cortinas de PVC'),
+    'gelclear': ('qp34', 'de protección con una tableta por equipo'),
+    'biopipe': ('fugas', 'menos fugas de agua en 16 meses'),
+    'guardian': ('fso', 'de ahorro en motores de evaporador'),
+    'nualight': ('vida', 'de vida útil (L90)'),
+    'htf': ('hoffman', 'menos consumo eléctrico en climatización'),
+}
+
+# Cifras del hero en la opción "cifras" (marca, evidencia, texto corto). Si una industria no tiene, se usan sus 3 primeras marcas.
+HERO_CIFRAS = {
+    'supermercados': [('cnt', 'rewe', 'menos fallas en congeladores'),
+                      ('aerofoil', 'calnext', 'menos consumo del compresor en góndolas abiertas'),
+                      ('kenfield', 'puertas', 'puertas Kenfield suministradas a supermercados')],
+}

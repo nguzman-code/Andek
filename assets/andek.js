@@ -171,6 +171,37 @@
     datos.forEach(function (d) { io.observe(d.el); });
   }
 
+  // Vitrina del hero de industria: rota sola por las marcas. Solo se detiene fuera de pantalla.
+  var vitrina = document.querySelector('[data-vitrina]');
+  if (vitrina) {
+    var vItems = Array.prototype.slice.call(vitrina.querySelectorAll('.vitrina-item'));
+    var vBotones = Array.prototype.slice.call(vitrina.querySelectorAll('.vitrina-nav button'));
+    var mostrarMarca = function (i) {
+      vItems.forEach(function (it, j) {
+        it.classList.toggle('is-activo', j === i);
+        if (j === i) { it.removeAttribute('aria-hidden'); it.removeAttribute('tabindex'); }
+        else { it.setAttribute('aria-hidden', 'true'); it.setAttribute('tabindex', '-1'); }
+      });
+      vBotones.forEach(function (b, j) {
+        b.classList.remove('is-activo');
+        b.classList.toggle('is-hecho', j < i);
+      });
+      void vitrina.offsetWidth;
+      if (vBotones[i]) vBotones[i].classList.add('is-activo');
+    };
+    vBotones.forEach(function (b, i) {
+      b.addEventListener('click', function () { mostrarMarca(i); });
+      b.querySelector('span').addEventListener('animationend', function () {
+        if (b.classList.contains('is-activo')) mostrarMarca((i + 1) % vItems.length);
+      });
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        vitrina.classList.toggle('is-pausada', !en[0].isIntersecting);
+      }, { threshold: 0.2 }).observe(vitrina);
+    }
+  }
+
   // Línea de tiempo: avanza sola en ciclo. Solo se detiene mientras está fuera de pantalla.
   var tl = document.querySelector('[data-timeline]');
   if (tl) {
